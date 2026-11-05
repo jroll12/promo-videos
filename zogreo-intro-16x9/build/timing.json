@@ -1,0 +1,878 @@
+{
+ "provisional": false,
+ "engine": "external take",
+ "voice": "ElevenLabs Jason (ILP9IN5fT2Jr2fSfmoNh), eleven_v4, continuous scene takes, plain warm direction",
+ "speed": 1.0,
+ "effect_preset": null,
+ "duration": 59.7,
+ "lines": [
+  {
+   "id": "L1",
+   "text": "It's two in the morning. Layla saw a ministry's ad, and asks a question they've never had a safe place to ask.",
+   "start": 0.24,
+   "end": 6.66,
+   "words": [
+    {
+     "w": "It's",
+     "start": 0.24,
+     "end": 0.54
+    },
+    {
+     "w": "two",
+     "start": 0.56,
+     "end": 0.86
+    },
+    {
+     "w": "in",
+     "start": 0.88,
+     "end": 1.02
+    },
+    {
+     "w": "the",
+     "start": 1.04,
+     "end": 1.1
+    },
+    {
+     "w": "morning.",
+     "start": 1.12,
+     "end": 1.82
+    },
+    {
+     "w": "Layla",
+     "start": 1.84,
+     "end": 2.3
+    },
+    {
+     "w": "saw",
+     "start": 2.32,
+     "end": 2.54
+    },
+    {
+     "w": "a",
+     "start": 2.56,
+     "end": 2.62
+    },
+    {
+     "w": "ministry's",
+     "start": 2.64,
+     "end": 3.34
+    },
+    {
+     "w": "ad,",
+     "start": 3.36,
+     "end": 3.58
+    },
+    {
+     "w": "and",
+     "start": 3.6,
+     "end": 3.9
+    },
+    {
+     "w": "asks",
+     "start": 3.92,
+     "end": 4.22
+    },
+    {
+     "w": "a",
+     "start": 4.24,
+     "end": 4.38
+    },
+    {
+     "w": "question",
+     "start": 4.4,
+     "end": 4.7
+    },
+    {
+     "w": "they've",
+     "start": 4.72,
+     "end": 5.02
+    },
+    {
+     "w": "never",
+     "start": 5.04,
+     "end": 5.26
+    },
+    {
+     "w": "had",
+     "start": 5.28,
+     "end": 5.5
+    },
+    {
+     "w": "a",
+     "start": 5.52,
+     "end": 5.58
+    },
+    {
+     "w": "safe",
+     "start": 5.6,
+     "end": 5.9
+    },
+    {
+     "w": "place",
+     "start": 5.92,
+     "end": 6.14
+    },
+    {
+     "w": "to",
+     "start": 6.16,
+     "end": 6.38
+    },
+    {
+     "w": "ask.",
+     "start": 6.4,
+     "end": 6.66
+    }
+   ]
+  },
+  {
+   "id": "L2",
+   "text": "But messages pour in faster than a small team can answer.",
+   "start": 7.12,
+   "end": 10.11,
+   "words": [
+    {
+     "w": "But",
+     "start": 7.12,
+     "end": 7.26
+    },
+    {
+     "w": "messages",
+     "start": 7.28,
+     "end": 7.82
+    },
+    {
+     "w": "pour",
+     "start": 7.84,
+     "end": 8.14
+    },
+    {
+     "w": "in",
+     "start": 8.16,
+     "end": 8.38
+    },
+    {
+     "w": "faster",
+     "start": 8.4,
+     "end": 8.78
+    },
+    {
+     "w": "than",
+     "start": 8.8,
+     "end": 8.94
+    },
+    {
+     "w": "a",
+     "start": 8.96,
+     "end": 9.1
+    },
+    {
+     "w": "small",
+     "start": 9.12,
+     "end": 9.34
+    },
+    {
+     "w": "team",
+     "start": 9.36,
+     "end": 9.66
+    },
+    {
+     "w": "can",
+     "start": 9.68,
+     "end": 9.82
+    },
+    {
+     "w": "answer.",
+     "start": 9.84,
+     "end": 10.11
+    }
+   ]
+  },
+  {
+   "id": "L3",
+   "text": "So seekers wait. Or the ministry turns off its ad just to catch up, and the door closes.",
+   "start": 10.56,
+   "end": 16.12,
+   "words": [
+    {
+     "w": "So",
+     "start": 10.56,
+     "end": 10.7
+    },
+    {
+     "w": "seekers",
+     "start": 10.72,
+     "end": 11.26
+    },
+    {
+     "w": "wait.",
+     "start": 11.28,
+     "end": 11.98
+    },
+    {
+     "w": "Or",
+     "start": 12.0,
+     "end": 12.3
+    },
+    {
+     "w": "the",
+     "start": 12.32,
+     "end": 12.46
+    },
+    {
+     "w": "ministry",
+     "start": 12.48,
+     "end": 12.94
+    },
+    {
+     "w": "turns",
+     "start": 12.96,
+     "end": 13.26
+    },
+    {
+     "w": "off",
+     "start": 13.28,
+     "end": 13.42
+    },
+    {
+     "w": "its",
+     "start": 13.44,
+     "end": 13.66
+    },
+    {
+     "w": "ad",
+     "start": 13.68,
+     "end": 13.98
+    },
+    {
+     "w": "just",
+     "start": 14.0,
+     "end": 14.14
+    },
+    {
+     "w": "to",
+     "start": 14.16,
+     "end": 14.3
+    },
+    {
+     "w": "catch",
+     "start": 14.32,
+     "end": 14.62
+    },
+    {
+     "w": "up,",
+     "start": 14.64,
+     "end": 14.94
+    },
+    {
+     "w": "and",
+     "start": 14.96,
+     "end": 15.1
+    },
+    {
+     "w": "the",
+     "start": 15.12,
+     "end": 15.26
+    },
+    {
+     "w": "door",
+     "start": 15.28,
+     "end": 15.58
+    },
+    {
+     "w": "closes.",
+     "start": 15.6,
+     "end": 16.12
+    }
+   ]
+  },
+  {
+   "id": "L4",
+   "text": "The harvest is plentiful, but the workers are few.",
+   "start": 16.48,
+   "end": 19.52,
+   "words": [
+    {
+     "w": "The",
+     "start": 16.48,
+     "end": 16.62
+    },
+    {
+     "w": "harvest",
+     "start": 16.64,
+     "end": 17.1
+    },
+    {
+     "w": "is",
+     "start": 17.12,
+     "end": 17.34
+    },
+    {
+     "w": "plentiful,",
+     "start": 17.36,
+     "end": 18.22
+    },
+    {
+     "w": "but",
+     "start": 18.24,
+     "end": 18.38
+    },
+    {
+     "w": "the",
+     "start": 18.4,
+     "end": 18.54
+    },
+    {
+     "w": "workers",
+     "start": 18.56,
+     "end": 18.94
+    },
+    {
+     "w": "are",
+     "start": 18.96,
+     "end": 19.18
+    },
+    {
+     "w": "few.",
+     "start": 19.2,
+     "end": 19.52
+    }
+   ]
+  },
+  {
+   "id": "L5",
+   "text": "That's why we built Zogreo. It's the word Jesus used for catching people alive.",
+   "start": 20.0,
+   "end": 24.62,
+   "words": [
+    {
+     "w": "That's",
+     "start": 20.0,
+     "end": 20.3
+    },
+    {
+     "w": "why",
+     "start": 20.32,
+     "end": 20.46
+    },
+    {
+     "w": "we",
+     "start": 20.48,
+     "end": 20.62
+    },
+    {
+     "w": "built",
+     "start": 20.64,
+     "end": 20.86
+    },
+    {
+     "w": "Zogreo.",
+     "start": 20.88,
+     "end": 21.9
+    },
+    {
+     "w": "It's",
+     "start": 21.92,
+     "end": 22.14
+    },
+    {
+     "w": "the",
+     "start": 22.16,
+     "end": 22.3
+    },
+    {
+     "w": "word",
+     "start": 22.32,
+     "end": 22.54
+    },
+    {
+     "w": "Jesus",
+     "start": 22.56,
+     "end": 22.94
+    },
+    {
+     "w": "used",
+     "start": 22.96,
+     "end": 23.18
+    },
+    {
+     "w": "for",
+     "start": 23.2,
+     "end": 23.42
+    },
+    {
+     "w": "catching",
+     "start": 23.44,
+     "end": 23.98
+    },
+    {
+     "w": "people",
+     "start": 24.0,
+     "end": 24.22
+    },
+    {
+     "w": "alive.",
+     "start": 24.24,
+     "end": 24.62
+    }
+   ]
+  },
+  {
+   "id": "L6",
+   "text": "Zogreo answers seekers day or night, in their heart language, and it's honest about the hard parts.",
+   "start": 25.2,
+   "end": 31.34,
+   "words": [
+    {
+     "w": "Zogreo",
+     "start": 25.2,
+     "end": 26.06
+    },
+    {
+     "w": "answers",
+     "start": 26.08,
+     "end": 26.38
+    },
+    {
+     "w": "seekers",
+     "start": 26.4,
+     "end": 27.02
+    },
+    {
+     "w": "day",
+     "start": 27.04,
+     "end": 27.26
+    },
+    {
+     "w": "or",
+     "start": 27.28,
+     "end": 27.5
+    },
+    {
+     "w": "night,",
+     "start": 27.52,
+     "end": 28.06
+    },
+    {
+     "w": "in",
+     "start": 28.08,
+     "end": 28.22
+    },
+    {
+     "w": "their",
+     "start": 28.24,
+     "end": 28.38
+    },
+    {
+     "w": "heart",
+     "start": 28.4,
+     "end": 28.78
+    },
+    {
+     "w": "language,",
+     "start": 28.8,
+     "end": 29.42
+    },
+    {
+     "w": "and",
+     "start": 29.44,
+     "end": 29.58
+    },
+    {
+     "w": "it's",
+     "start": 29.6,
+     "end": 29.82
+    },
+    {
+     "w": "honest",
+     "start": 29.84,
+     "end": 30.3
+    },
+    {
+     "w": "about",
+     "start": 30.32,
+     "end": 30.46
+    },
+    {
+     "w": "the",
+     "start": 30.48,
+     "end": 30.62
+    },
+    {
+     "w": "hard",
+     "start": 30.64,
+     "end": 30.94
+    },
+    {
+     "w": "parts.",
+     "start": 30.96,
+     "end": 31.34
+    }
+   ]
+  },
+  {
+   "id": "L7",
+   "text": "And when someone is ready for a real person, it brings in a trained believer from a local ministry.",
+   "start": 31.68,
+   "end": 36.85,
+   "words": [
+    {
+     "w": "And",
+     "start": 31.68,
+     "end": 31.82
+    },
+    {
+     "w": "when",
+     "start": 31.84,
+     "end": 32.06
+    },
+    {
+     "w": "someone",
+     "start": 32.08,
+     "end": 32.38
+    },
+    {
+     "w": "is",
+     "start": 32.4,
+     "end": 32.54
+    },
+    {
+     "w": "ready",
+     "start": 32.56,
+     "end": 32.78
+    },
+    {
+     "w": "for",
+     "start": 32.8,
+     "end": 32.94
+    },
+    {
+     "w": "a",
+     "start": 32.96,
+     "end": 33.18
+    },
+    {
+     "w": "real",
+     "start": 33.2,
+     "end": 33.5
+    },
+    {
+     "w": "person,",
+     "start": 33.52,
+     "end": 34.14
+    },
+    {
+     "w": "it",
+     "start": 34.16,
+     "end": 34.3
+    },
+    {
+     "w": "brings",
+     "start": 34.32,
+     "end": 34.62
+    },
+    {
+     "w": "in",
+     "start": 34.64,
+     "end": 34.78
+    },
+    {
+     "w": "a",
+     "start": 34.8,
+     "end": 34.86
+    },
+    {
+     "w": "trained",
+     "start": 34.88,
+     "end": 35.26
+    },
+    {
+     "w": "believer",
+     "start": 35.28,
+     "end": 35.74
+    },
+    {
+     "w": "from",
+     "start": 35.76,
+     "end": 35.9
+    },
+    {
+     "w": "a",
+     "start": 35.92,
+     "end": 36.06
+    },
+    {
+     "w": "local",
+     "start": 36.08,
+     "end": 36.38
+    },
+    {
+     "w": "ministry.",
+     "start": 36.4,
+     "end": 36.85
+    }
+   ]
+  },
+  {
+   "id": "L8",
+   "text": "In a weeklong pilot in Turkey, Zogreo helped a two-person team serve 3.73 times as many seekers.",
+   "start": 38.2,
+   "end": 45.58,
+   "words": [
+    {
+     "w": "In",
+     "start": 38.2,
+     "end": 38.5
+    },
+    {
+     "w": "a",
+     "start": 38.52,
+     "end": 38.58
+    },
+    {
+     "w": "weeklong",
+     "start": 38.6,
+     "end": 39.22
+    },
+    {
+     "w": "pilot",
+     "start": 39.24,
+     "end": 39.62
+    },
+    {
+     "w": "in",
+     "start": 39.64,
+     "end": 39.78
+    },
+    {
+     "w": "Turkey,",
+     "start": 39.8,
+     "end": 40.34
+    },
+    {
+     "w": "Zogreo",
+     "start": 40.36,
+     "end": 41.22
+    },
+    {
+     "w": "helped",
+     "start": 41.24,
+     "end": 41.38
+    },
+    {
+     "w": "a",
+     "start": 41.4,
+     "end": 41.54
+    },
+    {
+     "w": "two-person",
+     "start": 41.56,
+     "end": 42.1
+    },
+    {
+     "w": "team",
+     "start": 42.12,
+     "end": 42.5
+    },
+    {
+     "w": "serve",
+     "start": 42.52,
+     "end": 42.82
+    },
+    {
+     "w": "3.73",
+     "start": 42.84,
+     "end": 44.18
+    },
+    {
+     "w": "times",
+     "start": 44.2,
+     "end": 44.58
+    },
+    {
+     "w": "as",
+     "start": 44.6,
+     "end": 44.74
+    },
+    {
+     "w": "many",
+     "start": 44.76,
+     "end": 44.98
+    },
+    {
+     "w": "seekers.",
+     "start": 45.0,
+     "end": 45.58
+    }
+   ]
+  },
+  {
+   "id": "L9",
+   "text": "Zogreo doesn't replace missionaries. It multiplies them.",
+   "start": 45.96,
+   "end": 49.56,
+   "words": [
+    {
+     "w": "Zogreo",
+     "start": 45.96,
+     "end": 46.74
+    },
+    {
+     "w": "doesn't",
+     "start": 46.76,
+     "end": 46.98
+    },
+    {
+     "w": "replace",
+     "start": 47.0,
+     "end": 47.38
+    },
+    {
+     "w": "missionaries.",
+     "start": 47.4,
+     "end": 48.42
+    },
+    {
+     "w": "It",
+     "start": 48.44,
+     "end": 48.66
+    },
+    {
+     "w": "multiplies",
+     "start": 48.68,
+     "end": 49.15
+    },
+    {
+     "w": "them.",
+     "start": 49.17,
+     "end": 49.56
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "text": "Your gift puts that conversation within reach of someone who has never had a safe place to ask.",
+   "start": 50.6,
+   "end": 55.98,
+   "words": [
+    {
+     "w": "Your",
+     "start": 50.6,
+     "end": 50.9
+    },
+    {
+     "w": "gift",
+     "start": 50.92,
+     "end": 51.38
+    },
+    {
+     "w": "puts",
+     "start": 51.4,
+     "end": 51.62
+    },
+    {
+     "w": "that",
+     "start": 51.64,
+     "end": 51.86
+    },
+    {
+     "w": "conversation",
+     "start": 51.88,
+     "end": 52.5
+    },
+    {
+     "w": "within",
+     "start": 52.52,
+     "end": 52.9
+    },
+    {
+     "w": "reach",
+     "start": 52.92,
+     "end": 53.14
+    },
+    {
+     "w": "of",
+     "start": 53.16,
+     "end": 53.3
+    },
+    {
+     "w": "someone",
+     "start": 53.32,
+     "end": 53.7
+    },
+    {
+     "w": "who",
+     "start": 53.72,
+     "end": 53.94
+    },
+    {
+     "w": "has",
+     "start": 53.96,
+     "end": 54.18
+    },
+    {
+     "w": "never",
+     "start": 54.2,
+     "end": 54.42
+    },
+    {
+     "w": "had",
+     "start": 54.44,
+     "end": 54.58
+    },
+    {
+     "w": "a",
+     "start": 54.6,
+     "end": 54.74
+    },
+    {
+     "w": "safe",
+     "start": 54.76,
+     "end": 55.14
+    },
+    {
+     "w": "place",
+     "start": 55.16,
+     "end": 55.38
+    },
+    {
+     "w": "to",
+     "start": 55.4,
+     "end": 55.54
+    },
+    {
+     "w": "ask.",
+     "start": 55.56,
+     "end": 55.98
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "text": "Give today at zogreo.org.",
+   "start": 56.3,
+   "end": 58.78,
+   "words": [
+    {
+     "w": "Give",
+     "start": 56.3,
+     "end": 56.68
+    },
+    {
+     "w": "today",
+     "start": 56.7,
+     "end": 57.08
+    },
+    {
+     "w": "at",
+     "start": 57.1,
+     "end": 57.32
+    },
+    {
+     "w": "zogreo.org.",
+     "start": 57.34,
+     "end": 58.78
+    }
+   ]
+  }
+ ]
+}

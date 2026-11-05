@@ -1,0 +1,146 @@
+<template>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-300-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-ext-300-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-300-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-ext-300-italic.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-500-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Arabic"; font-style: normal; font-weight: 400; src: url("assets/fonts/noto-sans-arabic-arabic-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Arabic"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-arabic-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Greek"; font-style: normal; font-weight: 400; src: url("assets/fonts/eb-garamond-greek-400-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F7F4EC; }
+    #pf-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #pf-push { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 960px 540px; }
+    #pf-label { position: absolute; left: 130px; top: 110px; width: 1000px; text-align: left; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.26em; color: #1D3D1E; }
+    #pf-label i { display: inline-block; width: 48px; height: 3px; background: #1D3D1E; vertical-align: middle; margin-right: 18px; position: relative; top: -3px; }
+    #pf-art { position: absolute; left: 110px; top: 230px; width: 1080px; height: 640px; overflow: visible; }
+    #pf-num { position: absolute; left: 1160px; top: 330px; width: 700px; text-align: center; font: 300 250px/1 "Cormorant Garamond"; font-variant-numeric: lining-nums; color: #1D3D1E; letter-spacing: -0.01em; }
+    #pf-find { position: absolute; left: 1160px; top: 620px; width: 700px; text-align: center; font: 400 38px/1.25 "ZG Inter"; color: #3E473C; }
+    .pf-ttxt { font: 600 28px "ZG Inter"; letter-spacing: 1.2px; fill: #1D3D1E; }
+  </style>
+
+  <div data-hf-id="hf-8kff" id="root" data-composition-id="proof" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-8lbq" id="pf-stage">
+      <div data-hf-id="hf-9kd4" id="pf-push">
+        <div data-hf-id="hf-cgvw" id="pf-label"><i data-hf-id="hf-wt6k"></i>TURKEY · WEEKLONG PILOT</div>
+        <svg data-hf-id="hf-0nu6" id="pf-art" viewBox="0 0 1080 640">
+          <defs data-hf-id="hf-mh0t">
+            <symbol data-hf-id="hf-vnyp" id="pf-bubble" viewBox="0 0 72 56" overflow="visible">
+              <path data-hf-id="hf-0o8p" d="M16 2h40a14 14 0 0 1 14 14v14a14 14 0 0 1-14 14H26l-12 10 2-10a14 14 0 0 1-14-14V16A14 14 0 0 1 16 2z" fill="#FFFFFF" stroke="#1D3D1E" stroke-width="3" />
+              <rect data-hf-id="hf-o5hz" x="16" y="15" width="32" height="5" rx="2.5" fill="#B9C2B3" />
+              <rect data-hf-id="hf-z64m" x="16" y="26" width="22" height="5" rx="2.5" fill="#B9C2B3" />
+            </symbol>
+          </defs>
+          <g data-hf-id="hf-iwnt" id="pf-links"><line data-hf-id="hf-tq3f" class="pf-l" x1="780" y1="302" x2="841" y2="373" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-cty4" class="pf-l" x1="780" y1="302" x2="697" y2="467" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-425p" class="pf-l" x1="300" y1="302" x2="452" y2="472" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-hmk5" class="pf-l" x1="300" y1="302" x2="288" y2="404" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-ibc9" class="pf-l" x1="300" y1="302" x2="218" y2="278" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-ld1t" class="pf-l" x1="300" y1="302" x2="378" y2="141" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-kewd" class="pf-l" x1="780" y1="302" x2="577" y2="131" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-s7q3" class="pf-l" x1="780" y1="302" x2="791" y2="188" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-xjjb" class="pf-l" x1="780" y1="302" x2="1005" y2="282" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-fbxz" class="pf-l" x1="780" y1="302" x2="947" y2="385" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-vsa2" class="pf-l" x1="780" y1="302" x2="935" y2="444" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-8i0a" class="pf-l" x1="780" y1="302" x2="872" y2="477" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-o2op" class="pf-l" x1="780" y1="302" x2="643" y2="551" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-16v2" class="pf-l" x1="780" y1="302" x2="596" y2="580" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-paiz" class="pf-l" x1="300" y1="302" x2="521" y2="576" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-rhym" class="pf-l" x1="300" y1="302" x2="274" y2="547" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-dpzc" class="pf-l" x1="300" y1="302" x2="193" y2="482" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-6rgv" class="pf-l" x1="300" y1="302" x2="198" y2="460" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-r2rr" class="pf-l" x1="300" y1="302" x2="102" y2="357" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-m23x" class="pf-l" x1="300" y1="302" x2="58" y2="304" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-7uvk" class="pf-l" x1="300" y1="302" x2="129" y2="221" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-sj4e" class="pf-l" x1="300" y1="302" x2="212" y2="132" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-p9sc" class="pf-l" x1="300" y1="302" x2="235" y2="90" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-ja6i" class="pf-l" x1="300" y1="302" x2="333" y2="66" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-cs94" class="pf-l" x1="780" y1="302" x2="544" y2="51" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-xf8p" class="pf-l" x1="780" y1="302" x2="675" y2="28" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-gkhi" class="pf-l" x1="780" y1="302" x2="732" y2="61" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-eqen" class="pf-l" x1="780" y1="302" x2="902" y2="111" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-3ilm" class="pf-l" x1="780" y1="302" x2="945" y2="153" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" />
+          <line data-hf-id="hf-xgje" class="pf-l" x1="780" y1="302" x2="1001" y2="203" stroke="#778B78" stroke-width="2.5" stroke-linecap="round" pathLength="100" stroke-dasharray="100 120" stroke-dashoffset="110" /></g>
+          <g data-hf-id="hf-slse" id="pf-seekers"><use data-hf-id="hf-r1z5" class="pf-s pf-s0" href="#pf-bubble" x="805" y="345" width="72" height="56" />
+          <use data-hf-id="hf-b7tf" class="pf-s pf-s0" href="#pf-bubble" x="661" y="439" width="72" height="56" />
+          <use data-hf-id="hf-26sr" class="pf-s pf-s0" href="#pf-bubble" x="416" y="444" width="72" height="56" />
+          <use data-hf-id="hf-jq45" class="pf-s pf-s0" href="#pf-bubble" x="252" y="376" width="72" height="56" />
+          <use data-hf-id="hf-ja3o" class="pf-s pf-s0" href="#pf-bubble" x="182" y="250" width="72" height="56" />
+          <use data-hf-id="hf-lsri" class="pf-s pf-s0" href="#pf-bubble" x="342" y="113" width="72" height="56" />
+          <use data-hf-id="hf-3vjs" class="pf-s pf-s0" href="#pf-bubble" x="541" y="103" width="72" height="56" />
+          <use data-hf-id="hf-81ww" class="pf-s pf-s0" href="#pf-bubble" x="755" y="160" width="72" height="56" />
+          <use data-hf-id="hf-22pe" class="pf-s pf-s1" href="#pf-bubble" x="969" y="254" width="72" height="56" />
+          <use data-hf-id="hf-lemx" class="pf-s pf-s1" href="#pf-bubble" x="911" y="357" width="72" height="56" />
+          <use data-hf-id="hf-x42u" class="pf-s pf-s1" href="#pf-bubble" x="899" y="416" width="72" height="56" />
+          <use data-hf-id="hf-bxyj" class="pf-s pf-s1" href="#pf-bubble" x="836" y="449" width="72" height="56" />
+          <use data-hf-id="hf-478g" class="pf-s pf-s1" href="#pf-bubble" x="607" y="523" width="72" height="56" />
+          <use data-hf-id="hf-upji" class="pf-s pf-s1" href="#pf-bubble" x="560" y="552" width="72" height="56" />
+          <use data-hf-id="hf-a6al" class="pf-s pf-s1" href="#pf-bubble" x="485" y="548" width="72" height="56" />
+          <use data-hf-id="hf-ylud" class="pf-s pf-s1" href="#pf-bubble" x="238" y="519" width="72" height="56" />
+          <use data-hf-id="hf-05ef" class="pf-s pf-s1" href="#pf-bubble" x="157" y="454" width="72" height="56" />
+          <use data-hf-id="hf-zdkz" class="pf-s pf-s1" href="#pf-bubble" x="162" y="432" width="72" height="56" />
+          <use data-hf-id="hf-c8jn" class="pf-s pf-s1" href="#pf-bubble" x="66" y="329" width="72" height="56" />
+          <use data-hf-id="hf-4qy6" class="pf-s pf-s1" href="#pf-bubble" x="22" y="276" width="72" height="56" />
+          <use data-hf-id="hf-l9mm" class="pf-s pf-s1" href="#pf-bubble" x="93" y="193" width="72" height="56" />
+          <use data-hf-id="hf-ceou" class="pf-s pf-s1" href="#pf-bubble" x="176" y="104" width="72" height="56" />
+          <use data-hf-id="hf-2okq" class="pf-s pf-s1" href="#pf-bubble" x="199" y="62" width="72" height="56" />
+          <use data-hf-id="hf-kcks" class="pf-s pf-s1" href="#pf-bubble" x="297" y="38" width="72" height="56" />
+          <use data-hf-id="hf-y379" class="pf-s pf-s1" href="#pf-bubble" x="508" y="23" width="72" height="56" />
+          <use data-hf-id="hf-p0ky" class="pf-s pf-s1" href="#pf-bubble" x="639" y="-0" width="72" height="56" />
+          <use data-hf-id="hf-kdlo" class="pf-s pf-s1" href="#pf-bubble" x="696" y="33" width="72" height="56" />
+          <use data-hf-id="hf-xubk" class="pf-s pf-s1" href="#pf-bubble" x="866" y="83" width="72" height="56" />
+          <use data-hf-id="hf-1jqb" class="pf-s pf-s1" href="#pf-bubble" x="909" y="125" width="72" height="56" />
+          <use data-hf-id="hf-otwu" class="pf-s pf-s1" href="#pf-bubble" x="965" y="175" width="72" height="56" /></g>
+          <!-- the two-person team: the same "local believer" the thread just showed, twice -->
+          <g data-hf-id="hf-b0s1" id="pf-team">
+            <rect data-hf-id="hf-xde3" x="300" y="254" width="480" height="96" rx="48" fill="#FFFFFF" stroke="#1D3D1E" stroke-width="4" />
+            <g data-hf-id="hf-7g3c" transform="translate(352 302)"><circle data-hf-id="hf-t6l8" r="26" fill="#1D3D1E" /><circle data-hf-id="hf-qm7u" cy="-7" r="8" fill="#F7F4EC" /><path data-hf-id="hf-h90d" d="M-15 16c0-9 6-14 15-14s15 5 15 14z" fill="#F7F4EC" /></g>
+            <g data-hf-id="hf-o9w6" transform="translate(390 302)"><circle data-hf-id="hf-r5nk" r="26" fill="#1D3D1E" stroke="#FFFFFF" stroke-width="4" /><circle data-hf-id="hf-c23i" cy="-7" r="8" fill="#F7F4EC" /><path data-hf-id="hf-0m41" d="M-15 16c0-9 6-14 15-14s15 5 15 14z" fill="#F7F4EC" /></g>
+            <text data-hf-id="hf-dd5d" x="432" y="312" class="pf-ttxt">2 LOCAL BELIEVERS</text>
+          </g>
+        </svg>
+        <div data-hf-id="hf-9qdw" id="pf-num">1.00×</div>
+        <div data-hf-id="hf-agno" id="pf-find">Found disciple-making leaders<br data-hf-id="hf-x5px" />as reliably as human responders</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"team":2.4,"twoPerson":4.16,"serve":5.12,"num":5.44,"times":6.8,"seekers":7.6,"replace":9.6,"multiplies":11.28,"exit":12.44};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still travelling left. The team chip arrives with the stage.
+      tl.fromTo("#pf-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+
+      gsap.set(["#pf-num", "#pf-find"], { autoAlpha: 0 });
+      gsap.set(".pf-s", { autoAlpha: 0 });
+      gsap.set(".pf-l", { strokeDashoffset: 110 });
+      // a weeklong pilot in Turkey: the first ring of seekers the team can reach on its own
+      tl.fromTo(".pf-s0", { autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.05 }, T.team);
+      // with Zogreo: 3.73 times as many; the count lands on the spoken number
+      tl.fromTo(".pf-s1", { autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.28, ease: "back.out(1.6)", stagger: { amount: Math.max(0.6, T.num - T.serve + 0.4) } }, T.serve);
+      tl.fromTo("#pf-num", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, T.twoPerson);
+      const n = { v: 1 };
+      tl.to(n, { v: 3.73, duration: T.num + 0.05 - T.twoPerson, ease: "power2.inOut", onUpdate: () => { document.getElementById("pf-num").textContent = n.v.toFixed(2) + "×"; } }, T.twoPerson);
+      tl.fromTo("#pf-find", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.seekers);
+      // the camera keeps moving in on the team through the claim
+      tl.fromTo("#pf-push", { scale: 1 }, { scale: 1.08, duration: T.exit - 0.4, ease: "sine.inOut" }, 0.4); // the camera travels in on the team for the whole scene
+      // it doesn't replace them: the team holds the centre; it multiplies them: the links reach every seeker
+      tl.fromTo("#pf-team", { scale: 1, transformOrigin: "540px 302px" }, { scale: 1.08, duration: 0.45, ease: "power3.out" }, T.replace);
+      tl.to(".pf-l", { strokeDashoffset: 0, duration: 0.5, ease: "power2.out", stagger: { amount: 0.9 } }, T.multiplies);
+
+      // exit: cut the curve, upward
+      tl.to("#pf-stage", { y: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#pf-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["proof"] = tl;
+    })();
+  </script>
+</template>

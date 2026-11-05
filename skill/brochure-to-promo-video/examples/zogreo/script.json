@@ -1,0 +1,73 @@
+{
+  "lines": [
+    {
+      "id": "L1",
+      "text": "It's two in the morning. Someone saw a ministry's ad, and asks a question they've never had a safe place to ask.",
+      "pause": 0.45,
+      "cap": "It's two in the morning. / Someone saw a ministry's ad, / and asks a question / they've never had / a safe place to ask."
+    },
+    {
+      "id": "L2",
+      "text": "But messages pour in faster than a small team can answer.",
+      "pause": 0.25,
+      "cap": "But messages pour in / faster than a small team / can answer."
+    },
+    {
+      "id": "L3",
+      "text": "So they wait in line, or the ad gets turned off to catch up, closing the door on earnest seekers.",
+      "pause": 1.0,
+      "cap": "So they wait in line, / or the ad gets turned off / to catch up, / closing the door / on earnest seekers."
+    },
+    {
+      "id": "L4",
+      "text": "The harvest is plentiful, but the workers are few.",
+      "pause": 0.7
+    },
+    {
+      "id": "L5",
+      "text": "That's why we built Zogreo, named for the word Jesus used for catching people alive.",
+      "pause": 0.75,
+      "cap": "That's why we built Zogreo, / named for the word / Jesus used / for catching people alive."
+    },
+    {
+      "id": "L6",
+      "text": "Its AI answers seekers day or night, in their heart language, without bluffing past the hard parts.",
+      "pause": 0.4,
+      "cap": "Its AI answers seekers / day or night, / in their heart language, / without bluffing / past the hard parts."
+    },
+    {
+      "id": "L7",
+      "text": "When someone is ready for a real person, a trained believer from an indigenous ministry carries the conversation forward.",
+      "pause": 0.85,
+      "cap": "When someone is ready / for a real person, / a trained believer / from an indigenous ministry / carries the conversation forward."
+    },
+    {
+      "id": "L8",
+      "text": "In a weeklong pilot in Türkiye, our AI helped a two-person team serve 3.73 times as many seekers.",
+      "pause": 0.55,
+      "cap": "In a weeklong pilot in Türkiye, / our AI helped / a two-person team serve / 3.73 times as many seekers."
+    },
+    {
+      "id": "L9",
+      "text": "Zogreo doesn't replace missionaries. It multiplies them.",
+      "pause": 1.0,
+      "cap": "Zogreo doesn't replace / missionaries. / It multiplies them."
+    },
+    {
+      "id": "L10",
+      "text": "Together, we can help fulfill the Great Commission in our lifetime.",
+      "pause": 0.5
+    },
+    {
+      "id": "L11",
+      "text": "Give today at zogreo.org, or book a call with our team.",
+      "pause": 0
+    }
+  ],
+  "pronunciation": {
+    "Zogreo": "Zoh-grayo",
+    "zogreo.org": "Zoh-grayo dot org",
+    "Türkiye": "Turkeeyay",
+    "3.73": "three point seven three"
+  }
+}

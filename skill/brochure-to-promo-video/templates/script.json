@@ -1,0 +1,19 @@
+{
+  "lines": [
+    {
+      "id": "L1",
+      "text": "Replace this with the first line of narration.",
+      "pause": 0.45,
+      "cap": "Replace this with / the first line / of narration."
+    },
+    {
+      "id": "L2",
+      "text": "Each line is one idea, and it can be said in a breath.",
+      "pause": 0.6,
+      "cap": "Each line is one idea, / and it can be said / in a breath."
+    }
+  ],
+  "pronunciation": {
+    "ProductName": "Prod-uct-name"
+  }
+}

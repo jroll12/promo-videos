@@ -1,0 +1,93 @@
+{
+  "lines": [
+    {
+      "id": "L1",
+      "text": "It's two in the morning. Layla saw a ministry's ad, and asks a question they've never had a safe place to ask.",
+      "pause": 0.45,
+      "cap": "It's two in the morning. / Layla saw a ministry's ad, / and asks a question / they've never had / a safe place to ask.",
+      "scene": "night"
+    },
+    {
+      "id": "L2",
+      "text": "But messages pour in faster than a small team can answer.",
+      "pause": 0.25,
+      "cap": "But messages pour in / faster than a small team / can answer.",
+      "scene": "night"
+    },
+    {
+      "id": "L3",
+      "text": "So seekers wait. Or the ministry turns off its ad just to catch up, and the door closes.",
+      "pause": 1.0,
+      "cap": "So seekers wait. / Or the ministry turns off its ad / just to catch up, / and the door closes.",
+      "scene": "night"
+    },
+    {
+      "id": "L4",
+      "text": "The harvest is plentiful, but the workers are few.",
+      "pause": 0.7,
+      "scene": "night"
+    },
+    {
+      "id": "L5",
+      "text": "That's why we built Zogreo. It's the word Jesus used for catching people alive.",
+      "pause": 0.75,
+      "cap": "That's why we built Zogreo. / It's the word Jesus used / for catching people alive.",
+      "scene": "night"
+    },
+    {
+      "id": "L6",
+      "text": "Zogreo answers seekers day or night, in their heart language, and it's honest about the hard parts.",
+      "pause": 0.4,
+      "cap": "Zogreo answers seekers / day or night, / in their heart language, / and it's honest / about the hard parts.",
+      "scene": "night"
+    },
+    {
+      "id": "L7",
+      "text": "And when someone is ready for a real person, it brings in a trained believer from a local ministry.",
+      "pause": 0.85,
+      "cap": "And when someone is ready / for a real person, / it brings in / a trained believer / from a local ministry.",
+      "scene": "night"
+    },
+    {
+      "id": "L8",
+      "text": "In a weeklong pilot in Turkey, Zogreo helped a two-person team serve 3.73 times as many seekers.",
+      "pause": 0.55,
+      "cap": "In a weeklong pilot in Turkey, / Zogreo helped / a two-person team serve / 3.73 times as many seekers.",
+      "scene": "proof"
+    },
+    {
+      "id": "L9",
+      "text": "Zogreo doesn't replace missionaries. It multiplies them.",
+      "pause": 1.0,
+      "cap": "Zogreo doesn't replace / missionaries. / It multiplies them.",
+      "scene": "proof"
+    },
+    {
+      "id": "L10",
+      "text": "Your gift puts that conversation within reach of someone who has never had a safe place to ask.",
+      "pause": 0.5,
+      "cap": "Your gift puts that conversation / within reach of someone / who has never had / a safe place to ask.",
+      "scene": "give"
+    },
+    {
+      "id": "L11",
+      "text": "Give today at zogreo.org.",
+      "pause": 0,
+      "scene": "give"
+    }
+  ],
+  "pronunciation": {
+    "Zogreo": "Zoh-grayo",
+    "zogreo.org": "Zoh-grayo dot org",
+    "3.73": "three point seven three"
+  },
+  "spoken_elevenlabs": {
+    "zogreo.org": "Zoh-GRAY-oh dot org",
+    "Zogreo": "Zoh-GRAY-oh",
+    "3.73": "three point seven three"
+  },
+  "elevenlabs": {
+    "voice_id": "ILP9IN5fT2Jr2fSfmoNh",
+    "voice_name": "Jason - Friendly and Approachable"
+  }
+}

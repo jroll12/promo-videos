@@ -1,0 +1,76 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F7F4EC; }
+    #pf-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #pf-label { position: absolute; left: 0; top: 236px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.26em; color: #1D3D1E; }
+    #pf-label i { display: inline-block; width: 48px; height: 3px; background: #1D3D1E; vertical-align: middle; margin-right: 18px; position: relative; top: -3px; }
+    #pf-art { position: absolute; left: 0; top: 300px; width: 1080px; height: 520px; }
+    #pf-num { position: absolute; left: 0; top: 808px; width: 1080px; text-align: center; font: 300 236px/1 "Cormorant Garamond"; font-variant-numeric: lining-nums; color: #1D3D1E; letter-spacing: -0.01em; }
+    #pf-cap { position: absolute; left: 0; top: 1068px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.26em; color: #6F8470; }
+    #pf-find { position: absolute; left: 0; top: 1110px; width: 1080px; text-align: center; font: 400 29px/1.3 "ZG Inter"; color: #4B5245; }
+  </style>
+
+  <div id="root" data-composition-id="proof" data-width="1080" data-height="1920">
+    <div id="pf-stage">
+      <div id="pf-label"><i></i>TÜRKİYE · WEEKLONG PILOT</div>
+      <svg id="pf-art" viewBox="0 0 1080 520">
+        <defs>
+          <symbol id="pf-bubble" viewBox="0 0 72 56" overflow="visible">
+            <path d="M16 2h40a14 14 0 0 1 14 14v14a14 14 0 0 1-14 14H26l-12 10 2-10a14 14 0 0 1-14-14V16A14 14 0 0 1 16 2z" fill="#FFFFFF" stroke="#1D3D1E" stroke-width="3" />
+            <rect x="16" y="15" width="32" height="5" rx="2.5" fill="#B9C2B3" />
+            <rect x="16" y="26" width="22" height="5" rx="2.5" fill="#B9C2B3" />
+          </symbol>
+        </defs>
+        <g id="pf-links"><!--{{LINKS}}--></g>
+        <g id="pf-seekers"><!--{{SEEKERS}}--></g>
+        <g id="pf-team">
+          <g id="pf-p1" transform="translate(478 262)">
+            <circle cx="0" cy="-58" r="34" fill="#1D3D1E" />
+            <path d="M-60 52C-60 0-32-16 0-16S60 0 60 52z" fill="#1D3D1E" />
+          </g>
+          <g id="pf-p2" transform="translate(602 262)">
+            <circle cx="0" cy="-58" r="34" fill="#1D3D1E" />
+            <path d="M-60 52C-60 0-32-16 0-16S60 0 60 52z" fill="#1D3D1E" />
+          </g>
+        </g>
+      </svg>
+      <div id="pf-num">1.00×</div>
+      <div id="pf-cap">273% CAPACITY INCREASE</div>
+      <div id="pf-find">Found disciple-making leaders as reliably as human responders</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still travelling left
+      tl.fromTo("#pf-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+
+      gsap.set(["#pf-num", "#pf-cap", "#pf-find"], { autoAlpha: 0 });
+      gsap.set(".pf-s", { autoAlpha: 0 });
+      gsap.set(".pf-l", { strokeDashoffset: 110 });
+      // a weeklong pilot in Türkiye: the label and the team arrive with the stage
+      // a two-person team, and the seekers it can reach on its own
+      tl.fromTo(".pf-s0", { autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.05 }, T.team);
+      // with Zogreo: 3.73 times as many
+      tl.fromTo(".pf-s1", { autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.28, ease: "back.out(1.6)", stagger: { amount: T.times - T.serve } }, T.serve);
+      tl.fromTo("#pf-num", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, T.serve);
+      const n = { v: 1 };
+      tl.to(n, { v: 3.73, duration: T.times - T.serve + 0.15, ease: "power2.out", onUpdate: () => { document.getElementById("pf-num").textContent = n.v.toFixed(2) + "×"; } }, T.serve);
+      tl.fromTo("#pf-cap", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.seekers);
+      tl.fromTo("#pf-find", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.seekers + 0.35);
+      // it doesn't replace them — it multiplies them
+      tl.fromTo("#pf-team", { scale: 1, transformOrigin: "540px 262px" }, { scale: 1.08, duration: 0.45, ease: "power3.out" }, T.replace);
+      tl.to(".pf-l", { strokeDashoffset: 0, duration: 0.5, ease: "power2.out", stagger: { amount: 0.6 } }, T.multiplies);
+
+      // exit: cut the curve, upward
+      tl.to("#pf-stage", { y: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#pf-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["proof"] = tl;
+    })();
+  </script>
+</template>

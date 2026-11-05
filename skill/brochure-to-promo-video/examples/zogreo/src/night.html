@@ -1,0 +1,311 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0C1D0D; }
+    #root * { box-sizing: border-box; }
+    #nt-bg { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 45%, #21452A 0%, #163017 45%, #0B1A0C 100%); }
+    #nt-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #nt-rings { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #nt-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 1000px; }
+    #nt-field { position: absolute; left: -7460px; top: -12000px; width: 16000px; height: 26000px; }
+
+    /* the responder's phone */
+    #nt-hook { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 748px; }
+    #nt-phone { position: absolute; left: 110px; top: 110px; width: 860px; height: 1780px; border-radius: 124px; background: #0A150B; box-shadow: inset 0 0 0 3px rgba(232, 228, 227, 0.16); }
+    .nt-key { position: absolute; width: 8px; border-radius: 4px; background: #0A150B; }
+    #nt-screen { position: absolute; left: 14px; top: 14px; width: 832px; height: 1752px; border-radius: 110px; overflow: hidden; background: #040904; }
+    .nt-island { position: absolute; left: 326px; top: 26px; width: 180px; height: 54px; border-radius: 27px; background: #000; z-index: 5; }
+    .nt-status { position: absolute; top: 40px; right: 64px; display: flex; gap: 12px; align-items: center; z-index: 5; }
+
+    /* lock screen */
+    #nt-lock { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 22%, #2A5530 0%, #173419 55%, #0E2010 100%); }
+    #nt-clock { position: absolute; left: 0; top: 118px; width: 832px; text-align: center; font: 600 212px/1 "ZG Inter"; letter-spacing: -0.03em; color: #F3F0E8; }
+    #nt-ad { position: absolute; left: 191px; top: 362px; width: 450px; height: 62px; border-radius: 31px; background: rgba(247, 244, 236, 0.14); display: flex; align-items: center; gap: 14px; padding: 0 22px 0 26px; font: 500 28px/1 "ZG Inter"; color: rgba(247, 244, 236, 0.92); }
+    #nt-ad-dot { width: 14px; height: 14px; border-radius: 7px; background: #8FD08F; flex: none; }
+    #nt-ad-state { position: relative; width: 112px; height: 30px; }
+    #nt-ad-state span { position: absolute; left: 0; top: 0; }
+    #nt-ad-track { position: relative; margin-left: auto; width: 62px; height: 36px; border-radius: 18px; background: #5DA95F; flex: none; }
+    #nt-ad-knob { position: absolute; left: 4px; top: 4px; width: 28px; height: 28px; border-radius: 14px; background: #F7F4EC; }
+    #nt-stack { position: absolute; left: 30px; top: 452px; width: 772px; height: 1300px; }
+    .nt-card { position: absolute; left: 0; width: 772px; border-radius: 40px; background: rgba(247, 244, 236, 0.95); padding: 24px 30px; color: #1B241A; }
+    .nt-row { display: flex; align-items: center; gap: 14px; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.06em; color: #6B7468; }
+    .nt-icon { width: 44px; height: 44px; border-radius: 12px; background: #1D3D1E; display: flex; align-items: center; justify-content: center; }
+    .nt-when { margin-left: auto; position: relative; width: 150px; height: 30px; text-align: right; letter-spacing: 0.02em; font-weight: 500; }
+    .nt-when span { position: absolute; right: 0; top: 0; white-space: nowrap; }
+    .nt-waiting { color: #9A6B2F; }
+    .nt-name { font: 700 31px/1.2 "ZG Inter"; margin-top: 14px; }
+    .nt-prev { font: 400 29px/1.3 "ZG Inter"; color: #3E473C; margin-top: 4px; white-space: nowrap; }
+    #nt-c0 .nt-ar { font: 500 35px/1.55 "ZG Arabic"; direction: rtl; text-align: right; margin-top: 10px; color: #1B241A; }
+    #nt-c0 .nt-en { font: 400 29px/1.35 "ZG Inter"; color: #4B5245; margin-top: 6px; }
+    #nt-dim { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 4; }
+
+    /* the conversation */
+    #nt-thread { position: absolute; inset: 0; background: #F7F4EC; opacity: 0; }
+    #nt-th-time { position: absolute; left: 92px; top: 36px; font: 600 30px/1 "ZG Inter"; color: #1B241A; z-index: 5; }
+    #nt-th-head { position: absolute; left: 0; top: 96px; width: 832px; height: 138px; border-bottom: 2px solid #E3DFD3; }
+    #nt-th-av { position: absolute; left: 92px; top: 18px; width: 76px; height: 76px; border-radius: 38px; background: #D9E0D2; font: 600 34px/76px "ZG Inter"; text-align: center; color: #1D3D1E; }
+    #nt-th-name { position: absolute; left: 190px; top: 18px; font: 700 34px/1.2 "ZG Inter"; color: #1B241A; }
+    #nt-th-sub { position: absolute; left: 190px; top: 62px; font: 500 28px/1.2 "ZG Inter"; color: #5F6E5F; }
+    #nt-lang { position: absolute; right: 40px; top: 26px; width: 216px; height: 62px; border-radius: 31px; background: #E9E6DC; }
+    #nt-lang-thumb { position: absolute; left: 4px; top: 4px; width: 104px; height: 54px; border-radius: 27px; background: #1D3D1E; }
+    .nt-seg { position: absolute; top: 0; width: 108px; height: 62px; line-height: 62px; text-align: center; }
+    #nt-seg-ar { left: 0; font: 500 28px/62px "ZG Arabic"; }
+    #nt-seg-en { left: 108px; font: 600 26px/62px "ZG Inter"; letter-spacing: 0.04em; }
+    #nt-chatvp { position: absolute; left: 0; top: 250px; width: 832px; height: 1380px; overflow: hidden; }
+    #nt-chat { position: absolute; left: 0; top: 0; width: 832px; height: 1600px; }
+    .nt-msg { position: absolute; }
+    .nt-b { border-radius: 36px; padding: 22px 30px; font: 400 33px/44px "ZG Inter"; white-space: nowrap; }
+    .nt-in { left: 36px; background: #FFFFFF; color: #1B241A; border-bottom-left-radius: 10px; box-shadow: 0 2px 0 rgba(29, 61, 30, 0.06); }
+    .nt-out { right: 36px; background: #1D3D1E; color: #F7F4EC; border-bottom-right-radius: 10px; }
+    .nt-dual { display: grid; }
+    .nt-dual > div { grid-area: 1 / 1; }
+    .nt-ar2 { font: 400 34px/54px "ZG Arabic"; direction: rtl; text-align: right; }
+    .nt-meta { position: absolute; right: 44px; font: 500 24px/1 "ZG Inter"; color: #6B7A6A; white-space: nowrap; }
+    #nt-typing { right: 36px; width: 132px; height: 88px; border-radius: 36px; border-bottom-right-radius: 10px; background: #1D3D1E; }
+    .nt-dot { position: absolute; top: 37px; width: 14px; height: 14px; border-radius: 7px; background: #F7F4EC; }
+    #nt-chip { left: 0; width: 832px; text-align: center; }
+    #nt-chip span { display: inline-block; height: 62px; line-height: 62px; padding: 0 28px; border-radius: 31px; background: #DDE6D6; color: #1D3D1E; font: 600 28px/62px "ZG Inter"; }
+    #nt-join { left: 0; width: 832px; text-align: center; font: 500 28px/60px "ZG Inter"; color: #4B5245; }
+    #nt-believer { right: 36px; width: 300px; height: 118px; border-radius: 36px; border-bottom-right-radius: 10px; background: #FFFFFF; box-shadow: inset 0 0 0 3px #1D3D1E; }
+    #nt-believer .nt-lbl { position: absolute; left: 30px; top: 20px; font: 600 24px/1 "ZG Inter"; color: #1D3D1E; letter-spacing: 0.04em; }
+    #nt-believer .nt-dot { top: 68px; background: #1D3D1E; }
+    #nt-input { position: absolute; left: 36px; top: 1640px; width: 760px; height: 84px; border-radius: 42px; background: #FFFFFF; box-shadow: inset 0 0 0 2px #E3DFD3; font: 400 30px/84px "ZG Inter"; color: #646B61; padding-left: 34px; }
+
+    /* type over the field */
+    #nt-scrim { position: absolute; left: 0; top: 0; width: 1080px; height: 1320px; background: radial-gradient(90% 46% at 50% 40%, rgba(9, 22, 10, 0.96) 0%, rgba(9, 22, 10, 0.9) 55%, rgba(9, 22, 10, 0) 100%); opacity: 0; }
+    #nt-verse { position: absolute; left: 0; top: 330px; width: 1080px; text-align: center; color: #F3F0E8; font: 300 86px/1.12 "Cormorant Garamond"; }
+    #nt-verse .w { display: inline-block; }
+    #nt-verse em { font-style: italic; color: #B4C4AE; }
+    #nt-ref { position: absolute; left: 0; top: 590px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.3em; color: #9DB09A; }
+    #nt-name { position: absolute; left: 0; top: 352px; width: 1080px; text-align: center; color: #F3F0E8; font: 300 232px/1 "Cormorant Garamond"; letter-spacing: 0.01em; }
+    #nt-name span { display: inline-block; }
+    #nt-pron { position: absolute; left: 0; top: 646px; width: 1080px; text-align: center; font: 500 30px/1 "ZG Inter"; letter-spacing: 0.16em; color: #9DB09A; }
+    #nt-def { position: absolute; left: 0; top: 716px; width: 1080px; text-align: center; color: #F3F0E8; font: 300 50px/1.2 "Cormorant Garamond"; }
+    #nt-def .gk { font: 400 46px/1.2 "ZG Greek"; color: #B4C4AE; }
+    #nt-def em { font-style: italic; color: #B4C4AE; }
+  </style>
+
+  <div id="root" data-composition-id="night" data-width="1080" data-height="1920">
+    <div id="nt-bg"></div>
+    <div id="nt-stage">
+      <svg id="nt-rings" viewBox="0 0 1080 1920" data-layout-ignore>
+        <circle cx="930" cy="250" r="560" fill="none" stroke="rgba(232,228,227,0.075)" stroke-width="2" />
+        <circle cx="120" cy="1560" r="780" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+        <circle cx="1010" cy="1880" r="360" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+      <div id="nt-cam">
+        <svg id="nt-field" viewBox="0 0 16000 26000" data-layout-ignore>
+          <!--{{FIELD}}-->
+        </svg>
+        <div id="nt-hook">
+        <div id="nt-phone">
+          <div class="nt-key" style="left:-8px;top:330px;height:120px"></div>
+          <div class="nt-key" style="left:-8px;top:480px;height:120px"></div>
+          <div class="nt-key" style="left:860px;top:420px;height:190px"></div>
+          <div id="nt-screen">
+            <div class="nt-island"></div>
+
+            <div id="nt-lock">
+              <div class="nt-status">
+              <svg width="38" height="24" viewBox="0 0 38 24"><rect x="0" y="16" width="6" height="8" rx="2" fill="#F3F0E8" /><rect x="10" y="11" width="6" height="13" rx="2" fill="#F3F0E8" /><rect x="20" y="6" width="6" height="18" rx="2" fill="#F3F0E8" /><rect x="30" y="0" width="6" height="24" rx="2" fill="#F3F0E8" opacity="0.45" /></svg>
+              <svg width="50" height="24" viewBox="0 0 50 24"><rect x="1" y="1" width="42" height="22" rx="7" fill="none" stroke="#F3F0E8" stroke-width="2" opacity="0.7" /><rect x="5" y="5" width="22" height="14" rx="4" fill="#F3F0E8" /><rect x="45" y="8" width="4" height="8" rx="2" fill="#F3F0E8" opacity="0.7" /></svg>
+            </div>
+              <div id="nt-clock">2:07</div>
+              <div id="nt-ad">
+                <div id="nt-ad-dot"></div>
+                <div>Ministry ad</div>
+                <div id="nt-ad-state"><span id="nt-ad-run">Running</span><span id="nt-ad-off">Paused</span></div>
+                <div id="nt-ad-track"><div id="nt-ad-knob"></div></div>
+              </div>
+              <div id="nt-stack">
+                <div class="nt-card" id="nt-c0" style="top:0">
+                  <div class="nt-row"><div class="nt-icon"><svg width="26" height="24" viewBox="0 0 26 24"><path d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div class="nt-when"><span class="nt-now">now</span><span class="nt-waiting">waiting</span></div></div>
+                  <div class="nt-name">Layla</div>
+                  <div class="nt-ar">مرحبًا، رأيت إعلانكم وأودّ أن أعرف:<br />ما هو الأمل الذي تحدثتم عنه؟</div>
+                  <div class="nt-en">Hi, I saw your ad. I'm curious:<br />what is the hope you talked about?</div>
+                </div>
+                <div class="nt-card" id="nt-c1" style="top:368px"><div class="nt-row"><div class="nt-icon"><svg width="26" height="24" viewBox="0 0 26 24"><path d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div class="nt-when"><span class="nt-now">now</span><span class="nt-waiting">waiting</span></div></div><div class="nt-name">Omar</div><div class="nt-prev">Is anyone there?</div></div>
+                <div class="nt-card" id="nt-c2" style="top:568px"><div class="nt-row"><div class="nt-icon"><svg width="26" height="24" viewBox="0 0 26 24"><path d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div class="nt-when"><span class="nt-now">now</span><span class="nt-waiting">waiting</span></div></div><div class="nt-name">Mehmet</div><div class="nt-prev">Can I ask you something?</div></div>
+                <div class="nt-card" id="nt-c3" style="top:768px"><div class="nt-row"><div class="nt-icon"><svg width="26" height="24" viewBox="0 0 26 24"><path d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div class="nt-when"><span class="nt-now">now</span><span class="nt-waiting">waiting</span></div></div><div class="nt-name">Fatima</div><div class="nt-prev">I have a question about faith</div></div>
+                <div class="nt-card" id="nt-c4" style="top:968px"><div class="nt-row"><div class="nt-icon"><svg width="26" height="24" viewBox="0 0 26 24"><path d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div class="nt-when"><span class="nt-now">now</span><span class="nt-waiting">waiting</span></div></div><div class="nt-name">Yusuf</div><div class="nt-prev">Who is Jesus to you?</div></div>
+                <div class="nt-card" id="nt-c5" style="top:1168px"><div class="nt-row"><div class="nt-icon"><svg width="26" height="24" viewBox="0 0 26 24"><path d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div class="nt-when"><span class="nt-now">now</span><span class="nt-waiting">waiting</span></div></div><div class="nt-name">Zeynep</div><div class="nt-prev">I saw your video. Can we talk?</div></div>
+                <div class="nt-card" id="nt-c6" style="top:1368px"><div class="nt-row"><div class="nt-icon"><svg width="26" height="24" viewBox="0 0 26 24"><path d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div class="nt-when"><span class="nt-now">now</span><span class="nt-waiting">waiting</span></div></div><div class="nt-name">Ali</div><div class="nt-prev">Hello?</div></div>
+              </div>
+            </div>
+
+            <div id="nt-thread">
+              <div id="nt-th-time">2:07</div>
+              <div class="nt-status">
+              <svg width="38" height="24" viewBox="0 0 38 24"><rect x="0" y="16" width="6" height="8" rx="2" fill="#1B241A" /><rect x="10" y="11" width="6" height="13" rx="2" fill="#1B241A" /><rect x="20" y="6" width="6" height="18" rx="2" fill="#1B241A" /><rect x="30" y="0" width="6" height="24" rx="2" fill="#1B241A" opacity="0.45" /></svg>
+              <svg width="50" height="24" viewBox="0 0 50 24"><rect x="1" y="1" width="42" height="22" rx="7" fill="none" stroke="#1B241A" stroke-width="2" opacity="0.7" /><rect x="5" y="5" width="22" height="14" rx="4" fill="#1B241A" /><rect x="45" y="8" width="4" height="8" rx="2" fill="#1B241A" opacity="0.7" /></svg>
+            </div>
+              <div id="nt-th-head">
+                <div id="nt-th-av">L</div>
+                <div id="nt-th-name">Layla</div>
+                <div id="nt-th-sub">Answered by Zogreo AI</div>
+                <div id="nt-lang">
+                  <div id="nt-lang-thumb"></div>
+                  <div class="nt-seg" id="nt-seg-ar">عربي</div>
+                  <div class="nt-seg" id="nt-seg-en">EN</div>
+                </div>
+              </div>
+              <div id="nt-chatvp">
+                <div id="nt-chat">
+                  <div class="nt-msg nt-b nt-in nt-dual" id="nt-m1" style="top:30px">
+                    <div class="nt-ar2" id="nt-m1-ar">مرحبًا، رأيت إعلانكم وأودّ أن أعرف:<br />ما هو الأمل الذي تحدثتم عنه؟</div>
+                    <div id="nt-m1-en">Hi, I saw your ad. I'm curious:<br />what is the hope you talked about?</div>
+                  </div>
+                  <div class="nt-msg" id="nt-typing" style="top:206px"><div class="nt-dot" style="left:36px"></div><div class="nt-dot" style="left:59px"></div><div class="nt-dot" style="left:82px"></div></div>
+                  <div class="nt-msg nt-b nt-out nt-dual" id="nt-m2" style="top:206px">
+                    <div class="nt-ar2" id="nt-m2-ar">أهلًا ليلى، شكرًا على سؤالك.<br />هل حدث شيء جعلكِ تفقدين<br />الأمل مؤخرًا؟</div>
+                    <div id="nt-m2-en">Hi Layla, thanks for the question.<br />Has something made you<br />lose hope recently?</div>
+                  </div>
+                  <div class="nt-meta" id="nt-m2-meta" style="top:430px">Zogreo AI · 2:07 AM</div>
+                  <div class="nt-msg nt-b nt-in" id="nt-m3" style="top:480px">My family fled from war,<br />and we are refugees in<br />an unfamiliar country.</div>
+                  <div class="nt-msg nt-b nt-out" id="nt-m4" style="top:680px">That is a big burden to carry.<br />Jesus offers hope to all<br />that wish to receive it.<br />Can I connect you with someone<br />who can pray for you and tell<br />you more about Jesus?</div>
+                  <div class="nt-meta" id="nt-m4-meta" style="top:1004px">Zogreo AI · 2:08 AM</div>
+                  <div class="nt-msg nt-b nt-in" id="nt-m5" style="top:1054px">Yes, I'd like that.</div>
+                  <div class="nt-msg" id="nt-chip" style="top:1166px"><span>✓ Ready for a conversation</span></div>
+                  <div class="nt-msg" id="nt-join" style="top:1252px">A trained believer from a local ministry joined</div>
+                  <div class="nt-msg" id="nt-believer" style="top:1336px"><div class="nt-lbl">LOCAL BELIEVER</div><div class="nt-dot" style="left:30px"></div><div class="nt-dot" style="left:53px"></div><div class="nt-dot" style="left:76px"></div></div>
+                </div>
+              </div>
+              <div id="nt-input">Message</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="nt-scrim" data-layout-allow-occlusion></div>
+    <div id="nt-verse"><span class="w">The</span> <span class="w">harvest</span> <span class="w">is</span> <span class="w">plentiful,</span><br /><span class="w">but</span> <span class="w">the</span> <span class="w">workers</span> <span class="w">are</span> <span class="w"><em>few.</em></span></div>
+    <div id="nt-ref">MATTHEW 9:37</div>
+    <div id="nt-name"><span>z</span><span>ō</span><span>g</span><span>r</span><span>e</span><span>ō</span></div>
+    <div id="nt-pron">DZOH · GRAY · OH</div>
+    <div id="nt-def"><span class="gk">ζωγρέω</span> · <em>to catch alive</em> · Luke 5:10</div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      const lerpLog = (a, b, p) => Math.exp(Math.log(a) + (Math.log(b) - Math.log(a)) * p);
+
+      // Hidden-until-cued states, set once at build time.
+      gsap.set(["#nt-scrim", "#nt-ref", "#nt-pron", "#nt-def", "#nt-field", "#nt-m2-meta", "#nt-m4-meta"], { autoAlpha: 0 });
+      gsap.set(["#nt-verse .w", "#nt-name span"], { autoAlpha: 0 });
+      gsap.set(".nt-waiting", { autoAlpha: 0 });
+      gsap.set("#nt-ad-off", { autoAlpha: 0 });
+      gsap.set(["#nt-m3", "#nt-m4", "#nt-m5", "#nt-chip", "#nt-join", "#nt-believer", "#nt-m2", "#nt-typing", "#nt-m1-en", "#nt-m2-en"], { autoAlpha: 0 });
+      gsap.set("#nt-seg-ar", { color: "#F7F4EC" });
+      gsap.set("#nt-seg-en", { color: "#4B5245" });
+      gsap.set(["#nt-w2", ".nt-r"], { autoAlpha: 0 });
+
+      // 1 · the 2 a.m. message (frame 0 is the thumbnail: the card is already on screen)
+      tl.fromTo("#nt-c0", { scale: 1.03 }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+
+      // the camera finds the ad, then her question; it pulls back as the others arrive
+      tl.fromTo("#nt-hook", { scale: 1, y: 0 }, { scale: 1.12, y: 30, duration: 0.8, ease: "power3.inOut" }, T.hookA);
+      tl.fromTo("#nt-ad", { boxShadow: "0 0 0 0px rgba(180, 196, 174, 0)" }, { boxShadow: "0 0 0 4px rgba(180, 196, 174, 0.9)", duration: 0.3, ease: "power2.out" }, T.hookA);
+      tl.to("#nt-ad", { boxShadow: "0 0 0 4px rgba(180, 196, 174, 0)", duration: 0.4 }, T.hookB);
+      tl.to("#nt-hook", { scale: 1.24, y: 64, duration: 0.8, ease: "power3.inOut" }, T.hookB);
+      tl.to("#nt-hook", { scale: 1, y: 0, duration: 0.6, ease: "power3.inOut" }, T.hookOut);
+
+      // 2 · messages pour in
+      T.arr.forEach((t, i) => {
+        tl.fromTo("#nt-c" + (i + 1), { y: 80, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.34, ease: "power3.out" }, t);
+      });
+
+      // 3 · they wait in line, the ad is paused, the door closes
+      for (let i = 0; i <= 6; i++) {
+        const t = T.wait + i * 0.07;
+        tl.to("#nt-c" + i + " .nt-now", { autoAlpha: 0, duration: 0.14, ease: "power1.in" }, t);
+        tl.fromTo("#nt-c" + i + " .nt-waiting", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.22, ease: "power3.out" }, t + 0.06);
+      }
+      tl.fromTo("#nt-ad-knob", { x: 26 }, { x: 0, duration: 0.2, ease: "power2.out" }, T.off);
+      tl.fromTo("#nt-ad-track", { backgroundColor: "#5DA95F" }, { backgroundColor: "#7E857C", duration: 0.2 }, T.off);
+      tl.fromTo("#nt-ad-dot", { backgroundColor: "#8FD08F" }, { backgroundColor: "#7E857C", duration: 0.2 }, T.off);
+      tl.to("#nt-ad-run", { autoAlpha: 0, duration: 0.12 }, T.off);
+      tl.fromTo("#nt-ad-off", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.16 }, T.off + 0.08);
+      tl.to("#nt-lock", { autoAlpha: 0, duration: 0.9, ease: "power2.inOut" }, T.closing); // the screen goes dark: the door closes
+
+      // 4 · the camera pulls back: one message among a harvest of them
+      const cam = { p: 0, q: 0 };
+      const applyCam = () => {
+        const s = cam.q > 0 ? lerpLog(T.sMin, T.sEnd, cam.q) : lerpLog(1, T.sMin, cam.p);
+        gsap.set("#nt-cam", { scale: s });
+        gsap.set("#nt-rings", { scale: 0.78 + 0.22 * Math.min(1, s), transformOrigin: "540px 1000px" });
+      };
+      tl.set("#nt-field", { autoAlpha: 1 }, T.pullStart);
+      tl.to(cam, { p: 1, duration: T.pullEnd - T.pullStart, ease: "power3.inOut", onUpdate: applyCam }, T.pullStart);
+      tl.fromTo("#nt-scrim", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power2.out" }, T.verse[0] - 0.35);
+      document.querySelectorAll("#nt-verse .w").forEach((w, i) => {
+        tl.fromTo(w, { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out" }, T.verse[i]);
+      });
+      tl.fromTo("#nt-ref", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.ref);
+      // the workers are few: a second phone, and only two messages answered
+      tl.fromTo("#nt-w2", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "power3.out" }, T.workers);
+      tl.fromTo(".nt-r-few", { autoAlpha: 0, scale: 0.4, transformOrigin: "0% 0%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.18 }, T.few);
+      tl.to(["#nt-verse", "#nt-ref"], { autoAlpha: 0, filter: "blur(8px)", duration: 0.22, ease: "power1.in" }, T.verseOut);
+
+      // 5 · zōgreō, to catch alive: the whole field gets an answer
+      tl.fromTo("#nt-name span", { autoAlpha: 0.0, filter: "blur(8px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.22, ease: "power2.out", stagger: 0.07 }, T.zogreo - 0.04);
+      tl.fromTo("#nt-pron", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.25 }, T.named);
+      tl.fromTo("#nt-def", { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.def);
+      tl.fromTo("#nt-def em", { color: "#B4C4AE" }, { color: "#F3F0E8", duration: 0.3 }, T.catching);
+      tl.fromTo(".nt-r-wave", { autoAlpha: 0, scale: 0.4, transformOrigin: "0% 0%" }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: "back.out(1.6)", stagger: { amount: 1.5 } }, T.catching + 0.1);
+      tl.to("#nt-lock", { autoAlpha: 1, duration: 0.9, ease: "power2.inOut" }, T.catching + 0.3); // and wakes when Zogreo answers
+      tl.to("#nt-w2-dim", { opacity: 0, duration: 0.9, ease: "power2.inOut" }, T.catching + 0.3);
+      tl.to(["#nt-name", "#nt-pron", "#nt-def"], { autoAlpha: 0, filter: "blur(8px)", duration: 0.24, ease: "power1.in" }, T.nameOut);
+      tl.to("#nt-scrim", { autoAlpha: 0, duration: 0.35 }, T.nameOut + 0.05);
+
+      // 6 · push back into Layla's phone; the notification opens into the conversation
+      tl.to(cam, { q: 1, duration: T.pushEnd - T.pushStart, ease: "power3.inOut", onUpdate: applyCam }, T.pushStart);
+      tl.set("#nt-field", { autoAlpha: 0 }, T.pushEnd - 0.05);
+      tl.to("#nt-lock", { autoAlpha: 0, filter: "blur(8px)", duration: 0.18, ease: "power1.in" }, T.swap);
+      tl.fromTo("#nt-thread", { autoAlpha: 0, filter: "blur(8px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.22, ease: "power2.out" }, T.swap + 0.1);
+
+      // 7 · the AI answers, in her language
+      const dots = (sel, t, n) => {
+        for (let k = 0; k < n; k++) {
+          tl.fromTo(sel + " .nt-dot", { opacity: 0.35 }, { opacity: 1, duration: 0.14, stagger: 0.1, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + k * 0.5);
+        }
+      };
+      tl.fromTo("#nt-typing", { autoAlpha: 0, scale: 0.8, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "back.out(1.6)" }, T.typing);
+      dots("#nt-typing", T.typing + 0.1, Math.max(1, Math.round((T.answers - T.typing) / 0.5)));
+      tl.to("#nt-typing", { autoAlpha: 0, duration: 0.1 }, T.answers);
+      tl.fromTo("#nt-m2", { autoAlpha: 0, scale: 0.86, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.34, ease: "back.out(1.5)" }, T.answers);
+      tl.fromTo("#nt-m2-meta", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, T.answers + 0.25);
+      // heart language: the same thread, now readable in English
+      tl.to("#nt-lang-thumb", { x: 104, duration: 0.24, ease: "power3.inOut" }, T.heart);
+      tl.to("#nt-seg-ar", { color: "#4B5245", duration: 0.2 }, T.heart);
+      tl.to("#nt-seg-en", { color: "#F7F4EC", duration: 0.2 }, T.heart);
+      tl.to(["#nt-m1-ar", "#nt-m2-ar"], { autoAlpha: 0, filter: "blur(6px)", duration: 0.16, ease: "power1.in" }, T.heart + 0.05);
+      tl.fromTo(["#nt-m1-en", "#nt-m2-en"], { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, T.heart + 0.16);
+      // the hard part, answered honestly
+      const scroll = (y, t) => tl.to("#nt-chat", { y: -y, duration: 0.42, ease: "power3.out" }, t);
+      tl.fromTo("#nt-m3", { autoAlpha: 0, scale: 0.86, transformOrigin: "0% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.34, ease: "back.out(1.5)" }, T.m3);
+      scroll(T.scroll[0], T.m4 - 0.05);
+      tl.fromTo("#nt-m4", { autoAlpha: 0, scale: 0.86, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.5)" }, T.m4);
+      tl.fromTo("#nt-m4-meta", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, T.m4 + 0.3);
+
+      // 8 · ready for a real person; a believer from a local ministry carries it forward
+      scroll(T.scroll[1], T.m5 - 0.05);
+      tl.fromTo("#nt-m5", { autoAlpha: 0, scale: 0.86, transformOrigin: "0% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.5)" }, T.m5);
+      scroll(T.scroll[2], T.ready - 0.05);
+      tl.fromTo("#nt-chip", { autoAlpha: 0, scale: 0.7, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.34, ease: "back.out(1.7)" }, T.ready);
+      scroll(T.scroll[3], T.believer - 0.05);
+      tl.fromTo("#nt-join", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power3.out" }, T.believer);
+      scroll(T.scroll[4], T.carries - 0.05);
+      tl.fromTo("#nt-believer", { autoAlpha: 0, scale: 0.84, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: "back.out(1.5)" }, T.carries);
+      dots("#nt-believer", T.carries + 0.2, Math.max(1, Math.round((T.exit - T.carries - 0.3) / 0.5)));
+
+      // exit: cut the curve, leftward
+      tl.to("#nt-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#nt-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["night"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,358 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0C1D0D; }
+    #root * { box-sizing: border-box; }
+    #nt-bg { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 45%, #21452A 0%, #163017 45%, #0B1A0C 100%); }
+    #nt-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #nt-rings { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #nt-cam, #nt-cam2 { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 1000px; }
+    #nt-scrimwrap { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #nt-field { position: absolute; left: -7460px; top: -12000px; width: 16000px; height: 26000px; }
+
+    /* the responder's phone */
+    #nt-hook { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 748px; }
+    #nt-phone { position: absolute; left: 110px; top: 110px; width: 860px; height: 1780px; border-radius: 124px; background: #0A150B; box-shadow: inset 0 0 0 3px rgba(232, 228, 227, 0.16); }
+    .nt-key { position: absolute; width: 8px; border-radius: 4px; background: #0A150B; }
+    #nt-screen { position: absolute; left: 14px; top: 14px; width: 832px; height: 1752px; border-radius: 110px; overflow: hidden; background: #040904; }
+    .nt-island { position: absolute; left: 326px; top: 26px; width: 180px; height: 54px; border-radius: 27px; background: #000; z-index: 5; }
+    .nt-status { position: absolute; top: 40px; right: 64px; display: flex; gap: 12px; align-items: center; z-index: 5; }
+
+    /* lock screen */
+    #nt-lock { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 22%, #2A5530 0%, #173419 55%, #0E2010 100%); }
+    #nt-lockdark { position: absolute; inset: 0; background: #020502; opacity: 0; }
+    #nt-clock { position: absolute; left: 0; top: 118px; width: 832px; text-align: center; font: 600 212px/1 "ZG Inter"; letter-spacing: -0.03em; color: #F3F0E8; }
+    #nt-ad { position: absolute; left: 191px; top: 362px; width: 450px; height: 62px; border-radius: 31px; background: rgba(247, 244, 236, 0.14); display: flex; align-items: center; gap: 14px; padding: 0 22px 0 26px; font: 500 28px/1 "ZG Inter"; color: rgba(247, 244, 236, 0.92); }
+    #nt-ad-dot { width: 14px; height: 14px; border-radius: 7px; background: #8FD08F; flex: none; }
+    #nt-ad-state { position: relative; width: 112px; height: 30px; }
+    #nt-ad-state span { position: absolute; left: 0; top: 0; }
+    #nt-ad-track { position: relative; margin-left: auto; width: 62px; height: 36px; border-radius: 18px; background: #5DA95F; flex: none; }
+    #nt-ad-knob { position: absolute; left: 4px; top: 4px; width: 28px; height: 28px; border-radius: 14px; background: #F7F4EC; }
+    #nt-stack { position: absolute; left: 30px; top: 452px; width: 772px; height: 1300px; }
+    .nt-card { position: absolute; left: 0; width: 772px; border-radius: 40px; background: rgba(247, 244, 236, 0.95); padding: 24px 30px; color: #1B241A; }
+    .nt-row { display: flex; align-items: center; gap: 14px; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.06em; color: #6B7468; }
+    .nt-icon { width: 44px; height: 44px; border-radius: 12px; background: #1D3D1E; display: flex; align-items: center; justify-content: center; }
+    .nt-when { margin-left: auto; position: relative; width: 150px; height: 30px; text-align: right; letter-spacing: 0.02em; font-weight: 500; }
+    .nt-when span { position: absolute; right: 0; top: 0; white-space: nowrap; }
+    .nt-waiting { color: #9A6B2F; }
+    .nt-name { font: 700 31px/1.2 "ZG Inter"; margin-top: 14px; }
+    .nt-prev { font: 400 29px/1.3 "ZG Inter"; color: #3E473C; margin-top: 4px; white-space: nowrap; }
+    #nt-c0 .nt-ar { font: 500 35px/1.55 "ZG Arabic"; direction: rtl; text-align: right; margin-top: 10px; color: #1B241A; }
+    #nt-c0 .nt-en { font: 400 29px/1.35 "ZG Inter"; color: #4B5245; margin-top: 6px; }
+    #nt-dim { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 4; }
+
+    /* the conversation */
+    #nt-thread { position: absolute; inset: 0; background: #F7F4EC; opacity: 0; }
+    #nt-th-time { position: absolute; left: 92px; top: 36px; font: 600 30px/1 "ZG Inter"; color: #1B241A; z-index: 5; }
+    #nt-th-head { position: absolute; left: 0; top: 96px; width: 832px; height: 138px; border-bottom: 2px solid #E3DFD3; }
+    #nt-th-av { position: absolute; left: 92px; top: 18px; width: 76px; height: 76px; border-radius: 38px; background: #D9E0D2; font: 600 34px/76px "ZG Inter"; text-align: center; color: #1D3D1E; }
+    #nt-th-name { position: absolute; left: 190px; top: 18px; font: 700 34px/1.2 "ZG Inter"; color: #1B241A; }
+    #nt-th-sub { position: absolute; left: 190px; top: 62px; font: 500 28px/1.2 "ZG Inter"; color: #5F6E5F; }
+    #nt-lang { position: absolute; right: 40px; top: 26px; width: 216px; height: 62px; border-radius: 31px; background: #E9E6DC; }
+    #nt-lang-thumb { position: absolute; left: 4px; top: 4px; width: 104px; height: 54px; border-radius: 27px; background: #1D3D1E; }
+    .nt-seg { position: absolute; top: 0; width: 108px; height: 62px; line-height: 62px; text-align: center; }
+    #nt-seg-ar { left: 0; font: 500 28px/62px "ZG Arabic"; }
+    #nt-seg-en { left: 108px; font: 600 26px/62px "ZG Inter"; letter-spacing: 0.04em; }
+    #nt-chatvp { position: absolute; left: 0; top: 250px; width: 832px; height: 1380px; overflow: hidden; }
+    #nt-chat { position: absolute; left: 0; top: 0; width: 832px; height: 1700px; }
+    .nt-sep { left: 0; width: 832px; text-align: center; font: 500 28px/1 "ZG Inter"; letter-spacing: 0.04em; color: #6B7468; }
+    .nt-msg { position: absolute; }
+    .nt-b { border-radius: 36px; padding: 22px 30px; font: 400 33px/44px "ZG Inter"; white-space: nowrap; }
+    .nt-in { left: 36px; background: #FFFFFF; color: #1B241A; border-bottom-left-radius: 10px; box-shadow: 0 2px 0 rgba(29, 61, 30, 0.06); }
+    .nt-out { right: 36px; background: #1D3D1E; color: #F7F4EC; border-bottom-right-radius: 10px; }
+    .nt-dual { display: grid; }
+    .nt-dual > div { grid-area: 1 / 1; }
+    .nt-ar2 { font: 400 34px/54px "ZG Arabic"; direction: rtl; text-align: right; }
+    .nt-meta { position: absolute; right: 44px; font: 500 24px/1 "ZG Inter"; color: #6B7A6A; white-space: nowrap; }
+    #nt-typing { right: 36px; width: 132px; height: 88px; border-radius: 36px; border-bottom-right-radius: 10px; background: #1D3D1E; }
+    .nt-dot { position: absolute; top: 37px; width: 14px; height: 14px; border-radius: 7px; background: #F7F4EC; }
+    #nt-chip { left: 0; width: 832px; text-align: center; }
+    #nt-chip span { display: inline-block; height: 62px; line-height: 62px; padding: 0 28px; border-radius: 31px; background: #DDE6D6; color: #1D3D1E; font: 600 28px/62px "ZG Inter"; }
+    /* the hand-off: a real person joins (the climax, so it is the biggest thing in the thread) */
+    #nt-believer { left: 36px; width: 760px; height: 230px; border-radius: 40px; background: #FFFFFF; box-shadow: inset 0 0 0 4px #1D3D1E; }
+    .nt-bav { position: absolute; left: 32px; top: 40px; width: 116px; height: 116px; border-radius: 58px; background: #1D3D1E; }
+    .nt-bname { position: absolute; left: 176px; top: 48px; font: 700 40px/1.1 "ZG Inter"; color: #1B241A; white-space: nowrap; }
+    .nt-bsub { position: absolute; left: 176px; top: 104px; font: 500 30px/1.2 "ZG Inter"; color: #4B5245; white-space: nowrap; }
+    .nt-bdots { position: absolute; left: 176px; top: 158px; width: 104px; height: 48px; border-radius: 24px; background: #E9E6DC; }
+    #nt-believer .nt-dot { top: 17px; background: #1D3D1E; }
+    #nt-input { position: absolute; left: 36px; top: 1640px; width: 760px; height: 84px; border-radius: 42px; background: #FFFFFF; box-shadow: inset 0 0 0 2px #E3DFD3; font: 400 30px/84px "ZG Inter"; color: #646B61; padding-left: 34px; }
+
+    /* type over the field */
+    /* the scrim keeps the verse and the name readable over the field. It sits UNDER the phone (between the field and the phone layers), so her lit card is never dimmed, whatever the camera scale */
+    #nt-scrim { position: absolute; left: 0; top: 0; width: 1080px; height: 1320px; background: radial-gradient(90% 46% at 50% 40%, rgba(9, 22, 10, 0.96) 0%, rgba(9, 22, 10, 0.9) 55%, rgba(9, 22, 10, 0) 100%); opacity: 0; }
+    #nt-verse { position: absolute; left: 0; top: 330px; width: 1080px; text-align: center; color: #F3F0E8; font: 300 86px/1.12 "Cormorant Garamond"; }
+    #nt-verse .w { display: inline-block; }
+    #nt-verse em { font-style: italic; color: #B4C4AE; }
+    #nt-ref { position: absolute; left: 0; top: 590px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.3em; color: #9DB09A; }
+    #nt-name { position: absolute; left: 0; top: 352px; width: 1080px; text-align: center; color: #F3F0E8; font: 300 232px/1 "Cormorant Garamond"; letter-spacing: 0.01em; }
+    #nt-name span { display: inline-block; }
+    #nt-pron { position: absolute; left: 0; top: 646px; width: 1080px; text-align: center; font: 500 30px/1 "ZG Inter"; letter-spacing: 0.16em; color: #9DB09A; }
+    #nt-def { position: absolute; left: 0; top: 716px; width: 1080px; text-align: center; color: #F3F0E8; font: 300 50px/1.2 "Cormorant Garamond"; }
+    #nt-def .gk { font: 400 46px/1.2 "ZG Greek"; color: #B4C4AE; }
+    #nt-def em { font-style: italic; color: #B4C4AE; }
+  </style>
+
+  <div data-hf-id="hf-4vk3" id="root" data-composition-id="night" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-6p7l" id="nt-bg"></div>
+    <div data-hf-id="hf-8t76" id="nt-stage">
+      <svg data-hf-id="hf-fikj" id="nt-rings" viewBox="0 0 1080 1920" data-layout-ignore>
+        <circle data-hf-id="hf-x6co" cx="930" cy="250" r="560" fill="none" stroke="rgba(232,228,227,0.075)" stroke-width="2" />
+        <circle data-hf-id="hf-y3ew" cx="120" cy="1560" r="780" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+        <circle data-hf-id="hf-hxby" cx="1010" cy="1880" r="360" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+      <div data-hf-id="hf-ylpx" id="nt-cam">
+        <svg data-hf-id="hf-jfeg" id="nt-field" viewBox="0 0 16000 26000" data-layout-ignore>
+          <!--{{FIELD}}-->
+        </svg>
+        </div>
+        <div data-hf-id="hf-ucty" id="nt-scrimwrap"><div data-hf-id="hf-pn3o" id="nt-scrim" data-layout-allow-occlusion></div></div>
+        <div data-hf-id="hf-3kdh" id="nt-cam2">
+        <div data-hf-id="hf-m3k5" id="nt-hook">
+        <div data-hf-id="hf-zydo" id="nt-phone">
+          <div data-hf-id="hf-mq9j" class="nt-key" style="left:-8px;top:330px;height:120px"></div>
+          <div data-hf-id="hf-yicx" class="nt-key" style="left:-8px;top:480px;height:120px"></div>
+          <div data-hf-id="hf-itg7" class="nt-key" style="left:860px;top:420px;height:190px"></div>
+          <div data-hf-id="hf-wp70" id="nt-screen">
+            <div data-hf-id="hf-pysk" class="nt-island"></div>
+
+            <div data-hf-id="hf-7fvh" id="nt-lock">
+              <div data-hf-id="hf-0kyl" id="nt-lockdark"></div>
+              <div data-hf-id="hf-c50t" class="nt-status">
+              <svg data-hf-id="hf-jz7y" width="38" height="24" viewBox="0 0 38 24"><rect data-hf-id="hf-esa3" x="0" y="16" width="6" height="8" rx="2" fill="#F3F0E8" /><rect data-hf-id="hf-l1qj" x="10" y="11" width="6" height="13" rx="2" fill="#F3F0E8" /><rect data-hf-id="hf-odpj" x="20" y="6" width="6" height="18" rx="2" fill="#F3F0E8" /><rect data-hf-id="hf-cqha" x="30" y="0" width="6" height="24" rx="2" fill="#F3F0E8" opacity="0.45" /></svg>
+              <svg data-hf-id="hf-feha" width="50" height="24" viewBox="0 0 50 24"><rect data-hf-id="hf-z91b" x="1" y="1" width="42" height="22" rx="7" fill="none" stroke="#F3F0E8" stroke-width="2" opacity="0.7" /><rect data-hf-id="hf-aq1h" x="5" y="5" width="22" height="14" rx="4" fill="#F3F0E8" /><rect data-hf-id="hf-codg" x="45" y="8" width="4" height="8" rx="2" fill="#F3F0E8" opacity="0.7" /></svg>
+            </div>
+              <div data-hf-id="hf-qnx3" id="nt-clock">2:07</div>
+              <div data-hf-id="hf-renz" id="nt-ad">
+                <div data-hf-id="hf-1bil" id="nt-ad-dot"></div>
+                <div data-hf-id="hf-a1eq">Ministry ad</div>
+                <div data-hf-id="hf-7clj" id="nt-ad-state"><span data-hf-id="hf-0nad" id="nt-ad-run">Running</span><span data-hf-id="hf-wgis" id="nt-ad-off">Paused</span></div>
+                <div data-hf-id="hf-8qnx" id="nt-ad-track"><div data-hf-id="hf-dya4" id="nt-ad-knob"></div></div>
+              </div>
+              <div data-hf-id="hf-tjrc" id="nt-stack">
+                <div data-hf-id="hf-5nj4" class="nt-card" id="nt-c0" style="top:0">
+                  <div data-hf-id="hf-39y1" class="nt-row"><div data-hf-id="hf-kle8" class="nt-icon"><svg data-hf-id="hf-r7nq" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-hz6t" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-capf" class="nt-when"><span data-hf-id="hf-6utk" class="nt-now">now</span><span data-hf-id="hf-qmmg" class="nt-waiting">waiting</span></div></div>
+                  <div data-hf-id="hf-xu7r" class="nt-name">Layla</div>
+                  <div data-hf-id="hf-nmqs" class="nt-ar">مرحبًا، رأيت إعلانكم وأودّ أن أعرف:<br data-hf-id="hf-x5px" />ما هو الأمل الذي تحدثتم عنه؟</div>
+                  <div data-hf-id="hf-3x57" class="nt-en">Hi, I saw your ad. I'm curious:<br data-hf-id="hf-rsrt" />what is the hope you talked about?</div>
+                </div>
+                <div data-hf-id="hf-xw6o" class="nt-card" id="nt-c1" style="top:368px"><div data-hf-id="hf-1gbx" class="nt-row"><div data-hf-id="hf-1smg" class="nt-icon"><svg data-hf-id="hf-oxoq" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-deih" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-x503" class="nt-when"><span data-hf-id="hf-i134" class="nt-now">now</span><span data-hf-id="hf-xke8" class="nt-waiting">waiting</span></div></div><div data-hf-id="hf-qurx" class="nt-name">Omar</div><div data-hf-id="hf-dc71" class="nt-prev">Is anyone there?</div></div>
+                <div data-hf-id="hf-et35" class="nt-card" id="nt-c2" style="top:568px"><div data-hf-id="hf-2n90" class="nt-row"><div data-hf-id="hf-0lpd" class="nt-icon"><svg data-hf-id="hf-pbzr" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-elfk" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-wqp2" class="nt-when"><span data-hf-id="hf-gu61" class="nt-now">now</span><span data-hf-id="hf-wdh5" class="nt-waiting">waiting</span></div></div><div data-hf-id="hf-5sfq" class="nt-name">Mehmet</div><div data-hf-id="hf-kywo" class="nt-prev">Can I ask you something?</div></div>
+                <div data-hf-id="hf-7dye" class="nt-card" id="nt-c3" style="top:768px"><div data-hf-id="hf-28xz" class="nt-row"><div data-hf-id="hf-100e" class="nt-icon"><svg data-hf-id="hf-pqas" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-e74j" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-wce1" class="nt-when"><span data-hf-id="hf-h8h2" class="nt-now">now</span><span data-hf-id="hf-wrs6" class="nt-waiting">waiting</span></div></div><div data-hf-id="hf-z57m" class="nt-name">Fatima</div><div data-hf-id="hf-ts95" class="nt-prev">I have a question about faith</div></div>
+                <div data-hf-id="hf-f7bn" class="nt-card" id="nt-c4" style="top:968px"><div data-hf-id="hf-3fv2" class="nt-row"><div data-hf-id="hf-zt3b" class="nt-icon"><svg data-hf-id="hf-q4lt" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-c7le" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-vy30" class="nt-when"><span data-hf-id="hf-g1jz" class="nt-now">now</span><span data-hf-id="hf-vkv3" class="nt-waiting">waiting</span></div></div><div data-hf-id="hf-50dm" class="nt-name">Yusuf</div><div data-hf-id="hf-xhwh" class="nt-prev">Who is Jesus to you?</div></div>
+                <div data-hf-id="hf-1xo3" class="nt-card" id="nt-c5" style="top:1168px"><div data-hf-id="hf-31k1" class="nt-row"><div data-hf-id="hf-07ec" class="nt-icon"><svg data-hf-id="hf-qiwu" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-btad" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-vjrz" class="nt-when"><span data-hf-id="hf-gfv0" class="nt-now">now</span><span data-hf-id="hf-vz64" class="nt-waiting">waiting</span></div></div><div data-hf-id="hf-9my9" class="nt-name">Zeynep</div><div data-hf-id="hf-9oyp" class="nt-prev">I saw your video. Can we talk?</div></div>
+                <div data-hf-id="hf-9epg" class="nt-card" id="nt-c6" style="top:1368px"><div data-hf-id="hf-48h4" class="nt-row"><div data-hf-id="hf-z0h9" class="nt-icon"><svg data-hf-id="hf-qx7v" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-d07g" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-v5gy" class="nt-when"><span data-hf-id="hf-f8xx" class="nt-now">now</span><span data-hf-id="hf-us91" class="nt-waiting">waiting</span></div></div><div data-hf-id="hf-owpu" class="nt-name">Ali</div><div data-hf-id="hf-iu45" class="nt-prev">Hello?</div></div>
+              </div>
+            </div>
+
+            <div data-hf-id="hf-yyp4" id="nt-thread">
+              <div data-hf-id="hf-n2ln" id="nt-th-time">2:07</div>
+              <div data-hf-id="hf-w2e9" class="nt-status">
+              <svg data-hf-id="hf-g8ia" width="38" height="24" viewBox="0 0 38 24"><rect data-hf-id="hf-7k0o" x="0" y="16" width="6" height="8" rx="2" fill="#1B241A" /><rect data-hf-id="hf-k2h8" x="10" y="11" width="6" height="13" rx="2" fill="#1B241A" /><rect data-hf-id="hf-nnu6" x="20" y="6" width="6" height="18" rx="2" fill="#1B241A" /><rect data-hf-id="hf-sfat" x="30" y="0" width="6" height="24" rx="2" fill="#1B241A" opacity="0.45" /></svg>
+              <svg data-hf-id="hf-woia" width="50" height="24" viewBox="0 0 50 24"><rect data-hf-id="hf-1tny" x="1" y="1" width="42" height="22" rx="7" fill="none" stroke="#1B241A" stroke-width="2" opacity="0.7" /><rect data-hf-id="hf-2z5c" x="5" y="5" width="22" height="14" rx="4" fill="#1B241A" /><rect data-hf-id="hf-nkz7" x="45" y="8" width="4" height="8" rx="2" fill="#1B241A" opacity="0.7" /></svg>
+            </div>
+              <div data-hf-id="hf-448j" id="nt-th-head">
+                <div data-hf-id="hf-9as4" id="nt-th-av">L</div>
+                <div data-hf-id="hf-iovd" id="nt-th-name">Layla</div>
+                <div data-hf-id="hf-83qz" id="nt-th-sub">Answered by Zogreo AI</div>
+                <div data-hf-id="hf-p1pg" id="nt-lang">
+                  <div data-hf-id="hf-df03" id="nt-lang-thumb"></div>
+                  <div data-hf-id="hf-8d7a" class="nt-seg" id="nt-seg-ar">عربي</div>
+                  <div data-hf-id="hf-ltld" class="nt-seg" id="nt-seg-en">EN</div>
+                </div>
+              </div>
+              <div data-hf-id="hf-ttyo" id="nt-chatvp">
+                <div data-hf-id="hf-woyq" id="nt-chat">
+                  <div data-hf-id="hf-dksb" class="nt-msg nt-sep" id="nt-sep" style="top:18px">Illustrative conversation</div>
+                  <div data-hf-id="hf-pfdj" class="nt-msg nt-b nt-in nt-dual" id="nt-m1" style="top:90px">
+                    <div data-hf-id="hf-8p8x" class="nt-ar2" id="nt-m1-ar">مرحبًا، رأيت إعلانكم وأودّ أن أعرف:<br data-hf-id="hf-szow" />ما هو الأمل الذي تحدثتم عنه؟</div>
+                    <div data-hf-id="hf-91wr" id="nt-m1-en">Hi, I saw your ad. I'm curious:<br data-hf-id="hf-sldv" />what is the hope you talked about?</div>
+                  </div>
+                  <div data-hf-id="hf-qxkd" class="nt-msg" id="nt-typing" style="top:266px"><div data-hf-id="hf-ue90" class="nt-dot" style="left:36px"></div><div data-hf-id="hf-l8sh" class="nt-dot" style="left:59px"></div><div data-hf-id="hf-tt4d" class="nt-dot" style="left:82px"></div></div>
+                  <div data-hf-id="hf-hhni" class="nt-msg nt-b nt-out nt-dual" id="nt-m2" style="top:266px">
+                    <div data-hf-id="hf-d5e7" class="nt-ar2" id="nt-m2-ar">أهلًا ليلى، شكرًا على سؤالك.<br data-hf-id="hf-qluq" />هل حدث شيء جعلكِ تفقدين<br data-hf-id="hf-q7jp" />الأمل مؤخرًا؟</div>
+                    <div data-hf-id="hf-0h9k" id="nt-m2-en">Hi Layla, thanks for the question.<br data-hf-id="hf-regs" />Has something made you<br data-hf-id="hf-r05r" />lose hope recently?</div>
+                  </div>
+                  <div data-hf-id="hf-ye70" class="nt-meta" id="nt-m2-meta" style="top:490px">Zogreo AI · 2:07 AM</div>
+                  <div data-hf-id="hf-svbt" class="nt-msg nt-b nt-in" id="nt-m3" style="top:540px">My family fled from war,<br data-hf-id="hf-p0mm" />and we are refugees in<br data-hf-id="hf-ombl" />an unfamiliar country.</div>
+                  <div data-hf-id="hf-6qsr" class="nt-msg nt-b nt-out" id="nt-m4a" style="top:740px">That is a big burden to carry.</div>
+                  <div data-hf-id="hf-n08t" class="nt-msg nt-b nt-out" id="nt-m4b" style="top:842px">Jesus offers hope to all<br data-hf-id="hf-qsyj" />that wish to receive it.<br data-hf-id="hf-r79k" />Can I connect you with someone<br data-hf-id="hf-q0ch" />who can pray for you and tell<br data-hf-id="hf-qeni" />you more about Jesus?</div>
+                  <div data-hf-id="hf-tzxt" class="nt-meta" id="nt-m4-meta" style="top:1122px">Zogreo AI · 2:08 AM</div>
+                  <div data-hf-id="hf-xcsw" class="nt-msg nt-b nt-in" id="nt-m5" style="top:1172px">Yes, I'd like that.</div>
+                  <div data-hf-id="hf-8sew" class="nt-msg" id="nt-chip" style="top:1290px"><span data-hf-id="hf-hv6k">✓ Ready for a conversation</span></div>
+                  <div data-hf-id="hf-txzc" class="nt-msg" id="nt-believer" style="top:1386px">
+                    <div data-hf-id="hf-uche" class="nt-bav"><svg data-hf-id="hf-qjym" width="116" height="116" viewBox="0 0 116 116"><circle data-hf-id="hf-l8v7" cx="58" cy="44" r="20" fill="#F7F4EC" /><path data-hf-id="hf-t1au" d="M24 98c0-20 15-32 34-32s34 12 34 32z" fill="#F7F4EC" /></svg></div>
+                    <div data-hf-id="hf-klf6" class="nt-bname">Local believer joined</div>
+                    <div data-hf-id="hf-qj0a" class="nt-bsub">Trained · from a local ministry</div>
+                    <div data-hf-id="hf-1cob" class="nt-bdots"><div data-hf-id="hf-e1r3" class="nt-dot" style="left:22px"></div><div data-hf-id="hf-mu2u" class="nt-dot" style="left:45px"></div><div data-hf-id="hf-r1nt" class="nt-dot" style="left:68px"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div data-hf-id="hf-3nab" id="nt-input">Message</div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div data-hf-id="hf-q1qv" id="nt-verse"><span data-hf-id="hf-ys6r" class="w">The</span> <span data-hf-id="hf-towp" class="w">harvest</span> <span data-hf-id="hf-fj2o" class="w">is</span> <span data-hf-id="hf-9ynx" class="w">plentiful,</span><br data-hf-id="hf-pm1g" /><span data-hf-id="hf-ucmn" class="w">but</span> <span data-hf-id="hf-9o0j" class="w">the</span> <span data-hf-id="hf-jden" class="w">workers</span> <span data-hf-id="hf-7nje" class="w">are</span> <span data-hf-id="hf-fr20" class="w"><em data-hf-id="hf-yxer">few.</em></span></div>
+    <div data-hf-id="hf-c6a0" id="nt-ref">MATTHEW 9:37</div>
+    <div data-hf-id="hf-2ho1" id="nt-name"><span data-hf-id="hf-orpd">z</span><span data-hf-id="hf-k83o">ō</span><span data-hf-id="hf-x44y">g</span><span data-hf-id="hf-ry5l">r</span><span data-hf-id="hf-xwr0">e</span><span data-hf-id="hf-m2ik">ō</span></div>
+    <div data-hf-id="hf-xcd4" id="nt-pron">DZOH · GRAY · OH</div>
+    <div data-hf-id="hf-z0ks" id="nt-def"><span data-hf-id="hf-ipxk" class="gk">ζωγρέω</span> · <em data-hf-id="hf-i4jg">to catch alive</em> · Luke 5:10</div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      const lerpLog = (a, b, p) => Math.exp(Math.log(a) + (Math.log(b) - Math.log(a)) * p);
+      // everything on the lock screen except Layla's card, which stays lit when the door closes
+      const others = ["#nt-lock .nt-status", "#nt-clock", "#nt-ad", "#nt-c1", "#nt-c2", "#nt-c3", "#nt-c4", "#nt-c5", "#nt-c6"];
+
+      // Hidden-until-cued states, set once at build time.
+      gsap.set(["#nt-scrim", "#nt-ref", "#nt-pron", "#nt-def", "#nt-field", "#nt-m2-meta", "#nt-m4-meta"], { autoAlpha: 0 });
+      gsap.set(["#nt-verse .w", "#nt-name span"], { autoAlpha: 0 });
+      gsap.set(".nt-waiting", { autoAlpha: 0 });
+      gsap.set("#nt-ad-off", { autoAlpha: 0 });
+      gsap.set(["#nt-m3", "#nt-m4a", "#nt-m4b", "#nt-m5", "#nt-chip", "#nt-believer", "#nt-m2", "#nt-typing", "#nt-m1-en", "#nt-m2-en"], { autoAlpha: 0 });
+      gsap.set("#nt-seg-ar", { color: "#F7F4EC" });
+      gsap.set("#nt-seg-en", { color: "#4B5245" });
+      gsap.set(".nt-r", { autoAlpha: 0 });
+      gsap.set("#nt-chat", { y: T.chatY.start });
+
+      // 1 · the 2 a.m. message (frame 0 is the thumbnail: the card is already on screen), and the camera is already moving in
+      tl.fromTo("#nt-c0", { scale: 1.03 }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo("#nt-hook", { scale: 1, y: 0 }, { scale: 1.06, y: 14, duration: T.hookA, ease: "sine.inOut" }, 0);
+      // the camera finds the ad, then her question; it pulls back as the others arrive
+      tl.to("#nt-hook", { scale: 1.12, y: 30, duration: 0.8, ease: "power3.inOut" }, T.hookA);
+      tl.fromTo("#nt-ad", { boxShadow: "0 0 0 0px rgba(180, 196, 174, 0)" }, { boxShadow: "0 0 0 4px rgba(180, 196, 174, 0.9)", duration: 0.3, ease: "power2.out" }, T.hookA);
+      tl.to("#nt-ad", { boxShadow: "0 0 0 4px rgba(180, 196, 174, 0)", duration: 0.4 }, T.hookB);
+      tl.to("#nt-hook", { scale: 1.24, y: 64, duration: 0.8, ease: "power3.inOut" }, T.hookB);
+      tl.to("#nt-hook", { scale: 1.29, y: 78, duration: Math.max(0.3, T.hookOut - T.hookB - 0.8), ease: "sine.inOut" }, T.hookB + 0.8);
+      tl.to("#nt-hook", { scale: 1, y: 0, duration: 0.6, ease: "power3.inOut" }, T.hookOut);
+
+      // 2 · messages pour in
+      T.arr.forEach((t, i) => {
+        tl.fromTo("#nt-c" + (i + 1), { y: 80, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.34, ease: "power3.out" }, t);
+      });
+
+      tl.to("#nt-hook", { scale: 1.05, y: -20, duration: Math.max(0.4, T.wait - T.stackPush), ease: "sine.inOut" }, T.stackPush);
+
+      // 3 · seekers wait: every message turns to "waiting" while the clock runs on
+      for (let i = 0; i <= 6; i++) {
+        const t = T.wait + i * 0.07;
+        tl.to("#nt-c" + i + " .nt-now", { autoAlpha: 0, duration: 0.14, ease: "power1.in" }, t);
+        tl.fromTo("#nt-c" + i + " .nt-waiting", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.22, ease: "power3.out" }, t + 0.06);
+      }
+      const clock = document.getElementById("nt-clock");
+      const clk = { m: 127 }; // minutes after midnight: 2:07
+      const showTime = () => { const v = Math.round(clk.m); clock.textContent = Math.floor(v / 60) + ":" + String(v % 60).padStart(2, "0"); };
+      tl.to(clk, { m: 222, duration: T.clockEnd - T.wait, ease: "power1.inOut", onUpdate: showTime }, T.wait);
+      // the ministry turns off its ad: the camera goes in on the switch
+      tl.to("#nt-hook", { scale: 1.3, y: 190, duration: 0.55, ease: "power3.inOut" }, T.adPush);
+      tl.to("#nt-hook", { scale: 1.36, y: 205, duration: Math.max(0.3, T.door - T.adPush - 0.55), ease: "sine.inOut" }, T.adPush + 0.55);
+      tl.fromTo("#nt-ad-knob", { x: 26 }, { x: 0, duration: 0.2, ease: "power2.out" }, T.off);
+      tl.fromTo("#nt-ad-track", { backgroundColor: "#5DA95F" }, { backgroundColor: "#7E857C", duration: 0.2 }, T.off);
+      tl.fromTo("#nt-ad-dot", { backgroundColor: "#8FD08F" }, { backgroundColor: "#7E857C", duration: 0.2 }, T.off);
+      tl.to("#nt-ad-run", { autoAlpha: 0, duration: 0.12 }, T.off);
+      tl.fromTo("#nt-ad-off", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.16 }, T.off + 0.08);
+      // and the door closes: the camera steps back as the screen goes dark around her unanswered message
+      tl.to("#nt-hook", { scale: 1, y: 0, duration: 0.7, ease: "power3.inOut" }, T.door);
+      tl.to("#nt-lockdark", { opacity: 1, duration: 0.9, ease: "power2.inOut" }, T.closes);
+      tl.to(others, { autoAlpha: 0, duration: 0.7, ease: "power2.inOut" }, T.closes);
+
+      // 4 · the camera pulls back: her message, one among a harvest of them
+      const cam = { p: 0, d: 0, q: 0 };
+      const sMid = T.sMin * 1.22;
+      const applyCam = () => {
+        const s = cam.q > 0 ? lerpLog(sMid, T.sEnd, cam.q) : cam.d > 0 ? lerpLog(T.sMin, sMid, cam.d) : lerpLog(1, T.sMin, cam.p);
+        gsap.set(["#nt-cam", "#nt-cam2"], { scale: s });
+        gsap.set("#nt-rings", { scale: 0.78 + 0.22 * Math.min(1, s), transformOrigin: "540px 1000px" });
+      };
+      tl.set("#nt-field", { autoAlpha: 1 }, T.pullStart);
+      tl.to(cam, { p: 1, duration: T.pullEnd - T.pullStart, ease: "power3.inOut", onUpdate: applyCam }, T.pullStart);
+      // then the camera keeps travelling in, toward the phones, while the verse and the name are read
+      tl.to(cam, { d: 1, duration: T.pushStart - T.pullEnd, ease: "sine.inOut", onUpdate: applyCam }, T.pullEnd);
+      tl.fromTo("#nt-scrim", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.5, ease: "power2.out" }, T.verse[0] - 0.35);
+      document.querySelectorAll("#nt-verse .w").forEach((w, i) => {
+        tl.fromTo(w, { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out" }, T.verse[i]);
+      });
+      tl.fromTo("#nt-ref", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.ref);
+      // the workers are few: of all those messages, only two get an answer
+      tl.fromTo(".nt-r-few", { autoAlpha: 0, scale: 0.4, transformOrigin: "0% 0%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.18 }, T.few);
+      tl.to(["#nt-verse", "#nt-ref"], { autoAlpha: 0, filter: "blur(8px)", duration: 0.22, ease: "power1.in" }, T.verseOut);
+
+      // 5 · zōgreō, to catch alive: the whole field gets an answer, and her phone wakes with the door open again
+      tl.fromTo("#nt-name span", { autoAlpha: 0.0, filter: "blur(8px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.22, ease: "power2.out", stagger: 0.07 }, T.zogreo - 0.04);
+      tl.fromTo("#nt-pron", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.25 }, T.its);
+      tl.fromTo("#nt-def", { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.def);
+      tl.fromTo("#nt-def em", { color: "#B4C4AE" }, { color: "#F3F0E8", duration: 0.3 }, T.catching);
+      tl.fromTo(".nt-r-wave", { autoAlpha: 0, scale: 0.4, transformOrigin: "0% 0%" }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: "back.out(1.6)", stagger: { amount: 1.5 } }, T.catching + 0.1);
+      // while it is still dark and tiny: nobody waiting, the ad running, the clock back at 2:07
+      tl.to(clk, { m: 127, duration: 0.05, onUpdate: showTime }, T.wake - 0.12);
+      tl.set(".nt-waiting", { autoAlpha: 0 }, T.wake - 0.1);
+      tl.set(".nt-now", { autoAlpha: 1 }, T.wake - 0.1);
+      tl.set("#nt-ad-knob", { x: 26 }, T.wake - 0.1);
+      tl.set(["#nt-ad-track"], { backgroundColor: "#5DA95F" }, T.wake - 0.1);
+      tl.set(["#nt-ad-dot"], { backgroundColor: "#8FD08F" }, T.wake - 0.1);
+      tl.set("#nt-ad-run", { autoAlpha: 1 }, T.wake - 0.1);
+      tl.set("#nt-ad-off", { autoAlpha: 0 }, T.wake - 0.1);
+      tl.to("#nt-lockdark", { opacity: 0, duration: 0.9, ease: "power2.inOut" }, T.wake);
+      tl.to(others, { autoAlpha: 1, duration: 0.9, ease: "power2.inOut" }, T.wake);
+      tl.to(["#nt-name", "#nt-pron", "#nt-def"], { autoAlpha: 0, filter: "blur(8px)", duration: 0.24, ease: "power1.in" }, T.nameOut);
+      tl.to("#nt-scrim", { autoAlpha: 0, duration: 0.35 }, T.nameOut + 0.05);
+
+      // 6 · push back into the phone; the notification opens into the conversation
+      tl.to(cam, { q: 1, duration: T.pushEnd - T.pushStart, ease: "power3.inOut", onUpdate: applyCam }, T.pushStart);
+      tl.set("#nt-field", { autoAlpha: 0 }, T.pushEnd - 0.05);
+      tl.to("#nt-lock", { autoAlpha: 0, filter: "blur(8px)", duration: 0.18, ease: "power1.in" }, T.swap);
+      tl.fromTo("#nt-thread", { autoAlpha: 0, filter: "blur(8px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.22, ease: "power2.out" }, T.swap + 0.1);
+
+      // 7 · the AI answers in her language, and stays in it while "heart language" is said
+      const dots = (sel, t, n) => {
+        for (let k = 0; k < n; k++) {
+          tl.fromTo(sel + " .nt-dot", { opacity: 0.35 }, { opacity: 1, duration: 0.14, stagger: 0.1, yoyo: true, repeat: 1, ease: "sine.inOut" }, t + k * 0.5);
+        }
+      };
+      tl.fromTo("#nt-typing", { autoAlpha: 0, scale: 0.8, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.2, ease: "back.out(1.6)" }, T.typing);
+      dots("#nt-typing", T.typing + 0.1, Math.max(1, Math.round((T.answers - T.typing) / 0.5)));
+      tl.to("#nt-typing", { autoAlpha: 0, duration: 0.1 }, T.answers);
+      tl.fromTo("#nt-m2", { autoAlpha: 0, scale: 0.86, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.34, ease: "back.out(1.5)" }, T.answers);
+      tl.fromTo("#nt-m2-ar", { clipPath: "inset(0% 0% 0% 100%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: T.stream, ease: "none" }, T.answers + 0.05);
+      tl.fromTo("#nt-m2-meta", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, T.answers + T.stream);
+      tl.fromTo("#nt-lang", { boxShadow: "0 0 0 0px rgba(93, 169, 95, 0)" }, { boxShadow: "0 0 0 6px rgba(93, 169, 95, 0.65)", duration: 0.3, ease: "power2.out" }, T.heart);
+      tl.to("#nt-lang", { boxShadow: "0 0 0 6px rgba(93, 169, 95, 0)", duration: 0.5 }, T.toggle + 0.3);
+      // then the view switches to English so we can follow her
+      tl.to("#nt-lang-thumb", { x: 104, duration: 0.24, ease: "power3.inOut" }, T.toggle);
+      tl.to("#nt-seg-ar", { color: "#4B5245", duration: 0.2 }, T.toggle);
+      tl.to("#nt-seg-en", { color: "#F7F4EC", duration: 0.2 }, T.toggle);
+      tl.to(["#nt-m1-ar", "#nt-m2-ar"], { autoAlpha: 0, filter: "blur(6px)", duration: 0.16, ease: "power1.in" }, T.toggle + 0.05);
+      tl.fromTo(["#nt-m1-en", "#nt-m2-en"], { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, T.toggle + 0.16);
+      // the hard part, answered honestly: the empathy line arrives alone, then the rest
+      const scroll = (y, t) => tl.to("#nt-chat", { y, duration: 0.42, ease: "power3.out" }, t);
+      scroll(T.chatY.m3, T.m3 - 0.05);
+      tl.fromTo("#nt-m3", { autoAlpha: 0, scale: 0.86, transformOrigin: "0% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.34, ease: "back.out(1.5)" }, T.m3);
+      scroll(T.chatY.m4, T.m4 - 0.05);
+      tl.fromTo("#nt-m4a", { autoAlpha: 0, scale: 0.86, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.34, ease: "back.out(1.5)" }, T.m4);
+      scroll(T.chatY.m4b, T.m4b - 0.05);
+      tl.fromTo("#nt-m4b", { autoAlpha: 0, scale: 0.9, transformOrigin: "100% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.m4b);
+      tl.fromTo("#nt-m4-meta", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, T.m4b + 0.3);
+
+      // 8 · ready for a real person, a breath of stillness, then the climax: a believer from a local ministry joins
+      scroll(T.chatY.m5, T.m5 - 0.05);
+      tl.fromTo("#nt-m5", { autoAlpha: 0, scale: 0.86, transformOrigin: "0% 100%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.5)" }, T.m5);
+      scroll(T.chatY.ready, T.ready - 0.05);
+      tl.fromTo("#nt-hook", { scale: 1, y: 0 }, { scale: 1.08, y: -29.4, duration: T.exit - T.handoffPush, ease: "sine.inOut", immediateRender: false }, T.handoffPush); // = scaling about the believer card (y 1115)
+      tl.fromTo("#nt-chip", { autoAlpha: 0, scale: 0.7, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.34, ease: "back.out(1.7)" }, T.ready);
+      scroll(T.chatY.climax, T.climaxScroll);
+      tl.fromTo("#nt-believer", { autoAlpha: 0, scale: 0.84, y: 24, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.5, ease: "back.out(1.4)" }, T.believer);
+      dots("#nt-believer", T.believer + 0.6, Math.max(1, Math.round((T.exit - T.believer - 0.7) / 0.5)));
+
+      // exit: cut the curve, leftward
+      tl.to("#nt-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#nt-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["night"] = tl;
+    })();
+  </script>
+</template>

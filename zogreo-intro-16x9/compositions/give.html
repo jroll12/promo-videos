@@ -1,0 +1,138 @@
+<template>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-300-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-ext-300-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-300-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-ext-300-italic.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-500-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Arabic"; font-style: normal; font-weight: 400; src: url("assets/fonts/noto-sans-arabic-arabic-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Arabic"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-arabic-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Greek"; font-style: normal; font-weight: 400; src: url("assets/fonts/eb-garamond-greek-400-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #1D3D1E; }
+    #root * { box-sizing: border-box; }
+    #gv-bg { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 38%, #24492A 0%, #1D3D1E 55%, #152D16 100%); }
+    #gv-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #gv-rings { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+
+    /* the same phone, the next morning */
+    #gv-morning { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 900px; }
+    #gv-phone { position: absolute; left: 110px; top: 110px; width: 860px; height: 1780px; border-radius: 124px; background: #0A150B; box-shadow: inset 0 0 0 3px rgba(232, 228, 227, 0.16); }
+    #gv-screen { position: absolute; left: 14px; top: 14px; width: 832px; height: 1752px; border-radius: 110px; overflow: hidden; }
+    #gv-mlock { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 16%, #4F7D52 0%, #2B5530 50%, #163218 100%); }
+    .gv-island { position: absolute; left: 326px; top: 26px; width: 180px; height: 54px; border-radius: 27px; background: #000; z-index: 5; }
+    .gv-status { position: absolute; top: 40px; right: 64px; display: flex; gap: 12px; align-items: center; z-index: 5; }
+    #gv-mclock { position: absolute; left: 0; top: 118px; width: 832px; text-align: center; font: 600 212px/1 "ZG Inter"; letter-spacing: -0.03em; color: #F3F0E8; }
+    #gv-mad { position: absolute; left: 191px; top: 362px; width: 450px; height: 62px; border-radius: 31px; background: rgba(247, 244, 236, 0.16); display: flex; align-items: center; gap: 14px; padding: 0 22px 0 26px; font: 500 28px/1 "ZG Inter"; color: rgba(247, 244, 236, 0.94); }
+    #gv-mad-dot { width: 14px; height: 14px; border-radius: 7px; background: #8FD08F; flex: none; }
+    #gv-mad-track { position: relative; margin-left: auto; width: 62px; height: 36px; border-radius: 18px; background: #5DA95F; flex: none; }
+    #gv-mad-knob { position: absolute; left: 30px; top: 4px; width: 28px; height: 28px; border-radius: 14px; background: #F7F4EC; }
+    #gv-mstack { position: absolute; left: 30px; top: 452px; width: 772px; height: 1260px; }
+    .gv-card { position: absolute; left: 0; width: 772px; border-radius: 40px; background: rgba(247, 244, 236, 0.95); padding: 24px 30px; color: #1B241A; }
+    .gv-row { display: flex; align-items: center; gap: 14px; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.06em; color: #6B7468; }
+    .gv-icon { width: 44px; height: 44px; border-radius: 12px; background: #1D3D1E; display: flex; align-items: center; justify-content: center; }
+    .gv-when { margin-left: auto; position: relative; width: 290px; height: 30px; text-align: right; letter-spacing: 0.02em; font-weight: 500; }
+    .gv-when span { position: absolute; right: 0; top: 0; white-space: nowrap; }
+    .gv-wait { color: #9A6B2F; }
+    .gv-done { color: #2F6B34; font-weight: 600; }
+    .gv-live { color: #2F6B34; font-weight: 600; }
+    .gv-name { font: 700 31px/1.2 "ZG Inter"; margin-top: 14px; }
+    .gv-prev { font: 400 29px/1.3 "ZG Inter"; color: #3E473C; margin-top: 4px; white-space: nowrap; }
+    #gv-k0 { box-shadow: inset 0 0 0 4px #5DA95F; }
+
+    /* the end card */
+    #gv-card { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #gv-logo { position: absolute; left: 300px; top: 210px; width: 600px; height: 213px; }
+    #gv-logo img { width: 600px; height: 213px; display: block; }
+    #gv-tag { position: absolute; left: 100px; top: 455px; width: 1000px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #A9B8A6; }
+    #gv-give { position: absolute; left: 220px; top: 560px; width: 760px; height: 124px; border-radius: 62px; background: #F7F4EC; color: #1D3D1E; text-align: center; font: 600 48px/124px "ZG Inter"; }
+    #gv-book { position: absolute; left: 220px; top: 716px; width: 760px; height: 108px; border-radius: 54px; box-shadow: inset 0 0 0 3px rgba(247, 244, 236, 0.8); color: #F7F4EC; text-align: center; font: 500 32px/108px "ZG Inter"; }
+    #gv-qr { position: absolute; left: 1310px; top: 390px; width: 260px; height: 260px; border-radius: 30px; background: #FFFFFF; }
+    #gv-qr img { position: absolute; left: 16px; top: 16px; width: 228px; height: 228px; }
+    #gv-scan { position: absolute; left: 1040px; top: 682px; width: 800px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #F3F0E8; }
+    #gv-foot { position: absolute; left: 0; top: 985px; width: 1920px; text-align: center; font: 400 28px/1.2 "ZG Inter"; color: #A9B8A6; }
+  </style>
+
+  <div data-hf-id="hf-ha2m" id="root" data-composition-id="give" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-xine" id="gv-bg"></div>
+    <div data-hf-id="hf-4mlj" id="gv-stage">
+      <svg data-hf-id="hf-rch2" id="gv-rings" viewBox="0 0 1920 1080" data-layout-ignore>
+        <circle data-hf-id="hf-wr5p" cx="200" cy="150" r="520" fill="none" stroke="rgba(232,228,227,0.075)" stroke-width="2" />
+        <circle data-hf-id="hf-9rb8" cx="1750" cy="950" r="700" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+        <circle data-hf-id="hf-f95g" cx="120" cy="1050" r="300" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+
+      <div data-hf-id="hf-sklp" id="gv-morning">
+        <div data-hf-id="hf-mcn1" id="gv-phone">
+          <div data-hf-id="hf-46r7" id="gv-screen">
+            <div data-hf-id="hf-le3v" class="gv-island"></div>
+            <div data-hf-id="hf-4irh" id="gv-mlock">
+              <div data-hf-id="hf-ksmq" class="gv-status">
+                <svg data-hf-id="hf-jz7y" width="38" height="24" viewBox="0 0 38 24"><rect data-hf-id="hf-esa3" x="0" y="16" width="6" height="8" rx="2" fill="#F3F0E8" /><rect data-hf-id="hf-l1qj" x="10" y="11" width="6" height="13" rx="2" fill="#F3F0E8" /><rect data-hf-id="hf-odpj" x="20" y="6" width="6" height="18" rx="2" fill="#F3F0E8" /><rect data-hf-id="hf-uw73" x="30" y="0" width="6" height="24" rx="2" fill="#F3F0E8" /></svg>
+                <svg data-hf-id="hf-feha" width="50" height="24" viewBox="0 0 50 24"><rect data-hf-id="hf-z91b" x="1" y="1" width="42" height="22" rx="7" fill="none" stroke="#F3F0E8" stroke-width="2" opacity="0.7" /><rect data-hf-id="hf-caze" x="5" y="5" width="32" height="14" rx="4" fill="#F3F0E8" /><rect data-hf-id="hf-codg" x="45" y="8" width="4" height="8" rx="2" fill="#F3F0E8" opacity="0.7" /></svg>
+              </div>
+              <div data-hf-id="hf-zzyg" id="gv-mclock">7:12</div>
+              <div data-hf-id="hf-s1y7" id="gv-mad"><div data-hf-id="hf-vje5" id="gv-mad-dot"></div><div data-hf-id="hf-a1eq">Ministry ad</div><div data-hf-id="hf-928v">Running</div><div data-hf-id="hf-xw0t" id="gv-mad-track"><div data-hf-id="hf-vxd8" id="gv-mad-knob"></div></div></div>
+              <div data-hf-id="hf-dfag" id="gv-mstack"><div data-hf-id="hf-e88e" class="gv-card" id="gv-k0" style="top:0px"><div data-hf-id="hf-lmmk" class="gv-row"><div data-hf-id="hf-wru7" class="gv-icon"><svg data-hf-id="hf-r7nq" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-hz6t" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-xxic" class="gv-when"><span data-hf-id="hf-vxle" class="gv-live">● now</span></div></div><div data-hf-id="hf-r7b2" class="gv-name">Layla</div><div data-hf-id="hf-14o1" class="gv-prev">Talking with a local believer</div></div>
+                <div data-hf-id="hf-4ae5" class="gv-card" id="gv-k1" style="top:200px"><div data-hf-id="hf-37qc" class="gv-row"><div data-hf-id="hf-zymn" class="gv-icon"><svg data-hf-id="hf-oxoq" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-deih" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-7lb0" class="gv-when"><span data-hf-id="hf-5tqn" class="gv-wait">waiting</span><span data-hf-id="hf-hi8b" class="gv-done">✓ answered</span></div></div><div data-hf-id="hf-8jsu" class="gv-name">Omar</div><div data-hf-id="hf-i766" class="gv-prev">Is anyone there?</div></div>
+                <div data-hf-id="hf-i1wo" class="gv-card" id="gv-k2" style="top:400px"><div data-hf-id="hf-20t9" class="gv-row"><div data-hf-id="hf-zkbm" class="gv-icon"><svg data-hf-id="hf-pbzr" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-elfk" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-6edx" class="gv-when"><span data-hf-id="hf-rfu7" class="gv-wait">waiting</span><span data-hf-id="hf-exuz" class="gv-done">✓ answered</span></div></div><div data-hf-id="hf-ya69" class="gv-name">Mehmet</div><div data-hf-id="hf-20gn" class="gv-prev">Can I ask you something?</div></div>
+                <div data-hf-id="hf-fd4b" class="gv-card" id="gv-k3" style="top:600px"><div data-hf-id="hf-2f4a" class="gv-row"><div data-hf-id="hf-z60l" class="gv-icon"><svg data-hf-id="hf-pqas" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-e74j" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-6soy" class="gv-when"><span data-hf-id="hf-r1j6" class="gv-wait">waiting</span><span data-hf-id="hf-ejjy" class="gv-done">✓ answered</span></div></div><div data-hf-id="hf-8dnx" class="gv-name">Fatima</div><div data-hf-id="hf-ijpc" class="gv-prev">I have a question about faith</div></div>
+                <div data-hf-id="hf-64gy" class="gv-card" id="gv-k4" style="top:800px"><div data-hf-id="hf-4enf" class="gv-row"><div data-hf-id="hf-1y5s" class="gv-icon"><svg data-hf-id="hf-q4lt" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-c7le" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-8s83" class="gv-when"><span data-hf-id="hf-qn85" class="gv-wait">waiting</span><span data-hf-id="hf-e58x" class="gv-done">✓ answered</span></div></div><div data-hf-id="hf-0frf" class="gv-name">Yusuf</div><div data-hf-id="hf-j99u" class="gv-prev">Who is Jesus to you?</div></div>
+                <div data-hf-id="hf-7bm6" class="gv-card" id="gv-k5" style="top:1000px"><div data-hf-id="hf-4syg" class="gv-row"><div data-hf-id="hf-1jur" class="gv-icon"><svg data-hf-id="hf-qiwu" width="26" height="24" viewBox="0 0 26 24"><path data-hf-id="hf-btad" d="M13 1C6.4 1 1 5.6 1 11.3c0 3.1 1.6 5.8 4.1 7.7L4 23l5-2.6c1.2.3 2.6.5 4 .5 6.6 0 12-4.6 12-10.3S19.6 1 13 1z" fill="#F7F4EC" /></svg></div>MESSAGES<div data-hf-id="hf-96j4" class="gv-when"><span data-hf-id="hf-tfdc" class="gv-wait">waiting</span><span data-hf-id="hf-dqxw" class="gv-done">✓ answered</span></div></div><div data-hf-id="hf-nqea" class="gv-name">Zeynep</div><div data-hf-id="hf-fv9y" class="gv-prev">I saw your video. Can we talk?</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-12gy" id="gv-card" data-hold>
+        <div data-hf-id="hf-0pqe" id="gv-logo"><img data-hf-id="hf-1nbd" src="assets/brand/zogreo-light.svg" alt="zōgreō" /></div>
+        <div data-hf-id="hf-4plf" id="gv-tag">ACCELERATE THE GREAT COMMISSION</div>
+        <div data-hf-id="hf-0ts0" id="gv-give">Give at zogreo.org</div>
+        <div data-hf-id="hf-cduy" id="gv-book">Book a call · calendly.com/zogreo/intro</div>
+        <div data-hf-id="hf-2m86" id="gv-qr"><img data-hf-id="hf-85nh" src="assets/brand/qr-give.svg" alt="QR code: zogreo.org give page" /></div>
+        <div data-hf-id="hf-hx9f" id="gv-scan">SCAN TO GIVE</div>
+        <div data-hf-id="hf-nv91" id="gv-foot">A program of The Apologist Project · 501(c)(3) nonprofit</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"flip":0.79,"flipStep":0.952,"phoneOut":5.84,"logo":6.09,"give":7.13,"rest":7.68};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still rising. The phone from the opening, the next morning: the ad is running again.
+      tl.fromTo("#gv-stage", { y: 230, opacity: 0.35, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set("#gv-morning", { x: 420, y: -200 }); // world 200..1280 in view: the clock, the running ad, the first cards
+      gsap.set(".gv-done", { autoAlpha: 0 });
+      gsap.set(["#gv-tag", "#gv-give", "#gv-book", "#gv-qr", "#gv-scan", "#gv-foot"], { autoAlpha: 0 });
+      gsap.set("#gv-logo", { clipPath: "inset(0% 100% 0% 0%)" });
+
+      // "your gift puts that conversation within reach": every message that waited is answered (Layla's is already a live conversation)
+      const order = [1, 2, 3, 4, 5]; // top to bottom: the camera pans down with them
+      order.forEach((k, i) => {
+        const t = T.flip + i * T.flipStep;
+        tl.to("#gv-k" + k + " .gv-wait", { autoAlpha: 0, duration: 0.14, ease: "power1.in" }, t);
+        tl.fromTo("#gv-k" + k + " .gv-done", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" }, t + 0.06);
+      });
+      // the camera pans down the answered cards while the line is said
+      tl.to("#gv-morning", { y: -650, duration: T.phoneOut - T.flip - 0.6, ease: "sine.inOut" }, T.flip + 0.6);
+      // the phone steps back for the mark and the ask
+      tl.to("#gv-morning", { autoAlpha: 0, scale: 0.94, y: "-=40", filter: "blur(8px)", duration: 0.4, ease: "power2.in" }, T.phoneOut);
+      tl.fromTo("#gv-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power2.inOut" }, T.logo);
+      tl.fromTo("#gv-tag", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.logo + 0.45);
+      tl.fromTo("#gv-give", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.give);
+      tl.fromTo("#gv-book", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.rest);
+      tl.fromTo("#gv-qr", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, T.rest + 0.3);
+      tl.fromTo("#gv-scan", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.rest + 0.45);
+      tl.fromTo("#gv-foot", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.rest + 0.6);
+
+      window.__timelines["give"] = tl;
+    })();
+  </script>
+</template>

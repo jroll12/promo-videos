@@ -1,0 +1,73 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #1D3D1E; }
+    #gv-bg { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 38%, #24492A 0%, #1D3D1E 55%, #152D16 100%); }
+    #gv-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #gv-rings { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #gv-head { position: absolute; left: 0; top: 520px; width: 1080px; text-align: center; color: #F3F0E8; font: 300 96px/1.12 "Cormorant Garamond"; }
+    #gv-head .w { display: inline-block; }
+    #gv-head em { font-style: italic; color: #B4C4AE; }
+    #gv-card { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #gv-logo { position: absolute; left: 240px; top: 300px; width: 600px; height: 213px; }
+    #gv-logo img { width: 600px; height: 213px; display: block; }
+    #gv-tag { position: absolute; left: 0; top: 560px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #A9B8A6; }
+    #gv-give { position: absolute; left: 160px; top: 660px; width: 760px; height: 124px; border-radius: 62px; background: #F7F4EC; color: #1D3D1E; text-align: center; font: 600 48px/124px "ZG Inter"; }
+    #gv-book { position: absolute; left: 160px; top: 816px; width: 760px; height: 108px; border-radius: 54px; box-shadow: inset 0 0 0 3px rgba(247, 244, 236, 0.8); color: #F7F4EC; text-align: center; font: 500 32px/108px "ZG Inter"; }
+    #gv-qr { position: absolute; left: 430px; top: 966px; width: 220px; height: 220px; border-radius: 26px; background: #FFFFFF; }
+    #gv-qr img { position: absolute; left: 14px; top: 14px; width: 192px; height: 192px; }
+    #gv-scan { position: absolute; left: 0; top: 1208px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #F3F0E8; }
+    #gv-foot { position: absolute; left: 0; top: 1262px; width: 1080px; text-align: center; font: 400 28px/1.2 "ZG Inter"; color: #A9B8A6; }
+  </style>
+
+  <div id="root" data-composition-id="give" data-width="1080" data-height="1920">
+    <div id="gv-bg"></div>
+    <div id="gv-stage">
+      <svg id="gv-rings" viewBox="0 0 1080 1920" data-layout-ignore>
+        <circle cx="140" cy="230" r="520" fill="none" stroke="rgba(232,228,227,0.075)" stroke-width="2" />
+        <circle cx="980" cy="1500" r="700" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+        <circle cx="60" cy="1860" r="300" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+      <div id="gv-head"><span class="w">Together,</span> <span class="w">we</span> <span class="w">can</span><br /><span class="w">help</span> <span class="w">fulfill</span> <span class="w">the</span><br /><span class="w"><em>Great</em></span> <span class="w"><em>Commission</em></span><br /><span class="w">in</span> <span class="w">our</span> <span class="w">lifetime.</span></div>
+      <div id="gv-card" data-hold>
+        <div id="gv-logo"><img src="assets/brand/zogreo-light.svg" alt="zōgreō" /></div>
+        <div id="gv-tag">VETTED SEEKERS, DELIVERED.</div>
+        <div id="gv-give">Give at zogreo.org</div>
+        <div id="gv-book">Book a call · calendly.com/zogreo/intro</div>
+        <div id="gv-qr"><img src="assets/brand/qr-give.svg" alt="QR code: zogreo.org give page" /></div>
+        <div id="gv-scan">SCAN TO GIVE</div>
+        <div id="gv-foot">A program of The Apologist Project · 501(c)(3) nonprofit</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still rising
+      tl.fromTo("#gv-stage", { y: 230, opacity: 0.35, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set("#gv-head .w", { opacity: 0.16 });
+      gsap.set(["#gv-tag", "#gv-give", "#gv-book", "#gv-qr", "#gv-scan", "#gv-foot"], { autoAlpha: 0 });
+      gsap.set("#gv-logo", { clipPath: "inset(0% 100% 0% 0%)" });
+
+      // together, we can help fulfill the Great Commission in our lifetime: the line arrives faint with the stage, each word inks in as it is spoken
+      document.querySelectorAll("#gv-head .w").forEach((w, i) => {
+        tl.fromTo(w, { opacity: 0.16 }, { opacity: 1, duration: 0.12, ease: "power1.out" }, T.head[i]);
+      });
+      tl.to("#gv-head", { autoAlpha: 0, y: -40, filter: "blur(8px)", duration: 0.3, ease: "power2.in" }, T.headOut);
+
+      // the mark, then the ask
+      tl.fromTo("#gv-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power2.inOut" }, T.logo);
+      tl.fromTo("#gv-tag", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.logo + 0.45);
+      tl.fromTo("#gv-give", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.give);
+      tl.fromTo("#gv-book", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.book);
+      tl.fromTo("#gv-qr", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, T.book + 0.35);
+      tl.fromTo("#gv-scan", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.book + 0.5);
+      tl.fromTo("#gv-foot", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.book + 0.65);
+
+      window.__timelines["give"] = tl;
+    })();
+  </script>
+</template>

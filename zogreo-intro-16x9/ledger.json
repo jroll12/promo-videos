@@ -1,0 +1,35 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "night→proof",
+      "cut": 37.4,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#nt-stage",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#pf-stage",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "proof→give",
+      "cut": 50.16,
+      "technique": "cut-the-curve UP",
+      "exit": {
+        "selector": "#pf-stage",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#gv-stage",
+        "axis": "y",
+        "dir": -1
+      }
+    }
+  ]
+}

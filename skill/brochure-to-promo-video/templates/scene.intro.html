@@ -1,0 +1,26 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    /* A minimal working scene: the first narration line arrives word by word, on the spoken word.
+       Replace it with the real scenes from SPEC.md. Use the font aliases in build/fonts-map.json
+       (e.g. "Inter PV") and the brochure's colours from brand/palette.json. */
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F7F4EC; }
+    #hd { position: absolute; left: 80px; right: 80px; top: 600px; font: 600 88px/1.12 "Inter PV"; color: #1B241A; }
+    #hd .w { display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="intro" data-width="1080" data-height="1920">
+    <div id="hd"><!--{{WORDS}}--></div>
+  </div>
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      // initial states go through gsap.set, not tl.set at 0 (a zero-length set at time 0 does not render on frame 0)
+      gsap.set("#hd .w", { opacity: 0.16 });
+      document.querySelectorAll("#hd .w").forEach((w, i) => {
+        tl.fromTo(w, { opacity: 0.16 }, { opacity: 1, duration: 0.12, ease: "power1.out" }, T.words[i]);
+      });
+      window.__timelines["intro"] = tl;
+    })();
+  </script>
+</template>
