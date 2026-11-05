@@ -1,0 +1,845 @@
+{
+ "source": "assets/vo/narration.mp3",
+ "duration": 32.026,
+ "method": "pocketsphinx forced alignment of the known script (word times measured against the audio; the spoken words themselves are NOT independently transcribed)",
+ "words": [
+  {
+   "word": "A",
+   "aligned": "a",
+   "start": 0.0,
+   "end": 0.12,
+   "line": 1,
+   "aligned_start": 0.0,
+   "aligned_end": 0.12
+  },
+  {
+   "word": "person",
+   "aligned": "person",
+   "start": 0.12,
+   "end": 0.56,
+   "line": 1,
+   "aligned_start": 0.12,
+   "aligned_end": 0.56
+  },
+  {
+   "word": "messages",
+   "aligned": "messages",
+   "start": 0.56,
+   "end": 1.01,
+   "line": 1,
+   "aligned_start": 0.56,
+   "aligned_end": 1.01
+  },
+  {
+   "word": "your",
+   "aligned": "your",
+   "start": 1.01,
+   "end": 1.13,
+   "line": 1,
+   "aligned_start": 1.01,
+   "aligned_end": 1.13
+  },
+  {
+   "word": "ministry",
+   "aligned": "ministry",
+   "start": 1.13,
+   "end": 1.66,
+   "line": 1,
+   "aligned_start": 1.13,
+   "aligned_end": 1.66
+  },
+  {
+   "word": "on",
+   "aligned": "on",
+   "start": 1.66,
+   "end": 1.76,
+   "line": 1,
+   "aligned_start": 1.66,
+   "aligned_end": 1.76
+  },
+  {
+   "word": "WhatsApp,",
+   "aligned": "whatsapp",
+   "start": 1.76,
+   "end": 2.48,
+   "line": 1,
+   "aligned_start": 1.76,
+   "aligned_end": 2.62
+  },
+  {
+   "word": "Instagram,",
+   "aligned": "instagram",
+   "start": 2.64,
+   "end": 3.38,
+   "line": 1,
+   "aligned_start": 2.62,
+   "aligned_end": 3.38
+  },
+  {
+   "word": "Telegram,",
+   "aligned": "telegram",
+   "start": 3.38,
+   "end": 4.02,
+   "line": 1,
+   "aligned_start": 3.38,
+   "aligned_end": 4.05
+  },
+  {
+   "word": "or",
+   "aligned": "or",
+   "start": 4.43,
+   "end": 4.57,
+   "line": 1,
+   "aligned_start": 4.42,
+   "aligned_end": 4.57
+  },
+  {
+   "word": "another",
+   "aligned": "another",
+   "start": 4.57,
+   "end": 4.85,
+   "line": 1,
+   "aligned_start": 4.57,
+   "aligned_end": 4.85
+  },
+  {
+   "word": "platform",
+   "aligned": "platform",
+   "start": 4.85,
+   "end": 5.33,
+   "line": 1,
+   "aligned_start": 4.85,
+   "aligned_end": 5.33
+  },
+  {
+   "word": "you",
+   "aligned": "you",
+   "start": 5.33,
+   "end": 5.47,
+   "line": 1,
+   "aligned_start": 5.33,
+   "aligned_end": 5.47
+  },
+  {
+   "word": "already",
+   "aligned": "already",
+   "start": 5.47,
+   "end": 5.83,
+   "line": 1,
+   "aligned_start": 5.47,
+   "aligned_end": 5.83
+  },
+  {
+   "word": "use.",
+   "aligned": "use",
+   "start": 5.83,
+   "end": 6.23,
+   "line": 1,
+   "aligned_start": 5.83,
+   "aligned_end": 6.25
+  },
+  {
+   "word": "Our",
+   "aligned": "our",
+   "start": 6.72,
+   "end": 6.94,
+   "line": 2,
+   "aligned_start": 6.71,
+   "aligned_end": 6.94
+  },
+  {
+   "word": "AI",
+   "aligned": "ai",
+   "start": 6.94,
+   "end": 7.39,
+   "line": 2,
+   "aligned_start": 6.94,
+   "aligned_end": 7.39
+  },
+  {
+   "word": "finds",
+   "aligned": "finds",
+   "start": 7.39,
+   "end": 7.79,
+   "line": 2,
+   "aligned_start": 7.39,
+   "aligned_end": 7.79
+  },
+  {
+   "word": "out",
+   "aligned": "out",
+   "start": 7.79,
+   "end": 7.91,
+   "line": 2,
+   "aligned_start": 7.79,
+   "aligned_end": 7.91
+  },
+  {
+   "word": "where",
+   "aligned": "where",
+   "start": 7.91,
+   "end": 8.18,
+   "line": 2,
+   "aligned_start": 7.91,
+   "aligned_end": 8.18
+  },
+  {
+   "word": "they",
+   "aligned": "they",
+   "start": 8.18,
+   "end": 8.36,
+   "line": 2,
+   "aligned_start": 8.18,
+   "aligned_end": 8.36
+  },
+  {
+   "word": "are",
+   "aligned": "are",
+   "start": 8.36,
+   "end": 8.58,
+   "line": 2,
+   "aligned_start": 8.36,
+   "aligned_end": 8.58
+  },
+  {
+   "word": "on",
+   "aligned": "on",
+   "start": 8.58,
+   "end": 8.66,
+   "line": 2,
+   "aligned_start": 8.58,
+   "aligned_end": 8.66
+  },
+  {
+   "word": "their",
+   "aligned": "their",
+   "start": 8.66,
+   "end": 8.78,
+   "line": 2,
+   "aligned_start": 8.66,
+   "aligned_end": 8.78
+  },
+  {
+   "word": "spiritual",
+   "aligned": "spiritual",
+   "start": 8.78,
+   "end": 9.28,
+   "line": 2,
+   "aligned_start": 8.78,
+   "aligned_end": 9.28
+  },
+  {
+   "word": "journey,",
+   "aligned": "journey",
+   "start": 9.28,
+   "end": 9.61,
+   "line": 2,
+   "aligned_start": 9.28,
+   "aligned_end": 9.72
+  },
+  {
+   "word": "so",
+   "aligned": "so",
+   "start": 9.99,
+   "end": 10.1,
+   "line": 2,
+   "aligned_start": 9.99,
+   "aligned_end": 10.1
+  },
+  {
+   "word": "you",
+   "aligned": "you",
+   "start": 10.1,
+   "end": 10.34,
+   "line": 2,
+   "aligned_start": 10.1,
+   "aligned_end": 10.34
+  },
+  {
+   "word": "can",
+   "aligned": "can",
+   "start": 10.34,
+   "end": 10.51,
+   "line": 2,
+   "aligned_start": 10.34,
+   "aligned_end": 10.51
+  },
+  {
+   "word": "focus",
+   "aligned": "focus",
+   "start": 10.51,
+   "end": 10.89,
+   "line": 2,
+   "aligned_start": 10.51,
+   "aligned_end": 10.89
+  },
+  {
+   "word": "on",
+   "aligned": "on",
+   "start": 10.89,
+   "end": 10.98,
+   "line": 2,
+   "aligned_start": 10.89,
+   "aligned_end": 10.98
+  },
+  {
+   "word": "the",
+   "aligned": "the",
+   "start": 10.98,
+   "end": 11.05,
+   "line": 2,
+   "aligned_start": 10.98,
+   "aligned_end": 11.05
+  },
+  {
+   "word": "people",
+   "aligned": "people",
+   "start": 11.05,
+   "end": 11.39,
+   "line": 2,
+   "aligned_start": 11.05,
+   "aligned_end": 11.39
+  },
+  {
+   "word": "most",
+   "aligned": "most",
+   "start": 11.39,
+   "end": 11.81,
+   "line": 2,
+   "aligned_start": 11.39,
+   "aligned_end": 11.81
+  },
+  {
+   "word": "open",
+   "aligned": "open",
+   "start": 11.81,
+   "end": 12.14,
+   "line": 2,
+   "aligned_start": 11.81,
+   "aligned_end": 12.14
+  },
+  {
+   "word": "to",
+   "aligned": "to",
+   "start": 12.14,
+   "end": 12.22,
+   "line": 2,
+   "aligned_start": 12.14,
+   "aligned_end": 12.22
+  },
+  {
+   "word": "the",
+   "aligned": "the",
+   "start": 12.22,
+   "end": 12.33,
+   "line": 2,
+   "aligned_start": 12.22,
+   "aligned_end": 12.33
+  },
+  {
+   "word": "gospel",
+   "aligned": "gospel",
+   "start": 12.33,
+   "end": 12.78,
+   "line": 2,
+   "aligned_start": 12.33,
+   "aligned_end": 12.78
+  },
+  {
+   "word": "first.",
+   "aligned": "first",
+   "start": 12.78,
+   "end": 13.34,
+   "line": 2,
+   "aligned_start": 12.78,
+   "aligned_end": 13.35
+  },
+  {
+   "word": "It",
+   "aligned": "it",
+   "start": 13.82,
+   "end": 13.91,
+   "line": 3,
+   "aligned_start": 13.78,
+   "aligned_end": 13.91
+  },
+  {
+   "word": "answers",
+   "aligned": "answers",
+   "start": 13.91,
+   "end": 14.25,
+   "line": 3,
+   "aligned_start": 13.91,
+   "aligned_end": 14.25
+  },
+  {
+   "word": "their",
+   "aligned": "their",
+   "start": 14.25,
+   "end": 14.37,
+   "line": 3,
+   "aligned_start": 14.25,
+   "aligned_end": 14.37
+  },
+  {
+   "word": "questions",
+   "aligned": "questions",
+   "start": 14.37,
+   "end": 14.98,
+   "line": 3,
+   "aligned_start": 14.37,
+   "aligned_end": 14.98
+  },
+  {
+   "word": "in",
+   "aligned": "in",
+   "start": 14.98,
+   "end": 15.09,
+   "line": 3,
+   "aligned_start": 14.98,
+   "aligned_end": 15.09
+  },
+  {
+   "word": "your",
+   "aligned": "your",
+   "start": 15.09,
+   "end": 15.34,
+   "line": 3,
+   "aligned_start": 15.09,
+   "aligned_end": 15.34
+  },
+  {
+   "word": "ministry's",
+   "aligned": "ministrys",
+   "start": 15.34,
+   "end": 15.86,
+   "line": 3,
+   "aligned_start": 15.34,
+   "aligned_end": 15.86
+  },
+  {
+   "word": "content",
+   "aligned": "content",
+   "start": 15.86,
+   "end": 16.37,
+   "line": 3,
+   "aligned_start": 15.86,
+   "aligned_end": 16.37
+  },
+  {
+   "word": "and",
+   "aligned": "and",
+   "start": 16.37,
+   "end": 16.49,
+   "line": 3,
+   "aligned_start": 16.37,
+   "aligned_end": 16.49
+  },
+  {
+   "word": "voice,",
+   "aligned": "voice",
+   "start": 16.49,
+   "end": 16.96,
+   "line": 3,
+   "aligned_start": 16.49,
+   "aligned_end": 16.97
+  },
+  {
+   "word": "and",
+   "aligned": "and",
+   "start": 17.32,
+   "end": 16.96,
+   "line": 3,
+   "aligned_start": 17.3,
+   "aligned_end": 17.39
+  },
+  {
+   "word": "when",
+   "aligned": "when",
+   "start": 17.39,
+   "end": 17.5,
+   "line": 3,
+   "aligned_start": 17.39,
+   "aligned_end": 17.5
+  },
+  {
+   "word": "it's",
+   "aligned": "its",
+   "start": 17.5,
+   "end": 17.67,
+   "line": 3,
+   "aligned_start": 17.5,
+   "aligned_end": 17.67
+  },
+  {
+   "word": "time,",
+   "aligned": "time",
+   "start": 17.67,
+   "end": 18.0,
+   "line": 3,
+   "aligned_start": 17.67,
+   "aligned_end": 18.02
+  },
+  {
+   "word": "it",
+   "aligned": "it",
+   "start": 18.41,
+   "end": 18.49,
+   "line": 3,
+   "aligned_start": 18.4,
+   "aligned_end": 18.49
+  },
+  {
+   "word": "hands",
+   "aligned": "hands",
+   "start": 18.49,
+   "end": 18.83,
+   "line": 3,
+   "aligned_start": 18.49,
+   "aligned_end": 18.83
+  },
+  {
+   "word": "the",
+   "aligned": "the",
+   "start": 18.83,
+   "end": 18.91,
+   "line": 3,
+   "aligned_start": 18.83,
+   "aligned_end": 18.91
+  },
+  {
+   "word": "conversation",
+   "aligned": "conversation",
+   "start": 18.91,
+   "end": 19.65,
+   "line": 3,
+   "aligned_start": 18.91,
+   "aligned_end": 19.65
+  },
+  {
+   "word": "to",
+   "aligned": "to",
+   "start": 19.65,
+   "end": 19.81,
+   "line": 3,
+   "aligned_start": 19.65,
+   "aligned_end": 19.81
+  },
+  {
+   "word": "a",
+   "aligned": "a",
+   "start": 19.81,
+   "end": 19.84,
+   "line": 3,
+   "aligned_start": 19.81,
+   "aligned_end": 19.84
+  },
+  {
+   "word": "missionary.",
+   "aligned": "missionary",
+   "start": 19.84,
+   "end": 20.4,
+   "line": 3,
+   "aligned_start": 19.84,
+   "aligned_end": 20.46
+  },
+  {
+   "word": "Already",
+   "aligned": "already",
+   "start": 21.04,
+   "end": 21.38,
+   "line": 4,
+   "aligned_start": 21.03,
+   "aligned_end": 21.38
+  },
+  {
+   "word": "using",
+   "aligned": "using",
+   "start": 21.38,
+   "end": 21.72,
+   "line": 4,
+   "aligned_start": 21.38,
+   "aligned_end": 21.72
+  },
+  {
+   "word": "Chatwoot",
+   "aligned": "chatwoot",
+   "start": 21.72,
+   "end": 22.26,
+   "line": 4,
+   "aligned_start": 21.72,
+   "aligned_end": 22.26
+  },
+  {
+   "word": "or",
+   "aligned": "or",
+   "start": 22.26,
+   "end": 22.45,
+   "line": 4,
+   "aligned_start": 22.26,
+   "aligned_end": 22.45
+  },
+  {
+   "word": "Turumba?",
+   "aligned": "turumba",
+   "start": 22.45,
+   "end": 23.0,
+   "line": 4,
+   "aligned_start": 22.45,
+   "aligned_end": 23.0
+  },
+  {
+   "word": "Our",
+   "aligned": "our",
+   "start": 23.41,
+   "end": 23.54,
+   "line": 4,
+   "aligned_start": 23.39,
+   "aligned_end": 23.54
+  },
+  {
+   "word": "platform",
+   "aligned": "platform",
+   "start": 23.54,
+   "end": 24.04,
+   "line": 4,
+   "aligned_start": 23.54,
+   "aligned_end": 24.04
+  },
+  {
+   "word": "connects",
+   "aligned": "connects",
+   "start": 24.04,
+   "end": 24.4,
+   "line": 4,
+   "aligned_start": 24.04,
+   "aligned_end": 24.4
+  },
+  {
+   "word": "with",
+   "aligned": "with",
+   "start": 24.4,
+   "end": 24.52,
+   "line": 4,
+   "aligned_start": 24.4,
+   "aligned_end": 24.52
+  },
+  {
+   "word": "both,",
+   "aligned": "both",
+   "start": 24.52,
+   "end": 24.94,
+   "line": 4,
+   "aligned_start": 24.52,
+   "aligned_end": 24.96
+  },
+  {
+   "word": "so",
+   "aligned": "so",
+   "start": 25.21,
+   "end": 24.94,
+   "line": 4,
+   "aligned_start": 25.17,
+   "aligned_end": 25.31
+  },
+  {
+   "word": "your",
+   "aligned": "your",
+   "start": 25.31,
+   "end": 25.53,
+   "line": 4,
+   "aligned_start": 25.31,
+   "aligned_end": 25.53
+  },
+  {
+   "word": "team",
+   "aligned": "team",
+   "start": 25.53,
+   "end": 25.82,
+   "line": 4,
+   "aligned_start": 25.53,
+   "aligned_end": 25.82
+  },
+  {
+   "word": "keeps",
+   "aligned": "keeps",
+   "start": 25.82,
+   "end": 26.12,
+   "line": 4,
+   "aligned_start": 25.82,
+   "aligned_end": 26.12
+  },
+  {
+   "word": "working",
+   "aligned": "working",
+   "start": 26.12,
+   "end": 26.53,
+   "line": 4,
+   "aligned_start": 26.12,
+   "aligned_end": 26.53
+  },
+  {
+   "word": "in",
+   "aligned": "in",
+   "start": 26.53,
+   "end": 26.61,
+   "line": 4,
+   "aligned_start": 26.53,
+   "aligned_end": 26.61
+  },
+  {
+   "word": "the",
+   "aligned": "the",
+   "start": 26.61,
+   "end": 26.7,
+   "line": 4,
+   "aligned_start": 26.61,
+   "aligned_end": 26.7
+  },
+  {
+   "word": "tools",
+   "aligned": "tools",
+   "start": 26.7,
+   "end": 27.08,
+   "line": 4,
+   "aligned_start": 26.7,
+   "aligned_end": 27.08
+  },
+  {
+   "word": "they",
+   "aligned": "they",
+   "start": 27.08,
+   "end": 27.21,
+   "line": 4,
+   "aligned_start": 27.08,
+   "aligned_end": 27.21
+  },
+  {
+   "word": "know.",
+   "aligned": "know",
+   "start": 27.21,
+   "end": 27.5,
+   "line": 4,
+   "aligned_start": 27.21,
+   "aligned_end": 27.58
+  },
+  {
+   "word": "Book",
+   "aligned": "book",
+   "start": 27.98,
+   "end": 28.18,
+   "line": 5,
+   "aligned_start": 27.98,
+   "aligned_end": 28.18
+  },
+  {
+   "word": "a",
+   "aligned": "a",
+   "start": 28.18,
+   "end": 28.24,
+   "line": 5,
+   "aligned_start": 28.18,
+   "aligned_end": 28.24
+  },
+  {
+   "word": "free",
+   "aligned": "free",
+   "start": 28.24,
+   "end": 28.54,
+   "line": 5,
+   "aligned_start": 28.24,
+   "aligned_end": 28.54
+  },
+  {
+   "word": "demo",
+   "aligned": "demo",
+   "start": 28.54,
+   "end": 28.87,
+   "line": 5,
+   "aligned_start": 28.54,
+   "aligned_end": 28.87
+  },
+  {
+   "word": "call,",
+   "aligned": "call",
+   "start": 28.87,
+   "end": 29.17,
+   "line": 5,
+   "aligned_start": 28.87,
+   "aligned_end": 29.33
+  },
+  {
+   "word": "or",
+   "aligned": "or",
+   "start": 29.36,
+   "end": 29.17,
+   "line": 5,
+   "aligned_start": 29.33,
+   "aligned_end": 29.52
+  },
+  {
+   "word": "make",
+   "aligned": "make",
+   "start": 29.52,
+   "end": 29.71,
+   "line": 5,
+   "aligned_start": 29.52,
+   "aligned_end": 29.71
+  },
+  {
+   "word": "a",
+   "aligned": "a",
+   "start": 29.71,
+   "end": 29.74,
+   "line": 5,
+   "aligned_start": 29.71,
+   "aligned_end": 29.74
+  },
+  {
+   "word": "donation,",
+   "aligned": "donation",
+   "start": 29.74,
+   "end": 30.22,
+   "line": 5,
+   "aligned_start": 29.74,
+   "aligned_end": 30.26
+  },
+  {
+   "word": "at",
+   "aligned": "at",
+   "start": 30.53,
+   "end": 30.22,
+   "line": 5,
+   "aligned_start": 30.51,
+   "aligned_end": 30.64
+  },
+  {
+   "word": "Zogreo",
+   "aligned": "zogreo",
+   "start": 30.64,
+   "end": 31.22,
+   "line": 5,
+   "aligned_start": 30.64,
+   "aligned_end": 31.22
+  },
+  {
+   "word": "dot",
+   "aligned": "dot",
+   "start": 31.22,
+   "end": 31.49,
+   "line": 5,
+   "aligned_start": 31.22,
+   "aligned_end": 31.49
+  },
+  {
+   "word": "org",
+   "aligned": "org",
+   "start": 31.49,
+   "end": 32.03,
+   "line": 5,
+   "aligned_start": 31.49,
+   "aligned_end": 32.03
+  }
+ ],
+ "snap": "word ends snapped to ffmpeg silencedetect pause starts (-38 dB, 0.12 s) and starts to pause ends where within 0.45 s / 0.2 s; tolerance about 0.1 s"
+}
