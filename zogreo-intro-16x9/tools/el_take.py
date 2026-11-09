@@ -6,7 +6,7 @@ S = {"stability": 0.5, "similarity_boost": 0.75, "style": 0.15, "use_speaker_boo
 SR = 44100
 script = json.load(open("tools/script.json")); os.makedirs("el-lines", exist_ok=True)
 parts = [np.zeros(int(0.35 * SR), np.float32)]
-spoken = lambda t: t.replace("zogreo.org", "Zoh-GRAY-oh dot org").replace("Zogreo", "Zoh-GRAY-oh").replace("3.73", "three point seven three")
+spoken = lambda t: t.replace("zogreo.org", "Zo-GRAY-oh dot org").replace("Zogreo", "Zo-GRAY-oh").replace("3.73", "three point seven three")
 for l in script["lines"]:
     ok, err = el.tts(spoken(l["text"]), f"el-lines/{l['id']}.mp3", settings=S)
     if not ok: sys.exit(f"{l['id']} failed: {err}")

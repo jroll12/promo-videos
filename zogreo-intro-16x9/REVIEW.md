@@ -54,7 +54,7 @@ independent second reviewer, then fixed what was found. The previous cut is kept
   −1.5 dBFS; stems sum to the rendered mix within −32 dB.
 - **Looked at:** contact sheets of 32 moments, plus spot checks after each fix.
 - **Not heard:** nobody has listened to the Jason narration yet, me included. Listen especially to:
-  - "Zogreo" in the proof scene and on the last line (the recogniser wrote "Zogreio" and "zogra"); it is sent as "Zoh-GRAY-oh".
+  - "Zogreo" in the proof scene and on the last line (the recogniser wrote "Zogreio" and "zogra"); it is now sent as "Zo-GRAY-oh" (Jarret's reference clip; option B of three).
 
 ## Needs a human before it goes out
 - **Jake (Tier 1):** the whole cut, including the script edits and the new tagline.
@@ -85,3 +85,10 @@ Scenes re-composed for 1920x1080: the phone is a 1080-px-tall close-up with the 
 end card are two columns. Delivered at 3840x2160 and 1920x1080. Checked: seam gate, one-frame jumps (cuts and clock only), QR decodes at 4K,
 21% of frames fully still, longest hold before the end card 3.5 s, -14.5 LUFS. Chat reading-time notes are the same as the vertical cut.
 Rebuild: `node tools/build.mjs`, then `render.sh . final --preset landscape-4k`.
+
+## Round 4 (2026-11-09): pronunciation
+Jarret supplied a reference recording of "Zogreo" and chose option B of three Jason renderings: **"Zo-GRAY-oh"**.
+- **Measured** (clip vs Jason): the clip has two strong syllables (ZO, then a longer, higher GRAY) and a light final "oh", 0.69 s. B: 0.78 s, same stress. The previous spelling "Zoh-GRAY-oh" was 0.82 s. Measurements show rhythm and stress, not vowel quality.
+- **Done:** all four scenes that say the name (night, handoff, proof, give) re-taken; narration re-aligned (word error 0.00 to 0.20, the name itself is mis-spelled by the recogniser as before); opening re-measured (126 Hz, harmonics-to-noise 9.0, the same as the rest).
+- **Still on screen:** the name card reads "DZOH · GRAY · OH" (Jarret's earlier wording). It no longer matches the voice. Decision for Jarret: change it to match, or keep.
+- **Not heard by anyone yet:** the new narration. Listen for the name in L5, L6, L8, L9 and L11.

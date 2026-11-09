@@ -13,7 +13,7 @@ script.json needs:
   lines[].before       optional Eleven v4 tag placed before the line inside its take, e.g. "[pause]", "[warmly]"
   elevenlabs.voice_id  the voice the user chose (ask; never pick one unheard)
   elevenlabs.model     default "eleven_v4"
-  elevenlabs.spoken    respellings applied before sending, e.g. {"Zogreo": "Zoh-GRAY-oh", "3.73": "three point seven three"}
+  elevenlabs.spoken    respellings applied before sending, e.g. {"Zogreo": "Zo-GRAY-oh", "3.73": "three point seven three"}
   elevenlabs.scenes.<scene>.direction  tags that open the take, e.g. "[warm, natural, conversational]". Keep it plain: never
                                        "hushed", "whispering" or "late at night" (see references/voice.md, "Do not direct the voice to fit the theme")
   elevenlabs.scenes.<scene>.settings   voice_settings: stability, similarity_boost, style, use_speaker_boost, speed

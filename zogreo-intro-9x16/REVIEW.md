@@ -54,7 +54,7 @@ independent second reviewer, then fixed what was found. The previous cut is kept
   −1.5 dBFS; stems sum to the rendered mix within −32 dB.
 - **Looked at:** contact sheets of 32 moments, plus spot checks after each fix.
 - **Not heard:** nobody has listened to the Jason narration yet, me included. Listen especially to:
-  - "Zogreo" in the proof scene and on the last line (the recogniser wrote "Zogreio" and "zogra"); it is sent as "Zoh-GRAY-oh".
+  - "Zogreo" in the proof scene and on the last line (the recogniser wrote "Zogreio" and "zogra"); it is now sent as "Zo-GRAY-oh" (Jarret's reference clip; option B of three).
 
 ## Needs a human before it goes out
 - **Jake (Tier 1):** the whole cut, including the script edits and the new tagline.
@@ -76,3 +76,10 @@ better than before (it now has the story's own people), and a more filmic versio
 2. `vo.py take`, with these arguments: `--script tools/script.json --audio el-scenes/take.wav`.
 3. `node tools/build.mjs`.
 4. Then `render.sh` and `python tools/stems.py --video <render>`.
+
+## Round 4 (2026-11-09): pronunciation
+Jarret supplied a reference recording of "Zogreo" and chose option B of three Jason renderings: **"Zo-GRAY-oh"**.
+- **Measured** (clip vs Jason): the clip has two strong syllables (ZO, then a longer, higher GRAY) and a light final "oh", 0.69 s. B: 0.78 s, same stress. The previous spelling "Zoh-GRAY-oh" was 0.82 s. Measurements show rhythm and stress, not vowel quality.
+- **Done:** all four scenes that say the name (night, handoff, proof, give) re-taken; narration re-aligned (word error 0.00 to 0.20, the name itself is mis-spelled by the recogniser as before); opening re-measured (126 Hz, harmonics-to-noise 9.0, the same as the rest).
+- **Still on screen:** the name card reads "DZOH · GRAY · OH" (Jarret's earlier wording). It no longer matches the voice. Decision for Jarret: change it to match, or keep.
+- **Not heard by anyone yet:** the new narration. Listen for the name in L5, L6, L8, L9 and L11.

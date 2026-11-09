@@ -3,40 +3,40 @@
   "id": "L1",
   "heard": "It's two in the morning. Layla saw a ministry's ad and asks a question they've never had a safe place to ask.",
   "wer": 0.0,
-  "seconds": 6.42,
-  "words_per_second": 3.43,
+  "seconds": 6.4,
+  "words_per_second": 3.44,
   "names": []
  },
  {
   "id": "L2",
   "heard": "But messages pour in faster than a small team can answer.",
   "wer": 0.0,
-  "seconds": 2.99,
-  "words_per_second": 3.68,
+  "seconds": 3.05,
+  "words_per_second": 3.61,
   "names": []
  },
  {
   "id": "L3",
   "heard": "So seekers wait. Or the ministry turns off its ad just to catch up and the door closes.",
   "wer": 0.0,
-  "seconds": 5.56,
-  "words_per_second": 3.24,
+  "seconds": 5.58,
+  "words_per_second": 3.23,
   "names": []
  },
  {
   "id": "L4",
-  "heard": "The harvest is plentiful. But the workers are few.",
+  "heard": "The harvest is plentiful, but the workers are few.",
   "wer": 0.0,
-  "seconds": 3.04,
-  "words_per_second": 2.96,
+  "seconds": 3.09,
+  "words_per_second": 2.91,
   "names": []
  },
  {
   "id": "L5",
   "heard": "That's why we built Zogreo. It's the word Jesus used for catching people alive.",
   "wer": 0.0,
-  "seconds": 4.62,
-  "words_per_second": 3.03,
+  "seconds": 4.97,
+  "words_per_second": 2.82,
   "names": [
    {
     "term": "Zogreo",
@@ -50,8 +50,8 @@
   "id": "L6",
   "heard": "Zogreo answers seekers day or night, in their heart language, and it's honest about the hard parts.",
   "wer": 0.0,
-  "seconds": 6.14,
-  "words_per_second": 2.77,
+  "seconds": 6.29,
+  "words_per_second": 2.7,
   "names": [
    {
     "term": "Zogreo",
@@ -65,16 +65,16 @@
   "id": "L7",
   "heard": "And when someone is ready for a real person, it brings in a trained believer from a local ministry.",
   "wer": 0.0,
-  "seconds": 5.17,
-  "words_per_second": 3.68,
+  "seconds": 5.45,
+  "words_per_second": 3.49,
   "names": []
  },
  {
   "id": "L8",
   "heard": "In a week-long pilot in Turkey, Zogreio helped a two-person team serve 3.73 times as many seekers.",
   "wer": 0.056,
-  "seconds": 7.38,
-  "words_per_second": 2.3,
+  "seconds": 7.36,
+  "words_per_second": 2.31,
   "names": [
    {
     "term": "Zogreo",
@@ -103,21 +103,21 @@
   "id": "L10",
   "heard": "Your gift puts that conversation within reach of someone who has never had a safe place to ask.",
   "wer": 0.0,
-  "seconds": 5.38,
-  "words_per_second": 3.35,
+  "seconds": 5.31,
+  "words_per_second": 3.39,
   "names": []
  },
  {
   "id": "L11",
-  "heard": "Give today at zogreo.org.",
-  "wer": 0.0,
-  "seconds": 2.48,
-  "words_per_second": 1.61,
+  "heard": "Give today at zogra.org.",
+  "wer": 0.2,
+  "seconds": 2.43,
+  "words_per_second": 1.65,
   "names": [
    {
     "term": "zogreo.org",
-    "heard_as": "zogreo",
-    "similarity": 0.8,
+    "heard_as": "zogra",
+    "similarity": 0.57,
     "flag": true
    }
   ]

@@ -32,8 +32,8 @@ Give today at zogreo.org.
 
 | Written | Said | Notes |
 | --- | --- | --- |
-| Zogreo | dzoh-GRAY-oh | Sent to ElevenLabs as "Zoh-GRAY-oh" (Jarret chose that clip; the engine cannot be sure of the leading "dz") |
-| zogreo.org | the name, then "dot org" | Sent as "Zoh-GRAY-oh dot org" |
+| Zogreo | Zo-GRAY-oh (stress on GRAY, light "oh" at the end) | Sent to ElevenLabs as "Zo-GRAY-oh", matched to Jarret's reference recording (`assets/brand/pronunciation/`) by syllable timing and stress; vowel sounds not verified by anyone but Jarret |
+| zogreo.org | the name, then "dot org" | Sent as "Zo-GRAY-oh dot org" |
 | 3.73 | three point seven three | Sent spelled out |
 | Turkey | TUR-key | Jarret's spelling, in the script and on screen (the flyer itself writes "Türkiye") |
 

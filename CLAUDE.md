@@ -1,6 +1,6 @@
 # promo-videos: how to work here (read this first, keep replies short)
 
-Skill: `.claude/skills/brochure-to-promo-video` (loads automatically). Zogreo is pronounced "dzoh-GRAY-oh"; spoken as "Zoh-GRAY-oh".
+Skill: `.claude/skills/brochure-to-promo-video` (loads automatically). Zogreo is spoken as **"Zo-GRAY-oh"** (stress on GRAY, light "oh" at the end), set by Jarret's reference clip `zogreo-intro-9x16/assets/brand/pronunciation/`. Send exactly that respelling to ElevenLabs (`spoken_elevenlabs` in `tools/script.json`), every video, every scene that says the name.
 
 ## Layout
 - `zogreo-intro-9x16/`, `zogreo-intro-16x9/`: finished film, both shapes. Brand assets (logo, fonts, QR, palette) are in `zogreo-intro-9x16/assets/brand` and `assets/fonts`: reuse them, do not re-extract.

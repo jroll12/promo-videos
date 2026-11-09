@@ -21,7 +21,7 @@ Every claim the video makes, sorted by how far it can be trusted. Prepared 2026-
 | Testimonials: Josh Escalante (Maranatha Christian Schools); "Digital Responder, Türkiye" | Same flyer, quoted verbatim |
 | The 4-step model: Acquisition, Engagement, Qualification, Discipleship | Same flyer |
 | "Zogreo is a program of The Apologist Project, a 501(c)(3) nonprofit · EIN 87-0689599" | Same flyer |
-| Pronunciation: dzoh-GRAY-oh | Jarret (request) |
+| Pronunciation: Zo-GRAY-oh (reference clip) | Jarret (recording, 2026-11-09; earlier request was "dzoh-GRAY-oh") |
 | The example conversation ("Layla": "Hi, I saw your ad. I'm curious: what is the hope you talked about?" …) | Zogreo conference slide (Drive, "Zogreo Slide.png", 2026-10-29). Illustrative persona, not a real seeker. |
 
 **Conflict to resolve before publishing:** the 10/26 meeting note in Confluence ("Zogreo Messaging, Runway & Fundraising Pivot") cites "4-5x more people served at lower cost". That figure came from a Granola summary and the note itself marks it unverified. The newer flyer says 3.73×, so the video uses **3.73×**. The NEFES case study page (zogreo.org/case-studies/nefes-dbs-agent-in-turkiye) should be the tiebreaker, but this session's network blocks zogreo.org.

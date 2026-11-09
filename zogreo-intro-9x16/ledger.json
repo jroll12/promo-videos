@@ -3,7 +3,7 @@
   "seams": [
     {
       "id": "night→proof",
-      "cut": 37.4,
+      "cut": 38.64,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#nt-stage",
@@ -18,7 +18,7 @@
     },
     {
       "id": "proof→give",
-      "cut": 50.16,
+      "cut": 51.2,
       "technique": "cut-the-curve UP",
       "exit": {
         "selector": "#pf-stage",

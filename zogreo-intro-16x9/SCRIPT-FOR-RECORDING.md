@@ -2,7 +2,7 @@
 
 156 written words ("3.73" is spoken as four: "three point seven three"); about 60 seconds at an easy conversational pace.
 
-**Zogreo** is said dzoh-GRAY-oh, every time. **"zogreo.org"** is the name, then "dot org". **"3.73"** is "three point seven three".
+**Zogreo** is said Zo-GRAY-oh (stress on GRAY, a light "oh" at the end), every time. The reference recording is in `assets/brand/pronunciation/`. **"zogreo.org"** is the name, then "dot org". **"3.73"** is "three point seven three".
 A short breath between sentences; a slightly longer one between the paragraphs. Warm and natural, as if telling a friend: not hushed, not an announcer.
 
 **The problem**

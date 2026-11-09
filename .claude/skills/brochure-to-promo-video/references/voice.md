@@ -71,6 +71,12 @@ am_eric 13, af_heart 3.
   looks right can read wrong ("Dz..." is read as the letter D: "dee-zoh"; English words cannot begin with /dz/
   in espeak). Try 3 or 4 respellings and listen; if the exact sound is unreachable, say what you delivered.
   (Zogreo wanted "dzoh-GRAY-oh"; the reachable result was "zoh-GRAY-oh". It was disclosed, not hidden.)
+- **A reference recording beats a respelling.** The user can record the word on their phone. You cannot hear it, but you can measure it:
+  transcribe it, then compare syllable peaks (intensity maxima), the gap between them, which syllable carries the pitch peak, and the
+  total length against 3 or 4 respellings rendered by the same voice. Send those renderings for the user to pick by ear. Zogreo's result:
+  **"Zo-GRAY-oh"** (stress on GRAY, light "oh"), chosen by Jarret on 2026-11-09. Then re-take every scene that says the name; a new
+  respelling is a full re-take of those scenes, not a patch. Keep the clip in the repo (`assets/brand/pronunciation/`). Measurements show
+  rhythm and stress, never vowel quality: the user's ear decides.
 - `vo.py` prints `VERIFY BY EAR` when the recogniser transcribes a product name very differently from the
   script. A recogniser's spelling of a rare name is weak evidence either way; treat the flag as "listen here".
 - On-screen text can state the intended pronunciation ("DZOH · GRAY · OH") even when the voice cannot.
