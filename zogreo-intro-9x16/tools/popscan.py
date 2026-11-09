@@ -22,11 +22,25 @@ pops = [i + 1 for i in range(1, len(diff) - 1) if diff[i] > 2.0 and diff[i] > 2.
 
 c = json.load(open(cues_path))
 n = c["night"]
-known = {"cut night→proof": c["cutB"], "cut proof→give": c["cutC"], "lock→thread swap": n["swap"],
-         "push-in": (n["pushStart"] + n["pushEnd"]) / 2, "pull-back": (n["pullStart"] + n["pullEnd"]) / 2,
-         "screen off": n["closing"], "screen wakes": n["catching"] + 0.3, "AR→EN switch": n["heart"],
-         "verse out": n["verseOut"], "name out": n["nameOut"], "headline out": c["cutC"] + c["give"]["headOut"],
-         "logo wipe": c["cutC"] + c["give"]["logo"]}
+known = {}
+for _k, _f in [
+    ("cut night→proof", lambda: c["cutB"]),
+    ("cut proof→give", lambda: c["cutC"]),
+    ("lock→thread swap", lambda: n["swap"]),
+    ("push-in", lambda: (n["pushStart"] + n["pushEnd"]) / 2),
+    ("pull-back", lambda: (n["pullStart"] + n["pullEnd"]) / 2),
+    ("screen off", lambda: n["off"]),
+    ("screen wakes", lambda: n["catching"] + 0.3),
+    ("AR→EN switch", lambda: n["heart"]),
+    ("verse out", lambda: n["verseOut"]),
+    ("name out", lambda: n["nameOut"]),
+    ("headline out", lambda: c["cutC"] + c["give"]["headOut"]),
+    ("logo wipe", lambda: c["cutC"] + c["give"]["logo"]),
+]:
+    try:
+        known[_k] = _f()
+    except KeyError:
+        pass
 print(f"{len(frames)} frames, median change {np.median(diff):.2f}, {len(flags)} flagged")
 print(f"{len(pops)} isolated one-frame spikes (pop signature):")
 for f in pops:
