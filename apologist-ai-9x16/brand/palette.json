@@ -1,0 +1,59 @@
+{
+  "clusters": [
+    {
+      "hex": "#F2F0FA",
+      "share": 0.3653,
+      "luminance": 0.946,
+      "saturation": 0.042
+    },
+    {
+      "hex": "#141A2A",
+      "share": 0.1867,
+      "luminance": 0.101,
+      "saturation": 0.527
+    },
+    {
+      "hex": "#201F3D",
+      "share": 0.1637,
+      "luminance": 0.13,
+      "saturation": 0.494
+    },
+    {
+      "hex": "#393C4E",
+      "share": 0.1136,
+      "luminance": 0.239,
+      "saturation": 0.267
+    },
+    {
+      "hex": "#C3C2D1",
+      "share": 0.0626,
+      "luminance": 0.765,
+      "saturation": 0.071
+    },
+    {
+      "hex": "#64627F",
+      "share": 0.0621,
+      "luminance": 0.395,
+      "saturation": 0.228
+    },
+    {
+      "hex": "#9A99AD",
+      "share": 0.0348,
+      "luminance": 0.605,
+      "saturation": 0.116
+    },
+    {
+      "hex": "#743CFC",
+      "share": 0.0111,
+      "luminance": 0.335,
+      "saturation": 0.763
+    }
+  ],
+  "roles_guess": {
+    "ground": "#F2F0FA",
+    "dark_panel_or_ink": "#141A2A",
+    "light_panel": "#F2F0FA",
+    "most_saturated": "#141A2A"
+  },
+  "note": "Cluster centres are averages (a gradient reads as its mean), and roles are a guess from pixel statistics. Look at pages/*.png, sample a flat region for the exact hex, and confirm before using."
+}

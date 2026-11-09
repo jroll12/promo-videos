@@ -1,0 +1,762 @@
+{
+  "total": 67.44,
+  "cutA": 38.58,
+  "cutB": 51.46,
+  "chat": {
+    "pre": 17,
+    "typeStart": 3.39,
+    "send": 5.04,
+    "typeStep": 0.064,
+    "blinks": [
+      0.5,
+      1,
+      1.5,
+      2,
+      2.5,
+      3
+    ],
+    "verseIn": 5.95,
+    "verse": [
+      6.4,
+      6.8,
+      7.04,
+      7.52,
+      7.68,
+      7.84,
+      8.08,
+      8.8,
+      8.96,
+      9.44,
+      9.68,
+      10,
+      10.56,
+      10.72,
+      10.88,
+      11.04,
+      11.44,
+      11.6,
+      11.76,
+      12.08,
+      12.32,
+      12.8
+    ],
+    "ref": 7.2,
+    "verseOut": 13.14,
+    "qIn": 13.24,
+    "qBut": 15.68,
+    "qFrom": 1000,
+    "qMid": -380,
+    "qTo": -620,
+    "qSettle": 1.4,
+    "team": 16.08,
+    "wait": 16.64,
+    "qOut": 17.6,
+    "gen": 18.05,
+    "hedges": 18.73,
+    "misquotes": 19.21,
+    "contradicts": 21.21,
+    "genOut": 22.85,
+    "logo": 23.15,
+    "eyebrow": 24.49,
+    "logoOut": 27.86,
+    "reskin": 27.91,
+    "seekAgain": 28.36,
+    "typing": 28.71,
+    "reply": 29.11,
+    "src": 29.77,
+    "hour": 30.73,
+    "lang": 31.69,
+    "cites": 32.57,
+    "hand": 34.98,
+    "scrollHand": 330,
+    "press": 36.5,
+    "connected": 36.95,
+    "exit": 38.26
+  },
+  "proof": {
+    "one": 1.01,
+    "label": 1.26,
+    "method": 1.86,
+    "source": 2.46,
+    "band": 7.35,
+    "nameAt": [
+      8.45,
+      9.41,
+      10.45,
+      11.81,
+      11.91,
+      12.01,
+      12.11
+    ],
+    "exit": 12.56
+  },
+  "cta": {
+    "head": [
+      0.2,
+      0.29,
+      0.61,
+      0.85,
+      1.33,
+      2.29,
+      2.45,
+      2.69,
+      2.85,
+      3.17,
+      3.41,
+      3.57,
+      3.81,
+      3.97
+    ],
+    "flood": 4.48,
+    "tag": [
+      4.78,
+      5.1,
+      5.98,
+      6.22,
+      7.98,
+      8.46,
+      8.7
+    ],
+    "settle": 9.15,
+    "book": 9.5,
+    "visit": 11.18,
+    "site": 11.58,
+    "foot": 12.08
+  },
+  "captions": [
+    {
+      "text": "Picture your website",
+      "start": 0.12,
+      "end": 1.22
+    },
+    {
+      "text": "at two in the morning.",
+      "start": 1.22,
+      "end": 2.34
+    },
+    {
+      "text": "Someone arrives",
+      "start": 2.34,
+      "end": 3.06
+    },
+    {
+      "text": "with a question",
+      "start": 3.06,
+      "end": 3.7
+    },
+    {
+      "text": "they've never felt safe",
+      "start": 3.7,
+      "end": 4.74
+    },
+    {
+      "text": "to ask out loud.",
+      "start": 4.74,
+      "end": 6.13
+    },
+    {
+      "text": "Always be prepared",
+      "start": 6.34,
+      "end": 7.46
+    },
+    {
+      "text": "to give an answer",
+      "start": 7.46,
+      "end": 8.74
+    },
+    {
+      "text": "to everyone who asks you",
+      "start": 8.74,
+      "end": 10.5
+    },
+    {
+      "text": "to give the reason",
+      "start": 10.5,
+      "end": 11.38
+    },
+    {
+      "text": "for the hope",
+      "start": 11.38,
+      "end": 12.02
+    },
+    {
+      "text": "that you have.",
+      "start": 12.02,
+      "end": 13.38
+    },
+    {
+      "text": "The questions never stop.",
+      "start": 13.38,
+      "end": 15.62
+    },
+    {
+      "text": "But your team",
+      "start": 15.62,
+      "end": 16.34
+    },
+    {
+      "text": "can't answer them all.",
+      "start": 16.34,
+      "end": 17.69
+    },
+    {
+      "text": "Generic AI hedges,",
+      "start": 17.79,
+      "end": 19.15
+    },
+    {
+      "text": "misquotes Scripture,",
+      "start": 19.15,
+      "end": 20.43
+    },
+    {
+      "text": "or quietly contradicts",
+      "start": 20.43,
+      "end": 21.87
+    },
+    {
+      "text": "what you teach.",
+      "start": 21.87,
+      "end": 22.86
+    },
+    {
+      "text": "Apologist AI puts",
+      "start": 22.99,
+      "end": 24.35
+    },
+    {
+      "text": "a faithful, branded",
+      "start": 24.35,
+      "end": 25.79
+    },
+    {
+      "text": "chatbot on your",
+      "start": 25.79,
+      "end": 26.91
+    },
+    {
+      "text": "ministry's website.",
+      "start": 26.91,
+      "end": 28.44
+    },
+    {
+      "text": "It answers from",
+      "start": 28.51,
+      "end": 29.31
+    },
+    {
+      "text": "your own teaching,",
+      "start": 29.31,
+      "end": 30.43
+    },
+    {
+      "text": "any hour, in any language,",
+      "start": 30.43,
+      "end": 32.35
+    },
+    {
+      "text": "and cites its sources.",
+      "start": 32.35,
+      "end": 34.03
+    },
+    {
+      "text": "When someone needs",
+      "start": 34.03,
+      "end": 34.91
+    },
+    {
+      "text": "a real person,",
+      "start": 34.91,
+      "end": 36.33
+    },
+    {
+      "text": "it passes them",
+      "start": 36.33,
+      "end": 37.13
+    },
+    {
+      "text": "to your team.",
+      "start": 37.13,
+      "end": 38.27
+    },
+    {
+      "text": "It's the number one",
+      "start": 38.57,
+      "end": 39.77
+    },
+    {
+      "text": "Christian AI platform on",
+      "start": 39.77,
+      "end": 41.61
+    },
+    {
+      "text": "The Gospel Coalition's",
+      "start": 41.61,
+      "end": 43.05
+    },
+    {
+      "text": "2026 AI Christian Benchmark.",
+      "start": 43.05,
+      "end": 46.11
+    },
+    {
+      "text": "It's trusted by Ligonier,",
+      "start": 46.17,
+      "end": 47.93
+    },
+    {
+      "text": "Got Questions,",
+      "start": 47.93,
+      "end": 48.97
+    },
+    {
+      "text": "Apologetics Canada,",
+      "start": 48.97,
+      "end": 50.33
+    },
+    {
+      "text": "and more.",
+      "start": 50.33,
+      "end": 51.21
+    },
+    {
+      "text": "We run your",
+      "start": 51.53,
+      "end": 52.25
+    },
+    {
+      "text": "AI infrastructure,",
+      "start": 52.25,
+      "end": 53.69
+    },
+    {
+      "text": "so you can focus",
+      "start": 53.69,
+      "end": 54.57
+    },
+    {
+      "text": "on the people you serve.",
+      "start": 54.57,
+      "end": 56.14
+    },
+    {
+      "text": "Your mission.",
+      "start": 56.18,
+      "end": 57.38
+    },
+    {
+      "text": "Our platform.",
+      "start": 57.38,
+      "end": 59.38
+    },
+    {
+      "text": "Christ made known.",
+      "start": 59.38,
+      "end": 60.78
+    },
+    {
+      "text": "Book a quick intro call,",
+      "start": 60.9,
+      "end": 62.42
+    },
+    {
+      "text": "or visit apologistai.com.",
+      "start": 62.42,
+      "end": 64.59
+    }
+  ],
+  "sfx": [
+    {
+      "f": "typing",
+      "start": 3.023,
+      "ms": 0,
+      "dur": 1.5,
+      "vol": 0.13,
+      "track": 5
+    },
+    {
+      "f": "typing",
+      "start": 3.923,
+      "ms": 0,
+      "dur": 1.5,
+      "vol": 0.11,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 5.003,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.22,
+      "track": 5
+    },
+    {
+      "f": "whoosh-cinematic",
+      "start": 4.143,
+      "ms": 0,
+      "dur": 5.544,
+      "vol": 0.1,
+      "track": 7
+    },
+    {
+      "f": "whoosh",
+      "start": 13.213,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.12,
+      "track": 5
+    },
+    {
+      "f": "notification",
+      "start": 13.243,
+      "ms": 0,
+      "dur": 2.456,
+      "vol": 0.11,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 13.76,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.13,
+      "track": 7
+    },
+    {
+      "f": "ping",
+      "start": 13.967,
+      "ms": 0,
+      "dur": 1.32,
+      "vol": 0.09,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 14.573,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.12,
+      "track": 7
+    },
+    {
+      "f": "notification",
+      "start": 14.87,
+      "ms": 0,
+      "dur": 2.456,
+      "vol": 0.1,
+      "track": 8
+    },
+    {
+      "f": "pop",
+      "start": 15.387,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.12,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 16.093,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.16,
+      "track": 6
+    },
+    {
+      "f": "click-soft",
+      "start": 16.683,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.3,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 17.523,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.14,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 18.083,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.16,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 18.403,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.12,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 18.813,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.42,
+      "track": 6
+    },
+    {
+      "f": "click-soft",
+      "start": 19.293,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.42,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 21.293,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.42,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 22.723,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.12,
+      "track": 5
+    },
+    {
+      "f": "chime",
+      "start": 23.113,
+      "ms": 0,
+      "dur": 2.5,
+      "vol": 0.13,
+      "track": 6
+    },
+    {
+      "f": "whoosh",
+      "start": 27.883,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.14,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 27.833,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.14,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 28.323,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.18,
+      "track": 7
+    },
+    {
+      "f": "pop",
+      "start": 29.083,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.2,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 29.813,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.35,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 30.773,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.25,
+      "track": 5
+    },
+    {
+      "f": "key-press",
+      "start": 31.773,
+      "ms": 0,
+      "dur": 0.4,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "key-press",
+      "start": 32.013,
+      "ms": 0,
+      "dur": 0.4,
+      "vol": 0.16,
+      "track": 6
+    },
+    {
+      "f": "key-press",
+      "start": 32.253,
+      "ms": 0,
+      "dur": 0.4,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "key-press",
+      "start": 32.493,
+      "ms": 0,
+      "dur": 0.4,
+      "vol": 0.16,
+      "track": 6
+    },
+    {
+      "f": "click-soft",
+      "start": 32.613,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.35,
+      "track": 7
+    },
+    {
+      "f": "notification",
+      "start": 34.843,
+      "ms": 0,
+      "dur": 2.456,
+      "vol": 0.14,
+      "track": 5
+    },
+    {
+      "f": "click",
+      "start": 36.483,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.38,
+      "track": 6
+    },
+    {
+      "f": "ping",
+      "start": 36.723,
+      "ms": 0,
+      "dur": 1.32,
+      "vol": 0.16,
+      "track": 7
+    },
+    {
+      "f": "whoosh-short",
+      "start": 38.453,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.22,
+      "track": 5
+    },
+    {
+      "f": "riser",
+      "start": 37.253,
+      "ms": 1,
+      "dur": 3.3,
+      "vol": 0.13,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 39.623,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.18,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 45.903,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.14,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 46.393,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.12,
+      "track": 6
+    },
+    {
+      "f": "click-soft",
+      "start": 47.053,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.22,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 48.013,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.22,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 49.053,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.22,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 51.333,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.22,
+      "track": 5
+    },
+    {
+      "f": "whoosh",
+      "start": 55.913,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.14,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 60.633,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.12,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 60.953,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.16,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 62.633,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.18,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 63.083,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.25,
+      "track": 6
+    }
+  ]
+}

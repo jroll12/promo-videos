@@ -1,0 +1,80 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #ECE7FB; }
+    #root * { box-sizing: border-box; }
+    #cta-bg { position: absolute; inset: 0; background: #ECE7FB; }
+    #cta-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #cta-eyebrow { position: absolute; left: 80px; top: 500px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.22em; color: #1A1E2D; white-space: nowrap; }
+    #cta-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #1A1E2D; vertical-align: middle; margin-right: 20px; position: relative; top: -4px; }
+    #cta-head { position: absolute; left: 80px; top: 580px; width: 940px; font: 800 106px/114px "Inter PV"; letter-spacing: -0.03em; color: #111628; }
+    #cta-head .w, #cta-tag .w { display: inline-block; }
+
+    #cta-tag { position: absolute; left: 80px; top: 620px; width: 960px; font: 800 92px/100px "Inter PV"; letter-spacing: -0.035em; color: #FFFFFF; }
+    #cta-tag .a { color: #A88BFF; }
+    #cta-logo { position: absolute; left: 80px; top: 236px; width: 520px; height: 112px; }
+    #cta-logo img { width: 520px; height: 112px; display: block; }
+    #cta-booklbl { position: absolute; left: 80px; top: 778px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.2em; color: #A88BFF; white-space: nowrap; }
+    #cta-book { position: absolute; left: 80px; top: 826px; width: 760px; height: 104px; border-radius: 52px; box-shadow: inset 0 0 0 3px #C9BFFB; color: #FFFFFF; font: 600 38px/104px "Inter PV"; text-align: center; white-space: nowrap; }
+    #cta-visit { position: absolute; left: 80px; top: 956px; width: 760px; height: 120px; border-radius: 60px; background: #7137FF; color: #FFFFFF; font: 700 52px/120px "Inter PV"; text-align: center; white-space: nowrap; }
+    #cta-qr { position: absolute; left: 80px; top: 1132px; width: 244px; height: 244px; border-radius: 28px; background: #FFFFFF; }
+    #cta-qr img { position: absolute; left: 18px; top: 18px; width: 208px; height: 208px; }
+    #cta-scan { position: absolute; left: 360px; top: 1150px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.2em; color: #FFFFFF; white-space: nowrap; }
+    #cta-fine { position: absolute; left: 360px; top: 1206px; font: 400 32px/46px "Inter PV"; color: #D4D3E8; white-space: nowrap; }
+    #cta-foot { position: absolute; left: 80px; top: 1394px; font: 400 28px/34px "Inter PV"; color: #9A99AD; white-space: nowrap; }
+  </style>
+
+  <div data-hf-id="hf-rebv" id="root" data-composition-id="cta" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-cw8f" id="cta-bg"></div>
+    <div data-hf-id="hf-y3rw" id="cta-stage">
+      <div data-hf-id="hf-hvxf" id="cta-eyebrow"><i data-hf-id="hf-wt6k"></i>WHY APOLOGIST AI</div>
+      <div data-hf-id="hf-okrw" id="cta-head"><!--{{HEAD}}--></div>
+      <div data-hf-id="hf-02km" id="cta-tag"><!--{{TAG}}--></div>
+      <div data-hf-id="hf-mvqf" id="cta-logo"><img data-hf-id="hf-ii9e" src="assets/brand/logo-on-dark.svg" alt="apologist AI" /></div>
+      <div data-hf-id="hf-2s4a" id="cta-booklbl">BOOK A QUICK INTRO CALL</div>
+      <div data-hf-id="hf-mxjh" id="cta-book">calendly.com/apologist-ai/intro</div>
+      <div data-hf-id="hf-n6yw" id="cta-visit">apologistai.com</div>
+      <div data-hf-id="hf-gcwj" id="cta-qr"><img data-hf-id="hf-qer3" src="assets/brand/qr-apologistai.svg" alt="QR code: apologistai.com" /></div>
+      <div data-hf-id="hf-m53y" id="cta-scan">SCAN TO VISIT</div>
+      <div data-hf-id="hf-2ggh" id="cta-fine">Branded agents can launch in days.<br data-hf-id="hf-x5px" />Plans start at $99/month.</div>
+      <div data-hf-id="hf-ykti" id="cta-foot">A program of The Apologist Project, a 501(c)(3) nonprofit.</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still rising
+      tl.fromTo("#cta-stage", { y: 230, opacity: 0.35, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set("#cta-head .w", { opacity: 0.14 });
+      gsap.set("#cta-tag .w", { opacity: 0 });
+      gsap.set(["#cta-tag", "#cta-logo", "#cta-booklbl", "#cta-book", "#cta-visit", "#cta-qr", "#cta-scan", "#cta-fine", "#cta-foot"], { autoAlpha: 0 });
+      gsap.set("#cta-logo", { clipPath: "inset(0% 100% 0% 0%)" });
+
+      // we run your AI infrastructure, so you can focus on the people you serve: each word inks in as it is spoken
+      document.querySelectorAll("#cta-head .w").forEach((w, i) => tl.fromTo(w, { opacity: 0.14 }, { opacity: 1, duration: 0.12, ease: "power1.out" }, T.head[i]));
+
+      // colour flood to the brochure's navy; the tagline arrives word by word
+      tl.to(["#cta-head", "#cta-eyebrow"], { autoAlpha: 0, y: -40, filter: "blur(8px)", duration: 0.26, ease: "power2.in" }, T.flood - 0.1);
+      tl.to("#cta-bg", { backgroundColor: "#111828", duration: 0.45, ease: "power2.inOut" }, T.flood);
+      tl.set("#cta-tag", { autoAlpha: 1 }, T.flood + 0.2);
+      document.querySelectorAll("#cta-tag .w").forEach((w, i) => tl.fromTo(w, { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out" }, T.tag[i]));
+
+      // the ask: the tagline steps up under the mark, then the call, the site and the code
+      tl.to("#cta-tag", { y: -210, duration: 0.55, ease: "power3.inOut" }, T.settle);
+      tl.set("#cta-logo", { autoAlpha: 1 }, T.settle + 0.1);
+      tl.fromTo("#cta-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.inOut" }, T.settle + 0.1);
+      tl.fromTo("#cta-booklbl", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.25 }, T.book - 0.1);
+      tl.fromTo("#cta-book", { autoAlpha: 0, scale: 0.94, transformOrigin: "0% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.book);
+      tl.fromTo("#cta-visit", { autoAlpha: 0, scale: 0.94, transformOrigin: "0% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.visit);
+      tl.fromTo("#cta-qr", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, T.site);
+      tl.fromTo("#cta-scan", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.site + 0.15);
+      tl.fromTo("#cta-fine", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.site + 0.3);
+      tl.fromTo("#cta-foot", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.foot);
+
+      window.__timelines["cta"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,86 @@
+{
+  "lines": [
+    {
+      "id": "L1",
+      "text": "Picture your website at two in the morning. Someone arrives with a question they've never felt safe to ask out loud.",
+      "pause": 0.6,
+      "cap": "Picture your website / at two in the morning. / Someone arrives / with a question / they've never felt safe / to ask out loud.",
+      "el_speed": 0.9
+    },
+    {
+      "id": "L2",
+      "text": "Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have.",
+      "pause": 0.8,
+      "cap": "Always be prepared / to give an answer / to everyone who asks you / to give the reason / for the hope / that you have.",
+      "el_speed": 0.9,
+      "el_text": "Always be prepared to give an answer, to everyone who asks you, to give the reason for the hope that you have."
+    },
+    {
+      "id": "L3",
+      "text": "The questions never stop. But your team can't answer them all.",
+      "pause": 0.45,
+      "cap": "The questions never stop. / But your team / can't answer them all."
+    },
+    {
+      "id": "L4",
+      "text": "Generic AI hedges, misquotes Scripture, or quietly contradicts what you teach.",
+      "pause": 0.6,
+      "cap": "Generic AI hedges, / misquotes Scripture, / or quietly contradicts / what you teach."
+    },
+    {
+      "id": "L5",
+      "text": "Apologist AI puts a faithful, branded chatbot on your ministry's website.",
+      "pause": 0.5,
+      "cap": "Apologist AI puts / a faithful, branded / chatbot on your / ministry's website."
+    },
+    {
+      "id": "L6",
+      "text": "It answers from your own teaching, any hour, in any language, and cites its sources.",
+      "pause": 0.45,
+      "cap": "It answers from / your own teaching, / any hour, in any language, / and cites its sources."
+    },
+    {
+      "id": "L7",
+      "text": "When someone needs a real person, it passes them to your team.",
+      "pause": 0.8,
+      "cap": "When someone needs / a real person, / it passes them / to your team."
+    },
+    {
+      "id": "L8",
+      "text": "It's the number one Christian AI platform on The Gospel Coalition's 2026 AI Christian Benchmark.",
+      "pause": 0.5,
+      "cap": "It's the number one / Christian AI platform on / The Gospel Coalition's / 2026 AI Christian Benchmark."
+    },
+    {
+      "id": "L9",
+      "text": "It's trusted by Ligonier, Got Questions, Apologetics Canada, and more.",
+      "pause": 0.8,
+      "cap": "It's trusted by Ligonier, / Got Questions, / Apologetics Canada, / and more."
+    },
+    {
+      "id": "L10",
+      "text": "We run your AI infrastructure, so you can focus on the people you serve.",
+      "pause": 0.5,
+      "cap": "We run your / AI infrastructure, / so you can focus / on the people you serve.",
+      "el_speed": 0.9
+    },
+    {
+      "id": "L11",
+      "text": "Your mission. Our platform. Christ made known.",
+      "pause": 0.6,
+      "cap": "Your mission. / Our platform. / Christ made known."
+    },
+    {
+      "id": "L12",
+      "text": "Book a quick intro call, or visit apologistai.com.",
+      "pause": 0,
+      "cap": "Book a quick intro call, / or visit apologistai.com."
+    }
+  ],
+  "pronunciation": {
+    "apologistai.com": "apologist A.I. dot com",
+    "Apologist AI": "Apologist AI",
+    "Ligonier": "Ligonier",
+    "2026": "twenty twenty-six"
+  }
+}

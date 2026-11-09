@@ -1,0 +1,115 @@
+<template>
+  <style>
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-cyrillic-400-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: italic; font-weight: 400; src: url("assets/fonts/inter-cyrillic-400-italic.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: italic; font-weight: 400; src: url("assets/fonts/inter-latin-ext-400-italic.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: italic; font-weight: 400; src: url("assets/fonts/inter-latin-400-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-cyrillic-500-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-cyrillic-600-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-cyrillic-700-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 800; src: url("assets/fonts/inter-cyrillic-800-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 800; src: url("assets/fonts/inter-latin-ext-800-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 800; src: url("assets/fonts/inter-latin-800-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/jetbrains-mono-cyrillic-500-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/jetbrains-mono-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/jetbrains-mono-cyrillic-700-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/jetbrains-mono-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-arabic-500-normal.woff2") format("woff2"); unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-arabic-arabic-600-normal.woff2") format("woff2"); unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-arabic-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-arabic-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-devanagari-devanagari-500-normal.woff2") format("woff2"); unicode-range: U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-devanagari-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-devanagari-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-devanagari-devanagari-600-normal.woff2") format("woff2"); unicode-range: U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-devanagari-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-devanagari-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #ECE7FB; }
+    #root * { box-sizing: border-box; }
+    #cta-bg { position: absolute; inset: 0; background: #ECE7FB; }
+    #cta-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #cta-eyebrow { position: absolute; left: 80px; top: 500px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.22em; color: #1A1E2D; white-space: nowrap; }
+    #cta-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #1A1E2D; vertical-align: middle; margin-right: 20px; position: relative; top: -4px; }
+    #cta-head { position: absolute; left: 80px; top: 580px; width: 940px; font: 800 106px/114px "Inter PV"; letter-spacing: -0.03em; color: #111628; }
+    #cta-head .w, #cta-tag .w { display: inline-block; }
+
+    #cta-tag { position: absolute; left: 80px; top: 620px; width: 960px; font: 800 92px/100px "Inter PV"; letter-spacing: -0.035em; color: #FFFFFF; }
+    #cta-tag .a { color: #A88BFF; }
+    #cta-logo { position: absolute; left: 80px; top: 236px; width: 520px; height: 112px; }
+    #cta-logo img { width: 520px; height: 112px; display: block; }
+    #cta-booklbl { position: absolute; left: 80px; top: 778px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.2em; color: #A88BFF; white-space: nowrap; }
+    #cta-book { position: absolute; left: 80px; top: 826px; width: 760px; height: 104px; border-radius: 52px; box-shadow: inset 0 0 0 3px #C9BFFB; color: #FFFFFF; font: 600 38px/104px "Inter PV"; text-align: center; white-space: nowrap; }
+    #cta-visit { position: absolute; left: 80px; top: 956px; width: 760px; height: 120px; border-radius: 60px; background: #7137FF; color: #FFFFFF; font: 700 52px/120px "Inter PV"; text-align: center; white-space: nowrap; }
+    #cta-qr { position: absolute; left: 80px; top: 1132px; width: 244px; height: 244px; border-radius: 28px; background: #FFFFFF; }
+    #cta-qr img { position: absolute; left: 18px; top: 18px; width: 208px; height: 208px; }
+    #cta-scan { position: absolute; left: 360px; top: 1150px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.2em; color: #FFFFFF; white-space: nowrap; }
+    #cta-fine { position: absolute; left: 360px; top: 1206px; font: 400 32px/46px "Inter PV"; color: #D4D3E8; white-space: nowrap; }
+    #cta-foot { position: absolute; left: 80px; top: 1394px; font: 400 28px/34px "Inter PV"; color: #9A99AD; white-space: nowrap; }
+  </style>
+
+  <div data-hf-id="hf-rebv" id="root" data-composition-id="cta" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-cw8f" id="cta-bg"></div>
+    <div data-hf-id="hf-y3rw" id="cta-stage">
+      <div data-hf-id="hf-hvxf" id="cta-eyebrow"><i data-hf-id="hf-wt6k"></i>WHY APOLOGIST AI</div>
+      <div data-hf-id="hf-okrw" id="cta-head"><span data-hf-id="hf-te2w" class="w">We</span> <span data-hf-id="hf-bw6l" class="w">run</span> <span data-hf-id="hf-kxir" class="w">your</span> <span data-hf-id="hf-hlbq" class="w">AI</span> <span data-hf-id="hf-z7yh" class="w">infrastructure,</span> <span data-hf-id="hf-j9wa" class="w">so</span> <span data-hf-id="hf-wnbn" class="w">you</span> <span data-hf-id="hf-5oju" class="w">can</span> <span data-hf-id="hf-oh4g" class="w">focus</span> <span data-hf-id="hf-mx6p" class="w">on</span> <span data-hf-id="hf-9o0j" class="w">the</span> <span data-hf-id="hf-u3wb" class="w">people</span> <span data-hf-id="hf-bss3" class="w">you</span> <span data-hf-id="hf-4c8n" class="w">serve.</span></div>
+      <div data-hf-id="hf-02km" id="cta-tag"><span data-hf-id="hf-civn" class="w">Your</span> <span data-hf-id="hf-1h08" class="w">mission.</span><br data-hf-id="hf-rsrt" /><span data-hf-id="hf-rjkm" class="w">Our</span> <span data-hf-id="hf-9mo7" class="w">platform.</span><br data-hf-id="hf-szow" /><span data-hf-id="hf-r0yk" class="w a">Christ</span> <span data-hf-id="hf-5cwc" class="w a">made</span> <span data-hf-id="hf-nafe" class="w a">known.</span> </div>
+      <div data-hf-id="hf-mvqf" id="cta-logo"><img data-hf-id="hf-ii9e" src="assets/brand/logo-on-dark.svg" alt="apologist AI" /></div>
+      <div data-hf-id="hf-2s4a" id="cta-booklbl">BOOK A QUICK INTRO CALL</div>
+      <div data-hf-id="hf-mxjh" id="cta-book">calendly.com/apologist-ai/intro</div>
+      <div data-hf-id="hf-n6yw" id="cta-visit">apologistai.com</div>
+      <div data-hf-id="hf-gcwj" id="cta-qr"><img data-hf-id="hf-qer3" src="assets/brand/qr-apologistai.svg" alt="QR code: apologistai.com" /></div>
+      <div data-hf-id="hf-m53y" id="cta-scan">SCAN TO VISIT</div>
+      <div data-hf-id="hf-2ggh" id="cta-fine">Branded agents can launch in days.<br data-hf-id="hf-x5px" />Plans start at $99/month.</div>
+      <div data-hf-id="hf-ykti" id="cta-foot">A program of The Apologist Project, a 501(c)(3) nonprofit.</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"head":[0.2,0.29,0.61,0.85,1.33,2.29,2.45,2.69,2.85,3.17,3.41,3.57,3.81,3.97],"flood":4.48,"tag":[4.78,5.1,5.98,6.22,7.98,8.46,8.7],"settle":9.15,"book":9.5,"visit":11.18,"site":11.58,"foot":12.08};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still rising
+      tl.fromTo("#cta-stage", { y: 230, opacity: 0.35, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set("#cta-head .w", { opacity: 0.14 });
+      gsap.set("#cta-tag .w", { opacity: 0 });
+      gsap.set(["#cta-tag", "#cta-logo", "#cta-booklbl", "#cta-book", "#cta-visit", "#cta-qr", "#cta-scan", "#cta-fine", "#cta-foot"], { autoAlpha: 0 });
+      gsap.set("#cta-logo", { clipPath: "inset(0% 100% 0% 0%)" });
+
+      // we run your AI infrastructure, so you can focus on the people you serve: each word inks in as it is spoken
+      document.querySelectorAll("#cta-head .w").forEach((w, i) => tl.fromTo(w, { opacity: 0.14 }, { opacity: 1, duration: 0.12, ease: "power1.out" }, T.head[i]));
+
+      // colour flood to the brochure's navy; the tagline arrives word by word
+      tl.to(["#cta-head", "#cta-eyebrow"], { autoAlpha: 0, y: -40, filter: "blur(8px)", duration: 0.26, ease: "power2.in" }, T.flood - 0.1);
+      tl.to("#cta-bg", { backgroundColor: "#111828", duration: 0.45, ease: "power2.inOut" }, T.flood);
+      tl.set("#cta-tag", { autoAlpha: 1 }, T.flood + 0.2);
+      document.querySelectorAll("#cta-tag .w").forEach((w, i) => tl.fromTo(w, { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.14, ease: "power2.out" }, T.tag[i]));
+
+      // the ask: the tagline steps up under the mark, then the call, the site and the code
+      tl.to("#cta-tag", { y: -210, duration: 0.55, ease: "power3.inOut" }, T.settle);
+      tl.set("#cta-logo", { autoAlpha: 1 }, T.settle + 0.1);
+      tl.fromTo("#cta-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power2.inOut" }, T.settle + 0.1);
+      tl.fromTo("#cta-booklbl", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.25 }, T.book - 0.1);
+      tl.fromTo("#cta-book", { autoAlpha: 0, scale: 0.94, transformOrigin: "0% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.book);
+      tl.fromTo("#cta-visit", { autoAlpha: 0, scale: 0.94, transformOrigin: "0% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.visit);
+      tl.fromTo("#cta-qr", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, T.site);
+      tl.fromTo("#cta-scan", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.site + 0.15);
+      tl.fromTo("#cta-fine", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.site + 0.3);
+      tl.fromTo("#cta-foot", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.foot);
+
+      window.__timelines["cta"] = tl;
+    })();
+  </script>
+</template>

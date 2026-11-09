@@ -1,0 +1,135 @@
+{
+ "chime": {
+  "duration": 2.5,
+  "peak": 0.42,
+  "onset": 0.41,
+  "audible_end": 2.33,
+  "peak_dbfs": -9.3
+ },
+ "click": {
+  "duration": 0.366,
+  "peak": 0.05,
+  "onset": 0.04,
+  "audible_end": 0.17,
+  "peak_dbfs": -2.4
+ },
+ "click-soft": {
+  "duration": 0.366,
+  "peak": 0.05,
+  "onset": 0.04,
+  "audible_end": 0.17,
+  "peak_dbfs": -2.4
+ },
+ "error": {
+  "duration": 1.62,
+  "peak": 0.65,
+  "onset": 0.6,
+  "audible_end": 0.91,
+  "peak_dbfs": -18.2
+ },
+ "glitch-1": {
+  "duration": 2.638,
+  "peak": 0.81,
+  "onset": 0.17,
+  "audible_end": 2.57,
+  "peak_dbfs": 3.3
+ },
+ "glitch-2": {
+  "duration": 3.504,
+  "peak": 3.18,
+  "onset": 0.02,
+  "audible_end": 3.5,
+  "peak_dbfs": 3.8
+ },
+ "glitch-3": {
+  "duration": 3.096,
+  "peak": 1.84,
+  "onset": 0.24,
+  "audible_end": 2.07,
+  "peak_dbfs": -1.6
+ },
+ "impact-bass-1": {
+  "duration": 2.116,
+  "peak": 0.14,
+  "onset": 0.05,
+  "audible_end": 2.05,
+  "peak_dbfs": 2.6
+ },
+ "impact-bass-2": {
+  "duration": 2.592,
+  "peak": 2.06,
+  "onset": 0.02,
+  "audible_end": 2.49,
+  "peak_dbfs": 3.0
+ },
+ "key-press": {
+  "duration": 0.4,
+  "peak": 0.07,
+  "onset": 0.07,
+  "audible_end": 0.15,
+  "peak_dbfs": -5.7
+ },
+ "notification": {
+  "duration": 2.456,
+  "peak": 0.23,
+  "onset": 0.08,
+  "audible_end": 0.95,
+  "peak_dbfs": 0.4
+ },
+ "ping": {
+  "duration": 1.32,
+  "peak": 0.32,
+  "onset": 0.32,
+  "audible_end": 0.78,
+  "peak_dbfs": -1.5
+ },
+ "pop": {
+  "duration": 0.72,
+  "peak": 0.12,
+  "onset": 0.11,
+  "audible_end": 0.16,
+  "peak_dbfs": -0.2
+ },
+ "riser": {
+  "duration": 10.032,
+  "peak": 3.47,
+  "onset": 2.0,
+  "audible_end": 4.17,
+  "peak_dbfs": 3.1
+ },
+ "sparkle": {
+  "duration": 1.802,
+  "peak": 0.09,
+  "onset": 0.02,
+  "audible_end": 1.12,
+  "peak_dbfs": 3.0
+ },
+ "typing": {
+  "duration": 1.5,
+  "peak": 0.45,
+  "onset": 0.45,
+  "audible_end": 1.48,
+  "peak_dbfs": -6.1
+ },
+ "whoosh": {
+  "duration": 0.575,
+  "peak": 0.16,
+  "onset": 0.09,
+  "audible_end": 0.3,
+  "peak_dbfs": 0.7
+ },
+ "whoosh-cinematic": {
+  "duration": 5.544,
+  "peak": 2.54,
+  "onset": 1.95,
+  "audible_end": 3.99,
+  "peak_dbfs": 2.8
+ },
+ "whoosh-short": {
+  "duration": 0.575,
+  "peak": 0.16,
+  "onset": 0.09,
+  "audible_end": 0.3,
+  "peak_dbfs": 0.7
+ }
+}

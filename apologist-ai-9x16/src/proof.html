@@ -1,0 +1,89 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F7F6FB; }
+    #root * { box-sizing: border-box; }
+    #pf-bg { position: absolute; inset: 0; background: #F7F6FB; }
+    #pf-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #pf-top { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #pf-eyebrow { position: absolute; left: 90px; top: 330px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.22em; color: #1A1E2D; white-space: nowrap; }
+    #pf-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #1A1E2D; vertical-align: middle; margin-right: 20px; position: relative; top: -4px; }
+    #pf-num { position: absolute; left: 64px; top: 380px; font: 800 480px/1 "Inter PV"; letter-spacing: -0.05em; color: #7137FF; font-variant-numeric: lining-nums; white-space: nowrap; }
+    #pf-label { position: absolute; left: 90px; top: 900px; font: 800 54px/64px "Inter PV"; letter-spacing: 0.04em; color: #1A1E2D; white-space: nowrap; }
+    #pf-method { position: absolute; left: 90px; top: 1070px; width: 900px; font: 400 40px/54px "Inter PV"; color: #3C3E51; }
+    #pf-source { position: absolute; left: 90px; top: 1262px; width: 900px; font: 500 30px/40px "Inter PV"; color: #5E5F76; }
+
+    #pf-band { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: #1D1640; }
+    .pf-stat { position: absolute; width: 470px; }
+    .pf-n { font: 800 140px/1 "Inter PV"; letter-spacing: -0.04em; color: #FFFFFF; font-variant-numeric: lining-nums tabular-nums; white-space: nowrap; }
+    .pf-l { margin-top: 16px; font: 700 30px/36px "Inter PV"; letter-spacing: 0.18em; color: #C9BFFB; white-space: nowrap; }
+    #pf-rule { position: absolute; left: 90px; top: 1040px; width: 900px; height: 2px; background: #3A3570; }
+    #pf-tb { position: absolute; left: 90px; top: 1078px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.22em; color: #A88BFF; white-space: nowrap; }
+    .pf-nm { position: absolute; font: 600 44px/56px "Inter PV"; color: #D5D4E8; white-space: nowrap; }
+  </style>
+
+  <div data-hf-id="hf-8kff" id="root" data-composition-id="proof" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-usb1" id="pf-bg"></div>
+    <div data-hf-id="hf-8lbq" id="pf-stage">
+      <div data-hf-id="hf-cjit" id="pf-top">
+        <div data-hf-id="hf-nmyj" id="pf-eyebrow"><i data-hf-id="hf-wt6k"></i>AI CHRISTIAN BENCHMARK 2026</div>
+        <div data-hf-id="hf-52bg" id="pf-num">#1</div>
+        <div data-hf-id="hf-00ps" id="pf-label">CHRISTIAN AI PLATFORM<br data-hf-id="hf-x5px" />ON TGC 2026 BENCHMARK</div>
+        <div data-hf-id="hf-3uke" id="pf-method">The Gospel Coalition's benchmark grades AI answers to theological questions against historic Christian orthodoxy.</div>
+        <div data-hf-id="hf-ukcf" id="pf-source">Source: AI Christian Benchmark 2026, The Gospel Coalition and The Keller Center</div>
+      </div>
+
+      <div data-hf-id="hf-4crd" id="pf-band">
+        <div data-hf-id="hf-t9l0" class="pf-stat" style="left: 90px; top: 250px"><div data-hf-id="hf-sj19" class="pf-n" id="pf-n0">2.5M+</div><div data-hf-id="hf-lpy6" class="pf-l">FAITH QUESTIONS</div></div>
+        <div data-hf-id="hf-zuxj" class="pf-stat" style="left: 570px; top: 250px"><div data-hf-id="hf-qwrt" class="pf-n" id="pf-n1">600K+</div><div data-hf-id="hf-8ru3" class="pf-l">CONVERSATIONS</div></div>
+        <div data-hf-id="hf-gjka" class="pf-stat" style="left: 90px; top: 520px"><div data-hf-id="hf-ozwm" class="pf-n" id="pf-n2">205+</div><div data-hf-id="hf-zg09" class="pf-l">COUNTRIES</div></div>
+        <div data-hf-id="hf-5qbh" class="pf-stat" style="left: 570px; top: 520px"><div data-hf-id="hf-0ycv" class="pf-n" id="pf-n3">192</div><div data-hf-id="hf-yv7g" class="pf-l">LANGUAGES</div></div>
+        <div data-hf-id="hf-v08p" class="pf-stat" style="left: 90px; top: 790px"><div data-hf-id="hf-h3xk" class="pf-n" id="pf-n4">19</div><div data-hf-id="hf-9bgt" class="pf-l">MINISTRIES ON THE PLATFORM</div></div>
+        <div data-hf-id="hf-zyye" id="pf-rule"></div>
+        <div data-hf-id="hf-29ha" id="pf-tb">TRUSTED BY</div>
+        <!--{{NAMES}}-->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still travelling left; the night gives way to daylight as the stage arrives
+      tl.fromTo("#pf-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      tl.fromTo("#pf-bg", { backgroundColor: "#111828" }, { backgroundColor: "#F7F6FB", duration: 0.42, ease: "power2.inOut" }, 0);
+      gsap.set(["#pf-num", "#pf-label", "#pf-method", "#pf-source"], { autoAlpha: 0 });
+      gsap.set(["#pf-band", ".pf-stat", "#pf-rule", "#pf-tb"], { autoAlpha: 0 });
+      gsap.set(".pf-nm", { opacity: 0.18 });
+
+      // the number one: a breath, then the numeral lands on "one"
+      tl.fromTo("#pf-num", { autoAlpha: 0, scale: 1.16, filter: "blur(12px)", transformOrigin: "0% 60%" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out" }, T.one);
+      tl.fromTo("#pf-label", { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.22, ease: "power2.out" }, T.label);
+      tl.fromTo("#pf-method", { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, T.method);
+      tl.fromTo("#pf-source", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.source);
+
+      // trusted by: the band rises over the claim, the numbers count up, the names ink in order as they are spoken
+      tl.to("#pf-top", { y: -140, autoAlpha: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, T.band);
+      tl.fromTo("#pf-band", { autoAlpha: 0, y: 300 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "expo.out" }, T.band + 0.12);
+      tl.fromTo(".pf-stat", { autoAlpha: 0, y: 46 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "expo.out", stagger: 0.1 }, T.band + 0.3);
+      // once the band covers the frame, the ground beneath matches it, so the exit fades indigo on indigo
+      tl.to("#pf-bg", { backgroundColor: "#1D1640", duration: 0.2, ease: "none" }, T.band + 0.75);
+      const counts = [[0, 2.5, (v) => v.toFixed(1) + "M+"], [1, 600, (v) => Math.round(v) + "K+"], [2, 205, (v) => Math.round(v) + "+"], [3, 192, (v) => String(Math.round(v))], [4, 19, (v) => String(Math.round(v))]];
+      counts.forEach(([i, end, fmt]) => {
+        const el = document.getElementById("pf-n" + i);
+        const o = { v: 0 };
+        tl.to(o, { v: end, duration: 0.9, ease: "power2.out", onUpdate: () => { el.textContent = fmt(o.v); } }, T.band + 0.3 + i * 0.1);
+      });
+      tl.fromTo(["#pf-rule", "#pf-tb"], { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, stagger: 0.08 }, T.band + 0.55);
+      T.nameAt.forEach((t, i) => tl.to("#pf-nm" + i, { opacity: 1, duration: 0.14, ease: "power1.out" }, t));
+
+      // exit: cut the curve, upward
+      tl.to("#pf-stage", { y: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#pf-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["proof"] = tl;
+    })();
+  </script>
+</template>
