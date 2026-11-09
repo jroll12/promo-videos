@@ -1,889 +1,889 @@
 {
  "provisional": false,
  "engine": "external take",
- "voice": "PLACEHOLDER: ElevenLabs Hale (timing only; replaced by Jarret's recording)",
+ "voice": "ElevenLabs Max (Gfpl8Yo74Is0W6cPUWWT), eleven_v4, scene takes",
  "speed": 1.0,
  "effect_preset": null,
- "duration": 64.9,
+ "duration": 65.97,
  "lines": [
   {
    "id": "L1",
    "text": "Picture your website at two in the morning. Someone arrives with a question they've never felt safe to ask out loud.",
    "start": 0.16,
-   "end": 5.78,
+   "end": 6.71,
    "words": [
     {
      "w": "Picture",
      "start": 0.16,
-     "end": 0.62
+     "end": 0.7
     },
     {
      "w": "your",
-     "start": 0.64,
-     "end": 0.78
+     "start": 0.72,
+     "end": 0.86
     },
     {
      "w": "website",
-     "start": 0.8,
-     "end": 1.26
-    },
-    {
-     "w": "at",
-     "start": 1.28,
+     "start": 0.88,
      "end": 1.42
     },
     {
-     "w": "two",
+     "w": "at",
      "start": 1.44,
      "end": 1.58
     },
     {
-     "w": "in",
+     "w": "two",
      "start": 1.6,
-     "end": 1.74
+     "end": 1.9
+    },
+    {
+     "w": "in",
+     "start": 1.92,
+     "end": 2.06
     },
     {
      "w": "the",
-     "start": 1.76,
-     "end": 1.82
+     "start": 2.08,
+     "end": 2.14
     },
     {
      "w": "morning.",
-     "start": 1.84,
-     "end": 2.38
+     "start": 2.16,
+     "end": 2.94
     },
     {
      "w": "Someone",
-     "start": 2.4,
-     "end": 2.78
+     "start": 2.96,
+     "end": 3.34
     },
     {
      "w": "arrives",
-     "start": 2.8,
-     "end": 3.1
-    },
-    {
-     "w": "with",
-     "start": 3.12,
-     "end": 3.26
-    },
-    {
-     "w": "a",
-     "start": 3.28,
-     "end": 3.42
-    },
-    {
-     "w": "question",
-     "start": 3.44,
+     "start": 3.36,
      "end": 3.74
     },
     {
-     "w": "they've",
+     "w": "with",
      "start": 3.76,
-     "end": 4.06
+     "end": 3.9
     },
     {
-     "w": "never",
-     "start": 4.08,
-     "end": 4.3
+     "w": "a",
+     "start": 3.92,
+     "end": 4.14
     },
     {
-     "w": "felt",
-     "start": 4.32,
-     "end": 4.54
+     "w": "question",
+     "start": 4.16,
+     "end": 4.46
     },
     {
-     "w": "safe",
-     "start": 4.56,
+     "w": "they've",
+     "start": 4.48,
      "end": 4.78
     },
     {
-     "w": "to",
+     "w": "never",
      "start": 4.8,
-     "end": 5.02
+     "end": 5.1
+    },
+    {
+     "w": "felt",
+     "start": 5.12,
+     "end": 5.42
+    },
+    {
+     "w": "safe",
+     "start": 5.44,
+     "end": 5.74
+    },
+    {
+     "w": "to",
+     "start": 5.76,
+     "end": 5.9
     },
     {
      "w": "ask",
-     "start": 5.04,
-     "end": 5.26
+     "start": 5.92,
+     "end": 6.14
     },
     {
      "w": "out",
-     "start": 5.28,
-     "end": 5.5
+     "start": 6.16,
+     "end": 6.38
     },
     {
      "w": "loud.",
-     "start": 5.52,
-     "end": 5.78
+     "start": 6.4,
+     "end": 6.71
     }
    ]
   },
   {
    "id": "L2",
    "text": "Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have.",
-   "start": 6.4,
-   "end": 13.41,
+   "start": 7.44,
+   "end": 13.75,
    "words": [
     {
      "w": "Always",
-     "start": 6.4,
-     "end": 6.78
+     "start": 7.44,
+     "end": 7.98
     },
     {
      "w": "be",
-     "start": 6.8,
-     "end": 7.02
+     "start": 8.0,
+     "end": 8.14
     },
     {
      "w": "prepared",
-     "start": 7.04,
-     "end": 7.5
+     "start": 8.16,
+     "end": 8.7
     },
     {
      "w": "to",
-     "start": 7.52,
-     "end": 7.66
+     "start": 8.72,
+     "end": 8.86
     },
     {
      "w": "give",
-     "start": 7.68,
-     "end": 7.82
+     "start": 8.88,
+     "end": 9.02
     },
     {
      "w": "an",
-     "start": 7.84,
-     "end": 8.06
+     "start": 9.04,
+     "end": 9.26
     },
     {
      "w": "answer",
-     "start": 8.08,
-     "end": 8.78
-    },
-    {
-     "w": "to",
-     "start": 8.8,
-     "end": 8.94
-    },
-    {
-     "w": "everyone",
-     "start": 8.96,
-     "end": 9.42
-    },
-    {
-     "w": "who",
-     "start": 9.44,
+     "start": 9.28,
      "end": 9.66
     },
     {
-     "w": "asks",
-     "start": 9.68,
-     "end": 9.98
-    },
-    {
-     "w": "you",
-     "start": 10.0,
-     "end": 10.54
-    },
-    {
      "w": "to",
-     "start": 10.56,
+     "start": 9.68,
+     "end": 9.9
+    },
+    {
+     "w": "everyone",
+     "start": 9.92,
+     "end": 10.46
+    },
+    {
+     "w": "who",
+     "start": 10.48,
      "end": 10.7
     },
     {
-     "w": "give",
+     "w": "asks",
      "start": 10.72,
-     "end": 10.86
+     "end": 11.1
     },
     {
-     "w": "the",
-     "start": 10.88,
-     "end": 11.02
+     "w": "you",
+     "start": 11.12,
+     "end": 11.26
     },
     {
-     "w": "reason",
-     "start": 11.04,
+     "w": "to",
+     "start": 11.28,
      "end": 11.42
     },
     {
-     "w": "for",
+     "w": "give",
      "start": 11.44,
      "end": 11.58
     },
     {
      "w": "the",
      "start": 11.6,
-     "end": 11.74
+     "end": 11.82
+    },
+    {
+     "w": "reason",
+     "start": 11.84,
+     "end": 12.22
+    },
+    {
+     "w": "for",
+     "start": 12.24,
+     "end": 12.38
+    },
+    {
+     "w": "the",
+     "start": 12.4,
+     "end": 12.62
     },
     {
      "w": "hope",
-     "start": 11.76,
-     "end": 12.06
+     "start": 12.64,
+     "end": 12.94
     },
     {
      "w": "that",
-     "start": 12.08,
-     "end": 12.3
+     "start": 12.96,
+     "end": 13.26
     },
     {
      "w": "you",
-     "start": 12.32,
-     "end": 12.78
+     "start": 13.28,
+     "end": 13.58
     },
     {
      "w": "have.",
-     "start": 12.8,
-     "end": 13.41
+     "start": 13.6,
+     "end": 13.75
     }
    ]
   },
   {
    "id": "L3",
    "text": "The questions never stop. But your team can't answer them all.",
-   "start": 13.44,
-   "end": 17.34,
+   "start": 14.56,
+   "end": 18.44,
    "words": [
     {
      "w": "The",
-     "start": 13.44,
-     "end": 13.66
+     "start": 14.56,
+     "end": 14.86
     },
     {
      "w": "questions",
-     "start": 13.68,
-     "end": 14.22
+     "start": 14.88,
+     "end": 15.5
     },
     {
      "w": "never",
-     "start": 14.24,
-     "end": 14.54
+     "start": 15.52,
+     "end": 15.82
     },
     {
      "w": "stop.",
-     "start": 14.56,
-     "end": 15.66
-    },
-    {
-     "w": "But",
-     "start": 15.68,
-     "end": 15.9
-    },
-    {
-     "w": "your",
-     "start": 15.92,
-     "end": 16.06
-    },
-    {
-     "w": "team",
-     "start": 16.08,
-     "end": 16.38
-    },
-    {
-     "w": "can't",
-     "start": 16.4,
+     "start": 15.84,
      "end": 16.62
     },
     {
-     "w": "answer",
+     "w": "But",
      "start": 16.64,
-     "end": 16.94
+     "end": 16.78
+    },
+    {
+     "w": "your",
+     "start": 16.8,
+     "end": 17.02
+    },
+    {
+     "w": "team",
+     "start": 17.04,
+     "end": 17.34
+    },
+    {
+     "w": "can't",
+     "start": 17.36,
+     "end": 17.66
+    },
+    {
+     "w": "answer",
+     "start": 17.68,
+     "end": 18.06
     },
     {
      "w": "them",
-     "start": 16.96,
-     "end": 17.1
+     "start": 18.08,
+     "end": 18.22
     },
     {
      "w": "all.",
-     "start": 17.12,
-     "end": 17.34
+     "start": 18.24,
+     "end": 18.44
     }
    ]
   },
   {
    "id": "L4",
    "text": "Generic AI hedges, misquotes Scripture, or quietly contradicts what you teach.",
-   "start": 17.85,
-   "end": 22.51,
+   "start": 18.93,
+   "end": 24.31,
    "words": [
     {
      "w": "Generic",
-     "start": 17.85,
-     "end": 18.31
+     "start": 18.93,
+     "end": 19.39
     },
     {
      "w": "AI",
-     "start": 18.33,
-     "end": 18.71
+     "start": 19.41,
+     "end": 19.87
     },
     {
      "w": "hedges,",
-     "start": 18.73,
-     "end": 19.19
+     "start": 19.89,
+     "end": 20.51
     },
     {
      "w": "misquotes",
-     "start": 19.21,
-     "end": 19.83
+     "start": 20.53,
+     "end": 21.23
     },
     {
      "w": "Scripture,",
-     "start": 19.85,
-     "end": 20.47
+     "start": 21.25,
+     "end": 21.87
     },
     {
      "w": "or",
-     "start": 20.49,
-     "end": 20.71
+     "start": 21.89,
+     "end": 22.19
     },
     {
      "w": "quietly",
-     "start": 20.73,
-     "end": 21.19
+     "start": 22.21,
+     "end": 22.75
     },
     {
      "w": "contradicts",
-     "start": 21.21,
-     "end": 21.91
+     "start": 22.77,
+     "end": 23.55
     },
     {
      "w": "what",
-     "start": 21.93,
-     "end": 22.07
+     "start": 23.57,
+     "end": 23.71
     },
     {
      "w": "you",
-     "start": 22.09,
-     "end": 22.23
+     "start": 23.73,
+     "end": 23.95
     },
     {
      "w": "teach.",
-     "start": 22.25,
-     "end": 22.51
+     "start": 23.97,
+     "end": 24.31
     }
    ]
   },
   {
    "id": "L5",
    "text": "Apologist AI puts a faithful, branded chatbot on your ministry's website.",
-   "start": 23.05,
-   "end": 28.09,
+   "start": 24.85,
+   "end": 29.86,
    "words": [
     {
      "w": "Apologist",
-     "start": 23.05,
-     "end": 23.83
+     "start": 24.85,
+     "end": 25.71
     },
     {
      "w": "AI",
-     "start": 23.85,
-     "end": 24.23
+     "start": 25.73,
+     "end": 26.19
     },
     {
      "w": "puts",
-     "start": 24.25,
-     "end": 24.39
+     "start": 26.21,
+     "end": 26.43
     },
     {
      "w": "a",
-     "start": 24.41,
-     "end": 24.47
+     "start": 26.45,
+     "end": 26.59
     },
     {
      "w": "faithful,",
-     "start": 24.49,
-     "end": 25.19
+     "start": 26.61,
+     "end": 27.23
     },
     {
      "w": "branded",
-     "start": 25.21,
-     "end": 25.83
+     "start": 27.25,
+     "end": 27.71
     },
     {
      "w": "chatbot",
-     "start": 25.85,
-     "end": 26.55
+     "start": 27.73,
+     "end": 28.35
     },
     {
      "w": "on",
-     "start": 26.57,
-     "end": 26.79
+     "start": 28.37,
+     "end": 28.43
     },
     {
      "w": "your",
-     "start": 26.81,
-     "end": 26.95
+     "start": 28.45,
+     "end": 28.59
     },
     {
      "w": "ministry's",
-     "start": 26.97,
-     "end": 27.59
+     "start": 28.61,
+     "end": 29.07
     },
     {
      "w": "website.",
-     "start": 27.61,
-     "end": 28.09
+     "start": 29.09,
+     "end": 29.86
     }
    ]
   },
   {
    "id": "L6",
    "text": "It answers from your own teaching, any hour, in any language, and cites its sources.",
-   "start": 28.57,
-   "end": 33.71,
+   "start": 29.89,
+   "end": 35.07,
    "words": [
     {
      "w": "It",
-     "start": 28.57,
-     "end": 28.71
+     "start": 29.89,
+     "end": 30.11
     },
     {
      "w": "answers",
-     "start": 28.73,
-     "end": 29.19
+     "start": 30.13,
+     "end": 30.59
     },
     {
      "w": "from",
-     "start": 29.21,
-     "end": 29.35
+     "start": 30.61,
+     "end": 30.75
     },
     {
      "w": "your",
-     "start": 29.37,
-     "end": 29.51
+     "start": 30.77,
+     "end": 30.99
     },
     {
      "w": "own",
-     "start": 29.53,
-     "end": 29.75
+     "start": 31.01,
+     "end": 31.23
     },
     {
      "w": "teaching,",
-     "start": 29.77,
-     "end": 30.47
+     "start": 31.25,
+     "end": 31.87
     },
     {
      "w": "any",
-     "start": 30.49,
-     "end": 30.71
+     "start": 31.89,
+     "end": 32.11
     },
     {
      "w": "hour,",
-     "start": 30.73,
-     "end": 31.19
+     "start": 32.13,
+     "end": 32.51
     },
     {
      "w": "in",
-     "start": 31.21,
-     "end": 31.43
+     "start": 32.53,
+     "end": 32.75
     },
     {
      "w": "any",
-     "start": 31.45,
-     "end": 31.67
+     "start": 32.77,
+     "end": 33.07
     },
     {
      "w": "language,",
-     "start": 31.69,
-     "end": 32.39
+     "start": 33.09,
+     "end": 33.71
     },
     {
      "w": "and",
-     "start": 32.41,
-     "end": 32.55
+     "start": 33.73,
+     "end": 33.95
     },
     {
      "w": "cites",
-     "start": 32.57,
-     "end": 32.95
+     "start": 33.97,
+     "end": 34.35
     },
     {
      "w": "its",
-     "start": 32.97,
-     "end": 33.19
+     "start": 34.37,
+     "end": 34.51
     },
     {
      "w": "sources.",
-     "start": 33.21,
-     "end": 33.71
+     "start": 34.53,
+     "end": 35.07
     }
    ]
   },
   {
    "id": "L7",
    "text": "When someone needs a real person, it passes them to your team.",
-   "start": 34.09,
-   "end": 37.92,
+   "start": 35.57,
+   "end": 39.4,
    "words": [
     {
      "w": "When",
-     "start": 34.09,
-     "end": 34.39
+     "start": 35.57,
+     "end": 35.79
     },
     {
      "w": "someone",
-     "start": 34.41,
-     "end": 34.71
+     "start": 35.81,
+     "end": 36.19
     },
     {
      "w": "needs",
-     "start": 34.73,
-     "end": 34.95
+     "start": 36.21,
+     "end": 36.51
     },
     {
      "w": "a",
-     "start": 34.97,
-     "end": 35.11
+     "start": 36.53,
+     "end": 36.67
     },
     {
      "w": "real",
-     "start": 35.13,
-     "end": 35.43
+     "start": 36.69,
+     "end": 36.99
     },
     {
      "w": "person,",
-     "start": 35.45,
-     "end": 36.37
+     "start": 37.01,
+     "end": 37.85
     },
     {
      "w": "it",
-     "start": 36.39,
-     "end": 36.53
+     "start": 37.87,
+     "end": 38.01
     },
     {
      "w": "passes",
-     "start": 36.55,
-     "end": 37.01
+     "start": 38.03,
+     "end": 38.41
     },
     {
      "w": "them",
-     "start": 37.03,
-     "end": 37.17
+     "start": 38.43,
+     "end": 38.57
     },
     {
      "w": "to",
-     "start": 37.19,
-     "end": 37.33
+     "start": 38.59,
+     "end": 38.81
     },
     {
      "w": "your",
-     "start": 37.35,
-     "end": 37.65
+     "start": 38.83,
+     "end": 39.13
     },
     {
      "w": "team.",
-     "start": 37.67,
-     "end": 37.92
+     "start": 39.15,
+     "end": 39.4
     }
    ]
   },
   {
    "id": "L8",
    "text": "It's the number one Christian AI platform on The Gospel Coalition's 2026 AI Christian Benchmark.",
-   "start": 38.63,
-   "end": 45.76,
+   "start": 40.43,
+   "end": 46.61,
    "words": [
     {
      "w": "It's",
-     "start": 38.63,
-     "end": 38.93
+     "start": 40.43,
+     "end": 40.73
     },
     {
      "w": "the",
-     "start": 38.95,
-     "end": 39.17
+     "start": 40.75,
+     "end": 40.89
     },
     {
      "w": "number",
-     "start": 39.19,
-     "end": 39.57
+     "start": 40.91,
+     "end": 41.29
     },
     {
      "w": "one",
-     "start": 39.59,
-     "end": 39.81
+     "start": 41.31,
+     "end": 41.53
     },
     {
      "w": "Christian",
-     "start": 39.83,
-     "end": 40.37
+     "start": 41.55,
+     "end": 42.01
     },
     {
      "w": "AI",
-     "start": 40.39,
-     "end": 40.93
+     "start": 42.03,
+     "end": 42.49
     },
     {
      "w": "platform",
-     "start": 40.95,
-     "end": 41.49
+     "start": 42.51,
+     "end": 42.89
     },
     {
      "w": "on",
-     "start": 41.51,
-     "end": 41.65
+     "start": 42.91,
+     "end": 43.05
     },
     {
      "w": "The",
-     "start": 41.67,
-     "end": 41.81
+     "start": 43.07,
+     "end": 43.13
     },
     {
      "w": "Gospel",
-     "start": 41.83,
-     "end": 42.29
+     "start": 43.15,
+     "end": 43.61
     },
     {
      "w": "Coalition's",
-     "start": 42.31,
-     "end": 43.09
+     "start": 43.63,
+     "end": 44.33
     },
     {
      "w": "2026",
-     "start": 43.11,
-     "end": 44.21
+     "start": 44.35,
+     "end": 45.13
     },
     {
      "w": "AI",
-     "start": 44.23,
-     "end": 44.69
+     "start": 45.15,
+     "end": 45.61
     },
     {
      "w": "Christian",
-     "start": 44.71,
-     "end": 45.17
+     "start": 45.63,
+     "end": 46.01
     },
     {
      "w": "Benchmark.",
-     "start": 45.19,
-     "end": 45.76
+     "start": 46.03,
+     "end": 46.61
     }
    ]
   },
   {
    "id": "L9",
    "text": "It's trusted by Ligonier, Got Questions, Apologetics Canada, and more.",
-   "start": 46.23,
-   "end": 50.86,
+   "start": 46.99,
+   "end": 52.18,
    "words": [
     {
      "w": "It's",
-     "start": 46.23,
-     "end": 46.45
+     "start": 46.99,
+     "end": 47.21
     },
     {
      "w": "trusted",
-     "start": 46.47,
-     "end": 46.85
+     "start": 47.23,
+     "end": 47.61
     },
     {
      "w": "by",
-     "start": 46.87,
-     "end": 47.01
+     "start": 47.63,
+     "end": 47.77
     },
     {
      "w": "Ligonier,",
-     "start": 47.03,
-     "end": 47.97
+     "start": 47.79,
+     "end": 48.57
     },
     {
      "w": "Got",
-     "start": 47.99,
-     "end": 48.49
+     "start": 48.59,
+     "end": 49.05
     },
     {
      "w": "Questions,",
-     "start": 48.51,
-     "end": 49.01
+     "start": 49.07,
+     "end": 49.53
     },
     {
      "w": "Apologetics",
-     "start": 49.03,
-     "end": 49.89
+     "start": 49.55,
+     "end": 50.33
     },
     {
      "w": "Canada,",
-     "start": 49.91,
-     "end": 50.37
+     "start": 50.35,
+     "end": 50.89
     },
     {
      "w": "and",
-     "start": 50.39,
-     "end": 50.69
+     "start": 50.91,
+     "end": 51.29
     },
     {
      "w": "more.",
-     "start": 50.71,
-     "end": 50.86
+     "start": 51.31,
+     "end": 52.18
     }
    ]
   },
   {
    "id": "L10",
    "text": "We run your AI infrastructure, so you can focus on the people you serve.",
-   "start": 51.59,
-   "end": 55.79,
+   "start": 52.27,
+   "end": 56.69,
    "words": [
     {
      "w": "We",
-     "start": 51.59,
-     "end": 51.73
+     "start": 52.27,
+     "end": 52.49
     },
     {
      "w": "run",
-     "start": 51.75,
-     "end": 52.05
+     "start": 52.51,
+     "end": 52.81
     },
     {
      "w": "your",
-     "start": 52.07,
-     "end": 52.29
+     "start": 52.83,
+     "end": 52.97
     },
     {
      "w": "AI",
-     "start": 52.31,
-     "end": 52.77
+     "start": 52.99,
+     "end": 53.45
     },
     {
      "w": "infrastructure,",
-     "start": 52.79,
-     "end": 53.73
+     "start": 53.47,
+     "end": 54.41
     },
     {
      "w": "so",
-     "start": 53.75,
-     "end": 53.89
+     "start": 54.43,
+     "end": 54.65
     },
     {
      "w": "you",
-     "start": 53.91,
-     "end": 54.13
+     "start": 54.67,
+     "end": 54.81
     },
     {
      "w": "can",
-     "start": 54.15,
-     "end": 54.29
+     "start": 54.83,
+     "end": 55.05
     },
     {
      "w": "focus",
-     "start": 54.31,
-     "end": 54.61
+     "start": 55.07,
+     "end": 55.37
     },
     {
      "w": "on",
-     "start": 54.63,
-     "end": 54.85
+     "start": 55.39,
+     "end": 55.61
     },
     {
      "w": "the",
-     "start": 54.87,
-     "end": 55.01
+     "start": 55.63,
+     "end": 55.77
     },
     {
      "w": "people",
-     "start": 55.03,
-     "end": 55.25
+     "start": 55.79,
+     "end": 56.01
     },
     {
      "w": "you",
-     "start": 55.27,
-     "end": 55.41
+     "start": 56.03,
+     "end": 56.25
     },
     {
      "w": "serve.",
-     "start": 55.43,
-     "end": 55.79
+     "start": 56.27,
+     "end": 56.69
     }
    ]
   },
   {
    "id": "L11",
    "text": "Your mission. Our platform. Christ made known.",
-   "start": 56.24,
-   "end": 60.43,
+   "start": 57.16,
+   "end": 60.86,
    "words": [
     {
      "w": "Your",
-     "start": 56.24,
-     "end": 56.54
+     "start": 57.16,
+     "end": 57.46
     },
     {
      "w": "mission.",
-     "start": 56.56,
-     "end": 57.42
+     "start": 57.48,
+     "end": 58.26
     },
     {
      "w": "Our",
-     "start": 57.44,
-     "end": 57.66
+     "start": 58.28,
+     "end": 58.58
     },
     {
      "w": "platform.",
-     "start": 57.68,
-     "end": 59.42
+     "start": 58.6,
+     "end": 59.54
     },
     {
      "w": "Christ",
-     "start": 59.44,
-     "end": 59.9
+     "start": 59.56,
+     "end": 60.18
     },
     {
      "w": "made",
-     "start": 59.92,
-     "end": 60.14
+     "start": 60.2,
+     "end": 60.5
     },
     {
      "w": "known.",
-     "start": 60.16,
-     "end": 60.43
+     "start": 60.52,
+     "end": 60.86
     }
    ]
   },
   {
    "id": "L12",
    "text": "Book a quick intro call, or visit apologistai.com.",
-   "start": 60.96,
-   "end": 64.24,
+   "start": 61.32,
+   "end": 64.52,
    "words": [
     {
      "w": "Book",
-     "start": 60.96,
-     "end": 61.26
+     "start": 61.32,
+     "end": 61.62
     },
     {
      "w": "a",
-     "start": 61.28,
-     "end": 61.42
+     "start": 61.64,
+     "end": 61.7
     },
     {
      "w": "quick",
-     "start": 61.44,
-     "end": 61.66
+     "start": 61.72,
+     "end": 61.94
     },
     {
      "w": "intro",
-     "start": 61.68,
-     "end": 62.06
+     "start": 61.96,
+     "end": 62.34
     },
     {
      "w": "call,",
-     "start": 62.08,
-     "end": 62.46
+     "start": 62.36,
+     "end": 62.74
     },
     {
      "w": "or",
-     "start": 62.48,
-     "end": 62.62
+     "start": 62.76,
+     "end": 62.9
     },
     {
      "w": "visit",
-     "start": 62.64,
-     "end": 63.02
+     "start": 62.92,
+     "end": 63.3
     },
     {
      "w": "apologistai.com.",
-     "start": 63.04,
-     "end": 64.24
+     "start": 63.32,
+     "end": 64.52
     }
    ]
   }

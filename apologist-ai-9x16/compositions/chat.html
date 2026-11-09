@@ -143,6 +143,29 @@
     #ct-av-g { position: absolute; left: 24px; top: 20px; width: 72px; height: 72px; border-radius: 36px; background: #3A4258; }
     #ct-name-g { position: absolute; left: 116px; top: 18px; font: 700 36px/42px "Inter PV"; color: #FFFFFF; white-space: nowrap; }
     #ct-sub-g { position: absolute; left: 116px; top: 62px; font: 500 28px/34px "Inter PV"; color: #A9A8C6; white-space: nowrap; }
+    /* the widget launcher on the ministry's site */
+    #ct-launch { position: absolute; left: 860px; top: 1236px; width: 140px; height: 140px; border-radius: 70px; background: #1D1640; box-shadow: 0 0 0 7px rgba(168, 139, 255, 0.55), 0 20px 50px rgba(3, 6, 18, 0.6); }
+    #ct-launch svg { position: absolute; left: 34px; top: 36px; }
+    #ct-launch-tip { position: absolute; right: 250px; top: 1270px; height: 76px; padding: 0 32px; border-radius: 38px; background: #FFFFFF; color: #1D1640; font: 700 34px/76px "Inter PV"; white-space: nowrap; box-shadow: 0 16px 40px rgba(3, 6, 18, 0.5); }
+    /* the ministry's own chatbot: a bright panel on the dark site (the generic one stays grey and dark) */
+    #ct-chatlayer.light #ct-chat-bg { background: #F7F6FB; box-shadow: 0 -24px 80px rgba(3, 6, 18, 0.7); }
+    #ct-chatlayer.light #ct-bar-bg { background: #FFFFFF; box-shadow: 0 10px 30px rgba(29, 22, 64, 0.12), inset 0 0 0 2px #E4DEFA; }
+    #ct-chatlayer.light #ct-bar-flood { display: none; }
+    #ct-chatlayer.light #ct-av { background: #1D1640; color: #FFFFFF; box-shadow: 0 0 0 4px #A88BFF; }
+    #ct-chatlayer.light #ct-name { color: #111828; }
+    #ct-chatlayer.light #ct-sub { color: #5E5F76; }
+    #ct-chatlayer.light #ct-sub::before { content: ""; display: inline-block; width: 14px; height: 14px; border-radius: 7px; background: #7E6BD6; margin-right: 10px; position: relative; top: -2px; }
+    #ct-chatlayer.light #ct-lang, #ct-chatlayer.light #ct-clock { background: #F2F0FA; color: #1D1640; }
+    #ct-chatlayer.light #ct-roll div { color: #1D1640; }
+    #ct-chatlayer.light #ct-globe * { stroke: #1D1640; }
+    #ct-chatlayer.light .ct-who-nm, #ct-chatlayer.light #ct-ans-who .ct-who-nm { color: #3C3E51; }
+    #ct-chatlayer.light #ct-ans-who .ct-who-av { background: #1D1640; color: #FFFFFF; }
+    #ct-chatlayer.light #ct-deliv { color: #6E7086; }
+    #ct-chatlayer.light #ct-ans, #ct-chatlayer.light #ct-hand, #ct-chatlayer.light #ct-typing { box-shadow: 0 18px 50px rgba(29, 22, 64, 0.14), inset 0 0 0 2px #ECE7FB; }
+    #ct-chatlayer.light #ct-ans .ct-v { margin-top: 24px; padding: 22px 28px 22px 34px; border-radius: 24px; background: #F2F0FA; box-shadow: inset 7px 0 0 #A88BFF; }
+    #ct-chatlayer.light #ct-comp { box-shadow: 0 12px 34px rgba(29, 22, 64, 0.12), inset 0 0 0 2px #E4DEFA; }
+    #ct-chatlayer.light #ct-send { background: #1D1640; }
+    #ct-chatlayer.light #ct-send path { stroke: #FFFFFF; }
   </style>
 
   <div data-hf-id="hf-tfhh" id="root" data-composition-id="chat" data-width="1080" data-height="1920">
@@ -151,6 +174,8 @@
         <div data-hf-id="hf-uic0" id="ct-site" data-layout-allow-overlap>
           <div data-hf-id="hf-c1kr" id="ct-site-head"><div data-hf-id="hf-om0a" id="ct-site-av">YM</div><div data-hf-id="hf-88tc" id="ct-site-name">Your Ministry</div><div data-hf-id="hf-7eku" id="ct-site-sub">Illustrative website</div><div data-hf-id="hf-jhh6" id="ct-site-clock">2:07 AM</div></div>
           <div data-hf-id="hf-awly" id="ct-site-hero">Have a question<br data-hf-id="hf-r05r" />about faith?</div>
+          <div data-hf-id="hf-mavf" id="ct-launch-tip">Ask us anything</div>
+          <div data-hf-id="hf-negg" id="ct-launch"><svg data-hf-id="hf-lgnp" viewBox="0 0 72 72" width="72" height="68"><path data-hf-id="hf-jxvp" d="M14 16h44a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H32l-12 10v-10h-6a6 6 0 0 1-6-6V22a6 6 0 0 1 6-6z" fill="#FFFFFF" /><circle data-hf-id="hf-g6pn" cx="26" cy="34" r="3.6" fill="#1D1640" /><circle data-hf-id="hf-157u" cx="36" cy="34" r="3.6" fill="#1D1640" /><circle data-hf-id="hf-8v7x" cx="46" cy="34" r="3.6" fill="#1D1640" /></svg></div>
           <div data-hf-id="hf-d8e7" id="ct-site-card">
             <div data-hf-id="hf-3st7" id="ct-site-form">
               <div data-hf-id="hf-ri9b" id="ct-site-h">Contact us</div>
@@ -269,7 +294,7 @@
 
   <script>
     (function () {
-      const T = {"pre":17,"typeStart":3.39,"send":5.04,"typeStep":0.064,"blinks":[0.5,1,1.5,2,2.5,3],"verseIn":5.95,"verse":[6.4,6.8,7.04,7.52,7.68,7.84,8.08,8.8,8.96,9.44,9.68,10,10.56,10.72,10.88,11.04,11.44,11.6,11.76,12.08,12.32,12.8],"ref":7.2,"verseOut":13.14,"qIn":13.24,"qBut":15.68,"qFrom":1000,"qMid":-380,"qTo":-620,"qSettle":1.4,"team":16.08,"wait":16.64,"qOut":17.6,"gen":18.05,"hedges":18.73,"misquotes":19.21,"contradicts":21.21,"genOut":22.85,"logo":23.15,"eyebrow":24.49,"logoOut":27.86,"reskin":27.91,"seekAgain":28.36,"typing":28.71,"reply":29.11,"src":29.77,"hour":30.73,"lang":31.69,"cites":32.57,"hand":34.98,"scrollHand":330,"press":36.5,"connected":36.95,"exit":38.26};
+      const T = {"pre":17,"typeStart":4.11,"send":5.92,"typeStep":0.072,"blinks":[0.5,1,1.5,2,2.5,3,3.5],"verseIn":6.99,"verse":[7.44,8,8.16,8.72,8.88,9.04,9.28,9.68,9.92,10.48,10.72,11.12,11.28,11.44,11.6,11.84,12.24,12.4,12.64,12.96,13.28,13.6],"ref":8.24,"verseOut":14.26,"qIn":14.36,"qBut":16.64,"qFrom":1000,"qMid":-380,"qTo":-620,"qSettle":1.4,"team":17.04,"wait":17.68,"qOut":18.68,"gen":19.13,"hedges":19.89,"misquotes":20.53,"contradicts":22.77,"genOut":24.65,"logo":24.95,"eyebrow":26.61,"logoOut":27.78,"launch":28.56,"reskin":29.19,"seekAgain":29.19,"typing":29.74,"stream":0.055,"reply":30.14,"src":31.25,"hour":32.13,"lang":33.09,"cites":33.97,"hand":36.54,"scrollHand":330,"press":37.98,"connected":38.43,"exit":39.78};
       const tl = gsap.timeline({ paused: true });
       const q = (s) => Array.from(document.querySelectorAll(s));
 
@@ -283,6 +308,12 @@
       gsap.set(".ct-q-w", { autoAlpha: 0 });
       gsap.set("#ct-qcol", { y: T.qFrom });
       gsap.set("#ct-verse .w", { opacity: 0.14 });
+      gsap.set(["#ct-launch", "#ct-launch-tip"], { autoAlpha: 0 });
+      // the ministry's answer streams in word by word, like a live reply
+      q("#ct-ans > div:not(#ct-chips)").forEach((el) => {
+        el.innerHTML = el.innerHTML.split(/(<br[^>]*>)/).map((part) => (part.startsWith("<br") ? part : part.split(/(\s+)/).map((t) => (t.trim() ? `<span class="ct-w">${t}</span>` : t)).join(""))).join("");
+      });
+      gsap.set(".ct-w", { opacity: 0 });
       gsap.set("#ct-logo", { clipPath: "inset(0% 100% 0% 0%)" });
       const chars = q("#ct-typed span");
       chars.forEach((c, i) => gsap.set(c, { opacity: i < T.pre ? 1 : 0 }));
@@ -345,15 +376,19 @@
       tl.set("#ct-site", { autoAlpha: 1 }, T.logoOut + 0.15);
       tl.set(["#ct-name-g", "#ct-sub-g", "#ct-av-g", "#ct-seek", "#ct-deliv"], { autoAlpha: 0 }, T.logo);
       tl.set(["#ct-name", "#ct-sub", "#ct-av"], { autoAlpha: 1 }, T.logo);
-      tl.set("#ct-bar-flood", { clipPath: "inset(0% 0% 0% 0%)" }, T.logo);
+      tl.set("#ct-chatlayer", { attr: { class: "light" } }, T.logo);
       tl.fromTo("#ct-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.75, ease: "power2.inOut" }, T.logo);
       tl.fromTo("#ct-eyebrow", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.eyebrow);
       tl.to(["#ct-logo", "#ct-eyebrow"], { autoAlpha: 0, scale: 0.94, filter: "blur(10px)", transformOrigin: "50% 50%", duration: 0.34, ease: "power3.in" }, T.logoOut);
       tl.to("#ct-scrim", { opacity: 0, duration: 0.45, ease: "power2.inOut" }, T.logoOut + 0.12);
-      // the chatbot arrives on the same website, and the same question is asked again
-      tl.fromTo("#ct-chatlayer", { autoAlpha: 0, y: 560 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: "expo.out", immediateRender: false }, T.reskin);
-      tl.fromTo("#ct-seek", { autoAlpha: 0, y: 60, scale: 0.9, transformOrigin: "100% 100%" }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out", immediateRender: false }, T.seekAgain);
-      tl.fromTo("#ct-deliv", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25, immediateRender: false }, T.seekAgain + 0.4);
+      // the chatbot arrives on the same website: a launcher pops in, then the chat opens out of it with the question carried over
+      tl.fromTo("#ct-launch", { autoAlpha: 0, scale: 0.4, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.42, ease: "back.out(1.6)" }, T.launch);
+      tl.fromTo("#ct-launch-tip", { autoAlpha: 0, x: 40 }, { autoAlpha: 1, x: 0, duration: 0.35, ease: "expo.out" }, T.launch + 0.15);
+      tl.to("#ct-launch", { scale: 0.92, duration: 0.08, ease: "power2.in" }, T.reskin - 0.08);
+      tl.set(["#ct-seek", "#ct-deliv"], { autoAlpha: 1 }, T.reskin);
+      tl.set("#ct-chatlayer", { autoAlpha: 1, clipPath: "circle(0px at 930px 1306px)" }, T.reskin);
+      tl.to("#ct-chatlayer", { clipPath: "circle(2300px at 930px 1306px)", duration: 0.65, ease: "power2.inOut" }, T.reskin);
+      tl.set("#ct-site", { autoAlpha: 0 }, T.reskin + 0.7);
 
       // 6. it answers from your own teaching, any hour, any language, with its sources
       tl.fromTo("#ct-ans-who", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "expo.out" }, T.typing);
@@ -361,6 +396,7 @@
       q("#ct-typing .ct-dot").forEach((d, i) => tl.fromTo(d, { y: 0 }, { y: -9, duration: 0.16, ease: "power1.inOut", yoyo: true, repeat: Math.max(1, Math.floor((T.reply - T.typing) / 0.32)) }, T.typing + 0.1 + i * 0.1));
       tl.to("#ct-typing", { autoAlpha: 0, duration: 0.12 }, T.reply);
       tl.fromTo("#ct-ans", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "expo.out" }, T.reply);
+      q("#ct-ans .ct-w").forEach((w, i) => tl.to(w, { opacity: 1, duration: 0.08, ease: "none" }, T.reply + 0.1 + i * T.stream));
       tl.to("#ct-chip-src", { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.4)" }, T.src);
       tl.fromTo("#ct-clock-hi", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "power2.out" }, T.hour);
       tl.to("#ct-clock-hi", { autoAlpha: 0, duration: 0.3, ease: "power2.in" }, T.hour + 1.2);

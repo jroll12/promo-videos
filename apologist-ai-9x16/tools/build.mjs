@@ -54,10 +54,12 @@ chat.contradicts = max(W("L4", "contradicts"), chat.misquotes + 0.35, chat.gen +
 chat.genOut = max(L.L5.start - 0.2, chat.contradicts + 0.7);
 chat.logo = max(W("L5", "Apologist") - 0.05, chat.genOut + 0.3);
 chat.eyebrow = max(W("L5", "faithful"), chat.logo + 0.45);
-chat.logoOut = max(W("L5", "website") + 0.25, chat.eyebrow + 0.8, chat.logo + 1.3);
-chat.reskin = chat.logoOut + 0.05; // the chatbot arrives on the ministry's website
-chat.seekAgain = chat.reskin + 0.45; // the same question, asked again
-chat.typing = chat.seekAgain + 0.35;
+chat.logoOut = max(W("L5", "chatbot") + 0.05, chat.eyebrow + 0.7, chat.logo + 1.3);
+chat.launch = max(W("L5", "ministry's") - 0.05, chat.logoOut + 0.3); // the launcher pops onto the site
+chat.reskin = max(W("L5", "website") + 0.1, chat.launch + 0.5); // the chat opens out of the launcher
+chat.seekAgain = chat.reskin; // the question is carried over into the chat
+chat.typing = chat.reskin + 0.55;
+chat.stream = 0.055; // seconds per word as the answer streams in
 chat.reply = max(W("L6", "answers"), chat.typing + 0.4);
 chat.src = max(W("L6", "teaching"), chat.reply + 0.35);
 chat.hour = max(W("L6", "hour"), chat.src + 0.2);
@@ -140,7 +142,7 @@ sfx("typing", chat.typeStart + 0.95, 0.11);
 sfx("pop", chat.send + 0.05, 0.22);
 sfx("whoosh-cinematic", chat.verseIn + 0.7, 0.1);
 sfx("whoosh", chat.qIn + 0.1, 0.12);
-["notification", "pop", "ping", "pop", "notification", "pop"].forEach((f, i) => sfx(f, chat.qIn + 0.2 + i * ((chat.qBut - chat.qIn) / 6), [0.11, 0.13, 0.09, 0.12, 0.1, 0.12][i]));
+["pop", "click-soft", "pop", "click-soft", "pop", "click-soft"].forEach((f, i) => sfx(f, chat.qIn + 0.2 + i * ((chat.qBut - chat.qIn) / 6), [0.11, 0.13, 0.09, 0.12, 0.1, 0.12][i]));
 sfx("pop", chat.team + 0.1, 0.16);
 sfx("click-soft", chat.wait + 0.06, 0.3);
 sfx("whoosh-short", chat.qOut + 0.05, 0.14);
@@ -148,20 +150,18 @@ sfx("pop", chat.gen + 0.12, 0.16);
 sfx("pop", chat.gen + 0.44, 0.12);
 [chat.hedges, chat.misquotes, chat.contradicts].forEach((t) => sfx("click-soft", t + 0.1, 0.42));
 sfx("whoosh-short", chat.genOut, 0.12);
-sfx("chime", chat.logo + 0.35, 0.13);
 sfx("whoosh", chat.logoOut + 0.15, 0.14);
-sfx("whoosh-short", chat.reskin + 0.05, 0.14);
-sfx("pop", chat.seekAgain + 0.05, 0.18);
+sfx("pop", chat.launch + 0.1, 0.18);
+sfx("whoosh-short", chat.reskin + 0.2, 0.15);
 sfx("pop", chat.reply + 0.06, 0.2);
 sfx("click-soft", chat.src + 0.06, 0.35);
 sfx("click-soft", chat.hour + 0.06, 0.25);
 [0, 0.24, 0.48, 0.72].forEach((d) => sfx("key-press", chat.lang + 0.12 + d, 0.16));
 sfx("click-soft", chat.cites + 0.06, 0.35);
-sfx("notification", chat.hand + 0.06, 0.14);
+sfx("pop", chat.hand + 0.06, 0.14);
 sfx("click", chat.press, 0.38);
-sfx("ping", chat.connected + 0.06, 0.16);
+sfx("click-soft", chat.connected + 0.06, 0.3);
 sfx("whoosh-short", cutA, 0.22);
-sfx("riser", cutA + proof.one + 0.1, 0.13, { mediaStart: 1.0, duration: 3.3 });
 sfx("pop", cutA + proof.one + 0.12, 0.18);
 sfx("whoosh-short", cutA + proof.band + 0.1, 0.14);
 sfx("pop", cutA + proof.band + 0.55, 0.12);

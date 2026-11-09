@@ -3,7 +3,7 @@
   "seams": [
     {
       "id": "chat→proof",
-      "cut": 38.58,
+      "cut": 40.1,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#ct-stage",
@@ -18,7 +18,7 @@
     },
     {
       "id": "proof→cta",
-      "cut": 51.46,
+      "cut": 52.22,
       "technique": "cut-the-curve UP",
       "exit": {
         "selector": "#pf-stage",

@@ -3,40 +3,40 @@
   "id": "L1",
   "heard": "Picture your website at two in the morning. Someone arrives with a question they've never felt safe to ask out loud.",
   "wer": 0.0,
-  "seconds": 5.62,
-  "words_per_second": 3.74,
+  "seconds": 6.55,
+  "words_per_second": 3.21,
   "names": []
  },
  {
   "id": "L2",
-  "heard": "Always be prepared to give an answer to everyone who asks you, to give the reason for the hope that you have.",
+  "heard": "Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have.",
   "wer": 0.0,
-  "seconds": 7.01,
-  "words_per_second": 3.14,
+  "seconds": 6.31,
+  "words_per_second": 3.49,
   "names": []
  },
  {
   "id": "L3",
-  "heard": "The questions never stop. But your team can't answer them all.",
+  "heard": "The questions never stop, but your team can't answer them all.",
   "wer": 0.0,
-  "seconds": 3.9,
-  "words_per_second": 2.82,
+  "seconds": 3.88,
+  "words_per_second": 2.84,
   "names": []
  },
  {
   "id": "L4",
-  "heard": "generic AI hedges, misquotes Scripture, or quietly contradicts what you teach.",
+  "heard": "Generic AI hedges, misquotes scripture, or quietly contradicts what you teach.",
   "wer": 0.0,
-  "seconds": 4.66,
-  "words_per_second": 2.36,
+  "seconds": 5.38,
+  "words_per_second": 2.04,
   "names": []
  },
  {
   "id": "L5",
   "heard": "Apologist AI puts a faithful, branded chat bot on your ministry's website.",
   "wer": 0.182,
-  "seconds": 5.04,
-  "words_per_second": 2.18,
+  "seconds": 5.01,
+  "words_per_second": 2.2,
   "names": [
    {
     "term": "Apologist AI",
@@ -50,8 +50,8 @@
   "id": "L6",
   "heard": "It answers from your own teaching, any hour, in any language, and cites its sources.",
   "wer": 0.0,
-  "seconds": 5.14,
-  "words_per_second": 2.92,
+  "seconds": 5.18,
+  "words_per_second": 2.9,
   "names": []
  },
  {
@@ -66,21 +66,21 @@
   "id": "L8",
   "heard": "It's the number one Christian AI platform on the Gospel Coalition's 2026 AI Christian Benchmark.",
   "wer": 0.0,
-  "seconds": 7.13,
-  "words_per_second": 2.1,
+  "seconds": 6.18,
+  "words_per_second": 2.43,
   "names": []
  },
  {
   "id": "L9",
-  "heard": "It's trusted by Ligonier, GotQuestions, Apologetics Canada and more.",
-  "wer": 0.2,
-  "seconds": 4.63,
-  "words_per_second": 2.16,
+  "heard": "It's trusted by Ligoni, GotQuestions, Apologetics Canada and more.",
+  "wer": 0.3,
+  "seconds": 5.19,
+  "words_per_second": 1.93,
   "names": [
    {
     "term": "Ligonier",
-    "heard_as": "Ligonier",
-    "similarity": 1.0,
+    "heard_as": "Ligoni",
+    "similarity": 0.86,
     "flag": false
    }
   ]
@@ -89,28 +89,28 @@
   "id": "L10",
   "heard": "We run your AI infrastructure so you can focus on the people you serve.",
   "wer": 0.0,
-  "seconds": 4.2,
-  "words_per_second": 3.33,
+  "seconds": 4.42,
+  "words_per_second": 3.17,
   "names": []
  },
  {
   "id": "L11",
-  "heard": "Your mission? Our platform. Christ Made Known.",
+  "heard": "Your Mission. Our Platform. Christ Made Known.",
   "wer": 0.0,
-  "seconds": 4.19,
-  "words_per_second": 1.67,
+  "seconds": 3.7,
+  "words_per_second": 1.89,
   "names": []
  },
  {
   "id": "L12",
-  "heard": "Book a quick intro call or visit ApologistAI.com.",
+  "heard": "Book a quick intro call or visit apologistai.com.",
   "wer": 0.0,
-  "seconds": 3.28,
-  "words_per_second": 2.44,
+  "seconds": 3.2,
+  "words_per_second": 2.5,
   "names": [
    {
     "term": "apologistai.com",
-    "heard_as": "ApologistAI",
+    "heard_as": "apologistai",
     "similarity": 0.88,
     "flag": false
    }
