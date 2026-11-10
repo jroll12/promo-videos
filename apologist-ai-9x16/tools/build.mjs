@@ -28,9 +28,9 @@ const min = Math.min;
 // ── scene 1 "chat": the 2 a.m. question, the verse, the stream of questions, generic AI, the agent, the handoff ──
 const QUESTION = "Is there any hope for someone like me?";
 const chat = {};
-chat.pre = 17; // "Is there any hope" is already typed on frame 0
-chat.typeStart = W("L1", "question") - 0.05;
-chat.send = max(W("L1", "ask"), chat.typeStart + 1.2);
+chat.pre = 0; // the box starts empty: the whole question types in as the line is spoken
+chat.send = W("L1", "ask");
+chat.typeStart = max(1.0, chat.send - 0.3 - QUESTION.length * 0.095); // about 0.095 s per character, sent on "ask"
 chat.typeStep = (chat.send - 0.3 - chat.typeStart) / (QUESTION.length - chat.pre);
 chat.blinks = [];
 for (let t = 0.5; t < chat.typeStart - 0.2; t += 0.5) chat.blinks.push(t);
@@ -73,7 +73,8 @@ const cutA = r3(max(min(L.L7.end + 0.7, L.L8.start - 0.05), chat.connected + 1.3
 chat.exit = cutA - 0.32;
 
 // ── scene 2 "proof": #1 on the TGC benchmark, the stat band, trusted by (in the brochure's order) ──
-const NAMES = ["Ligonier", "Got Questions", "Apologetics Canada", "Radical", "Sightline", "Dare 2 Share", "Jesus Film"];
+// spoken first, in the order said; the others are on screen but not named aloud (they light up together on "and more")
+const NAMES = ["Got Questions", "Apologetics Canada", "Dare 2 Share", "Ligonier", "Radical", "Sightline", "Jesus Film"];
 const proof = {};
 const A = (t) => t - cutA;
 proof.one = max(A(W("L8", "one")), 0.45);
@@ -81,9 +82,9 @@ proof.label = max(A(W("L8", "Christian")), proof.one + 0.25);
 proof.method = proof.label + 0.6;
 proof.source = proof.method + 0.6;
 proof.band = max(A(L.L9.start) - 0.3, proof.source + 0.8);
-const spoken = [W("L9", "Ligonier"), W("L9", "Got"), W("L9", "Apologetics")].map(A).map((t, i) => max(t, proof.band + 0.9 + i * 0.25));
+const spoken = [W("L9", "Got"), W("L9", "Apologetics"), W("L9", "Dare")].map(A).map((t, i) => max(t, proof.band + 0.9 + i * 0.25));
 const more = max(A(W("L9", "and")), spoken[2] + 0.3);
-proof.nameAt = [...spoken, ...[0, 1, 2, 3].map((k) => more + k * 0.1)]; // the rest ink in order on "and more"
+proof.nameAt = [...spoken, ...[0, 1, 2, 3].map((k) => more + k * 0.1)]; // the other four ink in order on "and more"
 const cutB = r3(max(min(L.L9.end + 0.6, L.L10.start - 0.05), cutA + proof.nameAt[6] + 0.5));
 proof.exit = cutB - cutA - 0.32;
 
@@ -102,26 +103,27 @@ const total = r3(max(L.L12.end + 3.2, cutB + cta.foot + 3.0));
 
 // ── markup slots ──
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
-const typed = [...QUESTION].map((c) => `<span>${esc(c)}</span>`).join("");
+const typed = '<i id="ct-c0"></i>' + [...QUESTION].map((c) => `<span>${esc(c)}</span>`).join("");
 const QS = [
-  ["Who is Jesus, really?", "Español", "2:11 AM"],
-  ["Can I trust the Bible?", "Русский", "2:14 AM"],
+  ["¿Quién es Jesús realmente?", "Español", "2:11 AM"],
+  ["Можно ли доверять Библии?", "Русский", "2:14 AM"],
   ["Why does God allow pain?", "English", "2:19 AM"],
-  ["Does God hear my prayers?", "العربية", "2:26 AM"],
-  ["What happens when we die?", "हिन्दी", "2:31 AM"],
-  ["Is it too late for me?", "Português", "2:40 AM"],
-  ["Where do I even start?", "Kiswahili", "3:02 AM"],
-  ["Did Jesus really rise?", "Français", "3:09 AM"],
-  ["Is it safe to ask here?", "Tagalog", "3:17 AM"],
-  ["Why would God forgive me?", "Español", "3:24 AM"],
-  ["Who wrote the Gospels?", "Deutsch", "3:31 AM"],
+  ["هل يسمع الله صلواتي؟", "العربية", "2:26 AM"],
+  ["मरने के बाद क्या होता है?", "हिन्दी", "2:31 AM"],
+  ["É tarde demais para mim?", "Português", "2:40 AM"],
+  ["Nianzie wapi?", "Kiswahili", "3:02 AM"],
+  ["Jésus est-il ressuscité ?", "Français", "3:09 AM"],
+  ["Ligtas ba magtanong dito?", "Tagalog", "3:17 AM"],
+  ["¿Por qué me perdonaría Dios?", "Español", "3:24 AM"],
+  ["Wer schrieb die Evangelien?", "Deutsch", "3:31 AM"],
   ["How do I start praying?", "English", "3:40 AM"],
-  ["Is the Bible reliable?", "Русский", "3:52 AM"],
-  ["Does my life matter?", "Português", "4:05 AM"],
+  ["Насколько надёжна Библия?", "Русский", "3:52 AM"],
+  ["Minha vida importa?", "Português", "4:05 AM"],
 ];
+const RTL = new Set(["العربية"]);
 const cards = QS.map(
   ([qq, lang, time], i) =>
-    `<div class="ct-q" id="ct-q${i}" style="top: ${i * 152}px"><div class="ct-q-t">${esc(qq)}</div><div class="ct-q-c"><div class="ct-q-l"><bdi>${esc(lang)}</bdi></div><div class="ct-q-h">${time}</div></div><div class="ct-q-w"><i></i>Unanswered</div></div>`,
+    `<div class="ct-q" id="ct-q${i}" style="top: ${i * 152}px"><div class="ct-q-t"><bdi${RTL.has(lang) ? ' dir="rtl"' : ""}>${esc(qq)}</bdi></div><div class="ct-q-c"><div class="ct-q-l"><bdi>${esc(lang)}</bdi></div><div class="ct-q-h">${time}</div></div><div class="ct-q-w"><i></i>Unanswered</div></div>`,
 ).join("\n        ");
 const vw = L.L2.words.map((w) => w.w);
 const verse = vw
@@ -137,8 +139,7 @@ const names = NAMES.map((n, i) => `<div class="pf-nm" id="pf-nm${i}" style="left
 
 // ── sound: every effect has a cause on screen ──
 const sfx = p.sfx;
-sfx("typing", chat.typeStart + 0.05, 0.13);
-sfx("typing", chat.typeStart + 0.95, 0.11);
+[0.05, 1.4, 2.7].forEach((d, i) => sfx("typing", chat.typeStart + d, [0.13, 0.12, 0.11][i]));
 sfx("pop", chat.send + 0.05, 0.22);
 sfx("whoosh-cinematic", chat.verseIn + 0.7, 0.1);
 sfx("whoosh", chat.qIn + 0.1, 0.12);

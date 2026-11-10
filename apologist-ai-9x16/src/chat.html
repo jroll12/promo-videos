@@ -75,7 +75,8 @@
     #ct-qvp { position: absolute; left: 0; top: 180px; width: 1080px; height: 1220px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent 0px, #000 90px, #000 940px, transparent 1090px); mask-image: linear-gradient(to bottom, transparent 0px, #000 90px, #000 940px, transparent 1090px); }
     #ct-qcol { position: absolute; left: 0; top: 0; width: 1080px; height: 2200px; }
     .ct-q { position: absolute; left: 90px; width: 900px; height: 132px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 16px 40px rgba(3, 6, 18, 0.45); }
-    .ct-q-t { position: absolute; left: 40px; top: 0; font: 600 40px/132px "Inter PV"; color: #111828; white-space: nowrap; }
+    .ct-q-t { position: absolute; left: 40px; top: 0; font: 600 38px/132px "Inter PV", "Noto Sans Arabic PV", "Noto Sans Devanagari PV"; color: #111828; white-space: nowrap; }
+    #ct-typed i { display: inline-block; width: 0; height: 46px; vertical-align: -9px; }
     .ct-q-c { position: absolute; right: 36px; top: 30px; text-align: right; white-space: nowrap; }
     .ct-q-l { font: 600 28px/36px "Inter PV", "Noto Sans Arabic PV", "Noto Sans Devanagari PV"; color: #3C3E51; }
     .ct-q-h { font: 500 28px/36px "Inter PV"; color: #6E7086; }
@@ -269,14 +270,16 @@
       gsap.set("#ct-logo", { clipPath: "inset(0% 100% 0% 0%)" });
       const chars = q("#ct-typed span");
       chars.forEach((c, i) => gsap.set(c, { opacity: i < T.pre ? 1 : 0 }));
-      gsap.set(chars[T.pre - 1], { boxShadow: "3px 0 0 0 #111828" });
+      const caretEl = T.pre > 0 ? chars[T.pre - 1] : document.getElementById("ct-c0"); // an empty box carries its own caret
+      const prevEl = (i) => (i > 0 ? chars[i - 1] : caretEl);
+      gsap.set(caretEl, { boxShadow: "3px 0 0 0 #111828" });
 
       // 1. 2:07 a.m.: the caret blinks, the question finishes typing, and sends on "ask"
-      T.blinks.forEach((t, k) => tl.set(chars[T.pre - 1], { boxShadow: k % 2 ? "3px 0 0 0 #111828" : "0px 0 0 0 rgba(0,0,0,0)" }, t));
+      T.blinks.forEach((t, k) => tl.set(caretEl, { boxShadow: k % 2 ? "3px 0 0 0 #111828" : "0px 0 0 0 rgba(0,0,0,0)" }, t));
       for (let i = T.pre; i < chars.length; i++) {
         const t = T.typeStart + (i - T.pre) * T.typeStep;
         tl.set(chars[i], { opacity: 1, boxShadow: "3px 0 0 0 #111828" }, t);
-        tl.set(chars[i - 1], { boxShadow: "0px 0 0 0 rgba(0,0,0,0)" }, t);
+        tl.set(prevEl(i), { boxShadow: "0px 0 0 0 rgba(0,0,0,0)" }, t);
       }
       tl.set(chars[chars.length - 1], { boxShadow: "0px 0 0 0 rgba(0,0,0,0)" }, T.send - 0.05);
       tl.to("#ct-site-btn", { scale: 0.94, duration: 0.08, ease: "power2.in" }, T.send - 0.08);

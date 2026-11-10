@@ -3,18 +3,14 @@
   "cutA": 40.1,
   "cutB": 52.22,
   "chat": {
-    "pre": 17,
-    "typeStart": 4.11,
+    "pre": 0,
     "send": 5.92,
-    "typeStep": 0.072,
+    "typeStart": 2.01,
+    "typeStep": 0.095,
     "blinks": [
       0.5,
       1,
-      1.5,
-      2,
-      2.5,
-      3,
-      3.5
+      1.5
     ],
     "verseIn": 6.99,
     "verse": [
@@ -84,8 +80,8 @@
     "band": 6.59,
     "nameAt": [
       7.69,
-      8.49,
       9.45,
+      10.39,
       10.81,
       10.91,
       11.01,
@@ -303,18 +299,18 @@
       "end": 46.93
     },
     {
-      "text": "It's trusted by Ligonier,",
+      "text": "It's trusted by Got Questions,",
       "start": 46.93,
-      "end": 48.53
-    },
-    {
-      "text": "Got Questions,",
-      "start": 48.53,
       "end": 49.49
     },
     {
       "text": "Apologetics Canada,",
       "start": 49.49,
+      "end": 50.43
+    },
+    {
+      "text": "Dare to Share,",
+      "start": 50.43,
       "end": 50.85
     },
     {
@@ -371,7 +367,7 @@
   "sfx": [
     {
       "f": "typing",
-      "start": 3.743,
+      "start": 1.643,
       "ms": 0,
       "dur": 1.5,
       "vol": 0.13,
@@ -379,11 +375,19 @@
     },
     {
       "f": "typing",
-      "start": 4.643,
+      "start": 2.993,
+      "ms": 0,
+      "dur": 1.5,
+      "vol": 0.12,
+      "track": 6
+    },
+    {
+      "f": "typing",
+      "start": 4.293,
       "ms": 0,
       "dur": 1.5,
       "vol": 0.11,
-      "track": 6
+      "track": 5
     },
     {
       "f": "pop",
@@ -399,7 +403,7 @@
       "ms": 0,
       "dur": 5.544,
       "vol": 0.1,
-      "track": 7
+      "track": 6
     },
     {
       "f": "whoosh",
@@ -683,7 +687,7 @@
     },
     {
       "f": "click-soft",
-      "start": 48.613,
+      "start": 49.573,
       "ms": 0,
       "dur": 0.366,
       "vol": 0.22,
@@ -691,7 +695,7 @@
     },
     {
       "f": "click-soft",
-      "start": 49.573,
+      "start": 50.513,
       "ms": 0,
       "dur": 0.366,
       "vol": 0.22,

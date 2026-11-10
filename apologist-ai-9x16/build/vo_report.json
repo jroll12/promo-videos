@@ -73,17 +73,10 @@
  {
   "id": "L9",
   "heard": "It's trusted by Ligoni, GotQuestions, Apologetics Canada and more.",
-  "wer": 0.3,
+  "wer": 0.417,
   "seconds": 5.19,
-  "words_per_second": 1.93,
-  "names": [
-   {
-    "term": "Ligonier",
-    "heard_as": "Ligoni",
-    "similarity": 0.86,
-    "flag": false
-   }
-  ]
+  "words_per_second": 2.31,
+  "names": []
  },
  {
   "id": "L10",

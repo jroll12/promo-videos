@@ -662,7 +662,7 @@
   },
   {
    "id": "L9",
-   "text": "It's trusted by Ligonier, Got Questions, Apologetics Canada, and more.",
+   "text": "It's trusted by Got Questions, Apologetics Canada, Dare to Share, and more.",
    "start": 46.99,
    "end": 52.18,
    "words": [
@@ -682,18 +682,13 @@
      "end": 47.77
     },
     {
-     "w": "Ligonier,",
+     "w": "Got",
      "start": 47.79,
      "end": 48.57
     },
     {
-     "w": "Got",
-     "start": 48.59,
-     "end": 49.05
-    },
-    {
      "w": "Questions,",
-     "start": 49.07,
+     "start": 48.59,
      "end": 49.53
     },
     {
@@ -704,6 +699,21 @@
     {
      "w": "Canada,",
      "start": 50.35,
+     "end": 50.47
+    },
+    {
+     "w": "Dare",
+     "start": 50.49,
+     "end": 50.61
+    },
+    {
+     "w": "to",
+     "start": 50.63,
+     "end": 50.75
+    },
+    {
+     "w": "Share,",
+     "start": 50.77,
      "end": 50.89
     },
     {
