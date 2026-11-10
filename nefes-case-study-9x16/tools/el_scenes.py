@@ -1,6 +1,6 @@
 """Narration as continuous ElevenLabs takes, one per scene, with no digital silence anywhere.
 
-    python tools/el_scenes.py [--only before,pilot,result,relief,close] [--dry-run]
+    python tools/el_scenes.py [--only before,pilot,handoff,result,relief,close] [--dry-run]
 
 Why: a narration made as one request per sentence, butted together with exact-zero gaps, sounds like the room
 switching off between sentences, and every sentence restarts as its own ad read. Here each scene is one request, so the
@@ -31,8 +31,11 @@ SET = {"stability": 0.5, "similarity_boost": 0.75, "style": 0.0, "use_speaker_bo
 SCENES = {
     # the responder's own words, then who is speaking
     "before": {"settings": SET, "build": lambda T: "[warm, natural, conversational] " + T["L1"] + " [pause] " + T["L2"]},
-    # what the pilot was
-    "pilot": {"settings": SET, "build": lambda T: "[warm, natural, conversational] " + T["L3"] + " " + T["L4"] + " " + T["L5"]},
+    # what the pilot was. el-scenes/pilot.wav is the first roll of this scene cut after "and follows up": in one run with
+    # the hand-off line, that line came out the fastest in the film (3.83 words/s), as it did in the intro film.
+    "pilot": {"settings": SET, "build": lambda T: "[warm, natural, conversational] " + T["L3"] + " " + T["L4"]},
+    # the hand-off, the film's peak, as its own take
+    "handoff": {"settings": SET, "build": lambda T: "[warm, sincere] " + T["L5"]},
     # the numbers
     "result": {"settings": SET, "build": lambda T: "[warm, clear, quietly confident] " + T["L6"] + " " + T["L7"]},
     # the hostile messages, and the responder again
@@ -41,7 +44,9 @@ SCENES = {
     "close": {"settings": SET, "build": lambda T: "[warmly] " + T["L11"] + " " + T["L12"]},
 }
 LEAD_IN, TAIL = 0.45, 0.7
-GAP_AFTER = {"before": 0.75, "pilot": 0.9, "result": 0.9, "relief": 1.0}  # the four scene turns
+# a sentence pause after the pilot paragraph, then the scene turns. The hand-off, the second finding and the
+# responder's last words each hold on screen after the voice stops, so the gaps after them are longer.
+GAP_AFTER = {"before": 0.75, "pilot": 0.3, "handoff": 1.6, "result": 1.7, "relief": 1.8}
 
 
 def decode(path):

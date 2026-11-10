@@ -65,7 +65,7 @@ pilot.finish = Math.max(pilot.follows + 0.6, W("L5", "finish,") - cutA);
 pilot.obey = Math.max(pilot.finish + 0.55, W("L5", "obey") - cutA);
 pilot.handed = Math.max(pilot.obey + 0.7, W("L5", "handed") - cutA); // a beat of stillness, then the hand-off
 pilot.impact = pilot.handed + 0.42;
-const cutB = cutAfter("L5", "L6", 0.9);
+const cutB = cutAfter("L5", "L6", 1.5); // the hand-off holds
 pilot.exit = cutB - 0.32 - cutA;
 
 // 3 · result: 3.73 times as many, at about the same rate
@@ -74,10 +74,10 @@ result.count0 = Math.max(0.5, W("L6", "same") - cutB);
 result.num = Math.max(result.count0 + 0.8, W("L6", "3.73") - cutB); // the count lands as the number is spoken
 result.cap = result.count0 + 0.15; // the caption is there to be read while the number counts
 result.nudge = Math.max(result.num + 1.5, L.L7.start - cutB - 0.3);
-result.leaders = Math.max(result.nudge + 0.4, W("L7", "leaders") - cutB - 0.2);
+result.leaders = result.nudge + 0.45; // the second finding is on screen for the whole of its line
 result.foot = result.leaders + 0.45;
 result.same = Math.max(result.leaders + 0.5, W("L7", "same") - cutB - 0.05);
-const cutC = cutAfter("L7", "L8", 0.9);
+const cutC = cutAfter("L7", "L8", 1.5);
 result.exit = cutC - 0.32 - cutB;
 
 // 4 · relief: the hostile messages, absorbed; then the responder again
@@ -94,7 +94,7 @@ relief.stats = relief.pilot + 0.35;
 relief.quoteIn = Math.max(relief.pass + 0.9, L.L10.start - cutC - 0.2);
 relief.attr = relief.quoteIn + 0.3;
 relief.qwords = L.L10.words.slice(4).map((w) => w.start - cutC); // the quotation starts after "In the responder's words:"
-const cutD = cutAfter("L10", "L11", 1.0);
+const cutD = cutAfter("L10", "L11", 1.5); // the finished quotation holds
 relief.exit = cutD - 0.32 - cutC;
 
 // 5 · close: the same country, answered; then the ask
