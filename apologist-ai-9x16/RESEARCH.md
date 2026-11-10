@@ -113,3 +113,13 @@ in search-result text from that source", not "opened the page".
 - **The opening is now an illustrative ministry website with a contact form** ("Illustrative website"). The "Message sent. We'll be in touch."
   state is invented for the film. The chatbot only arrives at line 5, on the same site. The generic-AI beat is labelled "Generic AI chatbot".
 - **Voice:** a placeholder ElevenLabs "Hale" take times this draft. Jarret is recording the narration himself, which removes the ElevenLabs licence item.
+
+## Update 2026-11-10: typing, card languages, spoken ministries
+- **Opening:** the contact form now starts empty and the question types in as line 1 is spoken (picture only).
+- **Question cards (about 14 to 19 s):** each card's question is now in its language chip's language (Spanish, Russian,
+  Arabic, Hindi, Portuguese, Swahili, French, Tagalog, German; English stays English). **These translations are mine and
+  have not been checked by native speakers: have each reviewed before posting.** The "Unanswered" tag stays in English.
+- **Line 9 is now** "It's trusted by Got Questions, Apologetics Canada, Dare to Share, and more." (supplied: the brochure's
+  trusted-by list). Only those three are spoken. On screen the list leads with them, then Ligonier, Radical, Sightline and
+  Jesus Film, which light up together on "and more". On screen the name stays "Dare 2 Share", the organization's own spelling.
+  The narration for this line has not been re-recorded yet (see REVIEW.md).

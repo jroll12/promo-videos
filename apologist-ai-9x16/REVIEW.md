@@ -1,6 +1,6 @@
 # REVIEW: Apologist AI promo ("Anyone who asks"), revision 2
 
-Status: **final render for review and Tier 1 approval.** 66.9 s, vertical 9:16, narrated by ElevenLabs "Hale".
+Status: **line 9 needs a new narration take before the next render (2026-11-10).** Previous: final render for review and Tier 1 approval. 66.9 s, vertical 9:16, narrated by ElevenLabs "Hale".
 Deliverables in `renders/`: the 4K master (2160 x 3840), a 1080p copy, a poster frame, and the project zip.
 
 ## What changed from the first draft (Jarret + Jake feedback, 2026-11-01)
