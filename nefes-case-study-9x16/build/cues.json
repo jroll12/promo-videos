@@ -1,0 +1,314 @@
+{
+  "provisional": true,
+  "total": 69.27,
+  "cutA": 14.67,
+  "cutB": 28.89,
+  "cutC": 38.86,
+  "cutD": 59.73,
+  "before": {
+    "words": [
+      0.45,
+      0.63,
+      0.92,
+      1.11,
+      1.4,
+      1.58,
+      2.01,
+      2.38,
+      2.88,
+      3.64,
+      3.93,
+      4.51,
+      4.8,
+      4.98,
+      5.34,
+      5.53,
+      5.82,
+      6,
+      6.22,
+      6.65,
+      6.83,
+      7.34,
+      7.63,
+      7.81,
+      8.1,
+      8.32
+    ],
+    "s0": 0.9,
+    "sMin": 0.14,
+    "sEnd": 0.15,
+    "attr": 8.82,
+    "pullStart": 10.52,
+    "pullEnd": 12.42,
+    "quoteOut": 11.02,
+    "attrOut": 11.22,
+    "mapIn": 10.97,
+    "label": 11.77,
+    "chip": 12.33,
+    "two": 13.3,
+    "exit": 14.35,
+    "counts": {
+      "onFrame0": 4,
+      "duringQuote": 17,
+      "duringPull": 145,
+      "overTheQuote": 14
+    }
+  },
+  "pilot": {
+    "travel": 2.31,
+    "travelDur": 1.1,
+    "c1": 2.71,
+    "c2": 2.89,
+    "c3": 3.07,
+    "dotIn": 3.56,
+    "n1": 4.5,
+    "n2": 4.87,
+    "n3": 5.23,
+    "answers": 5.88,
+    "follows": 7.76,
+    "finish": 9.41,
+    "obey": 10.2,
+    "handed": 11.39,
+    "impact": 11.81,
+    "exit": 13.9
+  },
+  "result": {
+    "count0": 1.44,
+    "num": 2.74,
+    "cap": 1.59,
+    "nudge": 5.41,
+    "leaders": 7.05,
+    "foot": 7.5,
+    "same": 8.47,
+    "exit": 9.65
+  },
+  "relief": {
+    "many": 1.44,
+    "hostile": 3.18,
+    "take": 4.71,
+    "pilot": 5.95,
+    "our": 6.85,
+    "took": 7.25,
+    "answered": 8.59,
+    "pass": 9.39,
+    "stats": 6.3,
+    "quoteIn": 10.33,
+    "attr": 10.63,
+    "qwords": [
+      12.28,
+      12.46,
+      12.75,
+      13.04,
+      13.23,
+      13.52,
+      13.81,
+      14.47,
+      14.66,
+      15.16,
+      15.88,
+      16.1,
+      16.28,
+      16.5,
+      16.68,
+      17.05,
+      17.34,
+      17.63,
+      17.81,
+      18.03,
+      18.46,
+      18.75,
+      18.97,
+      19.26
+    ],
+    "exit": 20.55
+  },
+  "close": {
+    "sMin": 0.14,
+    "replace": 1.09,
+    "mult": 2.6,
+    "fieldOut": 3.7,
+    "logo": 3.95,
+    "call": 4.36,
+    "give": 4.98,
+    "url": 5.59,
+    "rest": 6.14
+  },
+  "sfx": [
+    {
+      "f": "pop-lo",
+      "start": 3.923,
+      "ms": 0,
+      "dur": 0.881,
+      "vol": 0.13,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 6.233,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.13,
+      "track": 5
+    },
+    {
+      "f": "pop-hi",
+      "start": 8.293,
+      "ms": 0,
+      "dur": 0.7,
+      "vol": 0.14,
+      "track": 5
+    },
+    {
+      "f": "whoosh-cinematic",
+      "start": 8.963,
+      "ms": 0,
+      "dur": 5.544,
+      "vol": 0.18,
+      "track": 6
+    },
+    {
+      "f": "pop-lo",
+      "start": 12.303,
+      "ms": 0,
+      "dur": 0.881,
+      "vol": 0.15,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 14.543,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.2,
+      "track": 5
+    },
+    {
+      "f": "whoosh",
+      "start": 17.403,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 20.573,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.3,
+      "track": 5
+    },
+    {
+      "f": "click-soft",
+      "start": 22.453,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.3,
+      "track": 5
+    },
+    {
+      "f": "impact-bass-2",
+      "start": 24.553,
+      "ms": 0,
+      "dur": 2.592,
+      "vol": 0.14,
+      "track": 5
+    },
+    {
+      "f": "whoosh",
+      "start": 28.763,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.2,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 31.643,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 34.423,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.13,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 38.733,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.2,
+      "track": 5
+    },
+    {
+      "f": "pop-lo",
+      "start": 43.663,
+      "ms": 0,
+      "dur": 0.881,
+      "vol": 0.15,
+      "track": 5
+    },
+    {
+      "f": "pop",
+      "start": 44.043,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.13,
+      "track": 6
+    },
+    {
+      "f": "click-soft",
+      "start": 45.413,
+      "ms": 0,
+      "dur": 0.366,
+      "vol": 0.34,
+      "track": 5
+    },
+    {
+      "f": "pop-hi",
+      "start": 47.453,
+      "ms": 0,
+      "dur": 0.7,
+      "vol": 0.13,
+      "track": 5
+    },
+    {
+      "f": "whoosh",
+      "start": 59.603,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.2,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 63.903,
+      "ms": 0,
+      "dur": 0.575,
+      "vol": 0.15,
+      "track": 5
+    },
+    {
+      "f": "pop-hi",
+      "start": 64.113,
+      "ms": 0,
+      "dur": 0.7,
+      "vol": 0.15,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 64.723,
+      "ms": 0,
+      "dur": 0.72,
+      "vol": 0.15,
+      "track": 5
+    }
+  ]
+}

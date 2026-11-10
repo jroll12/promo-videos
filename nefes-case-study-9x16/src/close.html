@@ -1,0 +1,101 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #1D3D1E; }
+    #root * { box-sizing: border-box; }
+    #cl-bg { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 38%, #24492A 0%, #1D3D1E 55%, #152D16 100%); }
+    #cl-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #cl-rings { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+
+    /* the country from the opening, and the same team */
+    #cl-far { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 980px; }
+    #cl-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 940px; }
+    #cl-field { position: absolute; left: -3460px; top: -1060px; width: 8000px; height: 4000px; }
+    #cl-eyebrow { position: absolute; left: 0; top: 250px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.26em; color: #A9B8A6; }
+    #cl-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #A9B8A6; vertical-align: middle; margin-right: 18px; position: relative; top: -3px; }
+    #cl-chip { position: absolute; left: 210px; top: 1254px; }
+
+    /* the end card */
+    #cl-card { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #cl-logo { position: absolute; left: 240px; top: 300px; width: 600px; height: 213px; }
+    #cl-logo img { width: 600px; height: 213px; display: block; }
+    #cl-tag { position: absolute; left: 0; top: 560px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #A9B8A6; }
+    .cl-pill { position: absolute; top: 656px; height: 124px; border-radius: 62px; background: #F7F4EC; color: #1D3D1E; text-align: center; font: 600 48px/124px "ZG Inter"; }
+    #cl-call { left: 150px; width: 410px; }
+    #cl-or { position: absolute; left: 560px; top: 656px; width: 90px; text-align: center; font: 500 34px/124px "ZG Inter"; color: #A9B8A6; }
+    #cl-give { left: 650px; width: 280px; }
+    #cl-url { position: absolute; left: 0; top: 824px; width: 1080px; text-align: center; font: 300 150px/1 "Cormorant Garamond"; color: #F3F0E8; letter-spacing: 0.005em; }
+    #cl-qr { position: absolute; left: 430px; top: 1032px; width: 220px; height: 220px; border-radius: 26px; background: #FFFFFF; }
+    #cl-qr img { position: absolute; left: 14px; top: 14px; width: 192px; height: 192px; }
+    #cl-scan { position: absolute; left: 0; top: 1278px; width: 1080px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #F3F0E8; }
+    #cl-foot { position: absolute; left: 0; top: 1332px; width: 1080px; text-align: center; font: 400 28px/1.2 "ZG Inter"; color: #A9B8A6; }
+  </style>
+
+  <div data-hf-id="hf-1oz1" id="root" data-composition-id="close" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-buq0" id="cl-bg"></div>
+    <div data-hf-id="hf-ddxd" id="cl-stage">
+      <svg data-hf-id="hf-oj6o" id="cl-rings" viewBox="0 0 1080 1920" data-layout-ignore>
+        <circle data-hf-id="hf-wr5p" cx="140" cy="230" r="520" fill="none" stroke="rgba(232,228,227,0.075)" stroke-width="2" />
+        <circle data-hf-id="hf-9rb8" cx="980" cy="1500" r="700" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+        <circle data-hf-id="hf-f95g" cx="60" cy="1860" r="300" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+
+      <div data-hf-id="hf-fx2c" id="cl-far">
+        <div data-hf-id="hf-kpiy" id="cl-cam">
+          <svg data-hf-id="hf-57b0" id="cl-field" viewBox="0 0 8000 4000" data-layout-ignore>
+          <!--{{FIELD}}-->
+          </svg>
+        </div>
+        <div data-hf-id="hf-cozn" id="cl-eyebrow"><i data-hf-id="hf-wt6k"></i>CASE STUDY · NEFES</div>
+        <!--{{CHIP}}-->
+      </div>
+
+      <div data-hf-id="hf-v6xc" id="cl-card" data-hold>
+        <div data-hf-id="hf-ppfk" id="cl-logo"><img data-hf-id="hf-1nbd" src="assets/brand/zogreo-light.svg" alt="zōgreō" /></div>
+        <div data-hf-id="hf-iavd" id="cl-tag">ACCELERATE THE GREAT COMMISSION</div>
+        <div data-hf-id="hf-wap1" class="cl-pill" id="cl-call">Book a call</div>
+        <div data-hf-id="hf-767j" id="cl-or">or</div>
+        <div data-hf-id="hf-bpzn" class="cl-pill" id="cl-give">Give</div>
+        <div data-hf-id="hf-w6ae" id="cl-url">zogreo.org</div>
+        <div data-hf-id="hf-dzlk" id="cl-qr"><img data-hf-id="hf-4atz" src="assets/brand/qr-site.svg" alt="QR code: zogreo.org" /></div>
+        <div data-hf-id="hf-bzdi" id="cl-scan">SCAN FOR ZOGREO.ORG</div>
+        <div data-hf-id="hf-lmzv" id="cl-foot">A program of The Apologist Project · 501(c)(3) nonprofit</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still rising. The country from the opening, with the same two people.
+      tl.fromTo("#cl-stage", { y: 230, opacity: 0.35, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set("#cl-cam", { scale: T.sMin });
+      gsap.set(".cl-r", { autoAlpha: 0 });
+      gsap.set(["#cl-tag", "#cl-call", "#cl-or", "#cl-give", "#cl-url", "#cl-qr", "#cl-scan", "#cl-foot"], { autoAlpha: 0 });
+      gsap.set("#cl-logo", { clipPath: "inset(0% 100% 0% 0%)" });
+      // the camera keeps moving in on the country while the line is said
+      tl.fromTo("#cl-cam", { scale: T.sMin }, { scale: T.sMin * 1.08, duration: T.fieldOut, ease: "sine.inOut" }, 0);
+
+      // "Our AI doesn't replace the team. It multiplies them.": the team, then an answer on every message, out from the centre
+      tl.fromTo("#cl-chip", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.08, duration: 0.45, ease: "power3.out" }, T.replace);
+      tl.fromTo(".cl-r", { autoAlpha: 0, scale: 0.4, transformOrigin: "0% 0%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: { amount: 0.85 } }, T.mult);
+
+      // the country steps back for the mark and the ask
+      tl.to("#cl-far", { autoAlpha: 0, scale: 0.94, y: -40, filter: "blur(8px)", duration: 0.4, ease: "power2.in" }, T.fieldOut);
+      tl.fromTo("#cl-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power2.inOut" }, T.logo);
+      tl.fromTo("#cl-tag", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.logo + 0.45);
+      // "Book a call, or give, at zogreo.org": each lands on its word
+      tl.fromTo("#cl-call", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.call);
+      tl.fromTo("#cl-or", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, T.give - 0.12);
+      tl.fromTo("#cl-give", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.give);
+      tl.fromTo("#cl-url", { autoAlpha: 0, filter: "blur(8px)", y: 14 }, { autoAlpha: 1, filter: "blur(0px)", y: 0, duration: 0.34, ease: "power3.out" }, T.url);
+      tl.fromTo("#cl-qr", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, T.rest);
+      tl.fromTo("#cl-scan", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.rest + 0.15);
+      tl.fromTo("#cl-foot", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.rest + 0.3);
+
+      window.__timelines["close"] = tl;
+    })();
+  </script>
+</template>

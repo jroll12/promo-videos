@@ -1,0 +1,102 @@
+{
+  "lines": [
+    {
+      "id": "L1",
+      "text": "I used to have to handle every message myself. When messages came at night or when I was busy, I couldn't keep up with the volume.",
+      "pause": 0.6,
+      "cap": "I used to have to handle / every message myself. / When messages came at night / or when I was busy, / I couldn't keep up / with the volume.",
+      "scene": "before"
+    },
+    {
+      "id": "L2",
+      "text": "That's a digital responder in Turkey. The field team: two people.",
+      "pause": 0.6,
+      "cap": "That's a digital responder / in Turkey. / The field team: / two people.",
+      "scene": "before"
+    },
+    {
+      "id": "L3",
+      "text": "So at Zogreo, we ran a pilot.",
+      "pause": 0.35,
+      "cap": "So at Zogreo, / we ran a pilot.",
+      "scene": "pilot"
+    },
+    {
+      "id": "L4",
+      "text": "Our AI leads each person through three Bible studies, answers their questions, and follows up.",
+      "pause": 0.4,
+      "cap": "Our AI leads each person / through three Bible studies, / answers their questions, / and follows up.",
+      "scene": "pilot"
+    },
+    {
+      "id": "L5",
+      "text": "Those who finish, and obey in faith, are handed to the team on the ground.",
+      "pause": 0.8,
+      "cap": "Those who finish, / and obey in faith, / are handed to the team / on the ground.",
+      "scene": "pilot"
+    },
+    {
+      "id": "L6",
+      "text": "The result: the same team could serve 3.73 times as many people.",
+      "pause": 0.5,
+      "cap": "The result: / the same team could serve / 3.73 times as many people.",
+      "scene": "result"
+    },
+    {
+      "id": "L7",
+      "text": "And they found disciple-making leaders at about the same rate.",
+      "pause": 0.8,
+      "cap": "And they found / disciple-making leaders / at about the same rate.",
+      "scene": "result"
+    },
+    {
+      "id": "L8",
+      "text": "One more thing. Many who answer these ads are hostile, and responders take the abuse.",
+      "pause": 0.4,
+      "cap": "One more thing. / Many who answer these ads / are hostile, / and responders take the abuse.",
+      "scene": "relief"
+    },
+    {
+      "id": "L9",
+      "text": "In the pilot, our AI took it instead, and answered graciously.",
+      "pause": 0.6,
+      "cap": "In the pilot, / our AI took it instead, / and answered graciously.",
+      "scene": "relief"
+    },
+    {
+      "id": "L10",
+      "text": "In the responder's words: I don't have to deal with inappropriate or profane comments, and I get to spend more time on the people that are most interested.",
+      "pause": 0.9,
+      "cap": "In the responder's words: / I don't have to deal with / inappropriate or profane comments, / and I get to spend more time / on the people / that are most interested.",
+      "scene": "relief"
+    },
+    {
+      "id": "L11",
+      "text": "Our AI doesn't replace the team. It multiplies them.",
+      "pause": 0.5,
+      "cap": "Our AI doesn't replace / the team. / It multiplies them.",
+      "scene": "close"
+    },
+    {
+      "id": "L12",
+      "text": "Book a call, or give, at zogreo.org.",
+      "pause": 0,
+      "cap": "Book a call, / or give, / at zogreo.org.",
+      "scene": "close"
+    }
+  ],
+  "pronunciation": {
+    "Zogreo": "Zoh-grayo",
+    "zogreo.org": "Zoh-grayo dot org",
+    "3.73": "three point seven three"
+  },
+  "spoken_elevenlabs": {
+    "zogreo.org": "Zo-GRAY-oh dot org",
+    "Zogreo": "Zo-GRAY-oh",
+    "3.73": "three point seven three"
+  },
+  "elevenlabs": {
+    "voice_id": "ILP9IN5fT2Jr2fSfmoNh",
+    "voice_name": "Jason - Friendly and Approachable"
+  }
+}
