@@ -16,7 +16,7 @@
     #pl-bg { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 45%, #21452A 0%, #163017 45%, #0B1A0C 100%); }
     #pl-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
     #pl-rings { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
-    #pl-push { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 1320px; }
+    #pl-push { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 760px; }
 
     /* the world the camera travels down: what was built, then the path through three studies */
     #pl-world { position: absolute; left: 0; top: 0; width: 1080px; height: 2200px; }
@@ -156,7 +156,9 @@
       tl.to("#pl-dot", { autoAlpha: 0, duration: 0.08 }, T.impact);
       tl.fromTo("#pl-chip", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.09, duration: 0.5, ease: "back.out(1.8)" }, T.impact);
       tl.fromTo("#pl-handed", { autoAlpha: 0, filter: "blur(6px)", y: 10 }, { autoAlpha: 1, filter: "blur(0px)", y: 0, duration: 0.3, ease: "power2.out" }, T.impact + 0.1);
-      tl.fromTo("#pl-push", { scale: 1 }, { scale: 1.03, duration: T.exit - T.impact, ease: "sine.inOut" }, T.impact);
+      // the camera keeps moving in on the team the whole way down the path (no dead hold while the studies tick), then settles on the hand-off
+      tl.fromTo("#pl-push", { scale: 1 }, { scale: 1.06, duration: T.impact - T.travel - T.travelDur, ease: "sine.inOut" }, T.travel + T.travelDur);
+      tl.to("#pl-push", { scale: 1.09, duration: T.exit - T.impact, ease: "sine.out" }, T.impact);
 
       // exit: cut the curve, upward (the result rises)
       tl.to("#pl-stage", { y: -230, duration: 0.32, ease: "power4.in" }, T.exit);

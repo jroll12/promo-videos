@@ -1,0 +1,50 @@
+SOURCE: text of https://zogreo.org/case-studies/nefes-dbs-agent-in-turkiye as pasted into the chat by Jarret on
+2026-11-09. The live page could not be opened from the build session (zogreo.org was blocked by its network policy),
+so this paste is the film's source. Kept here word for word, including the page's own spellings.
+--------------------------------------------------------------------------------------------------------------------
+
+Case Study: NEFES
+
+in partnership with
+
+
+Below is text from website
+
+
+NEFES: DBS Agent in Turkey
+An AI Discovery Bible Study agent scaled a local Turkish team's capacity by 3.73x and improved their mental health by weeding out hostile actors.
+
+
+
+The Case Study in partnership with Kavanah Media and waha
+
+
+AI Discovery Bible Study agent vetting catalytic leaders for disciple making movements, delivered to users via Facebook Messenger
+The Pilot
+In collaboration with Waha, we created an agent that takes the user through a series of 3 Bible studies relevant to the user to vet those that will be obedient to Christ's commands. The agent answers any questions the user has and follows up to see if they went through with their acts of obedience. If the user completes all 3 Bible studies and obeys in faith, then they are handed to a team on the ground for further discipleship.
+
+Kavanah Media created Facebook ads that ran country-wide in Turkiyë. Users that clicked on the ads were routed to message the NEFES Facebook page, which was connected to the AI agent. A Kavanah Media affiliated field team of 2 (1 worker and 1 supervisor) monitored the agent’s conversations and jumped in as they saw progression in the Bible studies or when the user asked to speak with a human.
+
+The pilot was deliberately limited in scope. The goal was to test whether the AI agent could scale a very small team and get as good or better results than a fully manual digital engagement strategy. Finding a catalytic leader in a disciple making movement using the Waha method is finding a diamond in the rough. The funnel is intentionally rigorous so that the team knew those that got all the way through it were serious about following Jesus.
+
+“Before the new AI responder, I used to have to handle every message myself. When messages came at night or when I was busy, I couldn’t keep up with the volume. Now people get answered much faster, conversations go more smoothly, I don’t have to deal with inappropriate or profane comments, and I get to spend more time on the people that are most interested. Over the course of the day, it saves me a lot of time.”
+
+— Digital Responder in Turkey, NEFES
+
+
+The Results
+We found that the rate of finding a catalytic disciple making movement leader was approximately the same — meaning the AI agent did not incorrectly weed out candidates that human responders would have otherwise let through. However, using the AI agent allowed the field team to service 3.73 times the amount of prospects they otherwise could have. Responders spent their time on pre-qualified candidates, freeing them up to focus on the highest value engagements.
+
+There was another side effect that is more difficult to quantify, yet which is vitally important to the sustainability of field teams around the globe. In many regions — and especially in the Muslim world — between 75-90% of prospects that come through via ads are actually hostile. They are antagonistic to the Christian faith and verbally abuse digital responders. The toll that takes on the mental health of such workers, and therefore attrition rate, has simply become a known hazard of the job. AI tirelessly turns its metaphorical other cheek, accepting the abuse and always offering a gracious gospel-centered response. Only those who are sincerely seeking get through the human responders, who get to participate in only the most rewarding conversations.
+
+
+Higher Responder Capacity: 273%
+
+
+Abusive Messages: 0
+
+
+Total Engagements: 25, 938
+
+
+Human to Human Messages: 356
