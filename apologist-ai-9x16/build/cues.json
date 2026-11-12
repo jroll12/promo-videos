@@ -1,6 +1,6 @@
 {
-  "total": 67.72,
-  "cutA": 40.1,
+  "total": 67.9,
+  "cutA": 40.11,
   "cutB": 52.22,
   "chat": {
     "pre": 0,
@@ -47,8 +47,8 @@
     "qSettle": 1.4,
     "team": 17.04,
     "wait": 17.68,
-    "qOut": 18.68,
-    "gen": 19.13,
+    "qOut": 18.6,
+    "gen": 19.05,
     "hedges": 19.89,
     "misquotes": 20.53,
     "contradicts": 22.77,
@@ -70,57 +70,57 @@
     "scrollHand": 330,
     "press": 37.98,
     "connected": 38.43,
-    "exit": 39.78
+    "exit": 39.79
   },
   "proof": {
-    "one": 1.21,
-    "label": 1.46,
-    "method": 2.06,
-    "source": 2.66,
-    "band": 6.59,
+    "one": 1.2,
+    "label": 1.45,
+    "method": 2.05,
+    "source": 2.65,
+    "band": 6.66,
     "nameAt": [
-      7.69,
-      9.45,
-      10.39,
-      10.81,
-      10.91,
-      11.01,
-      11.11
+      7.76,
+      8.72,
+      10,
+      11.04,
+      11.14,
+      11.24,
+      11.34
     ],
-    "exit": 11.8
+    "exit": 11.79
   },
   "cta": {
     "head": [
-      0.2,
-      0.29,
-      0.61,
+      0.21,
+      0.45,
       0.77,
-      1.25,
-      2.21,
-      2.45,
+      1.01,
+      1.49,
+      2.37,
       2.61,
       2.85,
-      3.17,
+      3.01,
       3.41,
       3.57,
-      3.81,
-      4.05
+      3.73,
+      3.97,
+      4.21
     ],
-    "flood": 4.64,
+    "flood": 4.82,
     "tag": [
-      4.94,
-      5.26,
-      6.06,
-      6.38,
-      7.34,
-      7.98,
-      8.3
+      5.12,
+      5.44,
+      6.24,
+      6.56,
+      7.52,
+      8.16,
+      8.48
     ],
-    "settle": 8.75,
-    "book": 9.1,
-    "visit": 10.7,
-    "site": 11.1,
-    "foot": 11.6
+    "settle": 8.93,
+    "book": 9.28,
+    "visit": 10.88,
+    "site": 11.28,
+    "foot": 11.78
   },
   "captions": [
     {
@@ -200,7 +200,7 @@
     },
     {
       "text": "Generic AI hedges,",
-      "start": 18.87,
+      "start": 18.79,
       "end": 20.47
     },
     {
@@ -276,7 +276,7 @@
     {
       "text": "to your team.",
       "start": 38.53,
-      "end": 39.75
+      "end": 39.76
     },
     {
       "text": "It's the number one",
@@ -291,77 +291,77 @@
     {
       "text": "The Gospel Coalition's",
       "start": 43.01,
-      "end": 44.29
+      "end": 44.93
     },
     {
       "text": "2026 AI Christian Benchmark.",
-      "start": 44.29,
-      "end": 46.93
+      "start": 44.93,
+      "end": 47.01
     },
     {
       "text": "It's trusted by Got Questions,",
-      "start": 46.93,
-      "end": 49.49
+      "start": 47.01,
+      "end": 48.77
     },
     {
       "text": "Apologetics Canada,",
-      "start": 49.49,
-      "end": 50.43
+      "start": 48.77,
+      "end": 50.05
     },
     {
       "text": "Dare to Share,",
-      "start": 50.43,
-      "end": 50.85
+      "start": 50.05,
+      "end": 51.09
     },
     {
       "text": "and more.",
-      "start": 50.85,
-      "end": 52.21
+      "start": 51.09,
+      "end": 51.97
     },
     {
       "text": "We run your",
-      "start": 52.21,
-      "end": 52.93
+      "start": 52.37,
+      "end": 53.17
     },
     {
       "text": "AI infrastructure,",
-      "start": 52.93,
-      "end": 54.37
+      "start": 53.17,
+      "end": 54.53
     },
     {
       "text": "so you can focus",
-      "start": 54.37,
-      "end": 55.33
+      "start": 54.53,
+      "end": 55.57
     },
     {
       "text": "on the people you serve.",
-      "start": 55.33,
-      "end": 57.04
+      "start": 55.57,
+      "end": 57.22
     },
     {
       "text": "Your mission.",
-      "start": 57.1,
-      "end": 58.22
+      "start": 57.28,
+      "end": 58.4
     },
     {
       "text": "Our platform.",
-      "start": 58.22,
-      "end": 59.5
+      "start": 58.4,
+      "end": 59.68
     },
     {
       "text": "Christ made known.",
-      "start": 59.5,
-      "end": 61.21
+      "start": 59.68,
+      "end": 61.39
     },
     {
       "text": "Book a quick intro call,",
-      "start": 61.26,
-      "end": 62.7
+      "start": 61.44,
+      "end": 62.88
     },
     {
       "text": "or visit apologistai.com.",
-      "start": 62.7,
-      "end": 64.87
+      "start": 62.88,
+      "end": 65.05
     }
   ],
   "sfx": [
@@ -479,7 +479,7 @@
     },
     {
       "f": "whoosh-short",
-      "start": 18.603,
+      "start": 18.523,
       "ms": 0,
       "dur": 0.575,
       "vol": 0.14,
@@ -487,7 +487,7 @@
     },
     {
       "f": "pop",
-      "start": 19.163,
+      "start": 19.083,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.16,
@@ -495,7 +495,7 @@
     },
     {
       "f": "pop",
-      "start": 19.483,
+      "start": 19.403,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.12,
@@ -647,7 +647,7 @@
     },
     {
       "f": "whoosh-short",
-      "start": 39.973,
+      "start": 39.983,
       "ms": 0,
       "dur": 0.575,
       "vol": 0.22,
@@ -663,7 +663,7 @@
     },
     {
       "f": "whoosh-short",
-      "start": 46.663,
+      "start": 46.743,
       "ms": 0,
       "dur": 0.575,
       "vol": 0.14,
@@ -671,7 +671,7 @@
     },
     {
       "f": "pop",
-      "start": 47.153,
+      "start": 47.233,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.12,
@@ -679,7 +679,7 @@
     },
     {
       "f": "click-soft",
-      "start": 47.813,
+      "start": 47.893,
       "ms": 0,
       "dur": 0.366,
       "vol": 0.22,
@@ -687,7 +687,7 @@
     },
     {
       "f": "click-soft",
-      "start": 49.573,
+      "start": 48.853,
       "ms": 0,
       "dur": 0.366,
       "vol": 0.22,
@@ -695,7 +695,7 @@
     },
     {
       "f": "click-soft",
-      "start": 50.513,
+      "start": 50.133,
       "ms": 0,
       "dur": 0.366,
       "vol": 0.22,
@@ -711,7 +711,7 @@
     },
     {
       "f": "whoosh",
-      "start": 56.833,
+      "start": 57.013,
       "ms": 0,
       "dur": 0.575,
       "vol": 0.14,
@@ -719,7 +719,7 @@
     },
     {
       "f": "whoosh-short",
-      "start": 60.993,
+      "start": 61.173,
       "ms": 0,
       "dur": 0.575,
       "vol": 0.12,
@@ -727,7 +727,7 @@
     },
     {
       "f": "pop",
-      "start": 61.313,
+      "start": 61.493,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.16,
@@ -735,7 +735,7 @@
     },
     {
       "f": "pop",
-      "start": 62.913,
+      "start": 63.093,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.18,
@@ -743,7 +743,7 @@
     },
     {
       "f": "click-soft",
-      "start": 63.363,
+      "start": 63.543,
       "ms": 0,
       "dur": 0.366,
       "vol": 0.25,

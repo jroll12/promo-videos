@@ -1,6 +1,6 @@
 # REVIEW: Apologist AI promo ("Anyone who asks"), revision 2
 
-Status: **line 9 needs a new narration take before the next render (2026-11-10).** Previous: final render for review and Tier 1 approval. 66.9 s, vertical 9:16, narrated by ElevenLabs "Hale".
+Status: **final render for review and Tier 1 approval (2026-11-12).** Voice: ElevenLabs Max. Latest changes: the question types in from an empty box; each question card is in its chip's language (translations unreviewed by native speakers); line 9 names Got Questions, Apologetics Canada and Dare to Share, with the other ministries on screen only. Measured: 67.9 s, 2037 frames, -14.0 LUFS, QR decodes to https://apologistai.com?ref=page; the only pop flags are the planned cut and a small name highlight at 47.9 s. 66.9 s, vertical 9:16, narrated by ElevenLabs "Hale".
 Deliverables in `renders/`: the 4K master (2160 x 3840), a 1080p copy, a poster frame, and the project zip.
 
 ## What changed from the first draft (Jarret + Jake feedback, 2026-11-01)

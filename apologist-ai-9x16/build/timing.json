@@ -4,7 +4,7 @@
  "voice": "ElevenLabs Max (Gfpl8Yo74Is0W6cPUWWT), eleven_v4, scene takes",
  "speed": 1.0,
  "effect_preset": null,
- "duration": 65.97,
+ "duration": 66.15,
  "lines": [
   {
    "id": "L1",
@@ -30,11 +30,11 @@
     {
      "w": "at",
      "start": 1.44,
-     "end": 1.58
+     "end": 1.66
     },
     {
      "w": "two",
-     "start": 1.6,
+     "start": 1.68,
      "end": 1.9
     },
     {
@@ -303,12 +303,12 @@
   {
    "id": "L4",
    "text": "Generic AI hedges, misquotes Scripture, or quietly contradicts what you teach.",
-   "start": 18.93,
+   "start": 18.85,
    "end": 24.31,
    "words": [
     {
      "w": "Generic",
-     "start": 18.93,
+     "start": 18.85,
      "end": 19.39
     },
     {
@@ -513,7 +513,7 @@
    "id": "L7",
    "text": "When someone needs a real person, it passes them to your team.",
    "start": 35.57,
-   "end": 39.4,
+   "end": 39.41,
    "words": [
     {
      "w": "When",
@@ -568,12 +568,12 @@
     {
      "w": "your",
      "start": 38.83,
-     "end": 39.13
+     "end": 39.21
     },
     {
      "w": "team.",
-     "start": 39.15,
-     "end": 39.4
+     "start": 39.23,
+     "end": 39.41
     }
    ]
   },
@@ -581,7 +581,7 @@
    "id": "L8",
    "text": "It's the number one Christian AI platform on The Gospel Coalition's 2026 AI Christian Benchmark.",
    "start": 40.43,
-   "end": 46.61,
+   "end": 46.71,
    "words": [
     {
      "w": "It's",
@@ -616,284 +616,284 @@
     {
      "w": "platform",
      "start": 42.51,
-     "end": 42.89
+     "end": 42.97
     },
     {
      "w": "on",
-     "start": 42.91,
+     "start": 42.99,
      "end": 43.05
     },
     {
      "w": "The",
      "start": 43.07,
-     "end": 43.13
+     "end": 43.21
     },
     {
      "w": "Gospel",
-     "start": 43.15,
+     "start": 43.23,
      "end": 43.61
     },
     {
      "w": "Coalition's",
      "start": 43.63,
-     "end": 44.33
+     "end": 44.97
     },
     {
      "w": "2026",
-     "start": 44.35,
-     "end": 45.13
+     "start": 44.99,
+     "end": 45.21
     },
     {
      "w": "AI",
-     "start": 45.15,
-     "end": 45.61
+     "start": 45.23,
+     "end": 45.69
     },
     {
      "w": "Christian",
-     "start": 45.63,
-     "end": 46.01
+     "start": 45.71,
+     "end": 46.17
     },
     {
      "w": "Benchmark.",
-     "start": 46.03,
-     "end": 46.61
+     "start": 46.19,
+     "end": 46.71
     }
    ]
   },
   {
    "id": "L9",
    "text": "It's trusted by Got Questions, Apologetics Canada, Dare to Share, and more.",
-   "start": 46.99,
-   "end": 52.18,
+   "start": 47.07,
+   "end": 51.62,
    "words": [
     {
      "w": "It's",
-     "start": 46.99,
-     "end": 47.21
+     "start": 47.07,
+     "end": 47.29
     },
     {
      "w": "trusted",
-     "start": 47.23,
-     "end": 47.61
+     "start": 47.31,
+     "end": 47.69
     },
     {
      "w": "by",
-     "start": 47.63,
-     "end": 47.77
+     "start": 47.71,
+     "end": 47.85
     },
     {
      "w": "Got",
-     "start": 47.79,
-     "end": 48.57
+     "start": 47.87,
+     "end": 48.33
     },
     {
      "w": "Questions,",
-     "start": 48.59,
-     "end": 49.53
+     "start": 48.35,
+     "end": 48.81
     },
     {
      "w": "Apologetics",
-     "start": 49.55,
-     "end": 50.33
+     "start": 48.83,
+     "end": 49.61
     },
     {
      "w": "Canada,",
-     "start": 50.35,
-     "end": 50.47
+     "start": 49.63,
+     "end": 50.09
     },
     {
      "w": "Dare",
-     "start": 50.49,
-     "end": 50.61
+     "start": 50.11,
+     "end": 50.41
     },
     {
      "w": "to",
-     "start": 50.63,
-     "end": 50.75
+     "start": 50.43,
+     "end": 50.65
     },
     {
      "w": "Share,",
-     "start": 50.77,
-     "end": 50.89
+     "start": 50.67,
+     "end": 51.13
     },
     {
      "w": "and",
-     "start": 50.91,
-     "end": 51.29
+     "start": 51.15,
+     "end": 51.45
     },
     {
      "w": "more.",
-     "start": 51.31,
-     "end": 52.18
+     "start": 51.47,
+     "end": 51.62
     }
    ]
   },
   {
    "id": "L10",
    "text": "We run your AI infrastructure, so you can focus on the people you serve.",
-   "start": 52.27,
-   "end": 56.69,
+   "start": 52.43,
+   "end": 56.87,
    "words": [
     {
      "w": "We",
-     "start": 52.27,
-     "end": 52.49
+     "start": 52.43,
+     "end": 52.65
     },
     {
      "w": "run",
-     "start": 52.51,
-     "end": 52.81
-    },
-    {
-     "w": "your",
-     "start": 52.83,
+     "start": 52.67,
      "end": 52.97
     },
     {
-     "w": "AI",
+     "w": "your",
      "start": 52.99,
-     "end": 53.45
+     "end": 53.21
+    },
+    {
+     "w": "AI",
+     "start": 53.23,
+     "end": 53.69
     },
     {
      "w": "infrastructure,",
-     "start": 53.47,
-     "end": 54.41
+     "start": 53.71,
+     "end": 54.57
     },
     {
      "w": "so",
-     "start": 54.43,
-     "end": 54.65
-    },
-    {
-     "w": "you",
-     "start": 54.67,
+     "start": 54.59,
      "end": 54.81
     },
     {
-     "w": "can",
+     "w": "you",
      "start": 54.83,
      "end": 55.05
     },
     {
-     "w": "focus",
+     "w": "can",
      "start": 55.07,
-     "end": 55.37
+     "end": 55.21
     },
     {
-     "w": "on",
-     "start": 55.39,
+     "w": "focus",
+     "start": 55.23,
      "end": 55.61
     },
     {
-     "w": "the",
+     "w": "on",
      "start": 55.63,
      "end": 55.77
     },
     {
-     "w": "people",
+     "w": "the",
      "start": 55.79,
-     "end": 56.01
+     "end": 55.93
+    },
+    {
+     "w": "people",
+     "start": 55.95,
+     "end": 56.17
     },
     {
      "w": "you",
-     "start": 56.03,
-     "end": 56.25
+     "start": 56.19,
+     "end": 56.41
     },
     {
      "w": "serve.",
-     "start": 56.27,
-     "end": 56.69
+     "start": 56.43,
+     "end": 56.87
     }
    ]
   },
   {
    "id": "L11",
    "text": "Your mission. Our platform. Christ made known.",
-   "start": 57.16,
-   "end": 60.86,
+   "start": 57.34,
+   "end": 61.04,
    "words": [
     {
      "w": "Your",
-     "start": 57.16,
-     "end": 57.46
+     "start": 57.34,
+     "end": 57.64
     },
     {
      "w": "mission.",
-     "start": 57.48,
-     "end": 58.26
+     "start": 57.66,
+     "end": 58.44
     },
     {
      "w": "Our",
-     "start": 58.28,
-     "end": 58.58
+     "start": 58.46,
+     "end": 58.76
     },
     {
      "w": "platform.",
-     "start": 58.6,
-     "end": 59.54
+     "start": 58.78,
+     "end": 59.72
     },
     {
      "w": "Christ",
-     "start": 59.56,
-     "end": 60.18
+     "start": 59.74,
+     "end": 60.36
     },
     {
      "w": "made",
-     "start": 60.2,
-     "end": 60.5
+     "start": 60.38,
+     "end": 60.68
     },
     {
      "w": "known.",
-     "start": 60.52,
-     "end": 60.86
+     "start": 60.7,
+     "end": 61.04
     }
    ]
   },
   {
    "id": "L12",
    "text": "Book a quick intro call, or visit apologistai.com.",
-   "start": 61.32,
-   "end": 64.52,
+   "start": 61.5,
+   "end": 64.7,
    "words": [
     {
      "w": "Book",
-     "start": 61.32,
-     "end": 61.62
+     "start": 61.5,
+     "end": 61.8
     },
     {
      "w": "a",
-     "start": 61.64,
-     "end": 61.7
+     "start": 61.82,
+     "end": 61.88
     },
     {
      "w": "quick",
-     "start": 61.72,
-     "end": 61.94
+     "start": 61.9,
+     "end": 62.12
     },
     {
      "w": "intro",
-     "start": 61.96,
-     "end": 62.34
+     "start": 62.14,
+     "end": 62.52
     },
     {
      "w": "call,",
-     "start": 62.36,
-     "end": 62.74
+     "start": 62.54,
+     "end": 62.92
     },
     {
      "w": "or",
-     "start": 62.76,
-     "end": 62.9
+     "start": 62.94,
+     "end": 63.08
     },
     {
      "w": "visit",
-     "start": 62.92,
-     "end": 63.3
+     "start": 63.1,
+     "end": 63.48
     },
     {
      "w": "apologistai.com.",
-     "start": 63.32,
-     "end": 64.52
+     "start": 63.5,
+     "end": 64.7
     }
    ]
   }
