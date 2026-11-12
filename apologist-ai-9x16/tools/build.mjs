@@ -56,17 +56,17 @@ chat.logo = max(W("L5", "Apologist") - 0.05, chat.genOut + 0.3);
 chat.eyebrow = max(W("L5", "faithful"), chat.logo + 0.45);
 chat.logoOut = max(W("L5", "chatbot") + 0.05, chat.eyebrow + 0.7, chat.logo + 1.3);
 chat.launch = max(W("L5", "ministry's") - 0.05, chat.logoOut + 0.3); // the launcher pops onto the site
-chat.reskin = max(W("L5", "website") + 0.1, chat.launch + 0.5); // the chat opens out of the launcher
+chat.reskin = chat.logoOut + 0.2; // the ministry chat opens straight after the logo
 chat.seekAgain = chat.reskin; // the question is carried over into the chat
-chat.typing = chat.reskin + 0.55;
-chat.stream = 0.055; // seconds per word as the answer streams in
+chat.typing = chat.reskin + 0.9;
+chat.stream = 0.075; // seconds per word as the answer streams in
 chat.reply = max(W("L6", "answers"), chat.typing + 0.4);
 chat.src = max(W("L6", "teaching"), chat.reply + 0.35);
 chat.hour = max(W("L6", "hour"), chat.src + 0.2);
 chat.lang = max(W("L6", "language"), chat.hour + 0.2);
 chat.cites = max(W("L6", "cites"), chat.lang + 0.3);
 chat.hand = max(W("L7", "real") - 0.15, chat.cites + 0.4);
-chat.scrollHand = 330;
+chat.scrollHand = 370;
 chat.press = max(W("L7", "passes") - 0.05, chat.hand + 0.55);
 chat.connected = chat.press + 0.45;
 const cutA = r3(max(min(L.L7.end + 0.7, L.L8.start - 0.05), chat.connected + 1.3)); // the connected state holds before the cut
@@ -129,7 +129,7 @@ const vw = L.L2.words.map((w) => w.w);
 const verse = vw
   .map((w, i) => {
     const t = (i === 0 ? "“" : "") + esc(w) + (i === vw.length - 1 ? "”" : "");
-    const cls = i >= 8 && i <= 11 ? "w a" : "w"; // "everyone who asks you"
+    const cls = i === 2 || i === 8 ? "w a" : "w"; // "prepared", "everyone"
     return `<span class="${cls}">${t}</span>` + ([2, 7, 11, 15, 19].includes(i) ? "<br />" : " ");
   })
   .join("");
@@ -152,7 +152,6 @@ sfx("pop", chat.gen + 0.44, 0.12);
 [chat.hedges, chat.misquotes, chat.contradicts].forEach((t) => sfx("click-soft", t + 0.1, 0.42));
 sfx("whoosh-short", chat.genOut, 0.12);
 sfx("whoosh", chat.logoOut + 0.15, 0.14);
-sfx("pop", chat.launch + 0.1, 0.18);
 sfx("whoosh-short", chat.reskin + 0.2, 0.15);
 sfx("pop", chat.reply + 0.06, 0.2);
 sfx("click-soft", chat.src + 0.06, 0.35);
