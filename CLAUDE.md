@@ -5,6 +5,7 @@ Skill: `.claude/skills/brochure-to-promo-video` (loads automatically). Zogreo is
 ## Layout
 - `zogreo-intro-9x16/`, `zogreo-intro-16x9/`: finished film, both shapes. Brand assets (logo, fonts, QR, palette) are in `zogreo-intro-9x16/assets/brand` and `assets/fonts`: reuse them, do not re-extract.
 - `nefes-case-study-9x16/`: the NEFES case-study film (no phone UI; scenes built from a map, a study path, dot charts and quotations). Its `tools/vo_take.py` times the narration take by take; use it instead of plain `vo.py take` when a narration is longer than about 30 s.
+- `nefes-case-study-16x9/`: its 16:9 sibling (same audio and timing; scenes re-composed in two columns).
 - New video = new folder `<name>-9x16/` (copy the nearest existing project, then change scenes and script). 16:9 is a second sibling reusing the same audio.
 - Never commit `.env*`, renders or key material. Final mp4s go to Drive; send them with SendUserFile.
 

@@ -1,0 +1,65 @@
+{
+  "fps": 30,
+  "seams": [
+    {
+      "id": "before→pilot",
+      "cut": 12.39,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#bf-stage",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#pl-stage",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "pilot→result",
+      "cut": 26.85,
+      "technique": "cut-the-curve UP",
+      "exit": {
+        "selector": "#pl-stage",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#rs-stage",
+        "axis": "y",
+        "dir": -1
+      }
+    },
+    {
+      "id": "result→relief",
+      "cut": 37.18,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#rs-stage",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#rf-stage",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "relief→close",
+      "cut": 57.39,
+      "technique": "cut-the-curve UP",
+      "exit": {
+        "selector": "#rf-stage",
+        "axis": "y",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#cl-stage",
+        "axis": "y",
+        "dir": -1
+      }
+    }
+  ]
+}

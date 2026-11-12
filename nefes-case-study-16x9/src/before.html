@@ -1,0 +1,108 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0C1D0D; }
+    #root * { box-sizing: border-box; }
+    #bf-bg { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 45%, #21452A 0%, #163017 45%, #0B1A0C 100%); }
+    #bf-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #bf-rings { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 960px 520px; }
+    /* the camera: everything inside scales about the centre of the quotation, which is also the centre of the country */
+    #bf-cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 960px 520px; }
+    #bf-field { position: absolute; left: -3040px; top: -1480px; width: 8000px; height: 4000px; }
+
+    /* the responder's words */
+    #bf-qw { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #bf-mark { position: absolute; left: 0; top: 248px; width: 1920px; text-align: center; font: 300 220px/1 "Cormorant Garamond"; color: #B4C4AE; }
+    #bf-quote { position: absolute; left: 110px; top: 380px; width: 1700px; text-align: center; color: #F3F0E8; font: 300 78px/1.12 "Cormorant Garamond"; }
+    #bf-quote .w { display: inline-block; }
+
+    /* labels that stay with the screen */
+    #bf-eyebrow, #bf-label, #bf-attr { position: absolute; left: 0; width: 1920px; text-align: center; font: 600 28px/1 "ZG Inter"; }
+    #bf-eyebrow { top: 66px; letter-spacing: 0.26em; color: #A9B8A6; }
+    #bf-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #A9B8A6; vertical-align: middle; margin-right: 18px; position: relative; top: -3px; }
+    #bf-attr { top: 694px; letter-spacing: 0.2em; color: #A9B8A6; }
+    #bf-label { top: 166px; letter-spacing: 0.22em; color: #F3F0E8; }
+    #bf-chip { position: absolute; left: 630px; top: 868px; }
+  </style>
+
+  <div data-hf-id="hf-egrs" id="root" data-composition-id="before" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-fvo7" id="bf-bg"></div>
+    <div data-hf-id="hf-lp90" id="bf-stage">
+      <svg data-hf-id="hf-53v9" id="bf-rings" viewBox="0 0 1920 1080" data-layout-ignore>
+        <circle data-hf-id="hf-x6co" cx="1653" cy="141" r="448" fill="none" stroke="rgba(232,228,227,0.075)" stroke-width="2" />
+        <circle data-hf-id="hf-y3ew" cx="213" cy="878" r="624" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+        <circle data-hf-id="hf-hxby" cx="1796" cy="1058" r="288" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+      <div data-hf-id="hf-vbsb" id="bf-cam">
+        <svg data-hf-id="hf-j255" id="bf-field" viewBox="0 0 8000 4000" data-layout-ignore>
+          <!--{{FIELD}}-->
+        </svg>
+        <div data-hf-id="hf-tqry" id="bf-qw">
+          <div data-hf-id="hf-ipvb" id="bf-mark">&ldquo;</div>
+          <div data-hf-id="hf-6lia" id="bf-quote">
+          <!--{{QUOTE}}-->
+          </div>
+        </div>
+      </div>
+      <div data-hf-id="hf-drza" id="bf-eyebrow"><i data-hf-id="hf-wt6k"></i>CASE STUDY · NEFES</div>
+      <div data-hf-id="hf-pdjx" id="bf-attr">DIGITAL RESPONDER IN TURKEY, NEFES</div>
+      <div data-hf-id="hf-xgvn" id="bf-label">FACEBOOK ADS RAN COUNTRY-WIDE</div>
+      <!--{{CHIP}}-->
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      const lerpLog = (a, b, p) => Math.exp(Math.log(a) + (Math.log(b) - Math.log(a)) * p);
+
+      // Hidden-until-cued states, set once at build time. Frame 0 is the thumbnail: the whole quotation is already
+      // there, dim, with the first messages around it; each word lights as it is spoken.
+      gsap.set("#bf-quote .w", { opacity: 0.34 });
+      gsap.set(".bf-b", { autoAlpha: 0 });
+      gsap.set(".bf-b0", { autoAlpha: 1 });
+      gsap.set(["#bf-map", "#bf-attr", "#bf-label", "#bf-chip"], { autoAlpha: 0 });
+
+      // 1 · "I used to have to handle every message myself": the camera is already drifting back
+      const cam = { p: 0, d: 0, q: 0 };
+      const applyCam = () => {
+        const s = cam.q > 0 ? lerpLog(T.sMin, T.sEnd, cam.q) : cam.d > 0 ? lerpLog(T.s0, T.sMin, cam.d) : 1 + (T.s0 - 1) * cam.p;
+        gsap.set("#bf-cam", { scale: s });
+        gsap.set("#bf-rings", { scale: 0.78 + 0.22 * Math.min(1, s) });
+      };
+      tl.to(cam, { p: 1, duration: T.pullStart, ease: "sine.inOut", onUpdate: applyCam }, 0);
+      document.querySelectorAll("#bf-quote .w").forEach((w, i) => {
+        tl.to(w, { opacity: 1, duration: 0.18, ease: "power2.out" }, T.words[i]);
+      });
+      // the messages land, faster and faster, right up to the words
+      document.querySelectorAll("#bf-bubbles .bf-b").forEach((b) => {
+        const t = parseFloat(b.dataset.t);
+        if (t < 0) return;
+        tl.fromTo(b, { autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, t);
+      });
+
+      // 2 · "That's a digital responder in Turkey": who is speaking, read at full size
+      tl.fromTo("#bf-attr", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, T.attr);
+
+      // 3 · the camera pulls back: one responder, a whole country of messages
+      tl.to(cam, { d: 1, duration: T.pullEnd - T.pullStart, ease: "power3.inOut", onUpdate: applyCam }, T.pullStart);
+      tl.to("#bf-qw", { autoAlpha: 0, filter: "blur(6px)", duration: 0.45, ease: "power1.in" }, T.quoteOut);
+      tl.to("#bf-attr", { autoAlpha: 0, filter: "blur(6px)", duration: 0.24, ease: "power1.in" }, T.attrOut);
+      tl.fromTo("#bf-map", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.9, ease: "power2.out" }, T.mapIn);
+      tl.fromTo("#bf-label", { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, T.label);
+      // and it keeps travelling in, slowly, toward the team
+      tl.to(cam, { q: 1, duration: Math.max(0.4, T.exit + 0.32 - T.pullEnd), ease: "sine.inOut", onUpdate: applyCam }, T.pullEnd);
+
+      // 4 · "The field team: two people": the team arrives on "field team", and its two people answer to "two"
+      tl.fromTo("#bf-chip", { autoAlpha: 0, scale: 0.84, y: 26, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.46, ease: "back.out(1.4)" }, T.chip);
+      tl.fromTo("#bf-chip .zg-p", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.2, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.14 }, T.two);
+
+      // exit: cut the curve, leftward
+      tl.to("#bf-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#bf-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["before"] = tl;
+    })();
+  </script>
+</template>

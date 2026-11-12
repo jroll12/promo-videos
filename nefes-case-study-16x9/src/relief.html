@@ -1,0 +1,154 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0C1D0D; }
+    #root * { box-sizing: border-box; }
+    #rf-bg { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 40%, #21452A 0%, #163017 45%, #0B1A0C 100%); }
+    #rf-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #rf-rings { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #rf-push { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 600px 560px; }
+
+    /* who is around the team */
+    #rf-dia { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 600px 560px; }
+    #rf-art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #rf-chip { position: absolute; left: 360px; top: 504px; }
+    #rf-tag { font: 600 28px "ZG Inter"; letter-spacing: 5.6px; fill: #B4C4AE; }
+
+    /* the numbers the case study publishes, with its own labels */
+    #rf-stats { position: absolute; left: 1220px; top: 300px; width: 600px; height: 520px; }
+    .rf-col { position: absolute; left: 0; width: 600px; text-align: center; white-space: nowrap; }
+    .rf-n { font: 600 68px/1 "ZG Inter"; font-variant-numeric: lining-nums tabular-nums; letter-spacing: -0.03em; color: #F3F0E8; height: 68px; transform-origin: 50% 60%; }
+    .rf-l { margin-top: 14px; font: 600 28px/1.28 "ZG Inter"; letter-spacing: 0.1em; color: #A9B8A6; }
+    .rf-div { position: absolute; left: 160px; width: 280px; height: 2px; background: rgba(232, 228, 227, 0.2); }
+
+    /* the responder again */
+    #rf-mark { position: absolute; left: 0; top: 276px; width: 1240px; text-align: center; font: 300 200px/1 "Cormorant Garamond"; color: #B4C4AE; }
+    #rf-quote { position: absolute; left: 100px; top: 404px; width: 1040px; text-align: center; color: #F3F0E8; font: 300 62px/1.12 "Cormorant Garamond"; transform-origin: 520px 140px; }
+    #rf-quote .w { display: inline-block; }
+    #rf-quote em { font-style: italic; color: #B4C4AE; }
+    #rf-eyebrow, #rf-attr { position: absolute; left: 0; width: 1920px; text-align: center; font: 600 28px/1 "ZG Inter"; color: #A9B8A6; }
+    #rf-eyebrow { top: 70px; letter-spacing: 0.26em; }
+    #rf-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #A9B8A6; vertical-align: middle; margin-right: 18px; position: relative; top: -3px; }
+    #rf-attr { top: 728px; width: 1240px; letter-spacing: 0.2em; }
+  </style>
+
+  <div data-hf-id="hf-jld6" id="root" data-composition-id="relief" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-3m13" id="rf-bg"></div>
+    <div data-hf-id="hf-maxw" id="rf-stage">
+      <svg data-hf-id="hf-eiud" id="rf-rings" viewBox="0 0 1920 1080" data-layout-ignore>
+        <circle data-hf-id="hf-ef4d" cx="1707" cy="169" r="496" fill="none" stroke="rgba(232,228,227,0.07)" stroke-width="2" />
+        <circle data-hf-id="hf-cxce" cx="160" cy="844" r="592" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+      <div data-hf-id="hf-xhom" id="rf-push">
+        <div data-hf-id="hf-qc5k" id="rf-dia">
+          <svg data-hf-id="hf-vs2f" id="rf-art" viewBox="0 0 1920 1080" data-layout-ignore>
+            <!-- the line the AI holds around the team -->
+            <rect data-hf-id="hf-r9ws" id="rf-glow" x="280" y="400" width="640" height="320" rx="160" fill="rgba(232,228,227,0.06)" />
+            <rect data-hf-id="hf-zjps" id="rf-shield" x="280" y="400" width="640" height="320" rx="160" fill="none" stroke="#E8E4E3" stroke-width="4" pathLength="100" stroke-dasharray="100 140" stroke-dashoffset="118" />
+            <text data-hf-id="hf-xyu0" id="rf-tag" x="600" y="374" text-anchor="middle">OUR AI ANSWERS FIRST</text>
+          <!--{{BUBBLES}}-->
+          </svg>
+          <!--{{CHIP}}-->
+        </div>
+        <div data-hf-id="hf-rz7n" id="rf-stats">
+          <div data-hf-id="hf-i99j" class="rf-col" style="top:0"><div data-hf-id="hf-7q8x" class="rf-n" id="rf-n1">0</div><div data-hf-id="hf-9z6t" class="rf-l">TOTAL ENGAGEMENTS</div></div>
+          <div data-hf-id="hf-4n2z" class="rf-div" style="top:150px"></div>
+          <div data-hf-id="hf-23m0" class="rf-col" style="top:180px"><div data-hf-id="hf-ecc0" class="rf-n" id="rf-n2">0</div><div data-hf-id="hf-f3ws" class="rf-l">HUMAN TO HUMAN MESSAGES</div></div>
+          <div data-hf-id="hf-95ad" class="rf-div" style="top:330px"></div>
+          <div data-hf-id="hf-yupi" class="rf-col" style="top:360px"><div data-hf-id="hf-rsij" class="rf-n" id="rf-n3">0</div><div data-hf-id="hf-wr8i" class="rf-l">ABUSIVE MESSAGES</div></div>
+        </div>
+        <div data-hf-id="hf-3pdz" id="rf-mark">&ldquo;</div>
+        <div data-hf-id="hf-ofki" id="rf-quote">
+          <!--{{QUOTE}}-->
+        </div>
+        <div data-hf-id="hf-s1kd" id="rf-attr">DIGITAL RESPONDER IN TURKEY, NEFES</div>
+      </div>
+      <div data-hf-id="hf-6kui" id="rf-eyebrow"><i data-hf-id="hf-wt6k"></i>ONE MORE THING</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      const H = Array.from(document.querySelectorAll("#rf-art .rf-h"));
+      const S = Array.from(document.querySelectorAll("#rf-art .rf-s"));
+      const num = (el, k) => parseFloat(el.dataset[k]);
+      const C = { x: 600, y: 560 };
+
+      // entry: cut the curve, still travelling left. The team and the first messages ride in with the stage.
+      tl.fromTo("#rf-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set(["#rf-tag", "#rf-glow", "#rf-stats", "#rf-mark", "#rf-quote", "#rf-attr", ".rf-rep", ".rf-hs"], { autoAlpha: 0 });
+      gsap.set("#rf-quote .w", { opacity: 0.24 });
+      const early = [6, 7]; // two of the messages are already near when the scene opens
+      H.forEach((h, i) => gsap.set(h, early.includes(i) ? { x: num(h, "x"), y: num(h, "y") } : { x: num(h, "fx"), y: num(h, "fy") }));
+      S.forEach((s) => gsap.set(s, { x: num(s, "x"), y: num(s, "y") }));
+      tl.fromTo("#rf-push", { scale: 1 }, { scale: 1.04, duration: T.quoteIn - 0.4, ease: "sine.inOut" }, 0.4);
+
+      // 1 · "Many who answer these ads": messages come in from every side
+      H.forEach((h, i) => {
+        if (early.includes(i)) return;
+        tl.to(h, { x: num(h, "x"), y: num(h, "y"), duration: 0.8, ease: "power3.out" }, T.many + i * 0.06);
+      });
+      // "are hostile": most of them turn. The jagged shape, not a colour, marks them.
+      H.forEach((h, i) => {
+        const t = T.hostile + i * 0.045;
+        tl.to(h.querySelector(".rf-hr"), { autoAlpha: 0, duration: 0.1 }, t);
+        tl.fromTo(h.querySelector(".rf-hs"), { autoAlpha: 0, scale: 0.6, rotation: i % 2 ? -14 : 14, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(1.7)" }, t);
+      });
+
+      // 2 · "and responders take the abuse": three reach the team, and the team recoils
+      const hits = [[1, 310, 572, 14, 0], [4, 890, 572, -14, 0], [6, 416, 468, 6, 10]];
+      hits.forEach(([i, hx, hy, rx, ry], k) => {
+        const t = T.take + k * 0.36;
+        tl.to(H[i], { x: hx, y: hy, duration: 0.2, ease: "power3.in" }, t);
+        tl.to("#rf-chip", { x: rx, y: ry, duration: 0.08, ease: "power2.out" }, t + 0.2);
+        tl.to("#rf-chip", { x: 0, y: 0, duration: 0.26, ease: "power2.out" }, t + 0.28);
+      });
+
+      // 3 · "In the pilot, our AI took it instead": a line closes around the team, and the hostile messages stop at it
+      tl.to("#rf-shield", { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, T.pilot);
+      tl.fromTo("#rf-glow", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4 }, T.pilot + 0.5);
+      hits.forEach(([i], k) => {
+        tl.to(H[i], { x: num(H[i], "x"), y: num(H[i], "y"), duration: 0.42, ease: "power3.out" }, T.pilot + 0.22 + k * 0.08);
+      });
+      tl.fromTo("#rf-tag", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.our);
+      H.forEach((h, i) => {
+        const x = num(h, "x"), y = num(h, "y"), a = Math.atan2(C.y - y, C.x - x), t = T.took + i * 0.05;
+        tl.to(h, { x: x + Math.cos(a) * 22, y: y + Math.sin(a) * 22, duration: 0.12, ease: "power2.in" }, t);
+        tl.to(h, { x, y, duration: 0.3, ease: "power3.out" }, t + 0.12);
+      });
+      // "and answered graciously": every one of them gets a reply
+      tl.fromTo(".rf-rep", { autoAlpha: 0, scale: 0.4, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.07 }, T.answered);
+      // only the sincere ones come through to a person
+      S.forEach((s, i) => {
+        tl.to(s, { x: num(s, "dx"), y: num(s, "dy"), duration: 0.62, ease: "power2.inOut" }, T.pass + i * 0.14);
+      });
+
+      // the published numbers count up underneath
+      const fmt = (v) => String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      const n = { a: 0, b: 0 };
+      const n1 = document.getElementById("rf-n1"), n2 = document.getElementById("rf-n2");
+      const show = () => { n1.textContent = fmt(n.a); n2.textContent = fmt(n.b); };
+      tl.fromTo("#rf-stats", { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, T.stats);
+      tl.to(n, { a: 25938, duration: 1.5, ease: "power2.out", onUpdate: show }, T.stats + 0.1);
+      tl.to(n, { b: 356, duration: 1.2, ease: "power2.out", onUpdate: show }, T.stats + 0.3);
+      tl.fromTo("#rf-n3", { scale: 0.6 }, { scale: 1, duration: 0.4, ease: "back.out(1.8)" }, T.took + 0.2);
+
+      // 4 · "In the responder's words": the picture steps back and the words take the frame, lighting as they are spoken
+      tl.to("#rf-dia", { autoAlpha: 0, scale: 0.94, filter: "blur(8px)", duration: 0.4, ease: "power2.in" }, T.quoteIn);
+      tl.fromTo(["#rf-mark", "#rf-quote"], { autoAlpha: 0, filter: "blur(8px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.36, ease: "power2.out" }, T.quoteIn + 0.2);
+      tl.fromTo("#rf-attr", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.attr);
+      document.querySelectorAll("#rf-quote .w").forEach((w, i) => {
+        tl.to(w, { opacity: 1, duration: 0.18, ease: "power2.out" }, T.qwords[i]);
+      });
+      tl.fromTo("#rf-quote", { scale: 1 }, { scale: 1.05, duration: T.exit - T.quoteIn - 0.6, ease: "sine.inOut" }, T.quoteIn + 0.6);
+
+      // exit: cut the curve, upward
+      tl.to("#rf-stage", { y: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#rf-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["relief"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,112 @@
+[
+ {
+  "id": "L1",
+  "heard": "I used to have to handle every message myself. When messages came at night or when I was busy, I couldn't keep up with the volume.",
+  "wer": 0.0,
+  "seconds": 7.06,
+  "words_per_second": 3.68,
+  "names": []
+ },
+ {
+  "id": "L2",
+  "heard": "That's a digital responder in Turkey. The field team. Two people.",
+  "wer": 0.0,
+  "seconds": 4.02,
+  "words_per_second": 2.74,
+  "names": []
+ },
+ {
+  "id": "L3",
+  "heard": "So at Zogreo, we ran a pilot.",
+  "wer": 0.0,
+  "seconds": 2.24,
+  "words_per_second": 3.12,
+  "names": [
+   {
+    "term": "Zogreo",
+    "heard_as": "Zogreo",
+    "similarity": 1.0,
+    "flag": false
+   }
+  ]
+ },
+ {
+  "id": "L4",
+  "heard": "Our AI leads each person through three Bible studies, answers their questions, and follows up.",
+  "wer": 0.0,
+  "seconds": 5.24,
+  "words_per_second": 2.86,
+  "names": []
+ },
+ {
+  "id": "L5",
+  "heard": "Those who finish and obey in faith are handed to the team on the ground.",
+  "wer": 0.0,
+  "seconds": 4.64,
+  "words_per_second": 3.23,
+  "names": []
+ },
+ {
+  "id": "L6",
+  "heard": "The result? The same team could serve 3.73 times as many people,",
+  "wer": 0.0,
+  "seconds": 5.24,
+  "words_per_second": 2.29,
+  "names": []
+ },
+ {
+  "id": "L7",
+  "heard": "and they found disciple-making leaders at about the same rate.",
+  "wer": 0.0,
+  "seconds": 2.92,
+  "words_per_second": 3.42,
+  "names": []
+ },
+ {
+  "id": "L8",
+  "heard": "One more thing. Many who answer these ads are hostile and responders take the abuse.",
+  "wer": 0.0,
+  "seconds": 5.56,
+  "words_per_second": 2.7,
+  "names": []
+ },
+ {
+  "id": "L9",
+  "heard": "In the pilot, our AI took it instead and answered graciously.",
+  "wer": 0.0,
+  "seconds": 3.91,
+  "words_per_second": 2.81,
+  "names": []
+ },
+ {
+  "id": "L10",
+  "heard": "In the responder's words, I don't have to deal with inappropriate or profane comments, and I get to spend more time on the people that are most interested.",
+  "wer": 0.0,
+  "seconds": 8.12,
+  "words_per_second": 3.45,
+  "names": []
+ },
+ {
+  "id": "L11",
+  "heard": "Our AI doesn't replace the team. It multiplies them.",
+  "wer": 0.0,
+  "seconds": 3.96,
+  "words_per_second": 2.27,
+  "names": []
+ },
+ {
+  "id": "L12",
+  "heard": "Book a call or give at zograyo.org.",
+  "wer": 0.125,
+  "seconds": 3.09,
+  "words_per_second": 2.27,
+  "names": [
+   {
+    "term": "zogreo.org",
+    "heard_as": "zograyo",
+    "similarity": 0.62,
+    "flag": true
+   }
+  ]
+ }
+]

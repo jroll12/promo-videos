@@ -1,0 +1,170 @@
+<template>
+  <style>
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-300-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-ext-300-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-300-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 300; src: url("assets/fonts/cormorant-garamond-latin-ext-300-italic.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; src: url("assets/fonts/cormorant-garamond-latin-500-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "ZG Inter"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #0C1D0D; }
+    #root * { box-sizing: border-box; }
+    #pl-bg { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 45%, #21452A 0%, #163017 45%, #0B1A0C 100%); }
+    #pl-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #pl-rings { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #pl-push { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 1300px 540px; }
+
+    /* the world the camera travels down: what was built, then the path through three studies */
+    #pl-world { position: absolute; left: 0; top: 0; width: 1920px; height: 1500px; }
+    #pl-head { position: absolute; left: 120px; top: 452px; width: 820px; text-align: left; color: #F3F0E8; font: 300 104px/1.06 "Cormorant Garamond"; transform-origin: 0 110px; }
+    #pl-head em { font-style: italic; color: #B4C4AE; }
+    #pl-sub { position: absolute; left: 120px; top: 704px; width: 820px; text-align: left; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #A9B8A6; }
+    #pl-path { position: absolute; left: 0; top: 0; width: 1920px; height: 1500px; }
+    .pl-card { position: absolute; left: 1000px; width: 760px; height: 180px; border-radius: 40px; background: rgba(247, 244, 236, 0.96); color: #1B241A; overflow: hidden; }
+    .pl-title { position: absolute; left: 44px; top: 28px; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.16em; color: #1D3D1E; }
+    .pl-row { position: absolute; left: 44px; height: 38px; display: flex; align-items: center; gap: 16px; font: 400 32px/38px "ZG Inter"; color: #1B241A; white-space: nowrap; }
+    .pl-row svg { width: 36px; height: 36px; flex: none; }
+    .pl-ra { top: 74px; }
+    .pl-rb { top: 122px; }
+    .pl-num { position: absolute; right: 40px; top: -16px; font: 300 220px/1 "Cormorant Garamond"; font-variant-numeric: lining-nums; color: #1D3D1E; opacity: 0.13; }
+    #pl-end { position: absolute; left: 968px; top: 1012px; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.18em; color: #F3F0E8; white-space: nowrap; }
+
+    /* what stays with the screen */
+    #pl-eyebrow, #pl-partners, #pl-handed { position: absolute; left: 120px; width: 820px; text-align: left; font: 600 28px/1 "ZG Inter"; }
+    #pl-eyebrow { top: 302px; letter-spacing: 0.26em; color: #A9B8A6; }
+    #pl-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #A9B8A6; vertical-align: middle; margin-right: 18px; position: relative; top: -3px; }
+    #pl-partners { top: 352px; letter-spacing: 0.13em; line-height: 1.45; color: #F3F0E8; }
+    #pl-chip { position: absolute; left: 950px; top: 780px; }
+    #pl-handed { left: 880px; width: 800px; text-align: center; top: 942px; letter-spacing: 0.2em; color: #F3F0E8; }
+  </style>
+
+  <div data-hf-id="hf-lwg3" id="root" data-composition-id="pilot" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-euhz" id="pl-bg"></div>
+    <div data-hf-id="hf-fo5g" id="pl-stage">
+      <svg data-hf-id="hf-j7id" id="pl-rings" viewBox="0 0 1920 1080" data-layout-ignore>
+        <circle data-hf-id="hf-ag5t" cx="267" cy="186" r="480" fill="none" stroke="rgba(232,228,227,0.07)" stroke-width="2" />
+        <circle data-hf-id="hf-ibln" cx="1778" cy="788" r="608" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+        <circle data-hf-id="hf-xezj" cx="142" cy="1035" r="264" fill="none" stroke="rgba(232,228,227,0.06)" stroke-width="2" />
+      </svg>
+      <div data-hf-id="hf-f886" id="pl-push">
+        <div data-hf-id="hf-l0lu" id="pl-world">
+          <svg data-hf-id="hf-rq7p" id="pl-path" viewBox="0 0 1920 1500" data-layout-ignore>
+            <!-- the path narrows after each study: the funnel is rigorous on purpose (a diagram; no counts are published) -->
+            <path data-hf-id="hf-x0ah" class="pl-seg" d="M920 466V500" fill="none" stroke="rgba(232,228,227,0.22)" stroke-width="38" stroke-linecap="round" pathLength="100" stroke-dasharray="100 140" stroke-dashoffset="118" />
+            <path data-hf-id="hf-r4h9" class="pl-seg" d="M920 500V690" fill="none" stroke="rgba(232,228,227,0.22)" stroke-width="27" stroke-linecap="round" pathLength="100" stroke-dasharray="100 140" stroke-dashoffset="118" />
+            <path data-hf-id="hf-fwnt" class="pl-seg" d="M920 690V880" fill="none" stroke="rgba(232,228,227,0.22)" stroke-width="17" stroke-linecap="round" pathLength="100" stroke-dasharray="100 140" stroke-dashoffset="118" />
+            <path data-hf-id="hf-snjb" class="pl-seg" d="M920 880V1026" fill="none" stroke="rgba(232,228,227,0.22)" stroke-width="11" stroke-linecap="round" pathLength="100" stroke-dasharray="100 140" stroke-dashoffset="118" />
+            <path data-hf-id="hf-y8eo" class="pl-seg" d="M920 1026V1100Q920 1146 990 1146" fill="none" stroke="rgba(232,228,227,0.3)" stroke-width="7" stroke-linecap="round" pathLength="100" stroke-dasharray="100 140" stroke-dashoffset="118" />
+            <g data-hf-id="hf-egr5" class="pl-node" id="pl-n1"><line data-hf-id="hf-jlp5" x1="944" y1="500" x2="1000" y2="500" stroke="rgba(232,228,227,0.5)" stroke-width="3" /><circle data-hf-id="hf-sl1f" class="pl-nc" cx="920" cy="500" r="20" fill="#163017" stroke="#E8E4E3" stroke-width="4" /></g>
+            <g data-hf-id="hf-kmgy" class="pl-node" id="pl-n2"><line data-hf-id="hf-sxx5" x1="944" y1="690" x2="1000" y2="690" stroke="rgba(232,228,227,0.5)" stroke-width="3" /><circle data-hf-id="hf-r8xo" class="pl-nc" cx="920" cy="690" r="20" fill="#163017" stroke="#E8E4E3" stroke-width="4" /></g>
+            <g data-hf-id="hf-okkz" class="pl-node" id="pl-n3"><line data-hf-id="hf-40f1" x1="944" y1="880" x2="1000" y2="880" stroke="rgba(232,228,227,0.5)" stroke-width="3" /><circle data-hf-id="hf-g4mq" class="pl-nc" cx="920" cy="880" r="20" fill="#163017" stroke="#E8E4E3" stroke-width="4" /></g>
+            <g data-hf-id="hf-133g" class="pl-node" id="pl-n4"><circle data-hf-id="hf-3bgk" class="pl-nc" cx="920" cy="1026" r="15" fill="#163017" stroke="#E8E4E3" stroke-width="4" /></g>
+            <circle data-hf-id="hf-s924" id="pl-dot" cx="920" cy="466" r="19" fill="#F7F4EC" stroke="#B4C4AE" stroke-width="5" />
+          </svg>
+          <div data-hf-id="hf-h9qt" class="pl-card" id="pl-c1" style="top:410px">
+            <div data-hf-id="hf-wy4m" class="pl-num">1</div>
+            <div data-hf-id="hf-df1r" class="pl-title">BIBLE STUDY 1</div>
+            <div data-hf-id="hf-003h" class="pl-row pl-ra"><svg data-hf-id="hf-054f" viewBox="0 0 34 34"><circle data-hf-id="hf-j4in" cx="17" cy="17" r="15" fill="none" stroke="#1D3D1E" stroke-width="3" /><circle data-hf-id="hf-290u" class="pl-fill" cx="17" cy="17" r="17" fill="#1D3D1E" /><path data-hf-id="hf-3p22" class="pl-chk" d="M9.5 17.5l5 5 10-11" fill="none" stroke="#F7F4EC" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg><span data-hf-id="hf-e3i5">Questions answered</span></div>
+            <div data-hf-id="hf-3y7i" class="pl-row pl-rb"><svg data-hf-id="hf-oqhb" viewBox="0 0 34 34"><circle data-hf-id="hf-6cdb" cx="17" cy="17" r="15" fill="none" stroke="#1D3D1E" stroke-width="3" /><circle data-hf-id="hf-9po2" class="pl-fill" cx="17" cy="17" r="17" fill="#1D3D1E" /><path data-hf-id="hf-7agu" class="pl-chk" d="M9.5 17.5l5 5 10-11" fill="none" stroke="#F7F4EC" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg><span data-hf-id="hf-ra5f">Followed up on obedience</span></div>
+          </div>
+          <div data-hf-id="hf-q7qr" class="pl-card" id="pl-c2" style="top:600px">
+            <div data-hf-id="hf-xcfn" class="pl-num">2</div>
+            <div data-hf-id="hf-d0qq" class="pl-title">BIBLE STUDY 2</div>
+            <div data-hf-id="hf-ntld" class="pl-row pl-ra"><svg data-hf-id="hf-oc6a" viewBox="0 0 34 34"><circle data-hf-id="hf-5y2a" cx="17" cy="17" r="15" fill="none" stroke="#1D3D1E" stroke-width="3" /><circle data-hf-id="hf-a3z3" class="pl-fill" cx="17" cy="17" r="17" fill="#1D3D1E" /><path data-hf-id="hf-7orv" class="pl-chk" d="M9.5 17.5l5 5 10-11" fill="none" stroke="#F7F4EC" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg><span data-hf-id="hf-3lu9">Questions answered</span></div>
+            <div data-hf-id="hf-7fua" class="pl-row pl-rb"><svg data-hf-id="hf-nxv9" viewBox="0 0 34 34"><circle data-hf-id="hf-5jr9" cx="17" cy="17" r="15" fill="none" stroke="#1D3D1E" stroke-width="3" /><circle data-hf-id="hf-aia4" class="pl-fill" cx="17" cy="17" r="17" fill="#1D3D1E" /><path data-hf-id="hf-832w" class="pl-chk" d="M9.5 17.5l5 5 10-11" fill="none" stroke="#F7F4EC" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg><span data-hf-id="hf-wen7">Followed up on obedience</span></div>
+          </div>
+          <div data-hf-id="hf-lup4" class="pl-card" id="pl-c3" style="top:790px">
+            <div data-hf-id="hf-xqqo" class="pl-num">3</div>
+            <div data-hf-id="hf-cmfp" class="pl-title">BIBLE STUDY 3</div>
+            <div data-hf-id="hf-p0ig" class="pl-row pl-ra"><svg data-hf-id="hf-qq0g" viewBox="0 0 34 34"><circle data-hf-id="hf-8bwg" cx="17" cy="17" r="15" fill="none" stroke="#1D3D1E" stroke-width="3" /><circle data-hf-id="hf-awl5" class="pl-fill" cx="17" cy="17" r="17" fill="#1D3D1E" /><path data-hf-id="hf-5axp" class="pl-chk" d="M9.5 17.5l5 5 10-11" fill="none" stroke="#F7F4EC" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg><span data-hf-id="hf-4src">Questions answered</span></div>
+            <div data-hf-id="hf-7u5b" class="pl-row pl-rb"><svg data-hf-id="hf-qbpf" viewBox="0 0 34 34"><circle data-hf-id="hf-7xlf" cx="17" cy="17" r="15" fill="none" stroke="#1D3D1E" stroke-width="3" /><circle data-hf-id="hf-baw6" class="pl-fill" cx="17" cy="17" r="17" fill="#1D3D1E" /><path data-hf-id="hf-5p8q" class="pl-chk" d="M9.5 17.5l5 5 10-11" fill="none" stroke="#F7F4EC" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg><span data-hf-id="hf-w0c6">Followed up on obedience</span></div>
+          </div>
+          <div data-hf-id="hf-qm4v" id="pl-end">FINISHED · OBEYED IN FAITH</div>
+        </div>
+        <svg data-hf-id="hf-xvc3" id="pl-chip" viewBox="0 0 660 132" width="660" height="132">
+        <rect data-hf-id="hf-7rih" x="2" y="2" width="656" height="128" rx="64" fill="#F7F4EC" stroke="#1D3D1E" stroke-width="4" />
+        <g data-hf-id="hf-5o94" transform="translate(78 66)"><g data-hf-id="hf-653w" class="zg-p"><circle data-hf-id="hf-irft" r="34" fill="#1D3D1E" /><circle data-hf-id="hf-gv0c" cy="-9" r="10.5" fill="#F7F4EC" /><path data-hf-id="hf-9ai6" d="M-19.5 21c0-12 8-18.5 19.5-18.5s19.5 6.5 19.5 18.5z" fill="#F7F4EC" /></g></g><g data-hf-id="hf-00xy" transform="translate(128 66)"><g data-hf-id="hf-qatw" class="zg-p"><circle data-hf-id="hf-avv5" r="34" fill="#1D3D1E" stroke="#F7F4EC" stroke-width="5" /><circle data-hf-id="hf-qp9w" cy="-9" r="10.5" fill="#F7F4EC" /><path data-hf-id="hf-u4qa" d="M-19.5 21c0-12 8-18.5 19.5-18.5s19.5 6.5 19.5 18.5z" fill="#F7F4EC" /></g></g>
+        <text data-hf-id="hf-0nd2" x="186" y="59" font-family="ZG Inter" font-weight="600" font-size="32" letter-spacing="1.2" fill="#1D3D1E">FIELD TEAM OF 2</text>
+        <text data-hf-id="hf-6bfb" x="186" y="100" font-family="ZG Inter" font-weight="500" font-size="28" letter-spacing="0.8" fill="#4B5245">1 WORKER · 1 SUPERVISOR</text>
+      </svg>
+        <div data-hf-id="hf-awww" id="pl-handed">HANDED TO THE TEAM ON THE GROUND</div>
+      </div>
+          <div data-hf-id="hf-ybmk" id="pl-head">An AI Discovery<br data-hf-id="hf-x5px" />Bible Study <em data-hf-id="hf-skgs">agent</em></div>
+          <div data-hf-id="hf-29wc" id="pl-sub">ON FACEBOOK MESSENGER</div>
+      <div data-hf-id="hf-04ig" id="pl-eyebrow"><i data-hf-id="hf-wt6k"></i>THE PILOT</div>
+      <div data-hf-id="hf-x11k" id="pl-partners">IN PARTNERSHIP WITH<br data-hf-id="hf-rsrt" />KAVANAH MEDIA AND WAHA</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"travel":2.59,"travelDur":1.1,"c1":2.99,"c2":3.17,"c3":3.35,"dotIn":4.23,"n1":4.79,"n2":5.11,"n3":5.59,"answers":6.15,"follows":7.51,"finish":9.03,"obey":9.83,"handed":11.35,"impact":11.77,"exit":14.14};
+      const tl = gsap.timeline({ paused: true });
+      const CAM = -300; // how far the camera travels down the path
+
+      // entry: cut the curve, still travelling left. The label, the headline and the team ride in with the stage.
+      tl.fromTo("#pl-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set([".pl-card", "#pl-dot", ".pl-node", "#pl-end", "#pl-handed"], { autoAlpha: 0 });
+      gsap.set(".pl-fill", { scale: 0, transformOrigin: "50% 50%" });
+      gsap.set(".pl-chk", { autoAlpha: 0 });
+      gsap.set(".pl-row span", { opacity: 0.45 });
+
+      // 1 · "So at Zogreo, we ran a pilot": what was built. The camera eases in on the words.
+      tl.fromTo("#pl-head", { scale: 1 }, { scale: 1.05, duration: T.travel - 0.34, ease: "sine.inOut" }, 0.34);
+
+      // 2 · "Our AI leads each person through three Bible studies": the camera travels down the path
+      // the headline stays in the left column while the path rises into the right
+      tl.to("#pl-world", { y: CAM, duration: T.travelDur, ease: "power3.inOut" }, T.travel);
+      tl.to(".pl-seg", { strokeDashoffset: 0, duration: 0.45, ease: "power2.out", stagger: 0.16 }, T.travel + 0.3);
+      [T.c1, T.c2, T.c3].forEach((t, k) => {
+        tl.fromTo("#pl-c" + (k + 1), { autoAlpha: 0, y: 84 }, { autoAlpha: 1, y: 0, duration: 0.32, ease: "power4.out" }, t);
+        tl.fromTo("#pl-n" + (k + 1), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, t + 0.05);
+      });
+      tl.fromTo("#pl-n4", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, T.c3 + 0.25);
+      // one person on the path, study by study, on "three Bible studies"
+      tl.fromTo("#pl-dot", { autoAlpha: 0, scale: 0.4, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.24, ease: "back.out(1.7)" }, T.dotIn);
+      [[T.n1, 34, T.dotIn + 0.26], [T.n2, 224, T.n1], [T.n3, 414, T.n2]].forEach(([at, y, prev], k) => {
+        const d = Math.min(0.32, at - prev - 0.02);
+        tl.to("#pl-dot", { y, duration: d, ease: "power2.inOut" }, at - d);
+        tl.to("#pl-n" + (k + 1) + " .pl-nc", { fill: "#F7F4EC", duration: 0.16 }, at);
+        tl.fromTo("#pl-c" + (k + 1) + " .pl-num", { opacity: 0.13 }, { opacity: 0.34, duration: 0.2 }, at);
+      });
+      // "answers their questions, and follows up": each study, ticked
+      const tick = (row, t) => {
+        [1, 2, 3].forEach((k, i) => {
+          const sel = "#pl-c" + k + " " + row;
+          tl.to(sel + " .pl-fill", { scale: 1, duration: 0.24, ease: "back.out(1.7)" }, t + i * 0.12);
+          tl.to(sel + " .pl-chk", { autoAlpha: 1, duration: 0.12 }, t + i * 0.12 + 0.08);
+          tl.to(sel + " span", { opacity: 1, duration: 0.2 }, t + i * 0.12);
+        });
+      };
+      tick(".pl-ra", T.answers);
+      tick(".pl-rb", T.follows);
+
+      // 3 · "Those who finish, and obey in faith": through all three, to the end of the path
+      tl.fromTo(".pl-card", { boxShadow: "inset 0 0 0 0px #5DA95F" }, { boxShadow: "inset 0 0 0 6px #5DA95F", duration: 0.26, ease: "power2.out", stagger: 0.09 }, T.finish);
+      tl.to("#pl-dot", { y: 560, duration: 0.42, ease: "power2.inOut" }, T.finish + 0.1);
+      tl.to("#pl-n4 .pl-nc", { fill: "#F7F4EC", duration: 0.16 }, T.finish + 0.52);
+      tl.fromTo("#pl-end", { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.26, ease: "power2.out" }, T.obey);
+
+      // 4 · a breath of stillness, then the hand-off: "are handed to the team on the ground"
+      tl.to("#pl-dot", { x: 70, y: 680, duration: T.impact - T.handed, ease: "power3.in" }, T.handed);
+      tl.to("#pl-dot", { autoAlpha: 0, duration: 0.08 }, T.impact);
+      tl.fromTo("#pl-chip", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.09, duration: 0.5, ease: "back.out(1.8)" }, T.impact);
+      tl.fromTo("#pl-handed", { autoAlpha: 0, filter: "blur(6px)", y: 10 }, { autoAlpha: 1, filter: "blur(0px)", y: 0, duration: 0.3, ease: "power2.out" }, T.impact + 0.1);
+      // the camera keeps moving in on the team the whole way down the path (no dead hold while the studies tick), then settles on the hand-off
+      tl.fromTo("#pl-push", { scale: 1 }, { scale: 1.06, duration: T.impact - T.travel - T.travelDur, ease: "sine.inOut" }, T.travel + T.travelDur);
+      tl.to("#pl-push", { scale: 1.09, duration: T.exit - T.impact, ease: "sine.out" }, T.impact);
+
+      // exit: cut the curve, upward (the result rises)
+      tl.to("#pl-stage", { y: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#pl-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["pilot"] = tl;
+    })();
+  </script>
+</template>

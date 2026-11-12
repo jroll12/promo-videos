@@ -1,0 +1,107 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F7F4EC; }
+    #root * { box-sizing: border-box; }
+    #rs-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #rs-push { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 960px 540px; }
+    .rs-tag { position: absolute; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.2em; color: #1D3D1E; white-space: nowrap; }
+    #rs-eyebrow { left: 0; top: 70px; width: 1920px; text-align: center; letter-spacing: 0.26em; }
+    #rs-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #1D3D1E; vertical-align: middle; margin-right: 18px; position: relative; top: -3px; }
+
+    /* the ratio, as dots: one block of 100 for the team alone, 373 for the team with the AI agent */
+    #rs-rows { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    #rs-la { left: 140px; top: 236px; }
+    #rs-a { position: absolute; left: 140px; top: 284px; width: 215px; height: 215px; overflow: visible; }
+    #rs-one { position: absolute; left: 401px; top: 284px; height: 215px; font: 300 120px/215px "Cormorant Garamond"; font-variant-numeric: lining-nums; color: #1D3D1E; opacity: 0.55; }
+    #rs-lb { left: 140px; top: 576px; }
+    #rs-b { position: absolute; left: 140px; top: 624px; width: 950px; height: 215px; overflow: visible; }
+    .rs-da, .rs-db { fill: #1D3D1E; }
+    #rs-num { position: absolute; left: 1110px; top: 300px; width: 780px; text-align: center; font: 300 270px/1 "Cormorant Garamond"; font-variant-numeric: lining-nums; color: #1D3D1E; letter-spacing: -0.01em; transform-origin: 390px 135px; }
+    #rs-cap { position: absolute; left: 1110px; top: 604px; width: 780px; text-align: center; font: 400 36px/1.25 "ZG Inter"; color: #3E473C; }
+
+    /* the second finding */
+    #rs-small { left: 0; top: 286px; width: 1920px; text-align: center; }
+    #rs-lead { position: absolute; left: 0; top: 352px; width: 1920px; text-align: center; font: 300 112px/1.06 "Cormorant Garamond"; color: #1D3D1E; }
+    #rs-lead span { display: inline-block; }
+    #rs-lead em { font-style: italic; color: #778B78; }
+    .rs-eql { left: 480px; letter-spacing: 0.1em; }
+    .rs-bar { position: absolute; left: 1010px; width: 455px; height: 34px; border-radius: 17px; transform-origin: 0 50%; }
+    #rs-l1 { top: 659px; }
+    #rs-b1 { top: 656px; background: #778B78; }
+    #rs-l2 { top: 739px; }
+    #rs-b2 { top: 736px; background: #1D3D1E; }
+    #rs-foot { position: absolute; left: 0; top: 850px; width: 1920px; text-align: center; font: 400 30px/1.3 "ZG Inter"; color: #4B5245; }
+  </style>
+
+  <div data-hf-id="hf-bfhy" id="root" data-composition-id="result" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-xeh9" id="rs-stage">
+      <div data-hf-id="hf-p5r1" id="rs-push">
+        <div data-hf-id="hf-bscs" class="rs-tag" id="rs-eyebrow"><i data-hf-id="hf-wt6k"></i>THE RESULTS</div>
+        <div data-hf-id="hf-pah6" id="rs-rows">
+          <div data-hf-id="hf-ivah" class="rs-tag" id="rs-la">FIELD TEAM ALONE</div>
+          <svg data-hf-id="hf-coe1" id="rs-a" viewBox="0 0 215 215" data-layout-ignore>
+          <!--{{DOTSA}}-->
+          </svg>
+          <div data-hf-id="hf-8yjp" id="rs-one">1.00×</div>
+          <div data-hf-id="hf-9bvq" class="rs-tag" id="rs-lb">WITH THE AI AGENT</div>
+          <svg data-hf-id="hf-cqlo" id="rs-b" viewBox="0 0 950 215" data-layout-ignore>
+          <!--{{DOTSB}}-->
+          </svg>
+        </div>
+        <div data-hf-id="hf-uggl" id="rs-num">1.00×</div>
+        <div data-hf-id="hf-2wbn" id="rs-cap">as many people served by the same team</div>
+        <div data-hf-id="hf-cyg2" class="rs-tag" id="rs-small">AS MANY PEOPLE SERVED</div>
+        <div data-hf-id="hf-fbpb" id="rs-lead"><span data-hf-id="hf-mtl2" id="rs-ld1">Leaders found at</span><br data-hf-id="hf-x5px" /><span data-hf-id="hf-hyti" id="rs-ld2"><em data-hf-id="hf-2oaj">about the same rate</em></span></div>
+        <div data-hf-id="hf-47o8" class="rs-tag rs-eql" id="rs-l1">HUMAN RESPONDERS ALONE</div>
+        <div data-hf-id="hf-4004" class="rs-bar" id="rs-b1"></div>
+        <div data-hf-id="hf-oqg6" class="rs-tag rs-eql" id="rs-l2">WITH THE AI AGENT</div>
+        <div data-hf-id="hf-cnvz" class="rs-bar" id="rs-b2"></div>
+        <div data-hf-id="hf-fcvs" id="rs-foot">The pilot was deliberately limited in scope.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+
+      // entry: cut the curve, still rising. The label, both rows of dots and the number arrive with the stage.
+      tl.fromTo("#rs-stage", { y: 230, opacity: 0.35, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set(["#rs-cap", "#rs-small", "#rs-ld1", "#rs-ld2", "#rs-l1", "#rs-l2", "#rs-foot"], { autoAlpha: 0 });
+      gsap.set(".rs-bar", { scaleX: 0 });
+
+      // 1 · "the same team could serve 3.73 times as many people": the dots fill as the number counts, and both land on the spoken number
+      const dots = Array.from(document.querySelectorAll("#rs-b .rs-db"));
+      const num = document.getElementById("rs-num");
+      const n = { v: 1 };
+      const show = () => {
+        num.textContent = n.v.toFixed(2) + "×";
+        const c = n.v * 100;
+        for (let i = 100; i < dots.length; i++) dots[i].style.opacity = String(0.12 + 0.88 * Math.min(1, Math.max(0, c - i)));
+      };
+      show();
+      tl.to(n, { v: 3.73, duration: T.num + 0.05 - T.count0, ease: "power2.inOut", onUpdate: show }, T.count0);
+      tl.fromTo("#rs-cap", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3, ease: "power2.out" }, T.cap);
+      tl.fromTo("#rs-push", { scale: 1 }, { scale: 1.07, duration: T.exit - 0.4, ease: "sine.inOut" }, 0.4);
+
+      // 2 · "And they found disciple-making leaders at about the same rate": the number steps up to make room
+      tl.to(["#rs-rows", "#rs-cap"], { y: -90, autoAlpha: 0, filter: "blur(8px)", duration: 0.3, ease: "power2.in" }, T.nudge);
+      tl.to("#rs-num", { x: -540, y: -232, scale: 0.5, duration: 0.66, ease: "power3.inOut" }, T.nudge + 0.04);
+      tl.fromTo("#rs-small", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.nudge + 0.6);
+      tl.fromTo("#rs-ld1", { autoAlpha: 0, y: 64 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power4.out" }, T.leaders);
+      tl.fromTo("#rs-ld2", { autoAlpha: 0, y: 64 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power4.out" }, T.leaders + 0.14);
+      tl.fromTo("#rs-foot", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.foot);
+      // two equal bars: a picture of "about the same" (the case study publishes no counts)
+      tl.fromTo(["#rs-l1", "#rs-l2"], { autoAlpha: 0, x: -16 }, { autoAlpha: 1, x: 0, duration: 0.26, ease: "power3.out", stagger: 0.08 }, T.same - 0.3);
+      tl.to(".rs-bar", { scaleX: 1, duration: 0.62, ease: "power3.out" }, T.same);
+
+      // exit: cut the curve, leftward
+      tl.to("#rs-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#rs-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["result"] = tl;
+    })();
+  </script>
+</template>
