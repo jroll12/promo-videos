@@ -1,0 +1,4 @@
+# generated: rebuilt by tools/el_scenes.py, vo.py and hyperframes check
+build/check.json
+build/vo_raw.wav
+el-scenes/*.wav

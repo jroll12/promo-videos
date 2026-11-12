@@ -1,0 +1,425 @@
+<template>
+  <style>
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-cyrillic-400-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-ext-400-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: italic; font-weight: 400; src: url("assets/fonts/inter-cyrillic-400-italic.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: italic; font-weight: 400; src: url("assets/fonts/inter-latin-ext-400-italic.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: italic; font-weight: 400; src: url("assets/fonts/inter-latin-400-italic.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-cyrillic-500-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-cyrillic-600-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-cyrillic-700-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 800; src: url("assets/fonts/inter-cyrillic-800-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 800; src: url("assets/fonts/inter-latin-ext-800-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Inter PV"; font-style: normal; font-weight: 800; src: url("assets/fonts/inter-latin-800-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/jetbrains-mono-cyrillic-500-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/jetbrains-mono-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/jetbrains-mono-cyrillic-700-normal.woff2") format("woff2"); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/jetbrains-mono-latin-ext-700-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "JetBrains Mono PV"; font-style: normal; font-weight: 700; src: url("assets/fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-arabic-500-normal.woff2") format("woff2"); unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-arabic-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-arabic-arabic-600-normal.woff2") format("woff2"); unicode-range: U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-arabic-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Arabic PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-arabic-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-devanagari-devanagari-500-normal.woff2") format("woff2"); unicode-range: U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-devanagari-latin-ext-500-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 500; src: url("assets/fonts/noto-sans-devanagari-latin-500-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-devanagari-devanagari-600-normal.woff2") format("woff2"); unicode-range: U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-devanagari-latin-ext-600-normal.woff2") format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+    @font-face { font-family: "Noto Sans Devanagari PV"; font-style: normal; font-weight: 600; src: url("assets/fonts/noto-sans-devanagari-latin-600-normal.woff2") format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #111828; }
+    #root * { box-sizing: border-box; }
+    #ct-stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    /* 16:9: the chat is a centered full-height column (the vertical layout, scaled), the beats around it are wide */
+    #ct-colbg { position: absolute; left: 539px; top: 0; width: 842px; height: 1080px; background: #131B30; box-shadow: inset 2px 0 0 #1E2740, inset -2px 0 0 #1E2740; }
+    #ct-phone { position: absolute; left: 539px; top: -124px; width: 1080px; height: 1920px; transform-origin: 0px 0px; transform: scale(0.78); }
+    #ct-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 780px; }
+
+    /* the ministry's agent bar */
+    #ct-bar { position: absolute; left: 60px; top: 188px; width: 960px; height: 112px; }
+    #ct-bar-bg, #ct-bar-flood { position: absolute; inset: 0; border-radius: 32px; }
+    #ct-bar-bg { background: #18203A; box-shadow: inset 0 0 0 2px #232C47; }
+    #ct-bar-flood { background: #1D1640; box-shadow: inset 0 0 0 2px #5A4FA6; clip-path: inset(0% 100% 0% 0%); }
+    #ct-av { position: absolute; left: 24px; top: 20px; width: 72px; height: 72px; border-radius: 22px; background: #ECE7FB; color: #1D1640; font: 800 30px/72px "Inter PV"; text-align: center; letter-spacing: -0.02em; }
+    #ct-name { position: absolute; left: 116px; top: 18px; font: 700 36px/42px "Inter PV"; color: #FFFFFF; white-space: nowrap; }
+    #ct-sub { position: absolute; left: 116px; top: 62px; font: 500 28px/34px "Inter PV"; color: #A9A8C6; white-space: nowrap; }
+    #ct-lang { position: absolute; left: 516px; top: 28px; width: 220px; height: 56px; border-radius: 28px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+    #ct-globe { position: absolute; left: 18px; top: 14px; width: 28px; height: 28px; }
+    #ct-lang-vp { position: absolute; left: 56px; top: 0; width: 152px; height: 56px; overflow: hidden; }
+    #ct-roll { position: absolute; left: 0; top: 0; width: 152px; }
+    #ct-roll div { height: 56px; font: 600 28px/56px "Inter PV", "Noto Sans Arabic PV", "Noto Sans Devanagari PV"; color: #FFFFFF; white-space: nowrap; }
+    #ct-clock { position: absolute; left: 752px; top: 28px; width: 184px; height: 56px; border-radius: 28px; background: rgba(255, 255, 255, 0.08); font: 600 28px/56px "Inter PV"; color: #FFFFFF; text-align: center; }
+    #ct-clock-hi { position: absolute; inset: 0; border-radius: 28px; background: #A88BFF; color: #111828; font: 700 28px/56px "Inter PV"; text-align: center; }
+
+    /* the conversation */
+    #ct-vp { position: absolute; left: 60px; top: 330px; width: 960px; height: 840px; overflow: hidden; }
+    #ct-empty { position: absolute; left: 0; top: 150px; width: 960px; text-align: center; }
+    #ct-empty-av { width: 150px; height: 150px; margin: 0 auto; border-radius: 44px; background: #ECE7FB; color: #1D1640; font: 800 60px/150px "Inter PV"; letter-spacing: -0.02em; }
+    #ct-empty-t { margin-top: 40px; font: 800 72px/80px "Inter PV"; letter-spacing: -0.03em; color: #FFFFFF; }
+    #ct-empty-s { margin-top: 16px; font: 400 38px/48px "Inter PV"; color: #A9A8C6; }
+    #ct-thread { position: absolute; left: 0; top: 0; width: 960px; height: 1400px; }
+    .ct-bub { position: absolute; white-space: nowrap; }
+    #ct-seek { right: 0; top: 40px; padding: 30px 40px; border-radius: 44px; border-bottom-right-radius: 14px; background: #2D2668; color: #FFFFFF; font: 500 46px/60px "Inter PV"; }
+    #ct-deliv { position: absolute; right: 8px; top: 236px; font: 500 28px/32px "Inter PV"; color: #A9A8C6; white-space: nowrap; }
+    .ct-who { position: absolute; left: 0; top: 280px; height: 60px; }
+    .ct-who-av { position: absolute; left: 0; top: 0; width: 60px; height: 60px; }
+    .ct-who-nm { position: absolute; left: 76px; top: 0; font: 600 30px/60px "Inter PV"; white-space: nowrap; }
+    #ct-gen-who .ct-who-av { border-radius: 30px; background: #3A4258; }
+    #ct-gen-who .ct-who-nm { color: #A9A8C6; }
+    #ct-ans-who .ct-who-av { border-radius: 18px; background: #ECE7FB; color: #1D1640; font: 800 24px/60px "Inter PV"; text-align: center; }
+    #ct-ans-who .ct-who-nm { color: #FFFFFF; }
+    .ct-gb { left: 0; padding: 26px 34px; border-radius: 40px; border-top-left-radius: 12px; background: #E5E7EB; color: #374151; font: 400 42px/56px "Inter PV"; }
+    #ct-gb1 { top: 352px; }
+    #ct-gb2 { top: 494px; }
+    #ct-gb3 { top: 694px; }
+    .ct-strike { position: absolute; left: 30px; right: 30px; height: 5px; border-radius: 3px; background: #FF80B5; transform-origin: 0% 50%; }
+    .ct-tag { position: absolute; right: -26px; bottom: -30px; height: 58px; padding: 0 22px; border-radius: 29px; background: #FF80B5; color: #111828; font: 800 30px/58px "Inter PV"; letter-spacing: 0.06em; white-space: nowrap; box-shadow: 0 10px 24px rgba(3, 6, 18, 0.35); }
+    #ct-typing { left: 0; top: 352px; width: 150px; height: 96px; border-radius: 40px; border-top-left-radius: 12px; background: #FFFFFF; }
+    .ct-dot { position: absolute; top: 40px; width: 16px; height: 16px; border-radius: 8px; background: #5E5F76; }
+    #ct-ans { left: 0; top: 352px; width: 900px; padding: 34px 40px; border-radius: 40px; border-top-left-radius: 12px; background: #FFFFFF; color: #111828; font: 400 44px/58px "Inter PV"; white-space: normal; box-shadow: 0 24px 60px rgba(3, 6, 18, 0.45); }
+    #ct-ans .ct-v { margin-top: 22px; padding-left: 28px; box-shadow: inset 6px 0 0 #A88BFF; font: italic 400 42px/56px "Inter PV"; }
+    #ct-chips { margin-top: 26px; height: 64px; display: flex; gap: 16px; }
+    .ct-chip { height: 64px; padding: 0 24px; border-radius: 32px; background: #F2F0FA; box-shadow: inset 0 0 0 2px #DCD6F5; display: flex; align-items: center; gap: 12px; font: 600 30px/64px "Inter PV"; color: #1D1640; white-space: nowrap; }
+    #ct-hand { position: absolute; left: 0; top: 900px; width: 900px; height: 268px; border-radius: 40px; background: #FFFFFF; box-shadow: 0 24px 60px rgba(3, 6, 18, 0.45); }
+    #ct-h-ask, #ct-h-done { position: absolute; inset: 0; }
+    #ct-h-ico { position: absolute; left: 34px; top: 34px; width: 72px; height: 72px; border-radius: 36px; background: #ECE7FB; }
+    #ct-h-q { position: absolute; left: 130px; top: 30px; font: 600 40px/52px "Inter PV"; color: #111828; white-space: nowrap; }
+    #ct-h-btn { position: absolute; left: 130px; top: 158px; width: 380px; height: 76px; border-radius: 38px; background: #1D1640; color: #FFFFFF; font: 600 34px/76px "Inter PV"; text-align: center; }
+    #ct-h-avs { position: absolute; left: 34px; top: 94px; width: 200px; height: 80px; }
+    #ct-h-done-t { position: absolute; left: 260px; top: 82px; font: 700 40px/52px "Inter PV"; color: #111828; white-space: nowrap; }
+
+    /* the composer */
+    #ct-comp { position: absolute; left: 60px; top: 1196px; width: 820px; height: 168px; border-radius: 44px; background: #FFFFFF; box-shadow: 0 24px 60px rgba(3, 6, 18, 0.5); overflow: hidden; }
+    #ct-typed { position: absolute; left: 34px; top: 30px; width: 790px; font: 400 44px/58px "Inter PV"; color: #111828; white-space: pre-wrap; }
+    #ct-typed span { box-shadow: none; }
+    #ct-ph { position: absolute; left: 40px; top: 0; font: 400 40px/168px "Inter PV"; color: #6E7086; white-space: nowrap; }
+    #ct-send { position: absolute; left: 900px; top: 1220px; width: 120px; height: 120px; border-radius: 60px; background: #ECE7FB; }
+
+    /* screen-space beats */
+    #ct-scrim { position: absolute; inset: 0; background: #111828; opacity: 0; }
+    #ct-verse { position: absolute; left: 300px; top: 230px; width: 1400px; font: 700 72px/88px "Inter PV"; letter-spacing: -0.02em; color: #FFFFFF; }
+    #ct-verse .w { display: inline-block; }
+    #ct-verse .a { color: #A88BFF; }
+    #ct-ref { position: absolute; left: 300px; top: 636px; font: 700 34px/40px "JetBrains Mono PV"; letter-spacing: 0.12em; color: #A88BFF; white-space: nowrap; }
+    #ct-qvp { position: absolute; left: 0; top: 180px; width: 1080px; height: 1220px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, transparent 0px, #000 90px, #000 940px, transparent 1090px); mask-image: linear-gradient(to bottom, transparent 0px, #000 90px, #000 940px, transparent 1090px); }
+    #ct-qcol { position: absolute; left: 0; top: 0; width: 1080px; height: 2200px; }
+    .ct-q { position: absolute; left: 90px; width: 900px; height: 132px; border-radius: 34px; background: #FFFFFF; box-shadow: 0 16px 40px rgba(3, 6, 18, 0.45); }
+    .ct-q-t { position: absolute; left: 40px; top: 0; font: 600 38px/132px "Inter PV", "Noto Sans Arabic PV", "Noto Sans Devanagari PV"; color: #111828; white-space: nowrap; }
+    #ct-typed i { display: inline-block; width: 0; height: 46px; vertical-align: -9px; }
+    .ct-q-c { position: absolute; right: 36px; top: 30px; text-align: right; white-space: nowrap; }
+    .ct-q-l { font: 600 28px/36px "Inter PV", "Noto Sans Arabic PV", "Noto Sans Devanagari PV"; color: #3C3E51; }
+    .ct-q-h { font: 500 28px/36px "Inter PV"; color: #6E7086; }
+    .ct-q-w { position: absolute; right: 36px; top: 37px; height: 58px; padding: 0 22px; border-radius: 29px; background: #ECE7FB; font: 700 28px/58px "Inter PV"; color: #1D1640; white-space: nowrap; }
+    .ct-q-w i { display: inline-block; width: 14px; height: 14px; border-radius: 7px; background: #7E6BD6; margin-right: 12px; position: relative; top: -2px; }
+    #ct-team { position: absolute; left: 220px; top: 1268px; width: 640px; height: 120px; border-radius: 60px; background: #1D1640; box-shadow: inset 0 0 0 2px #5A4FA6, 0 20px 50px rgba(3, 6, 18, 0.55); }
+    #ct-team-avs { position: absolute; left: 24px; top: 20px; width: 200px; height: 80px; }
+    #ct-team-t { position: absolute; left: 244px; top: 0; font: 700 40px/120px "Inter PV"; color: #FFFFFF; white-space: nowrap; }
+    #ct-logo { position: absolute; left: 460px; top: 300px; width: 1000px; height: 215px; }
+    #ct-logo img { width: 1000px; height: 215px; display: block; }
+    #ct-eyebrow { position: absolute; left: 0; top: 580px; width: 1920px; text-align: center; font: 700 28px/32px "Inter PV"; letter-spacing: 0.16em; color: #A88BFF; }
+    /* the ministry's website (before the chatbot) */
+    #ct-site, #ct-chatlayer { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #ct-site-head { position: absolute; left: 60px; top: 188px; width: 960px; height: 112px; border-radius: 32px; background: #18203A; box-shadow: inset 0 0 0 2px #232C47; }
+    #ct-site-av { position: absolute; left: 24px; top: 20px; width: 72px; height: 72px; border-radius: 22px; background: #ECE7FB; color: #1D1640; font: 800 30px/72px "Inter PV"; text-align: center; letter-spacing: -0.02em; }
+    #ct-site-name { position: absolute; left: 116px; top: 18px; font: 700 36px/42px "Inter PV"; color: #FFFFFF; white-space: nowrap; }
+    #ct-site-sub { position: absolute; left: 116px; top: 62px; font: 500 28px/34px "Inter PV"; color: #A9A8C6; white-space: nowrap; }
+    #ct-site-clock { position: absolute; left: 752px; top: 28px; width: 184px; height: 56px; border-radius: 28px; background: rgba(255, 255, 255, 0.08); font: 600 28px/56px "Inter PV"; color: #FFFFFF; text-align: center; }
+    #ct-site-hero { position: absolute; left: 60px; top: 340px; font: 800 76px/84px "Inter PV"; letter-spacing: -0.03em; color: #FFFFFF; }
+    #ct-site-card { position: absolute; left: 60px; top: 560px; width: 960px; height: 690px; border-radius: 44px; background: #FFFFFF; box-shadow: 0 30px 80px rgba(3, 6, 18, 0.5); }
+    #ct-site-form, #ct-site-ok { position: absolute; inset: 0; }
+    #ct-site-h { position: absolute; left: 52px; top: 40px; font: 800 60px/68px "Inter PV"; letter-spacing: -0.02em; color: #111828; }
+    #ct-site-l { position: absolute; left: 52px; top: 134px; font: 600 30px/36px "Inter PV"; color: #5E5F76; }
+    #ct-field { position: absolute; left: 52px; top: 184px; width: 856px; height: 290px; border-radius: 28px; background: #F7F6FB; box-shadow: inset 0 0 0 2px #E4DEFA; overflow: hidden; }
+    #ct-site-btn { position: absolute; left: 52px; top: 520px; width: 380px; height: 96px; border-radius: 48px; background: #1D1640; color: #FFFFFF; font: 600 38px/96px "Inter PV"; text-align: center; }
+    #ct-site-check { position: absolute; left: 420px; top: 120px; }
+    #ct-site-ok-t { position: absolute; left: 0; top: 276px; width: 960px; text-align: center; font: 800 72px/80px "Inter PV"; letter-spacing: -0.03em; color: #111828; }
+    #ct-site-ok-s { position: absolute; left: 0; top: 376px; width: 960px; text-align: center; font: 400 44px/54px "Inter PV"; color: #5E5F76; }
+    #ct-chat-bg { position: absolute; left: 0; top: 150px; width: 1080px; height: 1290px; border-radius: 56px 56px 0 0; background: #111828; box-shadow: 0 -20px 60px rgba(3, 6, 18, 0.6); }
+    #ct-av-g { position: absolute; left: 24px; top: 20px; width: 72px; height: 72px; border-radius: 36px; background: #3A4258; }
+    #ct-name-g { position: absolute; left: 116px; top: 18px; font: 700 36px/42px "Inter PV"; color: #FFFFFF; white-space: nowrap; }
+    #ct-sub-g { position: absolute; left: 116px; top: 62px; font: 500 28px/34px "Inter PV"; color: #A9A8C6; white-space: nowrap; }
+    /* the widget launcher on the ministry's site */
+    #ct-launch { position: absolute; left: 860px; top: 1236px; width: 140px; height: 140px; border-radius: 70px; background: #1D1640; box-shadow: 0 0 0 7px rgba(168, 139, 255, 0.55), 0 20px 50px rgba(3, 6, 18, 0.6); }
+    #ct-launch svg { position: absolute; left: 34px; top: 36px; }
+    #ct-launch-tip { position: absolute; right: 250px; top: 1270px; height: 76px; padding: 0 32px; border-radius: 38px; background: #FFFFFF; color: #1D1640; font: 700 34px/76px "Inter PV"; white-space: nowrap; box-shadow: 0 16px 40px rgba(3, 6, 18, 0.5); }
+    /* the ministry's own chatbot: a bright panel on the dark site (the generic one stays grey and dark) */
+    #ct-chatlayer.light #ct-bar-bg { background: #FFFFFF; box-shadow: 0 10px 30px rgba(29, 22, 64, 0.12), inset 0 0 0 2px #E4DEFA; }
+    #ct-chatlayer.light #ct-bar-flood { display: none; }
+    #ct-chatlayer.light #ct-av { background: #1D1640; color: #FFFFFF; box-shadow: 0 0 0 4px #A88BFF; }
+    #ct-chatlayer.light #ct-name { color: #111828; }
+    #ct-chatlayer.light #ct-sub { color: #5E5F76; }
+    #ct-chatlayer.light #ct-sub::before { content: ""; display: inline-block; width: 14px; height: 14px; border-radius: 7px; background: #7E6BD6; margin-right: 10px; position: relative; top: -2px; }
+    #ct-chatlayer.light #ct-lang, #ct-chatlayer.light #ct-clock { background: #F2F0FA; color: #1D1640; }
+    #ct-chatlayer.light #ct-roll div { color: #1D1640; }
+    #ct-chatlayer.light #ct-globe * { stroke: #1D1640; }
+    #ct-chatlayer.light .ct-who-nm, #ct-chatlayer.light #ct-ans-who .ct-who-nm { color: #3C3E51; }
+    #ct-chatlayer.light #ct-ans-who .ct-who-av { background: #1D1640; color: #FFFFFF; }
+    #ct-chatlayer.light #ct-deliv { color: #6E7086; }
+    #ct-chatlayer.light #ct-ans, #ct-chatlayer.light #ct-hand, #ct-chatlayer.light #ct-typing { box-shadow: 0 18px 50px rgba(29, 22, 64, 0.14), inset 0 0 0 2px #ECE7FB; }
+    #ct-chatlayer.light #ct-ans .ct-v { margin-top: 24px; padding: 22px 28px 22px 34px; border-radius: 24px; background: #F2F0FA; box-shadow: inset 7px 0 0 #A88BFF; }
+    #ct-chatlayer.light #ct-comp { box-shadow: 0 12px 34px rgba(29, 22, 64, 0.12), inset 0 0 0 2px #E4DEFA; }
+    #ct-chatlayer.light #ct-send { background: #1D1640; }
+    #ct-chatlayer.light #ct-send path { stroke: #FFFFFF; }
+  </style>
+
+  <div data-hf-id="hf-tfhh" id="root" data-composition-id="chat" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-xnm1" id="ct-stage">
+      <div data-hf-id="hf-cbg1" id="ct-colbg"></div>
+      <div data-hf-id="hf-phn1" id="ct-phone">
+      <div data-hf-id="hf-f2s2" id="ct-cam">
+        <div data-hf-id="hf-uic0" id="ct-site" data-layout-allow-overlap>
+          <div data-hf-id="hf-c1kr" id="ct-site-head"><div data-hf-id="hf-om0a" id="ct-site-av">YM</div><div data-hf-id="hf-88tc" id="ct-site-name">Your Ministry</div><div data-hf-id="hf-7eku" id="ct-site-sub">Illustrative website</div><div data-hf-id="hf-jhh6" id="ct-site-clock">2:07 AM</div></div>
+          <div data-hf-id="hf-awly" id="ct-site-hero">Have a question<br data-hf-id="hf-r05r" />about faith?</div>
+          <div data-hf-id="hf-mavf" id="ct-launch-tip">Ask us anything</div>
+          <div data-hf-id="hf-negg" id="ct-launch"><svg data-hf-id="hf-lgnp" viewBox="0 0 72 72" width="72" height="68"><path data-hf-id="hf-jxvp" d="M14 16h44a6 6 0 0 1 6 6v24a6 6 0 0 1-6 6H32l-12 10v-10h-6a6 6 0 0 1-6-6V22a6 6 0 0 1 6-6z" fill="#FFFFFF" /><circle data-hf-id="hf-g6pn" cx="26" cy="34" r="3.6" fill="#1D1640" /><circle data-hf-id="hf-157u" cx="36" cy="34" r="3.6" fill="#1D1640" /><circle data-hf-id="hf-8v7x" cx="46" cy="34" r="3.6" fill="#1D1640" /></svg></div>
+          <div data-hf-id="hf-d8e7" id="ct-site-card">
+            <div data-hf-id="hf-3st7" id="ct-site-form">
+              <div data-hf-id="hf-ri9b" id="ct-site-h">Contact us</div>
+              <div data-hf-id="hf-qufn" id="ct-site-l">Your message</div>
+              <div data-hf-id="hf-55lf" id="ct-field"><div data-hf-id="hf-0ftv" id="ct-typed"><i data-hf-id="hf-3gzc" id="ct-c0"></i><span data-hf-id="hf-jlq0">I</span><span data-hf-id="hf-scgm">s</span><span data-hf-id="hf-uckh"> </span><span data-hf-id="hf-r5jj">t</span><span data-hf-id="hf-vx7v">h</span><span data-hf-id="hf-xwr0">e</span><span data-hf-id="hf-ry5l">r</span><span data-hf-id="hf-pn38">e</span><span data-hf-id="hf-l73p"> </span><span data-hf-id="hf-zhz4">a</span><span data-hf-id="hf-tjdp">n</span><span data-hf-id="hf-pymg">y</span><span data-hf-id="hf-me0s"> </span><span data-hf-id="hf-qpcb">h</span><span data-hf-id="hf-txoq">o</span><span data-hf-id="hf-sqrn">p</span><span data-hf-id="hf-og65">e</span><span data-hf-id="hf-lzpr"> </span><span data-hf-id="hf-wptx">f</span><span data-hf-id="hf-rzwu">o</span><span data-hf-id="hf-t02l">r</span><span data-hf-id="hf-n6mu"> </span><span data-hf-id="hf-kwl6">s</span><span data-hf-id="hf-se7v">o</span><span data-hf-id="hf-uqas">m</span><span data-hf-id="hf-ouh6">e</span><span data-hf-id="hf-ssiw">o</span><span data-hf-id="hf-mult">n</span><span data-hf-id="hf-qu0b">e</span><span data-hf-id="hf-msbt"> </span><span data-hf-id="hf-ubzr">l</span><span data-hf-id="hf-wbiw">i</span><span data-hf-id="hf-viwu">k</span><span data-hf-id="hf-r8bc">e</span><span data-hf-id="hf-nz8w"> </span><span data-hf-id="hf-3mn0">m</span><span data-hf-id="hf-q1e9">e</span><span data-hf-id="hf-d0e2">?</span></div></div>
+              <div data-hf-id="hf-girq" id="ct-site-btn">Send message</div>
+            </div>
+            <div data-hf-id="hf-2lk7" id="ct-site-ok">
+              <svg data-hf-id="hf-f4ty" id="ct-site-check" viewBox="0 0 120 120" width="120" height="120"><circle data-hf-id="hf-ux5u" cx="60" cy="60" r="56" fill="#ECE7FB" /><path data-hf-id="hf-6o0y" d="M36 62l16 16 32-34" fill="none" stroke="#1D1640" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <div data-hf-id="hf-73i7" id="ct-site-ok-t">Message sent.</div>
+              <div data-hf-id="hf-cy33" id="ct-site-ok-s">We'll be in touch.</div>
+            </div>
+          </div>
+        </div>
+        <div data-hf-id="hf-pv6u" id="ct-chatlayer">
+        <div data-hf-id="hf-mqp9" id="ct-chat-bg"></div>
+        <div data-hf-id="hf-d5yo" id="ct-bar">
+          <div data-hf-id="hf-qx3k" id="ct-bar-bg"></div>
+          <div data-hf-id="hf-6tvz" id="ct-bar-flood"></div>
+          <div data-hf-id="hf-hba6" id="ct-av">YM</div>
+          <div data-hf-id="hf-kslf" id="ct-av-g" data-layout-ignore><svg data-hf-id="hf-w65m" viewBox="0 0 72 72" width="72" height="72"><path data-hf-id="hf-jelg" d="M36 18l4.2 10.4L50.5 32.6 40.2 36.8 36 47.2l-4.2-10.4L21.5 32.6l10.3-4.2z" fill="#C9CCD6" /></svg></div>
+          <div data-hf-id="hf-1koc" id="ct-name">Your Ministry</div>
+          <div data-hf-id="hf-j0ti" id="ct-sub">Illustrative conversation</div>
+          <div data-hf-id="hf-n0ey" id="ct-name-g">Generic AI chatbot</div>
+          <div data-hf-id="hf-2vg2" id="ct-sub-g">Illustrative conversation</div>
+          <div data-hf-id="hf-379x" id="ct-lang">
+            <svg data-hf-id="hf-eucy" id="ct-globe" viewBox="0 0 28 28"><circle data-hf-id="hf-4qjv" cx="14" cy="14" r="11.5" fill="none" stroke="#FFFFFF" stroke-width="2.4" /><ellipse data-hf-id="hf-xh1s" cx="14" cy="14" rx="5" ry="11.5" fill="none" stroke="#FFFFFF" stroke-width="2.4" /><path data-hf-id="hf-rklr" d="M3 14h22" stroke="#FFFFFF" stroke-width="2.4" /></svg>
+            <div data-hf-id="hf-w6k8" id="ct-lang-vp"><div data-hf-id="hf-x5nk" id="ct-roll" data-layout-allow-overflow><div data-hf-id="hf-qt34" data-layout-ignore>English</div><div data-hf-id="hf-n0w1" data-layout-ignore>Español</div><div data-hf-id="hf-0iso" data-layout-ignore>Русский</div><div data-hf-id="hf-6saq" data-layout-ignore>العربية</div><div data-hf-id="hf-fdz1" data-layout-ignore>हिन्दी</div><div data-hf-id="hf-26z9" data-layout-ignore>Português</div><div data-hf-id="hf-p1fx" data-layout-ignore>Kiswahili</div><div data-hf-id="hf-yhfr" data-layout-ignore>Français</div><div data-hf-id="hf-z16g" data-layout-ignore>English</div></div></div>
+          </div>
+          <div data-hf-id="hf-9yq6" id="ct-clock">2:07 AM<div data-hf-id="hf-j5vo" id="ct-clock-hi">2:07 AM</div></div>
+        </div>
+
+        <div data-hf-id="hf-h1k3" id="ct-vp">
+          <div data-hf-id="hf-ybri" id="ct-thread" data-layout-allow-overflow>
+            <div data-hf-id="hf-8cy4" id="ct-seek" class="ct-bub">Is there any hope for<br data-hf-id="hf-x5px" />someone like me?</div>
+            <div data-hf-id="hf-sa4j" id="ct-deliv">Delivered · 2:07 AM</div>
+
+            <div data-hf-id="hf-wjtz" id="ct-gen-who" class="ct-who">
+              <div data-hf-id="hf-c90y" class="ct-who-av"><svg data-hf-id="hf-162i" viewBox="0 0 60 60" width="60" height="60"><path data-hf-id="hf-hjx1" d="M30 15l3.6 8.9L42.5 27.5l-8.9 3.6L30 40l-3.6-8.9-8.9-3.6 8.9-3.6z" fill="#C9CCD6" /></svg></div>
+              <div data-hf-id="hf-ovy2" class="ct-who-nm">Generic AI chatbot</div>
+            </div>
+            <div data-hf-id="hf-hun7" id="ct-gb1" class="ct-bub ct-gb">Some say there's hope. Some don't.<div data-hf-id="hf-rapy" class="ct-strike" style="top: 52px"></div><div data-hf-id="hf-9bm4" class="ct-tag">HEDGES</div></div>
+            <div data-hf-id="hf-6bip" id="ct-gb2" class="ct-bub ct-gb">The Bible says, “God helps those<br data-hf-id="hf-rsrt" />who help themselves.”<div data-hf-id="hf-md56" class="ct-strike" style="top: 52px"></div><div data-hf-id="hf-58li" class="ct-strike" style="top: 108px; right: 270px"></div><div data-hf-id="hf-vezp" class="ct-tag">NOT IN SCRIPTURE</div></div>
+            <div data-hf-id="hf-bn4x" id="ct-gb3" class="ct-bub ct-gb">So try to earn it by being better.<div data-hf-id="hf-mrg7" class="ct-strike" style="top: 52px"></div><div data-hf-id="hf-lfc9" class="ct-tag">NOT WHAT YOU TEACH</div></div>
+
+            <div data-hf-id="hf-b5lp" id="ct-ans-who" class="ct-who">
+              <div data-hf-id="hf-vlbx" class="ct-who-av" data-layout-ignore>YM</div>
+              <div data-hf-id="hf-nxfw" class="ct-who-nm">Your Ministry</div>
+            </div>
+            <div data-hf-id="hf-p3um" id="ct-typing" class="ct-bub"><div data-hf-id="hf-ou2n" class="ct-dot" style="left: 43px"></div><div data-hf-id="hf-f04t" class="ct-dot" style="left: 67px"></div><div data-hf-id="hf-5fyq" class="ct-dot" style="left: 91px"></div></div>
+            <div data-hf-id="hf-aqhl" id="ct-ans" class="ct-bub">
+              <div data-hf-id="hf-i5qh">That's an important question.<br data-hf-id="hf-szow" />Here's what Scripture says:</div>
+              <div data-hf-id="hf-lqnc" class="ct-v">“God shows his love for us in that<br data-hf-id="hf-sldv" />while we were still sinners,<br data-hf-id="hf-qluq" />Christ died for us.”</div>
+              <div data-hf-id="hf-prkm" id="ct-chips">
+                <div data-hf-id="hf-ftcq" id="ct-chip-ref" class="ct-chip"><svg data-hf-id="hf-hsyg" width="30" height="30" viewBox="0 0 26 26"><path data-hf-id="hf-k18l" d="M4 5.5C4 4.7 4.7 4 5.5 4H12v17H5.5C4.7 21 4 20.3 4 19.5zM14 4h6.5c.8 0 1.5.7 1.5 1.5v14c0 .8-.7 1.5-1.5 1.5H14z" fill="none" stroke="#1D1640" stroke-width="2.2" /></svg>Romans 5:8 · ESV</div>
+                <div data-hf-id="hf-h9ns" id="ct-chip-src" class="ct-chip">Source: Your Ministry</div>
+              </div>
+            </div>
+
+            <div data-hf-id="hf-0cqa" id="ct-hand">
+              <div data-hf-id="hf-d88z" id="ct-h-ask">
+                <div data-hf-id="hf-39wf" id="ct-h-ico"><svg data-hf-id="hf-e5d2" viewBox="0 0 72 72" width="72" height="72"><circle data-hf-id="hf-aqfv" cx="36" cy="28" r="10" fill="#1D1640" /><path data-hf-id="hf-1q97" d="M18 54c0-10.5 8-16 18-16s18 5.5 18 16z" fill="#1D1640" /></svg></div>
+                <div data-hf-id="hf-ecim" id="ct-h-q">Want to talk with someone<br data-hf-id="hf-q7jp" />from our team?</div>
+                <div data-hf-id="hf-zomr" id="ct-h-btn">Yes, connect me</div>
+              </div>
+              <div data-hf-id="hf-fmpk" id="ct-h-done">
+                <svg data-hf-id="hf-iwmk" id="ct-h-avs" viewBox="0 0 200 80">
+                  <g data-hf-id="hf-t3z9" class="ct-ha"><circle data-hf-id="hf-cief" cx="40" cy="40" r="37" fill="#A88BFF" stroke="#FFFFFF" stroke-width="5" /><circle data-hf-id="hf-i11r" cx="40" cy="31" r="11" fill="#1D1640" /><path data-hf-id="hf-np8d" d="M19 62c0-11 9.4-16 21-16s21 5 21 16z" fill="#1D1640" /></g>
+                  <g data-hf-id="hf-kiwp" class="ct-ha"><circle data-hf-id="hf-eaq9" cx="100" cy="40" r="37" fill="#C9BFFB" stroke="#FFFFFF" stroke-width="5" /><circle data-hf-id="hf-px7q" cx="100" cy="31" r="11" fill="#1D1640" /><path data-hf-id="hf-6e8b" d="M79 62c0-11 9.4-16 21-16s21 5 21 16z" fill="#1D1640" /></g>
+                  <g data-hf-id="hf-lpts" class="ct-ha"><circle data-hf-id="hf-7gl7" cx="160" cy="40" r="37" fill="#ECE7FB" stroke="#FFFFFF" stroke-width="5" /><circle data-hf-id="hf-jfys" cx="160" cy="31" r="11" fill="#1D1640" /><path data-hf-id="hf-muw0" d="M139 62c0-11 9.4-16 21-16s21 5 21 16z" fill="#1D1640" /></g>
+                </svg>
+                <div data-hf-id="hf-boti" id="ct-h-done-t">You're connected<br data-hf-id="hf-regs" />with our team.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-y5g4" id="ct-comp">
+          
+          <div data-hf-id="hf-k50q" id="ct-ph">Type your question…</div>
+        </div>
+        <div data-hf-id="hf-970r" id="ct-send"><svg data-hf-id="hf-ajxe" viewBox="0 0 120 120" width="120" height="120"><path data-hf-id="hf-gufh" d="M60 84V38M42 55l18-18 18 18" fill="none" stroke="#1D1640" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+        </div>
+      </div>
+
+      <div data-hf-id="hf-cw5y" id="ct-qvp" data-layout-allow-overlap data-layout-allow-occlusion><div data-hf-id="hf-ivj7" id="ct-qcol" data-layout-allow-overflow><div data-hf-id="hf-r3a3" class="ct-q" id="ct-q0" style="top: 0px"><div data-hf-id="hf-3wq4" class="ct-q-t"><bdi data-hf-id="hf-qcn4">¿Quién es Jesús realmente?</bdi></div><div data-hf-id="hf-a9er" class="ct-q-c"><div data-hf-id="hf-vcbo" class="ct-q-l"><bdi data-hf-id="hf-92a3">Español</bdi></div><div data-hf-id="hf-nl80" class="ct-q-h">2:11 AM</div></div><div data-hf-id="hf-uodf" class="ct-q-w"><i data-hf-id="hf-wt6k"></i>Unanswered</div></div>
+        <div data-hf-id="hf-jhe0" class="ct-q" id="ct-q1" style="top: 152px"><div data-hf-id="hf-cop0" class="ct-q-t"><bdi data-hf-id="hf-qkee">Можно ли доверять Библии?</bdi></div><div data-hf-id="hf-miw3" class="ct-q-c"><div data-hf-id="hf-3gm4" class="ct-q-l"><bdi data-hf-id="hf-whkq">Русский</bdi></div><div data-hf-id="hf-ovgh" class="ct-q-h">2:14 AM</div></div><div data-hf-id="hf-5iar" class="ct-q-w"><i data-hf-id="hf-zeb8"></i>Unanswered</div></div>
+        <div data-hf-id="hf-rnby" class="ct-q" id="ct-q2" style="top: 304px"><div data-hf-id="hf-bhrx" class="ct-q-t"><bdi data-hf-id="hf-j4x7">Why does God allow pain?</bdi></div><div data-hf-id="hf-m4l2" class="ct-q-c"><div data-hf-id="hf-29p1" class="ct-q-l"><bdi data-hf-id="hf-07pi">English</bdi></div><div data-hf-id="hf-bk60" class="ct-q-h">2:19 AM</div></div><div data-hf-id="hf-53zq" class="ct-q-w"><i data-hf-id="hf-y7e5"></i>Unanswered</div></div>
+        <div data-hf-id="hf-j4vr" class="ct-q" id="ct-q3" style="top: 456px"><div data-hf-id="hf-bw2y" class="ct-q-t"><bdi data-hf-id="hf-986q" dir="rtl">هل يسمع الله صلواتي؟</bdi></div><div data-hf-id="hf-lqa1" class="ct-q-c"><div data-hf-id="hf-2o02" class="ct-q-l"><bdi data-hf-id="hf-a6n8">العربية</bdi></div><div data-hf-id="hf-lrmu" class="ct-q-h">2:26 AM</div></div><div data-hf-id="hf-4pop" class="ct-q-w"><i data-hf-id="hf-ylp6"></i>Unanswered</div></div>
+        <div data-hf-id="hf-gkyp" class="ct-q" id="ct-q4" style="top: 608px"><div data-hf-id="hf-dvm3" class="ct-q-t"><bdi data-hf-id="hf-nf1i">मरने के बाद क्या होता है?</bdi></div><div data-hf-id="hf-lbz0" class="ct-q-c"><div data-hf-id="hf-4nj7" class="ct-q-l"><bdi data-hf-id="hf-zdur">हिन्दी</bdi></div><div data-hf-id="hf-wjpy" class="ct-q-h">2:31 AM</div></div><div data-hf-id="hf-4bdo" class="ct-q-w"><i data-hf-id="hf-0l8b"></i>Unanswered</div></div>
+        <div data-hf-id="hf-m0it" class="ct-q" id="ct-q5" style="top: 760px"><div data-hf-id="hf-e9x4" class="ct-q-t"><bdi data-hf-id="hf-qzmq">É tarde demais para mim?</bdi></div><div data-hf-id="hf-kxnz" class="ct-q-c"><div data-hf-id="hf-51u8" class="ct-q-l"><bdi data-hf-id="hf-y9wb">Português</bdi></div><div data-hf-id="hf-dkyi" class="ct-q-h">2:40 AM</div></div><div data-hf-id="hf-3x2n" class="ct-q-w"><i data-hf-id="hf-0zjc"></i>Unanswered</div></div>
+        <div data-hf-id="hf-lezp" class="ct-q" id="ct-q6" style="top: 912px"><div data-hf-id="hf-d301" class="ct-q-t"><bdi data-hf-id="hf-qy3c">Nianzie wapi?</bdi></div><div data-hf-id="hf-kjcy" class="ct-q-c"><div data-hf-id="hf-3ux5" class="ct-q-l"><bdi data-hf-id="hf-vf0r">Kiswahili</bdi></div><div data-hf-id="hf-zhdz" class="ct-q-h">3:02 AM</div></div><div data-hf-id="hf-3irm" class="ct-q-w"><i data-hf-id="hf-zsm9"></i>Unanswered</div></div>
+        <div data-hf-id="hf-jd0b" class="ct-q" id="ct-q7" style="top: 1064px"><div data-hf-id="hf-dhb2" class="ct-q-t"><bdi data-hf-id="hf-0ck3">Jésus est-il ressuscité ?</bdi></div><div data-hf-id="hf-k51x" class="ct-q-c"><div data-hf-id="hf-4986" class="ct-q-l"><bdi data-hf-id="hf-zm9t">Français</bdi></div><div data-hf-id="hf-i3bg" class="ct-q-h">3:09 AM</div></div><div data-hf-id="hf-34gl" class="ct-q-w"><i data-hf-id="hf-06xa"></i>Unanswered</div></div>
+        <div data-hf-id="hf-1eu9" class="ct-q" id="ct-q8" style="top: 1216px"><div data-hf-id="hf-fgu7" class="ct-q-t"><bdi data-hf-id="hf-ac1g">Ligtas ba magtanong dito?</bdi></div><div data-hf-id="hf-jqqw" class="ct-q-c"><div data-hf-id="hf-zvuv" class="ct-q-l"><bdi data-hf-id="hf-lvrd">Tagalog</bdi></div><div data-hf-id="hf-0p6l" class="ct-q-h">3:17 AM</div></div><div data-hf-id="hf-2q5k" class="ct-q-w"><i data-hf-id="hf-26gf"></i>Unanswered</div></div>
+        <div data-hf-id="hf-87my" class="ct-q" id="ct-q9" style="top: 1368px"><div data-hf-id="hf-fv58" class="ct-q-t"><bdi data-hf-id="hf-h2yw">¿Por qué me perdonaría Dios?</bdi></div><div data-hf-id="hf-jcfv" class="ct-q-c"><div data-hf-id="hf-0a5w" class="ct-q-l"><bdi data-hf-id="hf-sh7v">Español</bdi></div><div data-hf-id="hf-fnnf" class="ct-q-h">3:24 AM</div></div><div data-hf-id="hf-2buj" class="ct-q-w"><i data-hf-id="hf-2krg"></i>Unanswered</div></div>
+        <div data-hf-id="hf-og0m" class="ct-q" id="ct-q10" style="top: 1520px"><div data-hf-id="hf-odek" class="ct-q-t"><bdi data-hf-id="hf-4kzz">Wer schrieb die Evangelien?</bdi></div><div data-hf-id="hf-4o2x" class="ct-q-c"><div data-hf-id="hf-nhxg" class="ct-q-l"><bdi data-hf-id="hf-z4tm">Deutsch</bdi></div><div data-hf-id="hf-lxr1" class="ct-q-h">3:31 AM</div></div><div data-hf-id="hf-jxnt" class="ct-q-w"><i data-hf-id="hf-oz7w"></i>Unanswered</div></div>
+        <div data-hf-id="hf-w71x" class="ct-q" id="ct-q11" style="top: 1672px"><div data-hf-id="hf-nz3j" class="ct-q-t"><bdi data-hf-id="hf-ip2n">How do I start praying?</bdi></div><div data-hf-id="hf-52dy" class="ct-q-c"><div data-hf-id="hf-n3mf" class="ct-q-l"><bdi data-hf-id="hf-4i6i">English</bdi></div><div data-hf-id="hf-caqt" class="ct-q-h">3:40 AM</div></div><div data-hf-id="hf-kbyu" class="ct-q-w"><i data-hf-id="hf-okwv"></i>Unanswered</div></div>
+        <div data-hf-id="hf-g0rx" class="ct-q" id="ct-q12" style="top: 1824px"><div data-hf-id="hf-nksi" class="ct-q-t"><bdi data-hf-id="hf-q6ch">Насколько надёжна Библия?</bdi></div><div data-hf-id="hf-5goz" class="ct-q-c"><div data-hf-id="hf-mpbe" class="ct-q-l"><bdi data-hf-id="hf-n5b2">Русский</bdi></div><div data-hf-id="hf-prvs" class="ct-q-h">3:52 AM</div></div><div data-hf-id="hf-kq9v" class="ct-q-w"><i data-hf-id="hf-o6lu"></i>Unanswered</div></div>
+        <div data-hf-id="hf-d0eo" class="ct-q" id="ct-q13" style="top: 1976px"><div data-hf-id="hf-n6hh" class="ct-q-t"><bdi data-hf-id="hf-he7a">Minha vida importa?</bdi></div><div data-hf-id="hf-5v00" class="ct-q-c"><div data-hf-id="hf-mb0d" class="ct-q-l"><bdi data-hf-id="hf-s0yj">Português</bdi></div><div data-hf-id="hf-2xzd" class="ct-q-h">4:05 AM</div></div><div data-hf-id="hf-l4kw" class="ct-q-w"><i data-hf-id="hf-jqbp"></i>Unanswered</div></div></div></div>
+      <div data-hf-id="hf-5ruk" id="ct-team" data-layout-allow-overlap data-layout-allow-occlusion>
+        <svg data-hf-id="hf-0y41" id="ct-team-avs" viewBox="0 0 200 80">
+          <g data-hf-id="hf-vera"><circle data-hf-id="hf-vy2x" cx="40" cy="40" r="37" fill="#A88BFF" stroke="#1D1640" stroke-width="5" /><circle data-hf-id="hf-kmb3" cx="40" cy="31" r="11" fill="#1D1640" /><path data-hf-id="hf-dy8h" d="M19 62c0-11 9.4-16 21-16s21 5 21 16z" fill="#1D1640" /></g>
+          <g data-hf-id="hf-pwpm"><circle data-hf-id="hf-egj3" cx="100" cy="40" r="37" fill="#C9BFFB" stroke="#1D1640" stroke-width="5" /><circle data-hf-id="hf-92p6" cx="100" cy="31" r="11" fill="#1D1640" /><path data-hf-id="hf-ktm3" d="M79 62c0-11 9.4-16 21-16s21 5 21 16z" fill="#1D1640" /></g>
+          <g data-hf-id="hf-qb0n"><circle data-hf-id="hf-yzk5" cx="160" cy="40" r="37" fill="#ECE7FB" stroke="#1D1640" stroke-width="5" /><circle data-hf-id="hf-vovg" cx="160" cy="31" r="11" fill="#1D1640" /><path data-hf-id="hf-ff88" d="M139 62c0-11 9.4-16 21-16s21 5 21 16z" fill="#1D1640" /></g>
+        </svg>
+        <div data-hf-id="hf-dljz" id="ct-team-t">Your team</div>
+      </div>
+
+      </div>
+      <div data-hf-id="hf-5urv" id="ct-scrim" data-layout-allow-occlusion></div>
+      <div data-hf-id="hf-ebt4" id="ct-verse" data-layout-allow-overlap><span data-hf-id="hf-cqx5" class="w">“Always</span> <span data-hf-id="hf-7qc1" class="w">be</span> <span data-hf-id="hf-n2l8" class="w a">prepared</span> <span data-hf-id="hf-z575" class="w">to</span> <span data-hf-id="hf-1vpt" class="w">give</span> <span data-hf-id="hf-vfsf" class="w">an</span> <span data-hf-id="hf-rnsi" class="w">answer</span><br data-hf-id="hf-p0mm" /><span data-hf-id="hf-53t1" class="w">to</span> <span data-hf-id="hf-i09w" class="w a">everyone</span> <span data-hf-id="hf-mh6o" class="w">who</span> <span data-hf-id="hf-t5bi" class="w">asks</span> <span data-hf-id="hf-wnbn" class="w">you</span><br data-hf-id="hf-ombl" /><span data-hf-id="hf-6aq4" class="w">to</span> <span data-hf-id="hf-w6dh" class="w">give</span> <span data-hf-id="hf-9o0j" class="w">the</span> <span data-hf-id="hf-9o44" class="w">reason</span><br data-hf-id="hf-qsyj" /><span data-hf-id="hf-eyfb" class="w">for</span> <span data-hf-id="hf-cto3" class="w">the</span> <span data-hf-id="hf-ugg6" class="w">hope</span> <span data-hf-id="hf-33w1" class="w">that</span> <span data-hf-id="hf-bss3" class="w">you</span> <span data-hf-id="hf-hy3b" class="w">have.”</span> </div>
+      <div data-hf-id="hf-ug90" id="ct-ref" data-layout-allow-overlap>1 PETER 3:15 (NIV)</div>
+      <div data-hf-id="hf-rl8s" id="ct-logo" data-layout-allow-overlap><img data-hf-id="hf-ii9e" src="assets/brand/logo-on-dark.svg" alt="apologist AI" /></div>
+      <div data-hf-id="hf-j71z" id="ct-eyebrow" data-layout-allow-overlap>MISSIONAL AI ORCHESTRATION PLATFORM</div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"pre":0,"send":5.92,"typeStart":2.01,"typeStep":0.095,"blinks":[0.5,1,1.5],"verseIn":6.99,"verse":[7.44,8,8.16,8.72,8.88,9.04,9.28,9.68,9.92,10.48,10.72,11.12,11.28,11.44,11.6,11.84,12.24,12.4,12.64,12.96,13.28,13.6],"ref":8.24,"verseOut":14.26,"qIn":14.36,"qBut":16.64,"qFrom":1000,"qMid":-380,"qTo":-620,"qSettle":1.4,"team":17.04,"wait":17.68,"qOut":18.6,"gen":19.05,"hedges":19.89,"misquotes":20.53,"contradicts":22.77,"genOut":24.65,"logo":24.95,"eyebrow":26.61,"logoOut":27.78,"launch":28.56,"reskin":27.98,"seekAgain":27.98,"typing":28.88,"stream":0.075,"reply":30.13,"src":31.25,"hour":32.13,"lang":33.09,"cites":33.97,"hand":36.54,"scrollHand":370,"press":37.98,"connected":38.43,"exit":39.79};
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => Array.from(document.querySelectorAll(s));
+
+      // initial states
+      gsap.set(["#ct-seek", "#ct-deliv", "#ct-gen-who", "#ct-gb1", "#ct-gb2", "#ct-gb3", "#ct-ans-who", "#ct-typing", "#ct-ans", "#ct-hand", "#ct-chatlayer", "#ct-site-ok", "#ct-name", "#ct-sub", "#ct-av"], { autoAlpha: 0 });
+      gsap.set(".ct-tag", { autoAlpha: 0, scale: 0.6, transformOrigin: "100% 50%" });
+      gsap.set(".ct-strike", { scaleX: 0 });
+      gsap.set(["#ct-chip-ref", "#ct-chip-src"], { autoAlpha: 0, scale: 0.8, transformOrigin: "0% 50%" });
+      gsap.set(["#ct-h-done", ".ct-ha", "#ct-clock-hi"], { autoAlpha: 0 });
+      gsap.set(["#ct-qvp", "#ct-team", "#ct-verse", "#ct-ref", "#ct-logo", "#ct-eyebrow"], { autoAlpha: 0 });
+      gsap.set(".ct-q-w", { autoAlpha: 0 });
+      gsap.set("#ct-qcol", { y: T.qFrom });
+      gsap.set("#ct-verse .w", { opacity: 0.14 });
+      gsap.set(["#ct-launch", "#ct-launch-tip"], { autoAlpha: 0 });
+      // the ministry's answer streams in word by word, like a live reply
+      q("#ct-ans > div:not(#ct-chips)").forEach((el) => {
+        el.innerHTML = el.innerHTML.split(/(<br[^>]*>)/).map((part) => (part.startsWith("<br") ? part : part.split(/(\s+)/).map((t) => (t.trim() ? `<span class="ct-w">${t}</span>` : t)).join(""))).join("");
+      });
+      gsap.set(".ct-w", { opacity: 0 });
+      gsap.set("#ct-logo", { clipPath: "inset(0% 100% 0% 0%)" });
+      const chars = q("#ct-typed span");
+      chars.forEach((c, i) => gsap.set(c, { opacity: i < T.pre ? 1 : 0 }));
+      const caretEl = T.pre > 0 ? chars[T.pre - 1] : document.getElementById("ct-c0"); // an empty box carries its own caret
+      const prevEl = (i) => (i > 0 ? chars[i - 1] : caretEl);
+      gsap.set(caretEl, { boxShadow: "3px 0 0 0 #111828" });
+
+      // 1. 2:07 a.m.: the caret blinks, the question finishes typing, and sends on "ask"
+      T.blinks.forEach((t, k) => tl.set(caretEl, { boxShadow: k % 2 ? "3px 0 0 0 #111828" : "0px 0 0 0 rgba(0,0,0,0)" }, t));
+      for (let i = T.pre; i < chars.length; i++) {
+        const t = T.typeStart + (i - T.pre) * T.typeStep;
+        tl.set(chars[i], { opacity: 1, boxShadow: "3px 0 0 0 #111828" }, t);
+        tl.set(prevEl(i), { boxShadow: "0px 0 0 0 rgba(0,0,0,0)" }, t);
+      }
+      tl.set(chars[chars.length - 1], { boxShadow: "0px 0 0 0 rgba(0,0,0,0)" }, T.send - 0.05);
+      tl.to("#ct-site-btn", { scale: 0.94, duration: 0.08, ease: "power2.in" }, T.send - 0.08);
+      tl.to("#ct-site-btn", { scale: 1, backgroundColor: "#3A3375", duration: 0.2, ease: "power2.out" }, T.send);
+      tl.to("#ct-site-form", { autoAlpha: 0, duration: 0.2 }, T.send + 0.12);
+      tl.fromTo("#ct-site-ok", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "expo.out" }, T.send + 0.25);
+
+      // 2. the verse: the conversation recedes under a scrim; each word inks in as it is spoken
+      tl.to("#ct-cam", { scale: 0.9, opacity: 0.1, duration: 1.0, ease: "power2.inOut" }, T.verseIn);
+      tl.to("#ct-scrim", { opacity: 0.95, duration: 0.6, ease: "power2.inOut" }, T.verseIn);
+      tl.fromTo("#ct-verse", { autoAlpha: 0, filter: "blur(6px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.35, ease: "power2.out" }, T.verseIn + 0.25);
+      q("#ct-verse .w").forEach((w, i) => tl.fromTo(w, { opacity: 0.14 }, { opacity: 1, duration: 0.12, ease: "power1.out" }, T.verse[i]));
+      tl.fromTo("#ct-ref", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.ref);
+      tl.to(["#ct-verse", "#ct-ref"], { autoAlpha: 0, y: -40, filter: "blur(8px)", duration: 0.28, ease: "power2.in" }, T.verseOut);
+      tl.to("#ct-scrim", { opacity: 0, duration: 0.35, ease: "power2.inOut" }, T.verseOut + 0.1);
+
+      // 3. the questions never stop: a column of questions streams up the whole frame; your team; every one waiting
+      tl.to("#ct-cam", { scale: 0.86, opacity: 0.06, duration: 0.5, ease: "power2.inOut" }, T.qIn - 0.15);
+      tl.to("#ct-qvp", { autoAlpha: 1, duration: 0.3, ease: "power1.out" }, T.qIn);
+      tl.to("#ct-qcol", { y: T.qMid, duration: T.qBut - T.qIn, ease: "none" }, T.qIn);
+      tl.to("#ct-qcol", { y: T.qTo, duration: T.qSettle, ease: "power2.out" }, T.qBut);
+      tl.fromTo("#ct-team", { autoAlpha: 0, y: 80 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "expo.out" }, T.team);
+      q(".ct-q").forEach((c, i) => {
+        const t = T.wait + i * 0.045;
+        tl.to(c.querySelector(".ct-q-c"), { autoAlpha: 0, duration: 0.12 }, t);
+        tl.fromTo(c.querySelector(".ct-q-w"), { autoAlpha: 0, x: 18 }, { autoAlpha: 1, x: 0, duration: 0.24, ease: "power3.out" }, t + 0.06);
+      });
+      tl.to(["#ct-qvp", "#ct-team"], { autoAlpha: 0, filter: "blur(10px)", duration: 0.28, ease: "power3.in" }, T.qOut);
+
+      // 4. generic AI answers: hedges, misquotes, contradicts
+      tl.set("#ct-site", { autoAlpha: 0 }, T.qOut);
+      tl.set("#ct-chatlayer", { autoAlpha: 1 }, T.qOut);
+      tl.to("#ct-cam", { scale: 1, opacity: 1, duration: 0.6, ease: "power2.inOut" }, T.qOut + 0.1);
+      tl.fromTo("#ct-seek", { autoAlpha: 0, y: 60, scale: 0.9, transformOrigin: "100% 100%" }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, T.qOut + 0.35);
+      tl.fromTo("#ct-deliv", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.25 }, T.qOut + 0.8);
+      ["#ct-gb1", "#ct-gb2", "#ct-gb3"].forEach((b, i) => tl.fromTo(b, { autoAlpha: 0, y: 60 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "expo.out" }, T.gen + 0.1 + i * 0.16));
+      [["#ct-gb1", T.hedges], ["#ct-gb2", T.misquotes], ["#ct-gb3", T.contradicts]].forEach(([b, t]) => {
+        tl.to(`${b} .ct-strike`, { scaleX: 1, duration: 0.26, ease: "power2.out", stagger: 0.08 }, t);
+        tl.to(b, { color: "#7A7D93", duration: 0.26 }, t);
+        tl.to(`${b} .ct-tag`, { autoAlpha: 1, scale: 1, duration: 0.32, ease: "back.out(1.5)" }, t + 0.08);
+      });
+
+      // 5. Apologist AI: the generic answer leaves, the name arrives, the chat becomes the ministry's own
+      tl.to(["#ct-gen-who", "#ct-gb1", "#ct-gb2", "#ct-gb3"], { autoAlpha: 0, filter: "blur(8px)", duration: 0.22, ease: "power2.in" }, T.genOut);
+      tl.to("#ct-scrim", { opacity: 0.95, duration: 0.4, ease: "power2.inOut" }, T.genOut);
+      tl.to("#ct-chatlayer", { autoAlpha: 0, duration: 0.2, ease: "power2.in" }, T.genOut);
+      tl.set(["#ct-chatlayer", "#ct-site"], { autoAlpha: 0 }, T.genOut + 0.2);
+      tl.to("#ct-scrim", { opacity: 1, duration: 0.2 }, T.genOut + 0.4);
+      tl.set("#ct-logo", { autoAlpha: 1 }, T.logo);
+      tl.set(["#ct-name-g", "#ct-sub-g", "#ct-av-g", "#ct-seek", "#ct-deliv"], { autoAlpha: 0 }, T.logo);
+      tl.set(["#ct-name", "#ct-sub", "#ct-av"], { autoAlpha: 1 }, T.logo);
+      tl.set("#ct-chatlayer", { attr: { class: "light" } }, T.logo);
+      tl.fromTo("#ct-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.75, ease: "power2.inOut" }, T.logo);
+      tl.fromTo("#ct-eyebrow", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.eyebrow);
+      tl.to(["#ct-logo", "#ct-eyebrow"], { autoAlpha: 0, scale: 0.94, filter: "blur(10px)", transformOrigin: "50% 50%", duration: 0.34, ease: "power3.in" }, T.logoOut);
+      tl.to("#ct-scrim", { opacity: 0, duration: 0.45, ease: "power2.inOut" }, T.logoOut + 0.12);
+      // the chatbot arrives on the same website: a launcher pops in, then the chat opens out of it with the question carried over
+      tl.set(["#ct-seek", "#ct-deliv"], { autoAlpha: 1 }, T.reskin);
+      tl.fromTo("#ct-chatlayer", { autoAlpha: 0, y: 60, scale: 0.97, transformOrigin: "50% 40%" }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out" }, T.reskin);
+
+      // 6. it answers from your own teaching, any hour, any language, with its sources
+      tl.fromTo("#ct-ans-who", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "expo.out" }, T.typing);
+      tl.fromTo("#ct-typing", { autoAlpha: 0, scale: 0.85, transformOrigin: "0% 0%" }, { autoAlpha: 1, scale: 1, duration: 0.25, ease: "power3.out" }, T.typing + 0.05);
+      q("#ct-typing .ct-dot").forEach((d, i) => tl.fromTo(d, { y: 0 }, { y: -9, duration: 0.16, ease: "power1.inOut", yoyo: true, repeat: Math.max(1, Math.floor((T.reply - T.typing) / 0.32)) }, T.typing + 0.1 + i * 0.1));
+      tl.to("#ct-typing", { autoAlpha: 0, duration: 0.12 }, T.reply);
+      tl.fromTo("#ct-ans", { autoAlpha: 0, y: 50 }, { autoAlpha: 1, y: 0, duration: 0.7, ease: "expo.out" }, T.reply);
+      q("#ct-ans .ct-w").forEach((w, i) => tl.to(w, { opacity: 1, duration: 0.14, ease: "none" }, T.reply + 0.1 + i * T.stream));
+      tl.to("#ct-chip-src", { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, T.src);
+      tl.fromTo("#ct-clock-hi", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2, ease: "power2.out" }, T.hour);
+      tl.to("#ct-clock-hi", { autoAlpha: 0, duration: 0.3, ease: "power2.in" }, T.hour + 1.2);
+      tl.to("#ct-roll", { y: -56 * 8, duration: 0.96, ease: "steps(8)" }, T.lang);
+      tl.to("#ct-chip-ref", { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.4)" }, T.cites);
+
+      // 7. when someone needs a real person, it passes them to your team
+      tl.fromTo("#ct-hand", { autoAlpha: 0, y: 70 }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "expo.out" }, T.hand);
+      tl.to("#ct-thread", { y: -T.scrollHand, duration: 0.65, ease: "power2.inOut" }, T.hand + 0.05);
+      tl.to("#ct-h-btn", { scale: 0.95, duration: 0.08, ease: "power2.in" }, T.press - 0.08);
+      tl.to("#ct-h-btn", { scale: 1, backgroundColor: "#3A3375", duration: 0.2, ease: "power2.out" }, T.press);
+      tl.to("#ct-h-ask", { autoAlpha: 0, duration: 0.15 }, T.connected - 0.12);
+      tl.fromTo("#ct-h-done", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, T.connected);
+      tl.fromTo(".ct-ha", { autoAlpha: 0, scale: 0.7, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.32, ease: "back.out(1.4)", stagger: 0.07 }, T.connected);
+
+      // exit: cut the curve, leftward
+      tl.to("#ct-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#ct-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["chat"] = tl;
+    })();
+  </script>
+</template>

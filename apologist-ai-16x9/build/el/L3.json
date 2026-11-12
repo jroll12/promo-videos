@@ -1,0 +1,12 @@
+{
+ "text": "The questions never stop. But your team can't answer them all.",
+ "prev": "Always be prepared to give an answer, to everyone who asks you, to give the reason for the hope that you have.",
+ "next": "Generic AI hedges, misquotes Scripture, or quietly contradicts what you teach.",
+ "voice": "dXtC3XhB9GtPusIpNtQx",
+ "model": "eleven_multilingual_v2",
+ "stability": 0.5,
+ "similarity": 0.75,
+ "style": 0.0,
+ "speed": 1.0,
+ "seed": 1031
+}
