@@ -68,7 +68,7 @@ night.handoffPush = night.ready + 0.45;
 const cutB = L.L7.end + 0.55;
 night.exit = cutB - 0.32;
 night.sMin = 0.14;
-night.sEnd = 0.95; // the wide frame is 1080 px tall: the phone is a close-up, not full height
+night.sEnd = 0.56; // the wide frame is 1080 px tall: the whole phone fits at 0.56 (same as CAM.B in night.html)
 night.chatY = { start: 240, m3: 100, m4: 0, m4b: -200, m5: -350, ready: -440, climax: -760 }; // the chat starts low and rises as it grows (positions from night.html)
 
 const proof = {};

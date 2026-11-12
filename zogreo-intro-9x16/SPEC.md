@@ -33,7 +33,7 @@ SHOTS (cue names from `build/cues.json`):
 2. L2: six cards pour in below hers (notification / pop / ping rotation).
 3. L3: "waiting" tags ripple down the stack; on "off" the ad toggle flips to Paused (click); on "closing" the screen dims.
 4. L4: the camera pulls back from 1 to 0.14 (cinematic whoosh). Her message becomes one bubble in a field of them. The verse arrives word by word over a dark scrim, then "MATTHEW 9:37". On "workers" a second phone appears; on "few" two replies pop.
-5. L5: "zōgreō" arrives letter by letter on "Zogreo", then "DZOH · GRAY · OH" on "named", then "ζωγρέω · to catch alive · Luke 5:10" on "catching". A sage reply wave answers the whole field and both phones wake.
+5. L5: "zōgreō" arrives letter by letter on "Zogreo", then "ZO · GRAY · OH" on "named", then "ζωγρέω · to catch alive · Luke 5:10" on "catching". A sage reply wave answers the whole field and both phones wake.
 6. L5 → L6: push into Layla's phone (whoosh). The lock screen blur-swaps into the thread, landing at 1.12 on the chat.
 7. L6: typing dots, then the AI's Arabic reply on "answers". On "heart language" the toggle flips عربي → EN and both bubbles turn to English. Then her hard message (on "bluffing") and the AI's honest answer (on "hard").
 8. L7: "Yes, I'd like that.", "✓ Ready for a conversation" on "ready", "A trained believer from a local ministry joined" on "believer", the believer typing on "carries". Exit LEFT.

@@ -37,8 +37,9 @@
     #gv-logo { position: absolute; left: 300px; top: 210px; width: 600px; height: 213px; }
     #gv-logo img { width: 600px; height: 213px; display: block; }
     #gv-tag { position: absolute; left: 100px; top: 455px; width: 1000px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #A9B8A6; }
-    #gv-give { position: absolute; left: 220px; top: 560px; width: 760px; height: 124px; border-radius: 62px; background: #F7F4EC; color: #1D3D1E; text-align: center; font: 600 48px/124px "ZG Inter"; }
-    #gv-book { position: absolute; left: 220px; top: 716px; width: 760px; height: 108px; border-radius: 54px; box-shadow: inset 0 0 0 3px rgba(247, 244, 236, 0.8); color: #F7F4EC; text-align: center; font: 500 32px/108px "ZG Inter"; }
+    #gv-url { position: absolute; left: 100px; top: 540px; width: 1000px; text-align: center; font: 500 64px/1 "ZG Inter"; letter-spacing: 0.01em; color: #F3F0E8; }
+    #gv-give { position: absolute; left: 210px; top: 660px; width: 370px; height: 116px; background: #F7F4EC; color: #1D3D1E; border-radius: 58px; text-align: center; font: 600 36px/116px "ZG Inter"; letter-spacing: 0.12em; }
+    #gv-book { position: absolute; left: 620px; top: 660px; width: 370px; height: 116px; box-shadow: inset 0 0 0 3px rgba(247, 244, 236, 0.8); color: #F7F4EC; border-radius: 58px; text-align: center; font: 600 36px/116px "ZG Inter"; letter-spacing: 0.12em; }
     #gv-qr { position: absolute; left: 1310px; top: 390px; width: 260px; height: 260px; border-radius: 30px; background: #FFFFFF; }
     #gv-qr img { position: absolute; left: 16px; top: 16px; width: 228px; height: 228px; }
     #gv-scan { position: absolute; left: 1040px; top: 682px; width: 800px; text-align: center; font: 600 28px/1 "ZG Inter"; letter-spacing: 0.24em; color: #F3F0E8; }
@@ -74,8 +75,9 @@
       <div data-hf-id="hf-12gy" id="gv-card" data-hold>
         <div data-hf-id="hf-0pqe" id="gv-logo"><img data-hf-id="hf-1nbd" src="assets/brand/zogreo-light.svg" alt="zōgreō" /></div>
         <div data-hf-id="hf-4plf" id="gv-tag">ACCELERATE THE GREAT COMMISSION</div>
-        <div data-hf-id="hf-0ts0" id="gv-give">Give at zogreo.org</div>
-        <div data-hf-id="hf-cduy" id="gv-book">Book a call · calendly.com/zogreo/intro</div>
+        <div data-hf-id="hf-gndw" id="gv-url">zogreo.org</div>
+        <div data-hf-id="hf-0ts0" id="gv-give">GIVE</div>
+        <div data-hf-id="hf-cduy" id="gv-book">BOOK A CALL</div>
         <div data-hf-id="hf-2m86" id="gv-qr"><img data-hf-id="hf-85nh" src="assets/brand/qr-give.svg" alt="QR code: zogreo.org give page" /></div>
         <div data-hf-id="hf-hx9f" id="gv-scan">SCAN TO GIVE</div>
         <div data-hf-id="hf-nv91" id="gv-foot">A program of The Apologist Project · 501(c)(3) nonprofit</div>
@@ -90,9 +92,9 @@
 
       // entry: cut the curve, still rising. The phone from the opening, the next morning: the ad is running again.
       tl.fromTo("#gv-stage", { y: 230, opacity: 0.35, filter: "blur(8px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
-      gsap.set("#gv-morning", { x: 420, y: -200 }); // world 200..1280 in view: the clock, the running ad, the first cards
+      gsap.set("#gv-morning", { x: 420, y: -416, scale: 0.56 }); // the whole phone, centred (origin 540 900: y = 540 - 900 - 100 * s)
       gsap.set(".gv-done", { autoAlpha: 0 });
-      gsap.set(["#gv-tag", "#gv-give", "#gv-book", "#gv-qr", "#gv-scan", "#gv-foot"], { autoAlpha: 0 });
+      gsap.set(["#gv-tag", "#gv-url", "#gv-give", "#gv-book", "#gv-qr", "#gv-scan", "#gv-foot"], { autoAlpha: 0 });
       gsap.set("#gv-logo", { clipPath: "inset(0% 100% 0% 0%)" });
 
       // "your gift puts that conversation within reach": every message that waited is answered (Layla's is already a live conversation)
@@ -103,12 +105,13 @@
         tl.fromTo("#gv-k" + k + " .gv-done", { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.24, ease: "power3.out" }, t + 0.06);
       });
       // the camera pans down the answered cards while the line is said
-      tl.to("#gv-morning", { y: -650, duration: T.phoneOut - T.flip - 0.6, ease: "sine.inOut" }, T.flip + 0.6);
+      tl.to("#gv-morning", { scale: 0.6, y: -420, duration: T.phoneOut - T.flip, ease: "sine.inOut" }, T.flip);
       // the phone steps back for the mark and the ask
-      tl.to("#gv-morning", { autoAlpha: 0, scale: 0.94, y: "-=40", filter: "blur(8px)", duration: 0.4, ease: "power2.in" }, T.phoneOut);
+      tl.to("#gv-morning", { autoAlpha: 0, scale: 0.565, y: "-=40", filter: "blur(8px)", duration: 0.4, ease: "power2.in" }, T.phoneOut);
       tl.fromTo("#gv-logo", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.7, ease: "power2.inOut" }, T.logo);
       tl.fromTo("#gv-tag", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.logo + 0.45);
       tl.fromTo("#gv-give", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.give);
+      tl.fromTo("#gv-url", { autoAlpha: 0, filter: "blur(4px)" }, { autoAlpha: 1, filter: "blur(0px)", duration: 0.3 }, T.give + 0.5);
       tl.fromTo("#gv-book", { autoAlpha: 0, scale: 0.92, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.36, ease: "back.out(1.4)" }, T.rest);
       tl.fromTo("#gv-qr", { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, T.rest + 0.3);
       tl.fromTo("#gv-scan", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.rest + 0.45);

@@ -81,5 +81,14 @@ better than before (it now has the story's own people), and a more filmic versio
 Jarret supplied a reference recording of "Zogreo" and chose option B of three Jason renderings: **"Zo-GRAY-oh"**.
 - **Measured** (clip vs Jason): the clip has two strong syllables (ZO, then a longer, higher GRAY) and a light final "oh", 0.69 s. B: 0.78 s, same stress. The previous spelling "Zoh-GRAY-oh" was 0.82 s. Measurements show rhythm and stress, not vowel quality.
 - **Done:** all four scenes that say the name (night, handoff, proof, give) re-taken; narration re-aligned (word error 0.00 to 0.20, the name itself is mis-spelled by the recogniser as before); opening re-measured (126 Hz, harmonics-to-noise 9.0, the same as the rest).
-- **Still on screen:** the name card reads "DZOH · GRAY · OH" (Jarret's earlier wording). It no longer matches the voice. Decision for Jarret: change it to match, or keep.
+- **Name card:** changed to "ZO · GRAY · OH" in Round 5.
 - **Not heard by anyone yet:** the new narration. Listen for the name in L5, L6, L8, L9 and L11.
+
+## Round 5 (2026-11-12): Jarret's review of the Round 4 renders
+| Feedback | What was done |
+| --- | --- |
+| Content cut off in 16:9 | The phone is now always shown whole (camera base scale 0.56); the pushes stay within the whole phone. The morning phone is whole too, settling instead of panning. |
+| A dark see-through band covering half the screen (both shapes) | The scrim behind the verse and name is now a feathered pool centred on the type that fades to nothing inside its own box (peak 0.84). |
+| The last "Zogreo" sounded a little off | Measured: in "Give today at zogreo.org" the "oh" was swallowed (the recogniser heard "zogra") and the pitch fell into GRAY, unlike his clip. New takes of the give scene were made; Jarret picks one by ear. |
+| Name card should follow the clip | "ZO · GRAY · OH" |
+| No link text in the buttons | One address line "zogreo.org", then two plain buttons: GIVE (filled) and BOOK A CALL (outline). The calendly URL is gone; the QR still goes to the give page. |

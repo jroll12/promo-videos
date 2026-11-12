@@ -122,3 +122,10 @@ So the audio needs no new spend and no new check, and the stems are the same fil
   after any push-in scale: a 1.08 push moves a left-edge bubble 65 px outward.
 - **Stills and frames**: use one contact-sheet round, fix, one more round on only the changed moments.
 
+- **Show the whole phone in 16:9 (Round 5).** The close-up looked good on paper but viewers read a cropped clock or a half card as
+  "content cut off". Hold the world at a base scale that fits the phone's full height (0.56 for a 1780-px phone in 1080), and keep
+  every push small enough that the whole phone, or at least every element on screen, stays in frame.
+- **A scrim must fade to zero inside its own box.** A gradient clipped by its element's edge, or a full-width band, reads as an
+  awkward dark sheet over half the frame. Centre a feathered ellipse on the type instead.
+- **End cards: one address, plain buttons.** Buttons in a video cannot be clicked, so show the URL once as text and keep the
+  buttons to verbs (GIVE, BOOK A CALL); the primary ask is the filled one.

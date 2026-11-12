@@ -92,7 +92,7 @@
 
     /* type over the field */
     /* the scrim keeps the verse and the name readable over the field. It sits UNDER the phone (between the field and the phone layers), so her lit card is never dimmed, whatever the camera scale */
-    #nt-scrim { position: absolute; left: 0; top: 0; width: 1920px; height: 560px; background: radial-gradient(75% 90% at 50% 40%, rgba(9, 22, 10, 0.96) 0%, rgba(9, 22, 10, 0.9) 55%, rgba(9, 22, 10, 0) 100%); opacity: 0; }
+    #nt-scrim { position: absolute; left: 280px; top: -190px; width: 1360px; height: 800px; background: radial-gradient(50% 50% at 50% 50%, rgba(9, 22, 10, 0.84) 0%, rgba(9, 22, 10, 0.66) 45%, rgba(9, 22, 10, 0.12) 78%, rgba(9, 22, 10, 0) 100%); opacity: 0; }
     #nt-verse { position: absolute; left: 0; top: 90px; width: 1920px; text-align: center; color: #F3F0E8; font: 300 96px/1.12 "Cormorant Garamond"; }
     #nt-verse .w { display: inline-block; }
     #nt-verse em { font-style: italic; color: #B4C4AE; }
@@ -280,22 +280,21 @@
     <div data-hf-id="hf-q1qv" id="nt-verse"><span data-hf-id="hf-ys6r" class="w">The</span> <span data-hf-id="hf-towp" class="w">harvest</span> <span data-hf-id="hf-fj2o" class="w">is</span> <span data-hf-id="hf-9ynx" class="w">plentiful,</span><br data-hf-id="hf-pm1g" /><span data-hf-id="hf-ucmn" class="w">but</span> <span data-hf-id="hf-9o0j" class="w">the</span> <span data-hf-id="hf-jden" class="w">workers</span> <span data-hf-id="hf-7nje" class="w">are</span> <span data-hf-id="hf-fr20" class="w"><em data-hf-id="hf-yxer">few.</em></span></div>
     <div data-hf-id="hf-c6a0" id="nt-ref">MATTHEW 9:37</div>
     <div data-hf-id="hf-2ho1" id="nt-name"><span data-hf-id="hf-orpd">z</span><span data-hf-id="hf-k83o">ō</span><span data-hf-id="hf-x44y">g</span><span data-hf-id="hf-ry5l">r</span><span data-hf-id="hf-xwr0">e</span><span data-hf-id="hf-m2ik">ō</span></div>
-    <div data-hf-id="hf-xcd4" id="nt-pron">DZOH · GRAY · OH</div>
+    <div data-hf-id="hf-xcd4" id="nt-pron">ZO · GRAY · OH</div>
     <div data-hf-id="hf-z0ks" id="nt-def"><span data-hf-id="hf-ipxk" class="gk">ζωγρέω</span> · <em data-hf-id="hf-i4jg">to catch alive</em> · Luke 5:10</div>
   </div>
 
   <script>
     (function () {
-      const T = {"hookA":3.28,"hookB":4.1,"hookOut":6.92,"arr":[7.101,7.559,8.047,8.565,9.084,9.602],"stackPush":9.902,"wait":11.28,"adPush":12.28,"off":13.28,"clockEnd":13.18,"door":15.28,"closes":15.6,"pullStart":16.26,"pullEnd":18.26,"verse":[16.8,17.04,17.52,17.76,18.48,18.72,18.88,19.28,19.52],"few":19.52,"ref":18.48,"verseOut":20.92,"zogreo":21.36,"its":22.4,"def":22.72,"catching":24,"wake":24.3,"nameOut":25.44,"pushStart":25.51,"pushEnd":26.81,"swap":26.29,"typing":26.83,"answers":27.28,"heart":29.2,"stream":1.72,"toggle":30.19,"m3":30.85,"m4":31.6,"m4b":32.54,"m5":33.04,"ready":33.52,"believer":36.24,"climaxScroll":35.62,"handoffPush":33.97,"exit":38.32,"sMin":0.14,"sEnd":0.95,"chatY":{"start":240,"m3":100,"m4":0,"m4b":-200,"m5":-350,"ready":-440,"climax":-760}};
+      const T = {"hookA":3.28,"hookB":4.1,"hookOut":6.92,"arr":[7.101,7.559,8.047,8.565,9.084,9.602],"stackPush":9.902,"wait":11.28,"adPush":12.28,"off":13.28,"clockEnd":13.18,"door":15.28,"closes":15.6,"pullStart":16.26,"pullEnd":18.26,"verse":[16.8,17.04,17.52,17.76,18.48,18.72,18.88,19.28,19.52],"few":19.52,"ref":18.48,"verseOut":20.92,"zogreo":21.36,"its":22.4,"def":22.72,"catching":24,"wake":24.3,"nameOut":25.44,"pushStart":25.51,"pushEnd":26.81,"swap":26.29,"typing":26.83,"answers":27.28,"heart":29.2,"stream":1.72,"toggle":30.19,"m3":30.85,"m4":31.6,"m4b":32.54,"m5":33.04,"ready":33.52,"believer":36.24,"climaxScroll":35.62,"handoffPush":33.97,"exit":38.32,"sMin":0.14,"sEnd":0.56,"chatY":{"start":240,"m3":100,"m4":0,"m4b":-200,"m5":-350,"ready":-440,"climax":-760}};
       const tl = gsap.timeline({ paused: true });
       const lerpLog = (a, b, p) => Math.exp(Math.log(a) + (Math.log(b) - Math.log(a)) * p);
-      // 16:9: the phone is a close-up. CAM shifts its 1080x1920 world into the centre of the 1920x1080 frame; per phase the
-      // camera sits at a different height: ty0 on the lock screen (world y 200..1280 in view), tyField while the field is shown
-      // (the phone at screen y 640, the type above it), tyThread on the conversation (header and toggle in view).
-      const CAM = { x: 420, ty0: -200, tyField: -360, tyThread: -190 };
-      // hook y that puts world point wy at the screen centre at hook scale k (cam scale 1, ty0): screen = ty0 + 748 + (wy - 748) * k + y
-      const hy = (wy, k) => 540 - CAM.ty0 - 748 - (wy - 748) * k;
-      gsap.set(["#nt-cam", "#nt-cam2"], { x: CAM.x, y: CAM.ty0 });
+      // 16:9: the whole phone is always in frame (Round 5: the close-up cut off the clock and the cards). The camera holds the
+      // 1080x1920 world at base scale B, shifted into the centre of the 1920x1080 frame; per phase it sits at ty (field: tyField).
+      const CAM = { x: 420, B: 0.56, ty0: -460, tyField: -360, tyThread: -460 };
+      // hook y that puts world point wy at the screen centre at hook scale k (cam scale B, ty0 puts world y 1000 at screen 540)
+      const hy = (wy, k) => 252 - (wy - 748) * k;
+      gsap.set(["#nt-cam", "#nt-cam2"], { scale: CAM.B, x: CAM.x, y: CAM.ty0 });
       // everything on the lock screen except Layla's card, which stays lit when the door closes
       const others = ["#nt-lock .nt-status", "#nt-clock", "#nt-ad", "#nt-c1", "#nt-c2", "#nt-c3", "#nt-c4", "#nt-c5", "#nt-c6"];
 
@@ -319,14 +318,14 @@
       tl.to("#nt-ad", { boxShadow: "0 0 0 4px rgba(180, 196, 174, 0)", duration: 0.4 }, T.hookB);
       tl.to("#nt-hook", { scale: 1.2, y: hy(685, 1.2), duration: 0.8, ease: "power3.inOut" }, T.hookB); // then on her question
       tl.to("#nt-hook", { scale: 1.22, y: hy(685, 1.22), duration: Math.max(0.3, T.hookOut - T.hookB - 0.8), ease: "sine.inOut" }, T.hookB + 0.8);
-      tl.to("#nt-hook", { scale: 0.78, y: hy(920, 0.78), duration: 0.7, ease: "power3.inOut" }, T.hookOut); // out to take in the stack
+      tl.to("#nt-hook", { scale: 1, y: 0, duration: 0.7, ease: "power3.inOut" }, T.hookOut); // out to take in the stack
 
       // 2 · messages pour in
       T.arr.forEach((t, i) => {
         tl.fromTo("#nt-c" + (i + 1), { y: 80, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.34, ease: "power3.out" }, t);
       });
 
-      tl.to("#nt-hook", { scale: 0.84, y: hy(960, 0.84), duration: Math.max(0.4, T.wait - T.stackPush), ease: "sine.inOut" }, T.stackPush);
+      tl.to("#nt-hook", { scale: 1.03, y: hy(1000, 1.03), duration: Math.max(0.4, T.wait - T.stackPush), ease: "sine.inOut" }, T.stackPush);
 
       // 3 · seekers wait: every message turns to "waiting" while the clock runs on
       for (let i = 0; i <= 6; i++) {
@@ -339,8 +338,8 @@
       const showTime = () => { const v = Math.round(clk.m); clock.textContent = Math.floor(v / 60) + ":" + String(v % 60).padStart(2, "0"); };
       tl.to(clk, { m: 222, duration: T.clockEnd - T.wait, ease: "power1.inOut", onUpdate: showTime }, T.wait);
       // the ministry turns off its ad: the camera goes in on the switch
-      tl.to("#nt-hook", { scale: 1.3, y: hy(517, 1.3), duration: 0.55, ease: "power3.inOut" }, T.adPush);
-      tl.to("#nt-hook", { scale: 1.36, y: hy(517, 1.36), duration: Math.max(0.3, T.door - T.adPush - 0.55), ease: "sine.inOut" }, T.adPush + 0.55);
+      tl.to("#nt-hook", { scale: 1.06, y: hy(1000, 1.06), duration: 0.55, ease: "power3.inOut" }, T.adPush);
+      tl.to("#nt-hook", { scale: 1.08, y: hy(1000, 1.08), duration: Math.max(0.3, T.door - T.adPush - 0.55), ease: "sine.inOut" }, T.adPush + 0.55);
       tl.fromTo("#nt-ad-knob", { x: 26 }, { x: 0, duration: 0.2, ease: "power2.out" }, T.off);
       tl.fromTo("#nt-ad-track", { backgroundColor: "#5DA95F" }, { backgroundColor: "#7E857C", duration: 0.2 }, T.off);
       tl.fromTo("#nt-ad-dot", { backgroundColor: "#8FD08F" }, { backgroundColor: "#7E857C", duration: 0.2 }, T.off);
@@ -355,7 +354,7 @@
       const cam = { p: 0, d: 0, q: 0 };
       const sMid = T.sMin * 1.22;
       const applyCam = () => {
-        const s = cam.q > 0 ? lerpLog(sMid, T.sEnd, cam.q) : cam.d > 0 ? lerpLog(T.sMin, sMid, cam.d) : lerpLog(1, T.sMin, cam.p);
+        const s = cam.q > 0 ? lerpLog(sMid, T.sEnd, cam.q) : cam.d > 0 ? lerpLog(T.sMin, sMid, cam.d) : lerpLog(CAM.B, T.sMin, cam.p);
         const ty = cam.q > 0 ? CAM.tyField + (CAM.tyThread - CAM.tyField) * cam.q : cam.d > 0 ? CAM.tyField : CAM.ty0 + (CAM.tyField - CAM.ty0) * cam.p;
         gsap.set(["#nt-cam", "#nt-cam2"], { scale: s, x: CAM.x, y: ty });
         gsap.set("#nt-rings", { scale: 0.78 + 0.22 * Math.min(1, s), transformOrigin: "960px 540px" });

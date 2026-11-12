@@ -46,7 +46,7 @@ Give today at zogreo.org.
 
 ## On screen only (not narrated)
 
-- "Matthew 9:37" under the verse; "ζωγρέω · to catch alive · Luke 5:10" and "dzoh-GRAY-oh" on the name card
+- "Matthew 9:37" under the verse; "ζωγρέω · to catch alive · Luke 5:10" and "ZO · GRAY · OH" on the name card
 - "Found disciple-making leaders as reliably as human responders" under 3.73×
 - "Illustrative conversation" over the chat
 - End card: "Accelerate the Great Commission", give link + QR (`https://zogreo.org/?give=1&ref=page`), calendly.com/zogreo/intro, "A program of The Apologist Project, a 501(c)(3) nonprofit"
