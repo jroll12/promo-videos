@@ -88,5 +88,6 @@ A sibling of the 9:16 project, built from the 67.9 s cut: same narration, timing
 the chat is a centered full-height column (the vertical layout scaled to 0.78), the verse, logo beat, proof scene and end card are
 wide layouts (the proof and end card are two columns). Captions sit in one wider line at the bottom, below the chat column.
 - **Measured:** seam gate passes (0 fail, 0 warn, 2 seams), lint, runtime and layout checks clean, length 67.9 s and 2037 frames.
+- **Delivered files, measured:** 4K 3840x2160 and 1080p 1920x1080, both 2037 frames and 67.9 s, -14.0 LUFS, true peak -2.1 dBFS, QR decodes to https://apologistai.com?ref=page at both sizes. The stock 1080p copy came out portrait (render.sh bug), so it was re-made from the 4K.
 - **Read by eye:** draft frames at 12 moments and the seam sheet; not watched end to end.
 - Rebuild: `node tools/build.mjs`, then `render.sh . final --preset landscape-4k`.

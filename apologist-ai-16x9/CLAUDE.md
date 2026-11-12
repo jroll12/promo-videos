@@ -10,3 +10,5 @@ and `RESEARCH.md` for status and the claims register; this cut adds no claims.
 - Rebuild: `node tools/build.mjs`, `qa.sh .`, `render.sh . draft`, then `render.sh . final --preset landscape-4k`;
   normalise delivered audio to -14 LUFS / -1.5 dBTP. A new voice take is made in the 9:16 project and copied here.
 - Voice: ElevenLabs Max (`Gfpl8Yo74Is0W6cPUWWT`). Zogreo keeps Jason; don't touch it.
+- Gotcha: the skill's `render.sh final` always makes the 1080p copy as 1080x1920 (portrait), even with `--preset landscape-4k`.
+  For this project re-make it from the normalised 4K: `ffmpeg -i renders/apologist-ai-16x9-4k.mp4 -vf scale=1920:1080:flags=lanczos -c:v libx264 -preset slow -crf 16 -pix_fmt yuv420p -movflags +faststart -c:a copy renders/apologist-ai-16x9-1080p.mp4`.
