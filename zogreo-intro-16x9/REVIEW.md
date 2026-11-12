@@ -101,3 +101,6 @@ Jarret supplied a reference recording of "Zogreo" and chose option B of three Ja
 | The last "Zogreo" sounded a little off | Measured: in "Give today at zogreo.org" the "oh" was swallowed (the recogniser heard "zogra") and the pitch fell into GRAY, unlike his clip. New takes of the give scene were made; Jarret picks one by ear. |
 | Name card should follow the clip | "ZO · GRAY · OH" |
 | No link text in the buttons | One address line "zogreo.org", then two plain buttons: GIVE (filled) and BOOK A CALL (outline). The calendly URL is gone; the QR still goes to the give page. |
+
+Round 5, audio: the give scene (L10, L11) was re-taken so "Zogreo" in "Give today at zogreo.org" keeps its full "oh" (the recogniser now hears "Zogreo", word error 0.00; it heard "zogra" before) and the pitch rises into GRAY like Jarret's clip. Take 7 of two candidates was chosen by me, not by ear: Jarret has not heard it. Also in 16:9, the field of messages now fades in at 16.3 s instead of switching on (a one-frame jump the pop scan found).
+Measured on the final renders: 63.0 s, 1,891 frames; -14.5 LUFS, peak -1.5 dBFS; QR decodes at 4K in both shapes; 19% (9:16) and 23% (16:9) of frames fully still; pop scan shows only the cuts and, in 9:16, the screen-off beat and the clock starting.

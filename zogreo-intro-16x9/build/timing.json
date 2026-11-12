@@ -4,7 +4,7 @@
  "voice": "ElevenLabs Jason, per-scene takes (Zo-GRAY-oh)",
  "speed": 1.0,
  "effect_preset": null,
- "duration": 60.61,
+ "duration": 60.62,
  "lines": [
   {
    "id": "L1",
@@ -75,11 +75,11 @@
     {
      "w": "a",
      "start": 4.16,
-     "end": 4.3
+     "end": 4.38
     },
     {
      "w": "question",
-     "start": 4.32,
+     "start": 4.4,
      "end": 4.62
     },
     {
@@ -309,11 +309,11 @@
     {
      "w": "plentiful,",
      "start": 17.76,
-     "end": 18.46
+     "end": 18.54
     },
     {
      "w": "but",
-     "start": 18.48,
+     "start": 18.56,
      "end": 18.7
     },
     {
@@ -341,12 +341,12 @@
   {
    "id": "L5",
    "text": "That's why we built Zogreo. It's the word Jesus used for catching people alive.",
-   "start": 20.32,
+   "start": 20.4,
    "end": 25.29,
    "words": [
     {
      "w": "That's",
-     "start": 20.32,
+     "start": 20.4,
      "end": 20.78
     },
     {
@@ -752,7 +752,7 @@
    "id": "L10",
    "text": "Your gift puts that conversation within reach of someone who has never had a safe place to ask.",
    "start": 51.64,
-   "end": 56.95,
+   "end": 56.88,
    "words": [
     {
      "w": "Your",
@@ -762,71 +762,71 @@
     {
      "w": "gift",
      "start": 51.96,
-     "end": 52.42
+     "end": 52.34
     },
     {
      "w": "puts",
-     "start": 52.44,
-     "end": 52.74
+     "start": 52.36,
+     "end": 52.66
     },
     {
      "w": "that",
-     "start": 52.76,
-     "end": 52.9
+     "start": 52.68,
+     "end": 52.82
     },
     {
      "w": "conversation",
-     "start": 52.92,
-     "end": 53.54
+     "start": 52.84,
+     "end": 53.46
     },
     {
      "w": "within",
-     "start": 53.56,
-     "end": 53.94
+     "start": 53.48,
+     "end": 53.86
     },
     {
      "w": "reach",
-     "start": 53.96,
-     "end": 54.18
+     "start": 53.88,
+     "end": 54.1
     },
     {
      "w": "of",
-     "start": 54.2,
-     "end": 54.34
+     "start": 54.12,
+     "end": 54.26
     },
     {
      "w": "someone",
-     "start": 54.36,
-     "end": 54.74
+     "start": 54.28,
+     "end": 54.66
     },
     {
      "w": "who",
-     "start": 54.76,
-     "end": 54.98
+     "start": 54.68,
+     "end": 54.9
     },
     {
      "w": "has",
-     "start": 55.0,
+     "start": 54.92,
      "end": 55.14
     },
     {
      "w": "never",
      "start": 55.16,
-     "end": 55.46
+     "end": 55.38
     },
     {
      "w": "had",
-     "start": 55.48,
+     "start": 55.4,
      "end": 55.62
     },
     {
      "w": "a",
      "start": 55.64,
-     "end": 55.78
+     "end": 55.7
     },
     {
      "w": "safe",
-     "start": 55.8,
+     "start": 55.72,
      "end": 56.1
     },
     {
@@ -842,35 +842,35 @@
     {
      "w": "ask.",
      "start": 56.52,
-     "end": 56.95
+     "end": 56.88
     }
    ]
   },
   {
    "id": "L11",
    "text": "Give today at zogreo.org.",
-   "start": 57.4,
-   "end": 59.83,
+   "start": 57.34,
+   "end": 59.82,
    "words": [
     {
      "w": "Give",
-     "start": 57.4,
-     "end": 57.78
+     "start": 57.34,
+     "end": 57.72
     },
     {
      "w": "today",
-     "start": 57.8,
-     "end": 58.18
+     "start": 57.74,
+     "end": 58.2
     },
     {
      "w": "at",
-     "start": 58.2,
-     "end": 58.42
+     "start": 58.22,
+     "end": 58.36
     },
     {
      "w": "zogreo.org.",
-     "start": 58.44,
-     "end": 59.83
+     "start": 58.38,
+     "end": 59.82
     }
    ]
   }

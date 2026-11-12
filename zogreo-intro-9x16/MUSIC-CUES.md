@@ -13,12 +13,12 @@ under the problem, opening up at the hand-off, resolving on the end card.
 | 0:00.0 | 2 a.m. lock screen, Layla's message ("It's two in the morning...") | Enter very softly, or not at all |
 | 0:07.0 – 0:15.6 | Messages pour in; seekers wait; the ad is switched off | Near silent, sparse; nothing that resolves |
 | 0:15.6 – 0:16.8 | "...and the door closes": the screen goes dark around her card | Drop out completely |
-| 0:16.8 – 0:20.3 | Pull back to the field; "The harvest is plentiful, but the workers are few" | Silence, or a single held note |
+| 0:16.8 – 0:20.4 | Pull back to the field; "The harvest is plentiful, but the workers are few" | Silence, or a single held note |
 | 0:21.2 | "That's why we built Zogreo" | Music returns here (first real phrase) |
 | 0:25.5 – 0:36.2 | Into the conversation: answered in Arabic, the hard part, "ready for a real person" | Gentle build |
 | 0:36.2 | **A local believer joins** (the film's peak) | The swell lands here, then holds |
 | 0:38.6 | Cut to the Turkey pilot | Steady, warm; let the voice lead |
 | 0:44.0 | 3.73× lands | No hit (the peak was the hand-off) |
 | 0:51.2 | Cut to the same phone the next morning; every message answered | Brightens: morning |
-| 0:57.4 | Logo and the ask ("Give today at zogreo.org") | Resolve |
+| 0:57.3 | Logo and the ask ("Give today at zogreo.org") | Resolve |
 | 0:59.8 – 1:03.0 | End card holds | End on a bar line with a short fade by 1:03.0 |

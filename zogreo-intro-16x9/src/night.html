@@ -276,7 +276,7 @@
         gsap.set(["#nt-cam", "#nt-cam2"], { scale: s, x: CAM.x, y: ty });
         gsap.set("#nt-rings", { scale: 0.78 + 0.22 * Math.min(1, s), transformOrigin: "960px 540px" });
       };
-      tl.set("#nt-field", { autoAlpha: 1 }, T.pullStart);
+      tl.fromTo("#nt-field", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "power1.out" }, T.pullStart);
       tl.to(cam, { p: 1, duration: T.pullEnd - T.pullStart, ease: "power3.inOut", onUpdate: applyCam }, T.pullStart);
       // then the camera keeps travelling in, toward the phones, while the verse and the name are read
       tl.to(cam, { d: 1, duration: T.pushStart - T.pullEnd, ease: "sine.inOut", onUpdate: applyCam }, T.pullEnd);

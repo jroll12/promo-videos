@@ -35,8 +35,8 @@
   "id": "L5",
   "heard": "That's why we built Zogreo. It's the word Jesus used for catching people alive.",
   "wer": 0.0,
-  "seconds": 4.97,
-  "words_per_second": 2.82,
+  "seconds": 4.89,
+  "words_per_second": 2.86,
   "names": [
    {
     "term": "Zogreo",
@@ -71,30 +71,30 @@
  },
  {
   "id": "L8",
-  "heard": "In a week-long pilot in Turkey, Zogreio helped a two-person team serve 3.73 times as many seekers.",
-  "wer": 0.056,
+  "heard": "In a week-long pilot in Turkey, Zogreo helped a two-person team serve 3.73 times as many seekers.",
+  "wer": 0.0,
   "seconds": 7.36,
   "words_per_second": 2.31,
   "names": [
    {
     "term": "Zogreo",
-    "heard_as": "Zogreio",
-    "similarity": 0.92,
+    "heard_as": "Zogreo",
+    "similarity": 1.0,
     "flag": false
    }
   ]
  },
  {
   "id": "L9",
-  "heard": "Zogreio doesn't replace missionaries. It multiplies them.",
-  "wer": 0.143,
+  "heard": "Zogreo doesn't replace missionaries, it multiplies them.",
+  "wer": 0.0,
   "seconds": 3.6,
   "words_per_second": 1.94,
   "names": [
    {
     "term": "Zogreo",
-    "heard_as": "Zogreio",
-    "similarity": 0.92,
+    "heard_as": "Zogreo",
+    "similarity": 1.0,
     "flag": false
    }
   ]
@@ -103,21 +103,21 @@
   "id": "L10",
   "heard": "Your gift puts that conversation within reach of someone who has never had a safe place to ask.",
   "wer": 0.0,
-  "seconds": 5.31,
-  "words_per_second": 3.39,
+  "seconds": 5.24,
+  "words_per_second": 3.44,
   "names": []
  },
  {
   "id": "L11",
-  "heard": "Give today at zogra.org.",
-  "wer": 0.2,
-  "seconds": 2.43,
-  "words_per_second": 1.65,
+  "heard": "Give today at Zogreo.org",
+  "wer": 0.0,
+  "seconds": 2.48,
+  "words_per_second": 1.61,
   "names": [
    {
     "term": "zogreo.org",
-    "heard_as": "zogra",
-    "similarity": 0.57,
+    "heard_as": "Zogreo",
+    "similarity": 0.8,
     "flag": true
    }
   ]
