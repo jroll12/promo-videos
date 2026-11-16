@@ -14,11 +14,11 @@
     "minMeanWordProb": 0.6,
     "minWordsMatched": 0.7,
     "maxStartDeviationBeats": 1.0,
-    "durationRatio": [
-      0.5,
-      1.5
-    ],
-    "maxTempoDeviationPct": 1.0
+    "maxDurationBars": 1.5,
+    "passAgreementSec": 0.25,
+    "freeMatchWindowSec": 0.6,
+    "maxTempoDeviationPct": 1.0,
+    "note": "A line passes when: mean word probability >= minMeanWordProb, the share of its words heard at the same place by the lyric-free transcription >= minWordsMatched, it starts no more than maxStartDeviationBeats outside its assigned bars (one beat of pickup is allowed for free), and it is no longer than its assigned bars * maxDurationBars. Lines that fail use bar-grid timing."
   },
   "sections": [
     {
@@ -37,7 +37,8 @@
       "id": "hook1",
       "startBar": 20,
       "bars": 10,
-      "intensity": 0.4
+      "intensity": 0.4,
+      "tailBars": 2
     },
     {
       "id": "verse2",
@@ -55,7 +56,8 @@
       "id": "hook2",
       "startBar": 50,
       "bars": 10,
-      "intensity": 0.7
+      "intensity": 0.7,
+      "tailBars": 2
     },
     {
       "id": "bridge",
@@ -82,5 +84,124 @@
       "intensity": 0.1
     }
   ],
-  "lineOverrides": {}
+  "lineOverrides": {},
+  "lineBars": {
+    "note": "Default: line k of a section sits in bar startBar + k, one bar long. Overrides below are [startBar, lengthInBars], from the song's structure (kick dropouts, turnarounds), used for the grid estimate and as the fallback.",
+    "in.01": [
+      0,
+      1
+    ],
+    "in.02": [
+      1,
+      1
+    ],
+    "in.03": [
+      2,
+      0.5
+    ],
+    "in.04": [
+      2.5,
+      0.75
+    ],
+    "in.05": [
+      3.25,
+      0.75
+    ],
+    "v2.05": [
+      34,
+      0.25
+    ],
+    "v2.06": [
+      34.25,
+      0.25
+    ],
+    "v2.07": [
+      34.5,
+      1.5
+    ],
+    "v2.08": [
+      36,
+      1
+    ],
+    "v2.09": [
+      37,
+      1
+    ],
+    "v2.10": [
+      38,
+      1
+    ],
+    "v2.11": [
+      39,
+      1
+    ],
+    "v2.12": [
+      40,
+      1
+    ],
+    "v2.13": [
+      41,
+      1
+    ],
+    "v2.14": [
+      42,
+      1
+    ],
+    "v2.15": [
+      43,
+      1
+    ],
+    "v2.16": [
+      44,
+      1
+    ],
+    "v2.17": [
+      45,
+      1
+    ],
+    "br.01": [
+      59,
+      2
+    ],
+    "br.02": [
+      61,
+      1
+    ],
+    "br.03": [
+      62,
+      0.75
+    ],
+    "br.04": [
+      62.75,
+      1.25
+    ],
+    "br.05": [
+      64,
+      1
+    ],
+    "br.06": [
+      65,
+      1
+    ],
+    "br.07": [
+      66,
+      0.75
+    ],
+    "br.08": [
+      66.75,
+      1.25
+    ],
+    "out.01": [
+      89.25,
+      1.5
+    ],
+    "out.02": [
+      91,
+      1.5
+    ],
+    "out.03": [
+      92.75,
+      0.75
+    ]
+  }
 }
