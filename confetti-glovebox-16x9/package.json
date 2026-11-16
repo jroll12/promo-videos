@@ -1,0 +1,26 @@
+{
+  "name": "confetti-glovebox-16x9",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "testcard": "remotion render src/index.ts TestCard out/testcard-540p.mp4 --scale=0.5",
+    "preview": "remotion render src/index.ts Video out/preview-540p.mp4 --scale=0.5",
+    "render": "remotion render src/index.ts Video out/video.mp4"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.544",
+    "@remotion/cli": "4.0.544",
+    "@remotion/renderer": "4.0.544",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.544"
+  },
+  "devDependencies": {
+    "@fontsource-variable/archivo": "5.3.0",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

@@ -3529,10 +3529,10 @@
    "section": "intro",
    "index": 4,
    "text": "Cool.",
-   "start": 6.03,
-   "end": 7.315,
-   "startFrame": 181,
-   "endFrame": 219,
+   "start": 5.9,
+   "end": 6.9,
+   "startFrame": 177,
+   "endFrame": 207,
    "bar": 3.25,
    "bars": 0.75,
    "gridStart": 6.03,
@@ -3541,11 +3541,20 @@
    "gridEndFrame": 219,
    "confidence": 0.449,
    "wordsMatched": 1.0,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
-    "low-probability"
+    "low-probability",
+    "accepted-on-review"
    ],
-   "words": []
+   "words": [
+    {
+     "w": "Cool.",
+     "start": 5.9,
+     "end": 6.9,
+     "startFrame": 177,
+     "p": 0.449
+    }
+   ]
   },
   {
    "id": "v1.01",
@@ -3738,10 +3747,10 @@
    "section": "verse1",
    "index": 2,
    "text": "Microwave beeped and it sounded like a trap door,",
-   "start": 10.744,
-   "end": 12.458,
-   "startFrame": 322,
-   "endFrame": 374,
+   "start": 10.82,
+   "end": 12.38,
+   "startFrame": 325,
+   "endFrame": 371,
    "bar": 6,
    "bars": 1,
    "gridStart": 10.744,
@@ -3750,11 +3759,76 @@
    "gridEndFrame": 374,
    "confidence": 0.839,
    "wordsMatched": 0.67,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
-    "not-heard-by-free-pass"
+    "not-heard-by-free-pass",
+    "accepted-on-review"
    ],
-   "words": []
+   "words": [
+    {
+     "w": "Microwave",
+     "start": 10.82,
+     "end": 11.08,
+     "startFrame": 325,
+     "p": 0.933
+    },
+    {
+     "w": "beeped",
+     "start": 11.08,
+     "end": 11.38,
+     "startFrame": 332,
+     "p": 0.446
+    },
+    {
+     "w": "and",
+     "start": 11.38,
+     "end": 11.44,
+     "startFrame": 341,
+     "p": 0.734
+    },
+    {
+     "w": "it",
+     "start": 11.44,
+     "end": 11.54,
+     "startFrame": 343,
+     "p": 0.841
+    },
+    {
+     "w": "sounded",
+     "start": 11.54,
+     "end": 11.66,
+     "startFrame": 346,
+     "p": 0.968
+    },
+    {
+     "w": "like",
+     "start": 11.66,
+     "end": 11.88,
+     "startFrame": 350,
+     "p": 0.997
+    },
+    {
+     "w": "a",
+     "start": 11.88,
+     "end": 11.98,
+     "startFrame": 356,
+     "p": 0.995
+    },
+    {
+     "w": "trap",
+     "start": 11.98,
+     "end": 12.16,
+     "startFrame": 359,
+     "p": 0.99
+    },
+    {
+     "w": "door,",
+     "start": 12.16,
+     "end": 12.38,
+     "startFrame": 365,
+     "p": 0.649
+    }
+   ]
   },
   {
    "id": "v1.04",
@@ -4690,10 +4764,10 @@
    "section": "verse1",
    "index": 15,
    "text": "Like, “Man, even I know you’re running late.”",
-   "start": 33.03,
-   "end": 34.744,
-   "startFrame": 991,
-   "endFrame": 1042,
+   "start": 32.94,
+   "end": 34.76,
+   "startFrame": 988,
+   "endFrame": 1043,
    "bar": 19,
    "bars": 1,
    "gridStart": 33.03,
@@ -4702,11 +4776,69 @@
    "gridEndFrame": 1042,
    "confidence": 0.546,
    "wordsMatched": 1.0,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
-    "low-probability"
+    "low-probability",
+    "accepted-on-review"
    ],
-   "words": []
+   "words": [
+    {
+     "w": "Like,",
+     "start": 32.94,
+     "end": 33.0,
+     "startFrame": 988,
+     "p": 0.375
+    },
+    {
+     "w": "“Man,",
+     "start": 33.0,
+     "end": 33.26,
+     "startFrame": 990,
+     "p": 0.233
+    },
+    {
+     "w": "even",
+     "start": 33.26,
+     "end": 33.38,
+     "startFrame": 998,
+     "p": 0.734
+    },
+    {
+     "w": "I",
+     "start": 33.38,
+     "end": 33.56,
+     "startFrame": 1001,
+     "p": 0.542
+    },
+    {
+     "w": "know",
+     "start": 33.56,
+     "end": 33.7,
+     "startFrame": 1007,
+     "p": 0.984
+    },
+    {
+     "w": "you’re",
+     "start": 33.7,
+     "end": 33.86,
+     "startFrame": 1011,
+     "p": 0.249
+    },
+    {
+     "w": "running",
+     "start": 33.86,
+     "end": 34.0,
+     "startFrame": 1016,
+     "p": 0.934
+    },
+    {
+     "w": "late.”",
+     "start": 34.0,
+     "end": 34.76,
+     "startFrame": 1020,
+     "p": 0.318
+    }
+   ]
   },
   {
    "id": "h1.01",
@@ -5511,10 +5643,10 @@
    "section": "verse2",
    "index": 4,
    "text": "Me.",
-   "start": 58.744,
-   "end": 59.172,
-   "startFrame": 1762,
-   "endFrame": 1775,
+   "start": 58.68,
+   "end": 59.24,
+   "startFrame": 1760,
+   "endFrame": 1777,
    "bar": 34,
    "bars": 0.25,
    "gridStart": 58.744,
@@ -5523,11 +5655,20 @@
    "gridEndFrame": 1775,
    "confidence": 0.547,
    "wordsMatched": 1.0,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
-    "low-probability"
+    "low-probability",
+    "accepted-on-review"
    ],
-   "words": []
+   "words": [
+    {
+     "w": "Me.",
+     "start": 58.68,
+     "end": 59.24,
+     "startFrame": 1760,
+     "p": 0.547
+    }
+   ]
   },
   {
    "id": "v2.06",
@@ -5811,10 +5952,10 @@
    "section": "verse2",
    "index": 9,
    "text": "Got a backpack snack and a half-charged phone,",
-   "start": 65.601,
-   "end": 67.315,
-   "startFrame": 1968,
-   "endFrame": 2019,
+   "start": 65.18,
+   "end": 67.14,
+   "startFrame": 1955,
+   "endFrame": 2014,
    "bar": 38,
    "bars": 1,
    "gridStart": 65.601,
@@ -5823,11 +5964,69 @@
    "gridEndFrame": 2019,
    "confidence": 0.574,
    "wordsMatched": 0.89,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
-    "low-probability"
+    "low-probability",
+    "accepted-on-review"
    ],
-   "words": []
+   "words": [
+    {
+     "w": "Got",
+     "start": 65.18,
+     "end": 65.24,
+     "startFrame": 1955,
+     "p": 0.941
+    },
+    {
+     "w": "a",
+     "start": 65.24,
+     "end": 65.36,
+     "startFrame": 1957,
+     "p": 0.994
+    },
+    {
+     "w": "backpack",
+     "start": 65.36,
+     "end": 65.56,
+     "startFrame": 1961,
+     "p": 0.505
+    },
+    {
+     "w": "snack",
+     "start": 65.56,
+     "end": 65.94,
+     "startFrame": 1967,
+     "p": 0.256
+    },
+    {
+     "w": "and",
+     "start": 65.94,
+     "end": 66.1,
+     "startFrame": 1978,
+     "p": 0.082
+    },
+    {
+     "w": "a",
+     "start": 66.1,
+     "end": 66.18,
+     "startFrame": 1983,
+     "p": 0.593
+    },
+    {
+     "w": "half-charged",
+     "start": 66.18,
+     "end": 66.54,
+     "startFrame": 1985,
+     "p": 0.699
+    },
+    {
+     "w": "phone,",
+     "start": 66.54,
+     "end": 67.14,
+     "startFrame": 1996,
+     "p": 0.52
+    }
+   ]
   },
   {
    "id": "v2.11",
@@ -6111,10 +6310,10 @@
    "section": "verse2",
    "index": 14,
    "text": "Trying to make art out of stuff that fell off,",
-   "start": 74.172,
-   "end": 75.887,
-   "startFrame": 2225,
-   "endFrame": 2277,
+   "start": 74.0,
+   "end": 75.68,
+   "startFrame": 2220,
+   "endFrame": 2270,
    "bar": 43,
    "bars": 1,
    "gridStart": 74.172,
@@ -6123,11 +6322,83 @@
    "gridEndFrame": 2277,
    "confidence": 0.838,
    "wordsMatched": 0.6,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
-    "not-heard-by-free-pass"
+    "not-heard-by-free-pass",
+    "accepted-on-review"
    ],
-   "words": []
+   "words": [
+    {
+     "w": "Trying",
+     "start": 74.0,
+     "end": 74.02,
+     "startFrame": 2220,
+     "p": 0.84
+    },
+    {
+     "w": "to",
+     "start": 74.02,
+     "end": 74.12,
+     "startFrame": 2221,
+     "p": 0.989
+    },
+    {
+     "w": "make",
+     "start": 74.12,
+     "end": 74.28,
+     "startFrame": 2224,
+     "p": 0.995
+    },
+    {
+     "w": "art",
+     "start": 74.28,
+     "end": 74.42,
+     "startFrame": 2228,
+     "p": 0.156
+    },
+    {
+     "w": "out",
+     "start": 74.42,
+     "end": 74.58,
+     "startFrame": 2233,
+     "p": 0.89
+    },
+    {
+     "w": "of",
+     "start": 74.58,
+     "end": 74.68,
+     "startFrame": 2237,
+     "p": 0.941
+    },
+    {
+     "w": "stuff",
+     "start": 74.7,
+     "end": 74.8,
+     "startFrame": 2241,
+     "p": 0.977
+    },
+    {
+     "w": "that",
+     "start": 74.8,
+     "end": 74.98,
+     "startFrame": 2244,
+     "p": 0.986
+    },
+    {
+     "w": "fell",
+     "start": 74.98,
+     "end": 75.24,
+     "startFrame": 2249,
+     "p": 0.983
+    },
+    {
+     "w": "off,",
+     "start": 75.24,
+     "end": 75.68,
+     "startFrame": 2257,
+     "p": 0.621
+    }
+   ]
   },
   {
    "id": "v2.16",
@@ -7229,10 +7500,10 @@
    "section": "bridge",
    "index": 4,
    "text": "I got “wait, what?” memory,",
-   "start": 110.172,
-   "end": 111.887,
-   "startFrame": 3305,
-   "endFrame": 3357,
+   "start": 109.9,
+   "end": 111.62,
+   "startFrame": 3297,
+   "endFrame": 3349,
    "bar": 64,
    "bars": 1,
    "gridStart": 110.172,
@@ -7241,10 +7512,11 @@
    "gridEndFrame": 3357,
    "confidence": 0.573,
    "wordsMatched": 0.6,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
     "low-probability",
-    "not-heard-by-free-pass"
+    "not-heard-by-free-pass",
+    "accepted-on-review-line-only"
    ],
    "words": []
   },
@@ -7325,10 +7597,10 @@
    "section": "bridge",
    "index": 7,
    "text": "Stacked up mentally.",
-   "start": 114.887,
-   "end": 117.029,
-   "startFrame": 3447,
-   "endFrame": 3511,
+   "start": 115.22,
+   "end": 116.88,
+   "startFrame": 3457,
+   "endFrame": 3506,
    "bar": 66.75,
    "bars": 1.25,
    "gridStart": 114.887,
@@ -7337,11 +7609,34 @@
    "gridEndFrame": 3511,
    "confidence": 0.516,
    "wordsMatched": 1.0,
-   "source": "grid",
+   "source": "aligned",
    "flags": [
-    "low-probability"
+    "low-probability",
+    "accepted-on-review"
    ],
-   "words": []
+   "words": [
+    {
+     "w": "Stacked",
+     "start": 115.22,
+     "end": 115.58,
+     "startFrame": 3457,
+     "p": 0.7
+    },
+    {
+     "w": "up",
+     "start": 115.58,
+     "end": 116.02,
+     "startFrame": 3467,
+     "p": 0.089
+    },
+    {
+     "w": "mentally.",
+     "start": 116.02,
+     "end": 116.88,
+     "startFrame": 3481,
+     "p": 0.76
+    }
+   ]
   },
   {
    "id": "v3.01",

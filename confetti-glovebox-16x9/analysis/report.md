@@ -32,10 +32,10 @@ Threshold: word probability >= 0.6, words confirmed by the lyric-free pass >= 70
 | **in.02** | 0.41 | 100 % | 2.38 | 2.17 | 1.48 | -1.06 | grid | low-probability, passes-disagree | Yeah. |
 | in.03 | 0.83 | 100 % | 3.92 | 3.89 | 1.08 | +0.00 | aligned | ok | Where do I even put this? |
 | in.04 | 0.84 | 100 % | 4.86 | 4.74 | 3.27 | +0.04 | aligned | ok | Right here? |
-| **in.05** | 0.45 | 100 % | 5.90 | 6.03 | 1.70 | +0.14 | grid | low-probability | Cool. |
+| **in.05** | 0.45 | 100 % | 5.90 | 6.03 | 1.70 | +0.14 | aligned | low-probability, accepted-on-review | Cool. |
 | v1.01 | 0.69 | 100 % | 7.02 | 7.32 | 4.31 | -0.45 | aligned | passes-disagree | I got confetti in the glovebox, waffles in a windstorm, |
 | v1.02 | 0.67 | 90 % | 9.12 | 9.03 | 1.21 | +0.00 | aligned | ok | Left shoe talking like it’s asking what the socks for, |
-| **v1.03** | 0.84 | 67 % | 10.82 | 10.74 | 1.18 | -0.02 | grid | not-heard-by-free-pass | Microwave beeped and it sounded like a trap door, |
+| **v1.03** | 0.84 | 67 % | 10.82 | 10.74 | 1.18 | -0.02 | aligned | not-heard-by-free-pass, accepted-on-review | Microwave beeped and it sounded like a trap door, |
 | v1.04 | 0.75 | 78 % | 12.50 | 12.46 | 1.10 | +0.02 | aligned | ok | Opened up the fridge, saw a pickle doing parkour. |
 | v1.05 | 0.76 | 89 % | 14.16 | 14.17 | 4.97 | +0.00 | aligned | ok | Hold up, wait, I’m not done with the nonsense, |
 | v1.06 | 0.73 | 86 % | 15.96 | 15.89 | 1.17 | -0.06 | aligned | ok | Brain got tabs like a discount conference, |
@@ -48,7 +48,7 @@ Threshold: word probability >= 0.6, words confirmed by the lyric-free pass >= 70
 | v1.13 | 0.74 | 86 % | 27.88 | 27.89 | 4.98 | +0.00 | aligned | ok | Wallet got receipts from a month ago, |
 | v1.14 | 0.79 | 100 % | 29.44 | 29.60 | 4.62 | -0.04 | aligned | ok | Crumbs in the car doing dominoes, |
 | v1.15 | 0.66 | 88 % | 31.22 | 31.32 | 4.78 | -0.04 | aligned | ok | Dog in the window with a judgmental face, |
-| **v1.16** | 0.55 | 100 % | 32.94 | 33.03 | 4.79 | +0.02 | grid | low-probability | Like, “Man, even I know you’re running late.” |
+| **v1.16** | 0.55 | 100 % | 32.94 | 33.03 | 4.79 | +0.02 | aligned | low-probability, accepted-on-review | Like, “Man, even I know you’re running late.” |
 | h1.01 | 0.89 | 100 % | 34.76 | 34.74 | 1.04 | -0.66 | aligned | passes-disagree | Too much sauce in the backpack, |
 | h1.02 | 0.97 | 100 % | 37.42 | 36.46 | 3.24 | -0.01 | aligned | ok | Too much fizz in the cup, |
 | h1.03 | 0.98 | 100 % | 38.66 | 38.17 | 2.14 | -0.01 | aligned | ok | Too many tabs in my brain right now, |
@@ -61,17 +61,17 @@ Threshold: word probability >= 0.6, words confirmed by the lyric-free pass >= 70
 | v2.02 | 0.86 | 100 % | 53.26 | 53.60 | 4.20 | +0.01 | aligned | ok | Who made a plan, then planned twelve more? |
 | v2.03 | 0.97 | 100 % | 54.94 | 55.32 | 4.12 | +0.01 | aligned | ok | Who had one job, then ignored that job |
 | v2.04 | 0.81 | 100 % | 56.44 | 57.03 | 3.62 | -0.01 | aligned | ok | For a deep-dive video on dinosaur chores? |
-| **v2.05** | 0.55 | 100 % | 58.68 | 58.74 | 4.85 | -0.01 | grid | low-probability | Me. |
+| **v2.05** | 0.55 | 100 % | 58.68 | 58.74 | 4.85 | -0.01 | aligned | low-probability, accepted-on-review | Me. |
 | v2.06 | 0.73 | 100 % | 59.32 | 59.17 | 2.34 | -0.05 | aligned | ok | Probably me. |
 | v2.07 | 0.78 | 100 % | 59.86 | 59.60 | 3.60 | -0.01 | aligned | ok | But I move like a sneeze through a library. |
 | v2.08 | 0.80 | 86 % | 61.82 | 62.17 | 4.18 | -0.05 | aligned | ok | Quiet for a second, then suddenly alarming, |
 | v2.09 | 0.88 | 78 % | 63.48 | 63.89 | 4.05 | +0.01 | aligned | ok | Trying to be normal, but the weird keeps farming. |
-| **v2.10** | 0.57 | 89 % | 65.18 | 65.60 | 4.02 | +0.01 | grid | low-probability | Got a backpack snack and a half-charged phone, |
+| **v2.10** | 0.57 | 89 % | 65.18 | 65.60 | 4.02 | +0.01 | aligned | low-probability, accepted-on-review | Got a backpack snack and a half-charged phone, |
 | v2.11 | 0.79 | 100 % | 67.20 | 67.32 | 4.73 | +0.01 | aligned | ok | Three missed calls from an unknown zone, |
 | v2.12 | 0.91 | 100 % | 68.98 | 69.03 | 4.88 | -0.01 | aligned | ok | Calendar looking like a boss fight screen, |
 | v2.13 | 0.76 | 100 % | 70.60 | 70.74 | 4.66 | +0.01 | aligned | ok | And I’m underprepared with a tangerine. |
 | v2.14 | 0.91 | 100 % | 72.16 | 72.46 | 4.30 | +0.01 | aligned | ok | I’m not flexing, I’m stretching the chaos, |
-| **v2.15** | 0.84 | 60 % | 74.00 | 74.17 | 4.60 | -0.01 | grid | not-heard-by-free-pass | Trying to make art out of stuff that fell off, |
+| **v2.15** | 0.84 | 60 % | 74.00 | 74.17 | 4.60 | -0.01 | aligned | not-heard-by-free-pass, accepted-on-review | Trying to make art out of stuff that fell off, |
 | v2.16 | 0.90 | 100 % | 75.72 | 75.89 | 4.61 | +0.01 | aligned | ok | Paint on the floor, little dots on the ceiling, |
 | v2.17 | 0.92 | 100 % | 77.58 | 77.60 | 4.95 | -0.11 | aligned | ok | Somehow still got a pretty good feeling. |
 | ph.01 | 0.81 | 100 % | 79.30 | 79.32 | 4.96 | -0.27 | aligned | passes-disagree | Maybe I’m a little all over the map, |
@@ -90,10 +90,10 @@ Threshold: word probability >= 0.6, words confirmed by the lyric-free pass >= 70
 | br.02 | 0.69 | 100 % | 105.12 | 105.03 | 1.21 | -0.06 | aligned | ok | Snack-pack chemistry, |
 | br.03 | 0.79 | 100 % | 107.26 | 106.74 | 2.20 | +0.00 | aligned | ok | Calendar enemies, |
 | br.04 | 0.88 | 100 % | 108.44 | 108.03 | 4.96 | -0.04 | aligned | ok | Laundry like a dynasty. |
-| **br.05** | 0.57 | 60 % | 109.90 | 110.17 | 4.36 | +0.00 | grid | low-probability, not-heard-by-free-pass | I got “wait, what?” memory, |
+| **br.05** | 0.57 | 60 % | 109.90 | 110.17 | 4.36 | +0.00 | aligned | low-probability, not-heard-by-free-pass, accepted-on-review-line-only | I got “wait, what?” memory, |
 | br.06 | 0.88 | 100 % | 112.12 | 111.89 | 1.54 | +0.00 | aligned | ok | Half-done symmetry, |
 | br.07 | 0.90 | 100 % | 114.12 | 113.60 | 2.21 | -0.02 | aligned | ok | Tiny victories |
-| **br.08** | 0.52 | 100 % | 115.22 | 114.89 | 4.78 | +0.00 | grid | low-probability | Stacked up mentally. |
+| **br.08** | 0.52 | 100 % | 115.22 | 114.89 | 4.78 | +0.00 | aligned | low-probability, accepted-on-review | Stacked up mentally. |
 | v3.01 | 0.92 | 100 % | 116.88 | 117.03 | 4.65 | -0.16 | aligned | ok | Let me land this plane on a tennis court, |
 | v3.02 | 0.98 | 100 % | 118.56 | 118.74 | 4.57 | +0.02 | aligned | ok | Let me file these thoughts in a blanket fort, |
 | v3.03 | 0.88 | 88 % | 120.22 | 120.46 | 4.44 | +0.06 | aligned | ok | Let me turn this glitch into airport art, |

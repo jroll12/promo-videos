@@ -132,8 +132,15 @@ for sec in lyr:
         if abs(a0 - b0) > TH["passAgreementSec"]:
             notes.append("passes-disagree")
         ok = not flags
+        acc = CFG.get("accepted", {})
         if ok:
             start, end, source, words = a0, a1, "aligned", wa
+        elif ln["id"] in acc.get("aligned", []):
+            start, end, source, words = a0, a1, "aligned", wa
+            notes.append("accepted-on-review")
+        elif ln["id"] in acc.get("lineOnly", []):
+            start, end, source, words = a0, a1, "aligned", []
+            notes.append("accepted-on-review-line-only")
         else:
             start, end, source, words = g0, g1, "grid", []
         ov = CFG.get("lineOverrides", {}).get(ln["id"])

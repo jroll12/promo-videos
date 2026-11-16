@@ -24,3 +24,31 @@
 - Reproduce: `analysis/.venv/bin/python analysis/analyze_beats.py && ... align_lyrics.py && ... build_timing.py`.
 
 ## Phase 0: stopped for review of the 12 under-threshold lines
+- Review decision (owner, "go"): 7 flagged lines accepted with aligned word timing (in.05, v1.03, v1.16, v2.05, v2.10, v2.15, br.08),
+  br.05 accepted at line level only, 4 stay on the bar grid (in.01, in.02, br.01, out.01). Recorded in `timing.config.json` -> `accepted`.
+  timing.json now: 85 lines aligned, 4 grid.
+
+## Phase 1: style bible and component library (in progress)
+- Remotion 4.0.544 + React 19.2.0 + TypeScript 5.9.3, exact pins, lockfile committed. Renders with the container's
+  Chromium headless shell (`remotion.config.ts`, override with `REMOTION_BROWSER`). Fonts bundled from npm into
+  `public/fonts` (Archivo variable incl. width axis, JetBrains Mono), loaded before the first frame.
+- `style-bible.md` written. Library in `src/lib`: theme, fonts, rng, motion, camera (whip, punch, jumpCut, shake),
+  chrome (Desktop, MenuBar, DesktopIcon, AppWindow, BrowserWindow, TabBar, Tab, Cursor, Popup, CalendarApp, NotesApp,
+  Spinner), 46 glyphs, confetti (ConfettiField fall/float/orbit, ConfettiBurst, DebrisLayer), type (HookType,
+  KineticLine, LyricCard), section context (useGlobalFrame, useShowLyrics).
+- Continuity contract `src/data/contract.ts`: ICON_HOME, HOOK_WINDOW, MURAL_POSE, tabCountAt (verses 1->48, 2->96,
+  3->160, held elsewhere), confettiLevelAt (0 -> 1, monotone), pull-back / minimise / mural progress, gag budgets.
+- Debris ledger (`src/lib/confetti/debris.ts`): 600 confetti, 17 receipts (at "Wallet got receipts"), 140 crumbs (at
+  "Crumbs in the car"), 210 paint dots (at "Paint on the floor" and "let it splatter"). Mural (`mural.ts`): "You are
+  here" map; pin tip on the glovebox icon, crumb route, lake, park, compass, receipt city blocks, YOU ARE HERE label,
+  paint-dot border. Checked with the `MuralCheck` dev composition.
+- Each section has its own entry point (`src/sections/<id>/entry.ts`) and a placeholder `Section.tsx`.
+- Tools: `tools/stills.mjs` (bundle once, render frames, contact sheet), `tools/continuity.mjs` (lint),
+  `tools/sync_check.py` (audio cross-correlation).
+- Verification: test card (`TestCard`, 10 s over hook 1) rendered at 540p with audio: `out/testcard-540p.mp4`.
+  Audio sync: offset 0.0 ms, correlation 0.984 (PASS). Determinism: same frame rendered twice, identical SHA-256.
+  Lint clean, types clean.
+- Fixed during Phase 1: canvas layers drew before fonts loaded (YOU ARE HERE fell back to a serif). Canvas helper now
+  holds the frame until fonts are in and redraws.
+
+## Phase 2: section fan-out (in progress)

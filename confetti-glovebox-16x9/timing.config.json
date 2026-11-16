@@ -203,5 +203,20 @@
       92.75,
       0.75
     ]
+  },
+  "accepted": {
+    "note": "Lines under threshold that the owner accepted on review (2026-11-16). 'aligned' keeps aligned line and word timing; 'lineOnly' keeps the aligned line start and end but drops word timing. Everything else under threshold stays on the bar grid.",
+    "aligned": [
+      "in.05",
+      "v1.03",
+      "v1.16",
+      "v2.05",
+      "v2.10",
+      "v2.15",
+      "br.08"
+    ],
+    "lineOnly": [
+      "br.05"
+    ]
   }
 }
