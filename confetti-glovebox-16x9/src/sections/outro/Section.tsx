@@ -89,8 +89,8 @@ const RoutePanel: React.FC<{frame: number}> = ({frame}) => {
       style={{
         position: 'absolute',
         left: 960,
-        top: 868,
-        width: 900,
+        top: 874,
+        width: 1060,
         transform: `translate(-50%, -50%) scale(${enter})`,
         background: C.paper,
         border: outline(SHAPE.stroke + 1),
@@ -101,8 +101,8 @@ const RoutePanel: React.FC<{frame: number}> = ({frame}) => {
         zIndex: 40,
       }}
     >
-      <div style={{display: 'flex', alignItems: 'center', gap: 14, fontFamily: FONT.mono, fontWeight: 700, fontSize: 26, color: C.ink}}>
-        <Glyph name="pin" size={40} />
+      <div style={{display: 'flex', alignItems: 'center', gap: 14, fontFamily: FONT.mono, fontWeight: 700, fontSize: 30, color: C.ink}}>
+        <Glyph name="pin" size={44} />
         <span>{done ? 'route loaded' : `buffering route${dots}`}</span>
         <div style={{flex: 1}} />
         <span style={{fontWeight: 800, color: done ? C.pickle : C.ink}}>{pct}%</span>
@@ -110,9 +110,9 @@ const RoutePanel: React.FC<{frame: number}> = ({frame}) => {
       <div style={{marginTop: 12, height: 30, border: outline(SHAPE.stroke), borderRadius: SHAPE.radiusSmall, background: C.paper2, overflow: 'hidden'}}>
         <div style={{width: `${pct}%`, height: '100%', background: done ? C.pickle : C.tangerine, borderRight: pct < 100 ? outline(SHAPE.thin) : 'none'}} />
       </div>
-      <div style={{marginTop: 14, minHeight: 104}}>
-        {frame >= L1.startFrame - 2 && <SungWords l={L1} frame={frame} size={44} />}
-        {frame >= L2.startFrame - 2 && <SungWords l={L2} frame={frame} size={44} />}
+      <div style={{marginTop: 14, minHeight: 124}}>
+        {frame >= L1.startFrame - 2 && <SungWords l={L1} frame={frame} size={54} />}
+        {frame >= L2.startFrame - 2 && <SungWords l={L2} frame={frame} size={54} />}
       </div>
     </div>
   );
@@ -192,8 +192,8 @@ const Section: React.FC<SectionProps> = () => {
   const fallT = clamp((frame - FALL_FROM) / (LAND - FALL_FROM));
   const sinceLand = frame - LAND;
   const squash = sinceLand >= 0 ? 0.32 * Math.exp(-sinceLand / 5) * Math.cos(sinceLand * 0.85) : 0;
-  const tacoY = frame < LAND ? -140 + (pin.y - 14 + 140) * ease.inQuad(fallT) : pin.y - 14;
-  const tacoSize = 150 * zoom;
+  const tacoY = frame < LAND ? -140 + (pin.y - 20 + 140) * ease.inQuad(fallT) : pin.y - 20;
+  const tacoSize = 210 * zoom;
 
   return (
     <AbsoluteFill>
