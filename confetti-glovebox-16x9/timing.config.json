@@ -1,0 +1,86 @@
+{
+  "audio": "public/song.m4a",
+  "lyrics": "lyrics.txt",
+  "fps": 30,
+  "nominalBpm": 140,
+  "beatsPerBar": 4,
+  "grid": {
+    "useMeasuredTempo": true,
+    "manualOffsetSec": 0.0,
+    "barPhase": 1,
+    "note": "barPhase = index (0..3) of the grid beat that is beat 1 of the bar. Measured: the kick sits on phase 1, so bar 0 starts at offset + 1 beat (0.458 s)."
+  },
+  "thresholds": {
+    "minMeanWordProb": 0.6,
+    "minWordsMatched": 0.7,
+    "maxStartDeviationBeats": 1.0,
+    "durationRatio": [
+      0.5,
+      1.5
+    ],
+    "maxTempoDeviationPct": 1.0
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "startBar": 0,
+      "bars": 4,
+      "intensity": 0.0
+    },
+    {
+      "id": "verse1",
+      "startBar": 4,
+      "bars": 16,
+      "intensity": 0.5
+    },
+    {
+      "id": "hook1",
+      "startBar": 20,
+      "bars": 10,
+      "intensity": 0.4
+    },
+    {
+      "id": "verse2",
+      "startBar": 30,
+      "bars": 16,
+      "intensity": 0.6
+    },
+    {
+      "id": "prehook",
+      "startBar": 46,
+      "bars": 4,
+      "intensity": 0.2
+    },
+    {
+      "id": "hook2",
+      "startBar": 50,
+      "bars": 10,
+      "intensity": 0.7
+    },
+    {
+      "id": "bridge",
+      "startBar": 60,
+      "bars": 8,
+      "intensity": 0.6
+    },
+    {
+      "id": "verse3",
+      "startBar": 68,
+      "bars": 12,
+      "intensity": 0.8
+    },
+    {
+      "id": "hook3",
+      "startBar": 80,
+      "bars": 8,
+      "intensity": 1.0
+    },
+    {
+      "id": "outro",
+      "startBar": 88,
+      "bars": 7,
+      "intensity": 0.1
+    }
+  ],
+  "lineOverrides": {}
+}

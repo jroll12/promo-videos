@@ -1,0 +1,11 @@
+node_modules/
+out/
+analysis/out/
+analysis/.venv/
+analysis/.cache/
+validation/frames/
+validation/key.json
+__pycache__/
+*.log
+.env
+.env.*
