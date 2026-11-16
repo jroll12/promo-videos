@@ -1,0 +1,39 @@
+{
+  "section": "outro",
+  "frames": [4539, 4897],
+  "gags": [
+    {
+      "lineId": "out.01",
+      "treatment": "literal",
+      "gag": "buffering spinner on the map pin",
+      "description": "The 'You are here' mural's pin gets a loading spinner in its head, a wait cursor beside it, and a route panel below reads 'buffering route...' with a progress bar that creeps to 99% and sticks; the panel prints STILL NOT LOST. word by word.",
+      "tab": null,
+      "holdFrames": [4600, 4792],
+      "lyricType": false
+    },
+    {
+      "lineId": "out.02",
+      "treatment": "ambient",
+      "gag": "spinner keeps spinning, line printed in the route panel",
+      "description": "Spinner and 99% bar stay stuck while JUST CREATIVELY DELAYED. pops into the route panel on its sung words (sung word tangerine).",
+      "tab": null,
+      "holdFrames": [4693, 4802],
+      "lyricType": false
+    },
+    {
+      "lineId": "out.03",
+      "treatment": "literal",
+      "gag": "taco lands on the pin, end card",
+      "description": "A taco drops onto the pin head on 'snacks' (squash, small confetti burst), the spinner vanishes, the bar jumps to 100% 'route loaded', then the end card resolves: STILL NOT LOST. (top) / JUST CREATIVELY DELAYED. / WITH SNACKS. + taco (mustard), camera pushes gently into the pin and holds still for the ring-out.",
+      "tab": null,
+      "holdFrames": [4792, 4897],
+      "lyricType": false
+    }
+  ],
+  "tabs": {"start": 160, "end": 160},
+  "confetti": {"start": 1.0, "end": 1.0},
+  "debrisIds": "ledger (no manual debris); DebrisLayer at the same pose as Camera every frame (MURAL_POSE, then a push about the pin to scale 0.38)",
+  "localProps": ["SungWords (in-picture word-timed UI text)", "RoutePanel (buffering panel, progress bar stuck at 99%)", "EndCard (end-card phrase sticker, renders without lyrics)"],
+  "promotionCandidates": ["EndCard: a LyricCard-styled sticker that ignores showLyrics, for in-picture type"],
+  "notes": "No browser window or tab bar is visible in the outro (window minimised in hook3), so tabCountAt is never drawn. Seam: frame 4539 is Camera MURAL_POSE + Desktop + DebrisLayer(MURAL_POSE) + h3.08 LyricCard (size 140, y 140, centred, enter 1) held until line('h3.08').endFrame (4564), then shrinks out over 6 frames. Confetti: ConfettiField orbit (spin 2, as the hook) crossfades by opacity into float (speed 0.5) over the first 2 beats; no level override. Camera still at MURAL_POSE until the taco lands (4792), push 4792-4843, still to the end. End-card text is uppercase Archivo 900/125% on paper and mustard cards; drawn above the confetti for legibility."
+}

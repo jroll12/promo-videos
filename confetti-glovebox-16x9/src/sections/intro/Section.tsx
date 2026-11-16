@@ -102,8 +102,8 @@ const CURSOR_PRE: K[] = [
   {f: T.free, x: SLOT.x + TUG.x + GRIP.x, y: SLOT.y + TUG.y + GRIP.y},
 ];
 const CURSOR_POST: K[] = [
-  {f: T.drop + 2, x: HOVER.x + GRIP.x, y: HOVER.y + GRIP.y},
-  {f: T.drop + 16, x: 1150, y: 860},
+  {f: T.drop + 1, x: HOVER.x + GRIP.x, y: HOVER.y + GRIP.y},
+  {f: T.drop + 11, x: 1190, y: 800},
 ];
 
 // rejection wiggle at a wrong spot: a quick "no" head-shake that dies out
@@ -150,7 +150,7 @@ const iconAt = (frame: number) => {
 
 const cursorAt = (frame: number) => {
   if (frame < T.free) return along(CURSOR_PRE, frame);
-  if (frame < T.drop + 2) {
+  if (frame < T.drop + 1) {
     const i = iconAt(Math.min(frame, T.drop - 1));
     const w = wiggleAt(frame);
     return {x: i.x - w.dx * 0.4 + GRIP.x, y: i.y + GRIP.y};
@@ -403,7 +403,6 @@ const RisingBrowser: React.FC<{frame: number}> = ({frame}) => {
         height: VERSE_WINDOW.h,
         transformOrigin: '50% 100%',
         transform: `translateY(${dy}px) scale(${s})`,
-        zIndex: 30,
       }}
     >
       <BrowserWindow
@@ -432,7 +431,7 @@ const Section: React.FC<SectionProps> = () => {
   const cur = cursorAt(frame);
   const cursorOn = frame >= T.okay;
   const kind: CursorKind =
-    frame >= T.drop + 2 ? 'arrow' : frame >= T.grab ? 'grabbing' : frame >= T.grab - 8 ? 'grab' : 'arrow';
+    frame >= T.drop + 1 ? 'arrow' : frame >= T.grab ? 'grabbing' : frame >= T.grab - 8 ? 'grab' : 'arrow';
   const press =
     frame >= T.grab && frame < T.grab + 10
       ? 1 - (frame - T.grab) / 10
@@ -452,12 +451,13 @@ const Section: React.FC<SectionProps> = () => {
             <NoSpot key={i} frame={frame} {...s} />
           ))}
           <HomeTarget frame={frame} />
+          {/* the browser rises out from behind the glovebox, so the icon stays in front, at home, to the last frame */}
+          <RisingBrowser frame={frame} />
           {frame >= T.dlOpen + 3 && (
             <div style={{position: 'absolute', left: icon.x, top: icon.y, width: 0, height: 0, transform: `rotate(${icon.rot}deg) scale(${icon.scale * icon.stretch}, ${icon.scale})`}}>
               <DesktopIcon x={0} y={0} pose={lidAt(frame)} selected={icon.selected} />
             </div>
           )}
-          <RisingBrowser frame={frame} />
           <CoolChip frame={frame} />
           <DragTip frame={frame} x={icon.x} y={icon.y} />
           {cursorOn && <Cursor x={cur.x} y={cur.y} kind={kind} press={press} scale={1.6 * popIn(frame, T.okay, 8)} frame={frame} />}
