@@ -26,7 +26,7 @@ const TAB_Y = HW.y + 4 + 16 + 25;
 const ACTIVE_TAB = {0: {title: 'still showing up', glyph: 'glovebox' as const}};
 
 // Gag side loops (left; the right loop is its mirror about x = 960).
-const LOOP = {x: 310, y: 760, rx: 150, ry: 105};
+const LOOP = {x: 325, y: 750, rx: 150, ry: 125};
 // Loose-tab ring: back (upper) half passes behind the window, front (lower) half in front; crossings are hidden.
 const RING = {x: 960, y: 470, rx: 900, up: 420, down: 680};
 
@@ -72,7 +72,7 @@ const Section: React.FC<SectionProps> = ({id}) => {
     const x = side < 0 ? lx : 1920 - lx;
     const depth = Math.sin(a);
     const p = into({x, y});
-    const sc = popIn(frame, at, 9) * (0.9 + 0.1 * depth) * shrink;
+    const sc = popIn(frame, at, 9) * (1.04 + 0.1 * depth) * shrink;
     return {gag, depth, el: <GagWindow key={gag} gag={gag} cx={p.x} cy={p.y} scale={sc} rot={side * wobble(frame, 40 + k, 3)} t={t} beat={beat} />};
   };
   const gags = [loopGag('sauce', -1, 0, L(1).startFrame, 1), loopGag('fizz', 1, 0, L(2).startFrame, 2)];
@@ -121,7 +121,7 @@ const Section: React.FC<SectionProps> = ({id}) => {
         const f = ease.inCubic(clamp((frame - flyAt) / 12));
         const home = {x: side < 0 ? 380 : 1540, y: 760};
         const p = toward(home, iconScreen, f);
-        const sc = popIn(frame, at, 9) * 0.95 * (1 - f);
+        const sc = popIn(frame, at, 9) * 1.1 * (1 - f);
         if (frame >= flyAt && frame < flyAt + 14) lid = Math.max(lid, 1);
         return <GagWindow key={gag} gag={gag} cx={p.x} cy={p.y} scale={sc} rot={side * wobble(frame, 60, 3)} t={t} beat={beat} />;
       })

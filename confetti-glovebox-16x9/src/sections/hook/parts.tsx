@@ -175,7 +175,7 @@ export const StatusCard: React.FC<{frame: number; tabs: number; checkAt: number;
         left: 700,
         top: 395,
         transform: 'translateX(-50%)',
-        width: 640,
+        width: 740,
         height: 150,
         boxSizing: 'border-box',
         background: C.paper,
@@ -191,7 +191,7 @@ export const StatusCard: React.FC<{frame: number; tabs: number; checkAt: number;
     >
       <Glyph name={lost ? 'pin' : 'glovebox'} size={84} />
       <div>
-        <div style={{fontFamily: FONT.display, fontWeight: 900, fontStretch: '125%', fontSize: 40, color: C.ink, lineHeight: 1.05, textTransform: 'uppercase'}}>
+        <div style={{fontFamily: FONT.display, fontWeight: 900, fontStretch: '125%', fontSize: 38, color: C.ink, lineHeight: 1.05, whiteSpace: 'nowrap', textTransform: 'uppercase'}}>
           {lost ? 'still not lost' : 'still showing up'}
         </div>
         <div style={{fontFamily: FONT.mono, fontWeight: 700, fontSize: 20, color: C.ink2, marginTop: 8}}>

@@ -100,7 +100,7 @@ export const Fridge: React.FC<{x: number; y: number; w?: number; h?: number; ope
           position: 'absolute',
           inset: 0,
           transformOrigin: '0% 50%',
-          transform: `perspective(900px) rotateY(${-open * 118}deg)`,
+          transform: `perspective(900px) rotateY(${-open * 72}deg)`,
           background: C.paper,
           border: outline(),
           borderRadius: SHAPE.radius,

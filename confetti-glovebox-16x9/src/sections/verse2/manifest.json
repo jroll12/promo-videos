@@ -1,0 +1,29 @@
+{
+  "section": "verse2",
+  "frames": [1557, 2379],
+  "gags": [
+    {"lineId": "v2.01", "treatment": "literal", "gag": "spoon in the pencil drawer", "description": "Top-down drawer labelled PENCIL DRAWER full of pencils, one spoon among them circled, 'spoon?!' tag, counter 'pencils: 9 · spoons: 1 (??)', cursor pointing at it; opens on a zoom punch, cuts tighter on the spoon", "tab": {"title": "pencil drawer", "glyph": "pencil"}, "holdFrames": [1557, 1598], "lyricType": false},
+    {"lineId": "v2.02", "treatment": "literal", "gag": "one plan, then twelve more", "description": "Notes window plan.txt: THE PLAN, then plan B..plan M pop in fast; title counts to 13 plans, '+12 MORE' stamp", "tab": {"title": "plan.txt", "glyph": "notebook"}, "holdFrames": [1598, 1662], "lyricType": false},
+    {"lineId": "v2.03", "treatment": "ambient", "gag": "", "description": "beat jump cuts over the growing tab bar and filler tab pages", "holdFrames": [], "lyricType": false},
+    {"lineId": "v2.04", "treatment": "type-only", "gag": "", "description": "punchline card over tab montage", "holdFrames": [], "lyricType": true},
+    {"lineId": "v2.05", "treatment": "ambient", "gag": "", "description": "big zoom punch onto the newest tab", "holdFrames": [], "lyricType": false},
+    {"lineId": "v2.06", "treatment": "type-only", "gag": "", "description": "second punch, dutch wide; PROBABLY ME card", "holdFrames": [], "lyricType": true},
+    {"lineId": "v2.07", "treatment": "literal", "gag": "a sneeze through a library", "description": "CITY LIBRARY page with full shelves and a QUIET PLEASE sign; a sneezing face with ACHOO! travels left to right and blasts the books off the shelves as it passes, sign knocked crooked, camera shake", "tab": {"title": "quiet library", "glyph": "sneeze"}, "holdFrames": [1804, 1881], "lyricType": false},
+    {"lineId": "v2.08", "treatment": "ambient", "gag": "", "description": "library aftermath (empty shelves, book pile), then whip into montage", "holdFrames": [], "lyricType": false},
+    {"lineId": "v2.09", "treatment": "type-only", "gag": "", "description": "punchline card over tab montage", "holdFrames": [], "lyricType": true},
+    {"lineId": "v2.10", "treatment": "ambient", "gag": "", "description": "tab montage, beat cuts, whips on downbeats", "holdFrames": [], "lyricType": false},
+    {"lineId": "v2.11", "treatment": "literal", "gag": "three missed calls from an unknown zone", "description": "Big phone at half battery ('battery: 50%') with a badge counting 1..3; three 'Missed call' dialogs 'from UNKNOWN ZONE' pop in on the beat", "tab": {"title": "3 missed calls", "glyph": "phone"}, "holdFrames": [2016, 2061], "lyricType": false},
+    {"lineId": "v2.12", "treatment": "literal", "gag": "calendar as an RPG boss fight", "description": "Busy Calendar app, battle wipe, then 'Calendar — BOSS FIGHT': angry calendar boss (Lv.99, HP 9999/9999), the cursor as player on a platform with a tangerine, text 'A wild CALENDAR appears!' then 'What will YOU do?' with FIGHT / ITEM / RUN menu; zoom punch on 'boss'", "tab": {"title": "calendar: BOSS", "glyph": "calendar"}, "holdFrames": [2061, 2118], "lyricType": false},
+    {"lineId": "v2.13", "treatment": "literal", "gag": "underprepared with a tangerine", "description": "Selector to ITEM, 'BAG: 1 TANGERINE.', 'TANGERINE equipped!' (player card shows it, tight shot), the tangerine is thrown, POW, screen shake and confetti burst, HP 9998/9999, '-1', 'It's not very effective...'", "tab": {"title": "calendar: BOSS", "glyph": "calendar"}, "holdFrames": [2118, 2202], "lyricType": false},
+    {"lineId": "v2.14", "treatment": "type-only", "gag": "", "description": "card starts over the end of the boss fight, then tab montage", "holdFrames": [], "lyricType": true},
+    {"lineId": "v2.15", "treatment": "ambient", "gag": "", "description": "tab montage ending on an 'art from stuff' tab", "holdFrames": [], "lyricType": false},
+    {"lineId": "v2.16", "treatment": "ambient", "gag": "", "description": "camera at rest-wide on the whole desktop so the ledger's paint dots (floor and ceiling band) land in frame; no section-drawn paint", "holdFrames": [], "lyricType": false},
+    {"lineId": "v2.17", "treatment": "type-only", "gag": "", "description": "full window, 96 sliver tabs, beat cuts with tilt; card; hard cut to pre-hook", "holdFrames": [], "lyricType": true}
+  ],
+  "tabs": {"start": 2, "end": 96},
+  "confetti": {"start": 0.24, "end": 0.4},
+  "debrisIds": "ledger (no manual debris)",
+  "localProps": ["DrawerPage", "PlansPage", "LibraryPage (flying books)", "PhonePage", "TabPage (generic filler tab page)", "BossPage / Battle (RPG boss UI on CalendarApp: HP bar, menu, text box, battle wipe)", "shot list camera (shots.ts)"],
+  "promotionCandidates": ["TabPage generic filler page", "shot-list camera helper (cameraAt with whip between shots)", "content-area origin constant for BrowserWindow (BROWSER_CHROME_H omits the address bar borders, 8 px)"],
+  "notes": "6 literal lines (v2.01, v2.02, v2.07, v2.11, v2.12, v2.13); 5 kinetic cards (v2.04, v2.06, v2.09, v2.14, v2.17). Tab bar always renders tabCountAt(frame); gag tabs are named at the index that was newest when each gag opened. Content scene switches at mid-whip. One ConfettiBurst (60) at the tangerine hit. BrowserWindow content area actually starts 8 px lower than BROWSER_CHROME_H suggests; handled locally in cues.ts."
+}

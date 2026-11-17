@@ -1,0 +1,327 @@
+{
+  "section": "hook",
+  "frames": {
+    "hook1": [
+      1042,
+      1557
+    ],
+    "hook2": [
+      2585,
+      3099
+    ],
+    "hook3": [
+      4128,
+      4539
+    ]
+  },
+  "gags": [
+    {
+      "lineId": "h1.01",
+      "treatment": "literal",
+      "gag": "sauce leaking out of a backpack",
+      "description": "pink backpack with a tipped sauce bottle, sauce running down it into a puddle; label SAUCE: TOO MUCH (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "backpack",
+        "glyph": "sauce"
+      },
+      "holdFrames": [
+        1043,
+        1556
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h1.02",
+      "treatment": "literal",
+      "gag": "fizz cup overflowing",
+      "description": "fizz cup with foam spilling over the rim and bubbles escaping; label FIZZ: OVERFLOW (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "fizz cup",
+        "glyph": "cup"
+      },
+      "holdFrames": [
+        1123,
+        1556
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h1.03",
+      "treatment": "ambient",
+      "gag": "loose tabs pop out",
+      "description": "loose tabs pop out on each word and join the orbit ring (count grows with intensity)",
+      "lyricType": true
+    },
+    {
+      "lineId": "h1.04",
+      "treatment": "ambient",
+      "gag": "status card on the",
+      "description": "status card on the page gets a pickle check stamp; cursor still holding the active tab",
+      "lyricType": true
+    },
+    {
+      "lineId": "h1.05",
+      "treatment": "ambient",
+      "gag": "glovebox lid pops open",
+      "description": "glovebox lid pops open and a small confetti burst comes out of the icon",
+      "lyricType": true
+    },
+    {
+      "lineId": "h1.06",
+      "treatment": "literal",
+      "gag": "keys in the fridge",
+      "description": "open fridge, keys on the middle shelf under a bobbing map pin; label FOUND: IN FRIDGE (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "find keys",
+        "glyph": "key"
+      },
+      "holdFrames": [
+        1330,
+        1556
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h1.07",
+      "treatment": "literal",
+      "gag": "lunch clock gone weird",
+      "description": "clock just past twelve beside a wobbling sandwich, blinking warning triangle; label LUNCH: WEIRD (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "lunch",
+        "glyph": "taco"
+      },
+      "holdFrames": [
+        1378,
+        1556
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h1.08",
+      "treatment": "ambient",
+      "gag": "status card switches to",
+      "description": "status card switches to STILL NOT LOST with a pin glyph",
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.01",
+      "treatment": "literal",
+      "gag": "sauce leaking out of a backpack",
+      "description": "pink backpack with a tipped sauce bottle, sauce running down it into a puddle; label SAUCE: TOO MUCH (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "backpack",
+        "glyph": "sauce"
+      },
+      "holdFrames": [
+        2590,
+        3098
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.02",
+      "treatment": "literal",
+      "gag": "fizz cup overflowing",
+      "description": "fizz cup with foam spilling over the rim and bubbles escaping; label FIZZ: OVERFLOW (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "fizz cup",
+        "glyph": "cup"
+      },
+      "holdFrames": [
+        2665,
+        3098
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.03",
+      "treatment": "ambient",
+      "gag": "loose tabs pop out",
+      "description": "loose tabs pop out on each word and join the orbit ring (count grows with intensity)",
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.04",
+      "treatment": "ambient",
+      "gag": "status card on the",
+      "description": "status card on the page gets a pickle check stamp; cursor still holding the active tab",
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.05",
+      "treatment": "ambient",
+      "gag": "glovebox lid pops open",
+      "description": "glovebox lid pops open and a small confetti burst comes out of the icon",
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.06",
+      "treatment": "literal",
+      "gag": "keys in the fridge",
+      "description": "open fridge, keys on the middle shelf under a bobbing map pin; label FOUND: IN FRIDGE (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "find keys",
+        "glyph": "key"
+      },
+      "holdFrames": [
+        2872,
+        3098
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.07",
+      "treatment": "literal",
+      "gag": "lunch clock gone weird",
+      "description": "clock just past twelve beside a wobbling sandwich, blinking warning triangle; label LUNCH: WEIRD (orbits the mirrored side loop until the end of the hook)",
+      "tab": {
+        "title": "lunch",
+        "glyph": "taco"
+      },
+      "holdFrames": [
+        2921,
+        3098
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h2.08",
+      "treatment": "ambient",
+      "gag": "status card switches to",
+      "description": "status card switches to STILL NOT LOST with a pin glyph",
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.01",
+      "treatment": "literal",
+      "gag": "sauce leaking out of a backpack",
+      "description": "pink backpack with a tipped sauce bottle, sauce running down it into a puddle; label SAUCE: TOO MUCH (final hook: minimised into the glovebox with the window)",
+      "tab": {
+        "title": "backpack",
+        "glyph": "sauce"
+      },
+      "holdFrames": [
+        4133,
+        4347
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.02",
+      "treatment": "literal",
+      "gag": "fizz cup overflowing",
+      "description": "fizz cup with foam spilling over the rim and bubbles escaping; label FIZZ: OVERFLOW (final hook: minimised into the glovebox with the window)",
+      "tab": {
+        "title": "fizz cup",
+        "glyph": "cup"
+      },
+      "holdFrames": [
+        4208,
+        4347
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.03",
+      "treatment": "ambient",
+      "gag": "loose tabs pop out",
+      "description": "loose tabs pop out on each word and join the orbit ring (count grows with intensity)",
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.04",
+      "treatment": "ambient",
+      "gag": "status card on the",
+      "description": "status card on the page gets a pickle check stamp; cursor still holding the active tab",
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.05",
+      "treatment": "ambient",
+      "gag": "window minimises into the glovebox, lid bursts confetti",
+      "description": "over MINIMISE_BARS the browser window, cursor and orbiters shrink into the glovebox icon; the lid pops and bursts confetti as the camera pulls back",
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.06",
+      "treatment": "literal",
+      "gag": "keys in the fridge",
+      "description": "open fridge, keys on the middle shelf under a bobbing map pin; label FOUND: IN FRIDGE (final hook: pops up in screen space during the pull-back, holds, then is swallowed by the glovebox)",
+      "tab": {
+        "title": "find keys",
+        "glyph": "key"
+      },
+      "holdFrames": [
+        4414,
+        4466
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.07",
+      "treatment": "literal",
+      "gag": "lunch clock gone weird",
+      "description": "clock just past twelve beside a wobbling sandwich, blinking warning triangle; label LUNCH: WEIRD (final hook: pops up in screen space during the pull-back, holds, then is swallowed by the glovebox)",
+      "tab": {
+        "title": "lunch",
+        "glyph": "taco"
+      },
+      "holdFrames": [
+        4463,
+        4515
+      ],
+      "lyricType": true
+    },
+    {
+      "lineId": "h3.08",
+      "treatment": "ambient",
+      "gag": "status card switches to",
+      "description": "status card switches to STILL NOT LOST with a pin glyph",
+      "lyricType": true
+    }
+  ],
+  "tabs": {
+    "hook1": [
+      48,
+      48
+    ],
+    "hook2": [
+      96,
+      96
+    ],
+    "hook3": [
+      160,
+      160
+    ],
+    "note": "tabCountAt(frame) in the symmetric tab bar whenever the window is visible; window minimised from bar 84.25 in hook3"
+  },
+  "confetti": {
+    "hook1": [
+      0.2,
+      0.24
+    ],
+    "hook2": [
+      0.55,
+      0.6
+    ],
+    "hook3": [
+      0.85,
+      1
+    ],
+    "mode": "orbit, spin 1+intensity, no level override"
+  },
+  "debrisIds": "ledger (no manual debris); DebrisLayer gets the same pose as Camera, mural forms by itself in hook3",
+  "localProps": [
+    "HookBrowser (BrowserWindow copy with the symmetric tab bar centred on the window instead of after the traffic lights)",
+    "HookLyric (HookType-style card with a fixed two-row break and fit-to-width size)",
+    "StatusCard",
+    "TabChip",
+    "GagWindow (sauce, fizz, keys, lunch bodies)"
+  ],
+  "promotionCandidates": [
+    "BrowserWindow: option to centre the symmetric tab bar on the window axis (lib version puts the active tab ~55 px right of centre)",
+    "HookType: size/width/top-anchor overrides or a balanced two-row break; at 140 px most hook lines wrap and line .03 would need 3 rows",
+    "GagWindow-style mini AppWindow with an in-picture label chip"
+  ],
+  "notes": "Hook type: hooks 1-2 and hook3 lines .01-.04 use HookLyric top-anchored at y 230 (inside the window content, so the tab bar and the held cursor stay clear), size min(80+60*intensity, fit) = 104/122/<=140. From h3.05 (startFrame-4) hook3 switches to the lib HookType(intensity 1, y 140, beatPulse 0.4), i.e. LyricCard size 140 y 140, which is exactly what the outro holds at its first frame. That card wraps to two rows and reaches about screen y 305, slightly into the mural top band; it is the outro-agreed seam. Last frame (4538) is exactly MURAL_POSE, muralAt=1, no window, cursor or orbiters left; ConfettiField orbit spin 2. Tails of hook1/hook2 hold the image and the h.08 card; the next section pickups are not shown. Window punch on bar downbeats scales the window around the active tab (amount 0.01+0.03*intensity) so the tab stays under the still cursor. Active tab centre is at x 964 (HOOK_WINDOW is content-box, its centre is 964). Gag budget: 4 literal per hook (same gags recur). In hook3, keys and lunch are sung during the pull-back, so they appear in screen space at mirrored lower-left/right positions instead of on the loops."
+}

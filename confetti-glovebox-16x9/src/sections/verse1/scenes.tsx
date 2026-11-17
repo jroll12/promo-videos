@@ -228,7 +228,7 @@ export const FridgeScene: React.FC<{frame: number}> = ({frame}) => {
       <div style={{position: 'absolute', left: 420, top: 724, width: 1180, height: 14, borderRadius: 7, background: C.paper, border: outline(3)}}>
         <div style={{width: `${18 + u * 50}%`, height: '100%', background: C.tangerine, borderRadius: 7}} />
       </div>
-      <PauseBadge x={CW / 2 + 60} y={600} enter={frozen ? settle(frame, PICKLE_FREEZE(), 7) : 0} />
+      <PauseBadge x={clamp(p.x, 360, CW - 360)} y={clamp(p.y + 190, 0, 600)} enter={frozen ? settle(frame, PICKLE_FREEZE(), 7) : 0} />
     </Fill>
   );
 };
@@ -298,8 +298,8 @@ export const BOAT_START = () => wf('v1.08', 'build');
 export const BOAT_DONE = () => wf('v1.08', 'boxes');
 export const BoatScene: React.FC<{frame: number}> = ({frame}) => {
   const t0 = BOAT_START();
-  const t1 = BOAT_DONE() - 4;
-  const sailAt = BOAT_DONE();
+  const t1 = wf('v1.08', 'out');
+  const sailAt = t1 + 4;
   const floating = clamp((frame - sailAt) / 10);
   const bobY = Math.sin(frame * 0.18) * 10 * floating;
   const bobR = Math.sin(frame * 0.14 + 1) * 3 * floating;

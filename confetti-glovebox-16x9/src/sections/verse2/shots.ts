@@ -59,10 +59,10 @@ const montage = (fromBar: number, toBar: number, seed: number): Shot[] => {
 const spoonWorld = {x: CO.x + SPOON_LOCAL.x, y: CO.y + SPOON_LOCAL.y};
 const bossMid = bodyToWorld(520, 450);
 
-export const SHOTS: Shot[] = [
+const LIST: Shot[] = [
   {at: CUE.start, pose: CONTENT(1.3, -2), whip: false, scene: 'drawer', punch: 0.16, tab: TAB_IDX.drawer},
   {at: CUE.drawerTight, pose: P(spoonWorld.x - 60, spoonWorld.y + 10, 1.9, 2), whip: false, scene: 'drawer', punch: 0.08, tab: TAB_IDX.drawer},
-  {at: CUE.plansIn, pose: CONTENT(1.12, 1), whip: true, scene: 'plans', punch: 0.06, tab: TAB_IDX.plans},
+  {at: CUE.plansIn, pose: CONTENT(1.32, 1), whip: true, scene: 'plans', punch: 0.06, tab: TAB_IDX.plans},
   ...montage(2, 4, seedOf('v2-m1')),
   {at: CUE.me, pose: P(newestTabX(tabCountAt(CUE.me)), TAB_Y + 20, 2.8, -4), whip: false, scene: 'montage', punch: 0.2, tab: tabCountAt(CUE.me) - 1},
   {at: CUE.probablyMe, pose: P(960, 560, 0.95, 6), whip: false, scene: 'montage', punch: 0.2, tab: tabCountAt(CUE.probablyMe) - 1},
@@ -75,7 +75,8 @@ export const SHOTS: Shot[] = [
   ...montage(12.5, 13.875, seedOf('v2-m3')),
   {at: CUE.paint, pose: P(960, 540, 1), whip: true, scene: 'art', punch: 0.04, tab: TAB_IDX.art},
   ...[0, 1, 2, 3].map((i): Shot => ({at: B(15 + i * 0.25), pose: P(960, 480, 1.08, i % 2 ? 1.5 : -1.5), whip: false, scene: 'final', punch: i === 0 ? 0.12 : 0.06, tab: -1})),
-].sort((a, b) => a.at - b.at);
+];
+export const SHOTS: Shot[] = LIST.sort((a, b) => a.at - b.at);
 
 export const BOSS_HIT_WORLD = bodyToWorld(BOSS_AT.x, BOSS_AT.y);
 
