@@ -18,7 +18,7 @@
     },
     {
       "id": "pilot→result",
-      "cut": 26.85,
+      "cut": 26.68,
       "technique": "cut-the-curve UP",
       "exit": {
         "selector": "#pl-stage",
@@ -33,7 +33,7 @@
     },
     {
       "id": "result→relief",
-      "cut": 37.18,
+      "cut": 37.01,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#rs-stage",
@@ -48,7 +48,7 @@
     },
     {
       "id": "relief→close",
-      "cut": 57.39,
+      "cut": 57.24,
       "technique": "cut-the-curve UP",
       "exit": {
         "selector": "#rf-stage",

@@ -21,3 +21,10 @@ The same as the 9:16 film (`../nefes-case-study-9x16/REVIEW.md`): Jarret listens
 
 ## Rebuilding
 `node tools/build.mjs`, then the skill's `scripts/qa.sh .` and `scripts/render.sh . final --preset landscape-4k`. The narration and timing come from the 9:16 project; copy `el-scenes/`, `assets/vo/vo.wav` and `build/timing.json` across if they change there.
+
+## Round 2 (2026-11-17): the name, and the team pill
+- **The name** is now Jarret's own recording of "Zogreo", re-voiced in the Jason voice with ElevenLabs speech-to-speech and spliced into the two lines that say it (L3, L12). The word file comes from the other Zogreo promo (branch `claude/zogreo-promo-video-ecah3u`), where Jarret approved it; the splice copies that branch's method: no stretch, no EQ, level matched, room tone under it, 25 ms crossfade in, 15 ms out (`tools/splice_name.py`).
+  - **Measured:** the narration before the first name is unchanged (correlation 1.0000); each name is 0.13 to 0.18 s shorter than Jason's, so the film is 67.8 s (was 68.2 s), and every cue re-stamped from the new word times.
+  - **Recogniser:** it now hears "So, Zogreo" and "or give zogreo.org", dropping "at" in both lines. In the closing line the cut sits in 0.2 s of silence after "at", so this is the recogniser reacting to how the new word begins, not a clipped word. **Listen to both lines.**
+  - A new roll of the pilot or close take moves the cut points; re-read the loudness contour before re-running the splice.
+- **The pill** ("FIELD TEAM OF 2") now first appears on "handed to the team on the ground" (about 0:23.6), not at 0:10 on "The field team: two people".

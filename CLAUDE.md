@@ -1,6 +1,6 @@
 # promo-videos: how to work here (read this first, keep replies short)
 
-Skill: `.claude/skills/brochure-to-promo-video` (loads automatically). Zogreo is spoken as **"Zo-GRAY-oh"** (stress on GRAY, light "oh" at the end), set by Jarret's reference clip `zogreo-intro-9x16/assets/brand/pronunciation/`. Send exactly that respelling to ElevenLabs (`spoken_elevenlabs` in `tools/script.json`), every video, every scene that says the name.
+Skill: `.claude/skills/brochure-to-promo-video` (loads automatically). Zogreo is spoken as **"Zo-GRAY-oh"** (stress on GRAY, light "oh" at the end), set by Jarret's reference clip `zogreo-intro-9x16/assets/brand/pronunciation/`. Send exactly that respelling to ElevenLabs (`spoken_elevenlabs` in `tools/script.json`), every video, every scene that says the name. Text-to-speech still does not match his recording by ear: the NEFES films splice in his own recording re-voiced as Jason (ElevenLabs speech-to-speech, `assets/brand/pronunciation/zogreo-word-jason.mp3`) with `tools/splice_name.py`; do the same for new films.
 
 ## Layout
 - `zogreo-intro-9x16/`, `zogreo-intro-16x9/`: finished film, both shapes. Brand assets (logo, fonts, QR, palette) are in `zogreo-intro-9x16/assets/brand` and `assets/fonts`: reuse them, do not re-extract.

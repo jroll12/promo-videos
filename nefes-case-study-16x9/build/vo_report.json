@@ -3,8 +3,8 @@
   "id": "L1",
   "heard": "I used to have to handle every message myself. When messages came at night or when I was busy, I couldn't keep up with the volume.",
   "wer": 0.0,
-  "seconds": 7.06,
-  "words_per_second": 3.68,
+  "seconds": 6.98,
+  "words_per_second": 3.72,
   "names": []
  },
  {
@@ -17,10 +17,10 @@
  },
  {
   "id": "L3",
-  "heard": "So at Zogreo, we ran a pilot.",
-  "wer": 0.0,
-  "seconds": 2.24,
-  "words_per_second": 3.12,
+  "heard": "So, Zogreo, we ran a pilot.",
+  "wer": 0.143,
+  "seconds": 2.07,
+  "words_per_second": 3.38,
   "names": [
    {
     "term": "Zogreo",
@@ -42,8 +42,8 @@
   "id": "L5",
   "heard": "Those who finish and obey in faith are handed to the team on the ground.",
   "wer": 0.0,
-  "seconds": 4.64,
-  "words_per_second": 3.23,
+  "seconds": 4.63,
+  "words_per_second": 3.24,
   "names": []
  },
  {
@@ -66,8 +66,8 @@
   "id": "L8",
   "heard": "One more thing. Many who answer these ads are hostile and responders take the abuse.",
   "wer": 0.0,
-  "seconds": 5.56,
-  "words_per_second": 2.7,
+  "seconds": 5.48,
+  "words_per_second": 2.74,
   "names": []
  },
  {
@@ -90,21 +90,21 @@
   "id": "L11",
   "heard": "Our AI doesn't replace the team. It multiplies them.",
   "wer": 0.0,
-  "seconds": 3.96,
-  "words_per_second": 2.27,
+  "seconds": 3.8,
+  "words_per_second": 2.37,
   "names": []
  },
  {
   "id": "L12",
-  "heard": "Book a call or give at zograyo.org.",
+  "heard": "Book a call or give zogreo.org.",
   "wer": 0.125,
-  "seconds": 3.09,
-  "words_per_second": 2.27,
+  "seconds": 2.88,
+  "words_per_second": 2.43,
   "names": [
    {
     "term": "zogreo.org",
-    "heard_as": "zograyo",
-    "similarity": 0.62,
+    "heard_as": "zogreo",
+    "similarity": 0.8,
     "flag": true
    }
   ]

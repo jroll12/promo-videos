@@ -4,22 +4,22 @@
  "voice": "ElevenLabs Jason, per-scene takes (Zo-GRAY-oh)",
  "speed": 1.0,
  "effect_preset": null,
- "duration": 65.8,
+ "duration": 65.42,
  "lines": [
   {
    "id": "L1",
    "text": "I used to have to handle every message myself. When messages came at night or when I was busy, I couldn't keep up with the volume.",
-   "start": 0.16,
+   "start": 0.24,
    "end": 7.22,
    "words": [
     {
      "w": "I",
-     "start": 0.16,
-     "end": 0.38
+     "start": 0.24,
+     "end": 0.46
     },
     {
      "w": "used",
-     "start": 0.4,
+     "start": 0.48,
      "end": 0.62
     },
     {
@@ -40,11 +40,11 @@
     {
      "w": "handle",
      "start": 1.12,
-     "end": 1.5
+     "end": 1.42
     },
     {
      "w": "every",
-     "start": 1.52,
+     "start": 1.44,
      "end": 1.74
     },
     {
@@ -211,724 +211,724 @@
    "id": "L3",
    "text": "So at Zogreo, we ran a pilot.",
    "start": 12.54,
-   "end": 14.78,
+   "end": 14.61,
    "words": [
     {
      "w": "So",
      "start": 12.54,
-     "end": 12.84
+     "end": 12.72
     },
     {
      "w": "at",
-     "start": 12.86,
-     "end": 13.0
+     "start": 12.74,
+     "end": 12.92
     },
     {
      "w": "Zogreo,",
-     "start": 13.02,
-     "end": 13.96
+     "start": 12.94,
+     "end": 13.88
     },
     {
      "w": "we",
-     "start": 13.98,
-     "end": 14.12
+     "start": 13.9,
+     "end": 13.96
     },
     {
      "w": "ran",
-     "start": 14.14,
-     "end": 14.28
+     "start": 13.98,
+     "end": 14.2
     },
     {
      "w": "a",
-     "start": 14.3,
-     "end": 14.44
+     "start": 14.22,
+     "end": 14.28
     },
     {
      "w": "pilot.",
-     "start": 14.46,
-     "end": 14.78
+     "start": 14.3,
+     "end": 14.61
     }
    ]
   },
   {
    "id": "L4",
    "text": "Our AI leads each person through three Bible studies, answers their questions, and follows up.",
-   "start": 15.18,
-   "end": 20.42,
+   "start": 15.02,
+   "end": 20.26,
    "words": [
     {
      "w": "Our",
-     "start": 15.18,
-     "end": 15.4
+     "start": 15.02,
+     "end": 15.24
     },
     {
      "w": "AI",
-     "start": 15.42,
-     "end": 15.96
+     "start": 15.26,
+     "end": 15.8
     },
     {
      "w": "leads",
-     "start": 15.98,
-     "end": 16.28
+     "start": 15.82,
+     "end": 16.12
     },
     {
      "w": "each",
-     "start": 16.3,
-     "end": 16.6
+     "start": 16.14,
+     "end": 16.36
     },
     {
      "w": "person",
-     "start": 16.62,
-     "end": 16.92
+     "start": 16.38,
+     "end": 16.76
     },
     {
      "w": "through",
-     "start": 16.94,
-     "end": 17.16
+     "start": 16.78,
+     "end": 17.0
     },
     {
      "w": "three",
-     "start": 17.18,
-     "end": 17.48
+     "start": 17.02,
+     "end": 17.32
     },
     {
      "w": "Bible",
-     "start": 17.5,
-     "end": 17.96
+     "start": 17.34,
+     "end": 17.8
     },
     {
      "w": "studies,",
-     "start": 17.98,
-     "end": 18.52
+     "start": 17.82,
+     "end": 18.36
     },
     {
      "w": "answers",
-     "start": 18.54,
-     "end": 19.0
+     "start": 18.38,
+     "end": 18.76
     },
     {
      "w": "their",
-     "start": 19.02,
-     "end": 19.16
+     "start": 18.78,
+     "end": 19.0
     },
     {
      "w": "questions,",
-     "start": 19.18,
-     "end": 19.72
+     "start": 19.02,
+     "end": 19.48
     },
     {
      "w": "and",
-     "start": 19.74,
-     "end": 19.88
+     "start": 19.5,
+     "end": 19.72
     },
     {
      "w": "follows",
-     "start": 19.9,
-     "end": 20.28
+     "start": 19.74,
+     "end": 20.12
     },
     {
      "w": "up.",
-     "start": 20.3,
-     "end": 20.42
+     "start": 20.14,
+     "end": 20.26
     }
    ]
   },
   {
    "id": "L5",
    "text": "Those who finish, and obey in faith, are handed to the team on the ground.",
-   "start": 20.86,
-   "end": 25.5,
+   "start": 20.7,
+   "end": 25.33,
    "words": [
     {
      "w": "Those",
-     "start": 20.86,
-     "end": 21.16
+     "start": 20.7,
+     "end": 21.0
     },
     {
      "w": "who",
-     "start": 21.18,
-     "end": 21.4
+     "start": 21.02,
+     "end": 21.24
     },
     {
      "w": "finish,",
-     "start": 21.42,
-     "end": 21.96
+     "start": 21.26,
+     "end": 21.8
     },
     {
      "w": "and",
-     "start": 21.98,
-     "end": 22.2
+     "start": 21.82,
+     "end": 22.04
     },
     {
      "w": "obey",
-     "start": 22.22,
-     "end": 22.68
+     "start": 22.06,
+     "end": 22.52
     },
     {
      "w": "in",
-     "start": 22.7,
-     "end": 22.92
+     "start": 22.54,
+     "end": 22.76
     },
     {
      "w": "faith,",
-     "start": 22.94,
-     "end": 23.48
+     "start": 22.78,
+     "end": 23.32
     },
     {
      "w": "are",
-     "start": 23.5,
-     "end": 23.72
+     "start": 23.34,
+     "end": 23.56
     },
     {
      "w": "handed",
-     "start": 23.74,
-     "end": 24.2
+     "start": 23.58,
+     "end": 24.04
     },
     {
      "w": "to",
-     "start": 24.22,
-     "end": 24.28
+     "start": 24.06,
+     "end": 24.12
     },
     {
      "w": "the",
-     "start": 24.3,
-     "end": 24.44
+     "start": 24.14,
+     "end": 24.28
     },
     {
      "w": "team",
-     "start": 24.46,
-     "end": 24.84
+     "start": 24.3,
+     "end": 24.6
     },
     {
      "w": "on",
+     "start": 24.62,
+     "end": 24.84
+    },
+    {
+     "w": "the",
      "start": 24.86,
      "end": 25.0
     },
     {
-     "w": "the",
-     "start": 25.02,
-     "end": 25.16
-    },
-    {
      "w": "ground.",
-     "start": 25.18,
-     "end": 25.5
+     "start": 25.02,
+     "end": 25.33
     }
    ]
   },
   {
    "id": "L6",
    "text": "The result: the same team could serve 3.73 times as many people.",
-   "start": 27.0,
-   "end": 32.24,
+   "start": 26.83,
+   "end": 32.07,
    "words": [
     {
      "w": "The",
-     "start": 27.0,
-     "end": 27.3
+     "start": 26.83,
+     "end": 27.13
     },
     {
      "w": "result:",
-     "start": 27.32,
-     "end": 28.34
+     "start": 27.15,
+     "end": 28.17
     },
     {
      "w": "the",
-     "start": 28.36,
-     "end": 28.5
+     "start": 28.19,
+     "end": 28.41
     },
     {
      "w": "same",
-     "start": 28.52,
-     "end": 28.82
+     "start": 28.43,
+     "end": 28.65
     },
     {
      "w": "team",
-     "start": 28.84,
-     "end": 29.22
+     "start": 28.67,
+     "end": 29.05
     },
     {
      "w": "could",
-     "start": 29.24,
-     "end": 29.38
+     "start": 29.07,
+     "end": 29.21
     },
     {
      "w": "serve",
-     "start": 29.4,
-     "end": 29.7
+     "start": 29.23,
+     "end": 29.53
     },
     {
      "w": "3.73",
-     "start": 29.72,
-     "end": 31.06
+     "start": 29.55,
+     "end": 30.89
     },
     {
      "w": "times",
-     "start": 31.08,
-     "end": 31.46
+     "start": 30.91,
+     "end": 31.29
     },
     {
      "w": "as",
-     "start": 31.48,
-     "end": 31.78
+     "start": 31.31,
+     "end": 31.61
     },
     {
      "w": "many",
-     "start": 31.8,
-     "end": 32.1
+     "start": 31.63,
+     "end": 31.93
     },
     {
      "w": "people.",
-     "start": 32.12,
-     "end": 32.24
+     "start": 31.95,
+     "end": 32.07
     }
    ]
   },
   {
    "id": "L7",
    "text": "And they found disciple-making leaders at about the same rate.",
-   "start": 32.76,
-   "end": 35.68,
+   "start": 32.59,
+   "end": 35.51,
    "words": [
     {
      "w": "And",
-     "start": 32.76,
-     "end": 32.9
+     "start": 32.59,
+     "end": 32.73
     },
     {
      "w": "they",
-     "start": 32.92,
-     "end": 33.06
+     "start": 32.75,
+     "end": 32.89
     },
     {
      "w": "found",
-     "start": 33.08,
-     "end": 33.3
+     "start": 32.91,
+     "end": 33.13
     },
     {
      "w": "disciple-making",
-     "start": 33.32,
-     "end": 34.18
+     "start": 33.15,
+     "end": 34.01
     },
     {
      "w": "leaders",
-     "start": 34.2,
-     "end": 34.58
+     "start": 34.03,
+     "end": 34.41
     },
     {
      "w": "at",
-     "start": 34.6,
-     "end": 34.74
+     "start": 34.43,
+     "end": 34.57
     },
     {
      "w": "about",
-     "start": 34.76,
-     "end": 35.06
+     "start": 34.59,
+     "end": 34.89
     },
     {
      "w": "the",
-     "start": 35.08,
-     "end": 35.22
+     "start": 34.91,
+     "end": 35.05
     },
     {
      "w": "same",
-     "start": 35.24,
-     "end": 35.46
+     "start": 35.07,
+     "end": 35.29
     },
     {
      "w": "rate.",
-     "start": 35.48,
-     "end": 35.68
+     "start": 35.31,
+     "end": 35.51
     }
    ]
   },
   {
    "id": "L8",
    "text": "One more thing. Many who answer these ads are hostile, and responders take the abuse.",
-   "start": 37.47,
-   "end": 43.03,
+   "start": 37.38,
+   "end": 42.86,
    "words": [
     {
      "w": "One",
-     "start": 37.47,
-     "end": 37.93
+     "start": 37.38,
+     "end": 37.76
     },
     {
      "w": "more",
-     "start": 37.95,
-     "end": 38.17
+     "start": 37.78,
+     "end": 38.0
     },
     {
      "w": "thing.",
-     "start": 38.19,
-     "end": 38.81
+     "start": 38.02,
+     "end": 38.64
     },
     {
      "w": "Many",
-     "start": 38.83,
-     "end": 39.13
+     "start": 38.66,
+     "end": 38.96
     },
     {
      "w": "who",
-     "start": 39.15,
-     "end": 39.29
+     "start": 38.98,
+     "end": 39.2
     },
     {
      "w": "answer",
-     "start": 39.31,
-     "end": 39.69
+     "start": 39.22,
+     "end": 39.52
     },
     {
      "w": "these",
-     "start": 39.71,
-     "end": 39.85
+     "start": 39.54,
+     "end": 39.68
     },
     {
      "w": "ads",
-     "start": 39.87,
-     "end": 40.25
+     "start": 39.7,
+     "end": 40.08
     },
     {
      "w": "are",
-     "start": 40.27,
-     "end": 40.41
+     "start": 40.1,
+     "end": 40.24
     },
     {
      "w": "hostile,",
-     "start": 40.43,
-     "end": 41.21
+     "start": 40.26,
+     "end": 41.04
     },
     {
      "w": "and",
-     "start": 41.23,
-     "end": 41.37
+     "start": 41.06,
+     "end": 41.2
     },
     {
      "w": "responders",
-     "start": 41.39,
-     "end": 42.09
+     "start": 41.22,
+     "end": 41.92
     },
     {
      "w": "take",
-     "start": 42.11,
-     "end": 42.33
+     "start": 41.94,
+     "end": 42.16
     },
     {
      "w": "the",
-     "start": 42.35,
-     "end": 42.49
+     "start": 42.18,
+     "end": 42.32
     },
     {
      "w": "abuse.",
-     "start": 42.51,
-     "end": 43.03
+     "start": 42.34,
+     "end": 42.86
     }
    ]
   },
   {
    "id": "L9",
    "text": "In the pilot, our AI took it instead, and answered graciously.",
-   "start": 43.39,
-   "end": 47.3,
+   "start": 43.22,
+   "end": 47.13,
    "words": [
     {
      "w": "In",
-     "start": 43.39,
-     "end": 43.53
+     "start": 43.22,
+     "end": 43.36
     },
     {
      "w": "the",
-     "start": 43.55,
-     "end": 43.69
+     "start": 43.38,
+     "end": 43.52
     },
     {
      "w": "pilot,",
-     "start": 43.71,
-     "end": 44.33
+     "start": 43.54,
+     "end": 44.16
     },
     {
      "w": "our",
-     "start": 44.35,
-     "end": 44.57
+     "start": 44.18,
+     "end": 44.4
     },
     {
      "w": "AI",
-     "start": 44.59,
-     "end": 45.13
+     "start": 44.42,
+     "end": 44.96
     },
     {
      "w": "took",
-     "start": 45.15,
-     "end": 45.37
+     "start": 44.98,
+     "end": 45.2
     },
     {
      "w": "it",
-     "start": 45.39,
-     "end": 45.53
+     "start": 45.22,
+     "end": 45.36
     },
     {
      "w": "instead,",
-     "start": 45.55,
-     "end": 46.01
+     "start": 45.38,
+     "end": 45.84
     },
     {
      "w": "and",
-     "start": 46.03,
-     "end": 46.25
+     "start": 45.86,
+     "end": 46.08
     },
     {
      "w": "answered",
-     "start": 46.27,
-     "end": 46.73
+     "start": 46.1,
+     "end": 46.56
     },
     {
      "w": "graciously.",
-     "start": 46.75,
-     "end": 47.3
+     "start": 46.58,
+     "end": 47.13
     }
    ]
   },
   {
    "id": "L10",
    "text": "In the responder's words: I don't have to deal with inappropriate or profane comments, and I get to spend more time on the people that are most interested.",
-   "start": 47.79,
-   "end": 55.91,
+   "start": 47.62,
+   "end": 55.74,
    "words": [
     {
      "w": "In",
-     "start": 47.79,
-     "end": 47.93
+     "start": 47.62,
+     "end": 47.76
     },
     {
      "w": "the",
-     "start": 47.95,
-     "end": 48.09
+     "start": 47.78,
+     "end": 47.92
     },
     {
      "w": "responder's",
-     "start": 48.11,
-     "end": 48.73
+     "start": 47.94,
+     "end": 48.56
     },
     {
      "w": "words:",
-     "start": 48.75,
-     "end": 49.45
+     "start": 48.58,
+     "end": 49.28
     },
     {
      "w": "I",
-     "start": 49.47,
-     "end": 49.61
+     "start": 49.3,
+     "end": 49.44
     },
     {
      "w": "don't",
-     "start": 49.63,
-     "end": 49.77
+     "start": 49.46,
+     "end": 49.6
     },
     {
      "w": "have",
-     "start": 49.79,
-     "end": 49.93
+     "start": 49.62,
+     "end": 49.76
     },
     {
      "w": "to",
-     "start": 49.95,
-     "end": 50.01
+     "start": 49.78,
+     "end": 49.84
     },
     {
      "w": "deal",
-     "start": 50.03,
-     "end": 50.25
+     "start": 49.86,
+     "end": 50.08
     },
     {
      "w": "with",
-     "start": 50.27,
-     "end": 50.41
+     "start": 50.1,
+     "end": 50.24
     },
     {
      "w": "inappropriate",
-     "start": 50.43,
-     "end": 51.29
+     "start": 50.26,
+     "end": 51.12
     },
     {
      "w": "or",
-     "start": 51.31,
-     "end": 51.45
+     "start": 51.14,
+     "end": 51.28
     },
     {
      "w": "profane",
-     "start": 51.47,
-     "end": 52.09
+     "start": 51.3,
+     "end": 51.92
     },
     {
      "w": "comments,",
-     "start": 52.11,
-     "end": 52.89
+     "start": 51.94,
+     "end": 52.72
     },
     {
      "w": "and",
-     "start": 52.91,
-     "end": 53.05
+     "start": 52.74,
+     "end": 52.88
     },
     {
      "w": "I",
-     "start": 53.07,
-     "end": 53.21
+     "start": 52.9,
+     "end": 53.04
     },
     {
      "w": "get",
-     "start": 53.23,
-     "end": 53.37
+     "start": 53.06,
+     "end": 53.2
     },
     {
      "w": "to",
-     "start": 53.39,
-     "end": 53.53
+     "start": 53.22,
+     "end": 53.36
     },
     {
      "w": "spend",
-     "start": 53.55,
-     "end": 53.77
+     "start": 53.38,
+     "end": 53.6
     },
     {
      "w": "more",
-     "start": 53.79,
-     "end": 54.01
+     "start": 53.62,
+     "end": 53.84
     },
     {
      "w": "time",
-     "start": 54.03,
-     "end": 54.25
+     "start": 53.86,
+     "end": 54.08
     },
     {
      "w": "on",
-     "start": 54.27,
-     "end": 54.49
+     "start": 54.1,
+     "end": 54.32
     },
     {
      "w": "the",
-     "start": 54.51,
-     "end": 54.65
+     "start": 54.34,
+     "end": 54.48
     },
     {
      "w": "people",
-     "start": 54.67,
-     "end": 54.81
+     "start": 54.5,
+     "end": 54.64
     },
     {
      "w": "that",
-     "start": 54.83,
-     "end": 54.97
+     "start": 54.66,
+     "end": 54.88
     },
     {
      "w": "are",
-     "start": 54.99,
-     "end": 55.29
+     "start": 54.9,
+     "end": 55.2
     },
     {
      "w": "most",
-     "start": 55.31,
-     "end": 55.61
+     "start": 55.22,
+     "end": 55.44
     },
     {
      "w": "interested.",
-     "start": 55.63,
-     "end": 55.91
+     "start": 55.46,
+     "end": 55.74
     }
    ]
   },
   {
    "id": "L11",
    "text": "Our AI doesn't replace the team. It multiplies them.",
-   "start": 57.54,
-   "end": 61.5,
+   "start": 57.52,
+   "end": 61.32,
    "words": [
     {
      "w": "Our",
-     "start": 57.54,
-     "end": 58.0
+     "start": 57.52,
+     "end": 57.9
     },
     {
      "w": "AI",
-     "start": 58.02,
-     "end": 58.64
+     "start": 57.92,
+     "end": 58.54
     },
     {
      "w": "doesn't",
-     "start": 58.66,
-     "end": 58.96
+     "start": 58.56,
+     "end": 58.78
     },
     {
      "w": "replace",
-     "start": 58.98,
-     "end": 59.44
+     "start": 58.8,
+     "end": 59.26
     },
     {
      "w": "the",
-     "start": 59.46,
-     "end": 59.6
+     "start": 59.28,
+     "end": 59.42
     },
     {
      "w": "team.",
-     "start": 59.62,
-     "end": 60.32
+     "start": 59.44,
+     "end": 60.14
     },
     {
      "w": "It",
-     "start": 60.34,
-     "end": 60.48
+     "start": 60.16,
+     "end": 60.3
     },
     {
      "w": "multiplies",
-     "start": 60.5,
-     "end": 61.36
+     "start": 60.32,
+     "end": 61.18
     },
     {
      "w": "them.",
-     "start": 61.38,
-     "end": 61.5
+     "start": 61.2,
+     "end": 61.32
     }
    ]
   },
   {
    "id": "L12",
    "text": "Book a call, or give, at zogreo.org.",
-   "start": 61.86,
-   "end": 64.95,
+   "start": 61.68,
+   "end": 64.56,
    "words": [
     {
      "w": "Book",
-     "start": 61.86,
-     "end": 62.16
+     "start": 61.68,
+     "end": 61.98
     },
     {
      "w": "a",
-     "start": 62.18,
-     "end": 62.32
+     "start": 62.0,
+     "end": 62.22
     },
     {
      "w": "call,",
-     "start": 62.34,
-     "end": 62.64
+     "start": 62.24,
+     "end": 62.46
     },
     {
      "w": "or",
-     "start": 62.66,
-     "end": 62.88
+     "start": 62.48,
+     "end": 62.7
     },
     {
      "w": "give,",
-     "start": 62.9,
-     "end": 63.28
+     "start": 62.72,
+     "end": 62.94
     },
     {
      "w": "at",
-     "start": 63.3,
-     "end": 63.52
+     "start": 62.96,
+     "end": 63.18
     },
     {
      "w": "zogreo.org.",
-     "start": 63.54,
-     "end": 64.95
+     "start": 63.2,
+     "end": 64.56
     }
    ]
   }

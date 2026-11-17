@@ -26,7 +26,7 @@ Our AI doesn't replace the team. It multiplies them. Book a call, or give, at zo
 
 | Written | Sent to ElevenLabs | Notes |
 | --- | --- | --- |
-| Zogreo | Zo-GRAY-oh | Jarret's reference recording. Said twice: L3 and L12 |
+| Zogreo | Zo-GRAY-oh (takes), then replaced | Jarret's own recording re-voiced as Jason, spliced in (`tools/splice_name.py`). Said twice: L3 and L12 |
 | zogreo.org | Zo-GRAY-oh dot org | |
 | 3.73 | three point seven three | |
 | Turkey | (as written) | Jarret's spelling for the films |
