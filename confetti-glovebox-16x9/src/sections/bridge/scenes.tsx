@@ -155,7 +155,7 @@ export const SnackLab: React.FC<{frame: number; x: number; y: number; w: number;
           <path d="M0 58 C-40 30 -74 6 -74 -24 C-74 -50 -50 -64 -30 -64 C-14 -64 -4 -54 0 -42 C4 -54 14 -64 30 -64 C50 -64 74 -50 74 -24 C74 6 40 30 0 58Z" fill={C.pink} stroke={C.ink} strokeWidth={SHAPE.stroke} strokeLinejoin="round" />
         </g>
       </svg>
-      <div style={{position: 'absolute', left: 40, top: 548, display: 'flex', alignItems: 'center', gap: 22}}>
+      <div style={{position: 'absolute', left: 40, top: 536, display: 'flex', alignItems: 'center', gap: 22}}>
         <div style={display(40)}>CHEMISTRY</div>
         {[0, 1, 2, 3].map((i) => (
           <div

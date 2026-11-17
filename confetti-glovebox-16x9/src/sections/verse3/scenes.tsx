@@ -297,10 +297,12 @@ export const HurricaneScene: React.FC<Box & {start: number}> = ({frame, w, h, st
           </div>
         );
       })}
+      {/* the calm eye: a clear paper disc so the stand reads */}
+      <div style={{position: 'absolute', left: ex - 250, top: ey - 215, width: 500, height: 430, borderRadius: '50%', background: C.paper2, border: outline()}} />
       {/* the stand, in the eye, still open */}
-      <div style={{position: 'absolute', left: ex - 170, top: ey - 210, width: 340, height: 340, transform: `rotate(${sway}deg)`, transformOrigin: '50% 100%'}}>
+      <div style={{position: 'absolute', left: ex - 170, top: ey - 190, width: 340, height: 340, transform: `rotate(${sway}deg)`, transformOrigin: '50% 100%'}}>
         <Glyph name="stand" size={340} pose={t * 2} />
-        <Sign x={170} y={232} text="lemonade" color="mustard" size={32} glyph="lemon" />
+        <Sign x={170} y={-6} text="lemonade" color="mustard" size={34} glyph="lemon" />
         <div style={{position: 'absolute', left: 250, top: 112, transformOrigin: '50% 0', transform: `rotate(${Math.sin(t * 9) * 22}deg)`}}>
           <svg width={10} height={30} style={{position: 'absolute', left: 30, top: -22}}>
             <path d="M5 0 V30" stroke={C.ink} strokeWidth={3} />

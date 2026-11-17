@@ -38,7 +38,7 @@ const SHOTS: Shot[] = [
   {r: 4, kind: 'lab', pose: pose(960, 520, 1)},
   {r: 5, kind: 'lab', pose: pose(960, 470, 1.3)},
   {r: 6, kind: 'list', pose: pose(960, 470, 1.15), checked: 2},
-  {r: 7, kind: 'lab', pose: pose(960, 640, 1.45)},
+  {r: 7, kind: 'lab', pose: pose(960, 560, 1.4)},
   // bar 62: list, then br.03 calendar enemies march (callback)
   {r: 8, kind: 'list', pose: pose(960, 470, 1.25), checked: 3},
   {r: 9, kind: 'calendar', pose: pose(960, 520, 1)},
@@ -123,7 +123,7 @@ const Section: React.FC<SectionProps> = () => {
           <BrowserWindow {...VERSE_WINDOW} tabs={tabs} active={tabs - 1} url="confetti://maps/directions?avoid=right_turns">
             <MapsPage frame={frame} w={content.w} h={content.h} turnsAt={TURNS} />
           </BrowserWindow>
-          {shot.kind === 'lab' && <SnackLab frame={frame} x={360} y={150} w={1200} h={720} segAt={LAB_SEGS} />}
+          {shot.kind === 'lab' && <SnackLab frame={frame} x={360} y={110} w={1200} h={720} segAt={LAB_SEGS} />}
           {shot.kind === 'list' && <CountingList frame={frame} checked={shot.checked ?? 1} at={cutAt} />}
           {shot.kind === 'calendar' && <HostileCalendar frame={frame} x={360} y={130} w={1200} h={780} marchFrom={bf(9)} />}
           {shot.kind === 'laundry' && <LaundryDynasty frame={frame} x={210} y={96} w={1500} h={860} at={LAUNDRY_AT} eighth={(k) => frameOfBeat(BASE + 12 + k * 0.5)} crownAt={bf(15)} />}

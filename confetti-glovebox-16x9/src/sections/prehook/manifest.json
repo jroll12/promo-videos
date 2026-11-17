@@ -1,0 +1,16 @@
+{
+  "section": "prehook",
+  "frames": [2379, 2585],
+  "gags": [
+    {"lineId": "ph.01", "treatment": "literal", "gag": "all over the map", "description": "A small 'map' app window (lake, park, streets, no pin) where the cursor wanders everywhere and leaves a dotted trail that loops all over; label 'route: recalculating...'. Trail finishes on the word 'map', then the window floats off left.", "tab": null, "holdFrames": [2422, 2455], "lyricType": false},
+    {"lineId": "ph.02", "treatment": "literal", "gag": "straight lines take a nap", "description": "A 'straight lines' window: a ruler, a progress bar and an <hr> divider lie straight ('status: perfectly straight'), then on 'takes a nap' curl up like sleeping cats, eyes closed, 'z z z' rising; status bar flips to 'status: napping · do not disturb'. Floats off right during ph.03.", "tab": null, "holdFrames": [2471, 2508], "lyricType": false},
+    {"lineId": "ph.03", "treatment": "ambient", "gag": "the mess bobs on the beat", "description": "Camera, browser, its 96 tabs, page blocks, floating icons and the desktop icon lift smoothly on every beat during bar 48 (debris untouched, moves only with the camera). Soft floating paper KineticLine card.", "holdFrames": [2482, 2533], "lyricType": true},
+    {"lineId": "ph.04", "treatment": "ambient", "gag": "drift back home", "description": "From bar 49.42 everything eases back: browser to HOOK_WINDOW, icon to ICON_HOME, camera to REST_POSE, loose tabs and address bar re-seat, ready for the hook's hard cut. Soft floating paper KineticLine card.", "holdFrames": [2554, 2585], "lyricType": true}
+  ],
+  "tabs": {"start": 96, "end": 96},
+  "confetti": {"start": 0.42, "end": 0.46},
+  "debrisIds": "ledger (no manual debris)",
+  "localProps": ["FloatBrowser (browser whose tabs, address bar, page blocks and glyphs float loose; takes loose and bob)", "MapWindow (map app with arc-length-resampled wandering cursor trail)", "NapWindow (ruler / progress bar / divider drawn as curlable centrelines with closed eyes and z z z)"],
+  "promotionCandidates": ["FloatBrowser's per-tab offset support could become an optional tabOffset(i) prop on lib TabBar/BrowserWindow"],
+  "notes": "Camera = REST_POSE + float(seed 'ph-cam') * (1-settle), scale up to 1.07 so edges never show; settles to exactly REST_POSE by bar 49.97. Browser lerps VERSE_WINDOW -> floating rect (250,128,1420,680) over bar 46, then -> HOOK_WINDOW over bar 49.42..49.97, flow tab mode with tabCountAt (96) throughout; hook switches to symmetric on its cut. Desktop icon drawn by the section (showIcon=false) and returns to ICON_HOME. ConfettiField mode float speed 0.5, no level override. Lyric cards only for ph.03 and ph.04 (ph.03 tail 6 so cards never overlap)."
+}
