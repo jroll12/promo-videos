@@ -141,7 +141,7 @@ html, body { margin:0; width:1080px; height:1920px; overflow:hidden; background:
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="33.03" data-width="1080" data-height="1920">
+<div id="root" data-composition-id="main" data-start="0" data-duration="__VID__" data-width="1080" data-height="1920">
   <svg id="rings" viewBox="0 0 1080 1920"><g fill="none" stroke="#F3F0E8" stroke-opacity=".06" stroke-width="2"><circle cx="540" cy="-60" r="420"/><circle cx="540" cy="-60" r="620"/><circle cx="540" cy="-60" r="820"/><circle cx="540" cy="1980" r="520"/><circle cx="540" cy="1980" r="720"/></g></svg>
   <div id="tag">ILLUSTRATIVE CONVERSATION</div>
 
@@ -202,7 +202,7 @@ html, body { margin:0; width:1080px; height:1920px; overflow:hidden; background:
 
   <div id="cap"></div>
 
-  <audio id="vo" class="clip" src="assets/vo/narration-zogreo.mp3" data-start="0" data-duration="32.026" data-track-index="4" data-volume="1" data-audio-group="voiceover"></audio>
+  <audio id="vo" class="clip" src="assets/vo/narration-v2.mp3" data-start="0" data-duration="__AUD__" data-track-index="4" data-volume="1" data-audio-group="voiceover"></audio>
   __SFX__
 </div>
 <script>
@@ -330,7 +330,7 @@ all.forEach((c,k)=>{ const d=document.createElement("div"); d.className="cap"; d
   const nx = all[k+1]; let end = c.e + .25; if (nx && nx.s - c.e < .45) end = nx.s;
   tl.fromTo("#cap"+k, { opacity:0, y:8 }, { opacity:1, y:0, duration:.14, ease:OUT }, c.s - .06);
   if (nx) tl.to("#cap"+k, { opacity:0, duration:.12 }, Math.max(c.s+.25, end-.12)); });
-tl.set({}, {}, 33.03);
+tl.set({}, {}, __VID__);
 </script>
 </body>
 </html>'''
@@ -354,9 +354,10 @@ SFXT = [  # (file, start, volume): quiet, placed on word times, never on top of 
     ("pop", S(4, "Chatwoot") - .05, 0.11), ("pop", S(4, "Turumba") - .05, 0.11),
     ("click-soft", S(5, "demo") - .05, 0.24), ("click-soft", S(5, "make") - .05, 0.24), ("pop-hi", S(5, "Zogreo"), 0.09),
 ]
+AUD = d["duration"]; VID = round(AUD + 1.0, 2)
 lanes, tags = [], []  # greedy lanes so no two effects overlap on one track
 for i, (f, t, v) in enumerate(SFXT, 1):
-    d = min(DUR[f], 33.03 - t)
+    d = min(DUR[f], VID - t)
     lane = next((k for k, end in enumerate(lanes) if end <= t), None)
     if lane is None:
         lanes.append(0); lane = len(lanes) - 1
@@ -369,7 +370,7 @@ out = (html.replace("__FONTS__", fonts).replace("__WORDS__", json.dumps(words))
        .replace("__SIGL__", sig("#F3F0E8")).replace("__SIGD__", sig("#1B241A"))
        .replace("__NOTES__", notes_html).replace("__ROWS__", rows_html)
        .replace("__FAN__", fan_html).replace("__FANLIST__", json.dumps(FAN))
-       .replace("__PERSONW__", PERSON.format(w=84, c="#F3F0E8")).replace("__SFX__", sfx_html))
+       .replace("__PERSONW__", PERSON.format(w=84, c="#F3F0E8")).replace("__SFX__", sfx_html).replace("__VID__", str(VID)).replace("__AUD__", str(AUD)))
 assert not re.search(r"__[A-Z]+__", out), "unreplaced placeholder"
 open(os.path.join(HERE, "index.html"), "w").write(out)
 print("wrote index.html", len(out))
