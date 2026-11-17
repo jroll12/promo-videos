@@ -453,28 +453,12 @@
       "track": 5
     },
     {
-      "f": "whoosh-cinematic",
-      "start": 5.183,
-      "ms": 0,
-      "dur": 5.544,
-      "vol": 0.1,
-      "track": 6
-    },
-    {
-      "f": "whoosh",
-      "start": 14.333,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.12,
-      "track": 5
-    },
-    {
       "f": "pop",
       "start": 14.473,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.11,
-      "track": 6
+      "track": 5
     },
     {
       "f": "click-soft",
@@ -482,7 +466,7 @@
       "ms": 0,
       "dur": 0.366,
       "vol": 0.13,
-      "track": 5
+      "track": 6
     },
     {
       "f": "pop",
@@ -490,7 +474,7 @@
       "ms": 0,
       "dur": 0.72,
       "vol": 0.09,
-      "track": 6
+      "track": 5
     },
     {
       "f": "click-soft",
@@ -498,7 +482,7 @@
       "ms": 0,
       "dur": 0.366,
       "vol": 0.12,
-      "track": 5
+      "track": 6
     },
     {
       "f": "pop",
@@ -506,7 +490,7 @@
       "ms": 0,
       "dur": 0.72,
       "vol": 0.1,
-      "track": 6
+      "track": 5
     },
     {
       "f": "click-soft",
@@ -514,7 +498,7 @@
       "ms": 0,
       "dur": 0.366,
       "vol": 0.12,
-      "track": 5
+      "track": 6
     },
     {
       "f": "pop",
@@ -533,20 +517,12 @@
       "track": 6
     },
     {
-      "f": "whoosh-short",
-      "start": 18.523,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.14,
-      "track": 5
-    },
-    {
       "f": "pop",
       "start": 19.083,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.16,
-      "track": 6
+      "track": 5
     },
     {
       "f": "pop",
@@ -554,7 +530,7 @@
       "ms": 0,
       "dur": 0.72,
       "vol": 0.12,
-      "track": 5
+      "track": 6
     },
     {
       "f": "click-soft",
@@ -562,7 +538,7 @@
       "ms": 0,
       "dur": 0.366,
       "vol": 0.42,
-      "track": 6
+      "track": 5
     },
     {
       "f": "click-soft",
@@ -579,30 +555,6 @@
       "dur": 0.366,
       "vol": 0.42,
       "track": 5
-    },
-    {
-      "f": "whoosh-short",
-      "start": 24.523,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.12,
-      "track": 5
-    },
-    {
-      "f": "whoosh",
-      "start": 27.803,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.14,
-      "track": 5
-    },
-    {
-      "f": "whoosh-short",
-      "start": 28.053,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.15,
-      "track": 6
     },
     {
       "f": "pop",
@@ -693,20 +645,12 @@
       "track": 5
     },
     {
-      "f": "whoosh-short",
-      "start": 39.973,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.22,
-      "track": 5
-    },
-    {
       "f": "pop",
       "start": 40.393,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.18,
-      "track": 6
+      "track": 5
     },
     {
       "f": "pop",
@@ -749,14 +693,6 @@
       "track": 5
     },
     {
-      "f": "whoosh-short",
-      "start": 49.523,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.22,
-      "track": 5
-    },
-    {
       "f": "pop",
       "start": 50.463,
       "ms": 0,
@@ -765,20 +701,12 @@
       "track": 5
     },
     {
-      "f": "whoosh-short",
-      "start": 55.903,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.14,
-      "track": 5
-    },
-    {
       "f": "pop",
       "start": 56.393,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.12,
-      "track": 6
+      "track": 5
     },
     {
       "f": "click-soft",
@@ -786,7 +714,7 @@
       "ms": 0,
       "dur": 0.366,
       "vol": 0.22,
-      "track": 5
+      "track": 6
     },
     {
       "f": "click-soft",
@@ -805,36 +733,12 @@
       "track": 5
     },
     {
-      "f": "whoosh-short",
-      "start": 61.103,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.22,
-      "track": 5
-    },
-    {
-      "f": "whoosh",
-      "start": 66.143,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.14,
-      "track": 5
-    },
-    {
-      "f": "whoosh-short",
-      "start": 70.303,
-      "ms": 0,
-      "dur": 0.575,
-      "vol": 0.12,
-      "track": 5
-    },
-    {
       "f": "pop",
       "start": 70.623,
       "ms": 0,
       "dur": 0.72,
       "vol": 0.16,
-      "track": 6
+      "track": 5
     },
     {
       "f": "pop",
