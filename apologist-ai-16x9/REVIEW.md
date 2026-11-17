@@ -91,3 +91,11 @@ wide layouts (the proof and end card are two columns). Captions sit in one wider
 - **Delivered files, measured:** 4K 3840x2160 and 1080p 1920x1080, both 2037 frames and 67.9 s, -14.0 LUFS, true peak -2.1 dBFS, QR decodes to https://apologistai.com?ref=page at both sizes. The stock 1080p copy came out portrait (render.sh bug), so it was re-made from the 4K.
 - **Read by eye:** draft frames at 12 moments and the seam sheet; not watched end to end.
 - Rebuild: `node tools/build.mjs`, then `render.sh . final --preset landscape-4k`.
+
+## Round 6 (2026-11-17): "beyond the website" scene
+New scene "channels" (line L7b, about 8 s) between the handoff and the #1 claim: the ministry's AI as a node, three generic chat windows
+(WhatsApp, Messenger, Telegram) light as each is named, Discord / LINE / SMS dimmed, then an illustrative API request and reply. New narration
+for that scene only (Max, one take); the other scene takes are unchanged. Length is now about 77 s with three cuts.
+- **Needs Jake (Tier 1):** the channel and API claims come from internal notes, not the live docs (see RESEARCH.md round 6), and the
+  Zogreo overlap (the scene never names Zogreo).
+- **Not heard by anyone yet:** the new narration.

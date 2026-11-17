@@ -123,3 +123,18 @@ in search-result text from that source", not "opened the page".
   trusted-by list). Only those three are spoken. On screen the list leads with them, then Ligonier, Radical, Sightline and
   Jesus Film, which light up together on "and more". On screen the name stays "Dare 2 Share", the organization's own spelling.
   The narration for this line has not been re-recorded yet (see REVIEW.md).
+
+## Round 6 (2026-11-17): the "beyond the website" scene (L7b)
+Jarret: the platform is not only a website chatbot; it also runs on messaging apps and has an API. New line L7b, between the handoff and the #1 claim:
+"Not looking for a website chatbot? The same AI can answer on WhatsApp, Messenger, or Telegram, or power your own app through our API."
+
+| Claim (L7b, on screen) | Source | Status |
+| --- | --- | --- |
+| The same AI answers on WhatsApp, Messenger, Telegram | Apologist AI docs, as listed in Jarret's Oct 25 DM to Jake (Twilio, WhatsApp, Facebook Messenger, Telegram, Discord, LINE, Chatwoot); Jake's #releases notes on voice memos and language detection "for messaging platforms"/"channels"; the Sep 16 post "Build Bots Fast - WhatsApp & Telegram Integrations Explained" | **Internal, not checked against the live docs** (apologistai.com did not resolve from the build session). Tier 1 for Jake |
+| Discord, LINE, SMS shown dimmed as more channels (on screen only) | Same docs list (SMS via Twilio) | Internal, unchecked |
+| Power your own app through our API (the code card) | Jake in #agent-navigate-the-way (a partner agent at an `/api/v1/chat/completions` endpoint with API keys, Aug 25); "a standalone product that uses our API" (Oct 19) | Internal. The request and reply on the card are **invented and labelled "Illustrative"**; "your-ministry-ai" and the reply text are not real values |
+| The chat cards in WhatsApp / Messenger / Telegram | Creative choice | Generic windows with no logos or brand colours, so no app's brand is implied (the same rule as the Zogreo posts) |
+
+- **Zogreo:** Zogreo (also a program of The Apologist Project) markets AI on these same messaging apps to missions organisations, and the Sep 22 meeting notes say its messaging "stays deliberately separate from Apologist AI". This scene presents the channels as Apologist AI platform features and never mentions Zogreo. **Jake should confirm that is acceptable.**
+- "AI" is used instead of "agent" (Jake found "agent" to be jargon in round 2).
+- The "API" is said "A-P-I" (sent to ElevenLabs as "A.P.I"). The new take had word error 0.00.

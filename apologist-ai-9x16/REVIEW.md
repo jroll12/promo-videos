@@ -82,3 +82,11 @@ node tools/build.mjs && bash <skill>/scripts/qa.sh . && bash <skill>/scripts/ren
 ```
 Per-line pacing lives in `script.json` (`el_speed`, delivery-only `el_text`). Changing a line's text regenerates only
 that line and its neighbours.
+
+## Round 6 (2026-11-17): "beyond the website" scene
+New scene "channels" (line L7b, about 8 s) between the handoff and the #1 claim: the ministry's AI as a node, three generic chat windows
+(WhatsApp, Messenger, Telegram) light as each is named, Discord / LINE / SMS dimmed, then an illustrative API request and reply. New narration
+for that scene only (Max, one take); the other scene takes are unchanged. Length is now about 77 s with three cuts.
+- **Needs Jake (Tier 1):** the channel and API claims come from internal notes, not the live docs (see RESEARCH.md round 6), and the
+  Zogreo overlap (the scene never names Zogreo).
+- **Not heard by anyone yet:** the new narration.

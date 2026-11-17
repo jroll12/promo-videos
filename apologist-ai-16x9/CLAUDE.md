@@ -1,10 +1,10 @@
-# apologist-ai-16x9: Apologist AI platform promo (landscape, 1920x1080, about 68 s)
+# apologist-ai-16x9: Apologist AI platform promo (landscape, 1920x1080, about 77 s)
 
 Sibling of `../apologist-ai-9x16`: same narration, timing, cues and sound (the audio is unchanged). Read the 9:16 `REVIEW.md`
-and `RESEARCH.md` for status and the claims register; this cut adds no claims.
+and `RESEARCH.md` for status and the claims register; the channels scene (L7b) adds claims listed there.
 
 - What differs from the vertical cut: `tools/build.mjs` (1920x1080, landscape preset, wider captions at the bottom, the verse
-  breaks into 4 lines, names in one column) and the three scenes in `src/`.
+  breaks into 4 lines, names in one column) and the four scenes in `src/` (chat, channels, proof, cta).
 - Chat scene: the vertical chat is a centered full-height column (scaled 0.78, `#ct-phone`); the verse, the logo beat, the
   proof scene and the end card are wide, two-column layouts.
 - Rebuild: `node tools/build.mjs`, `qa.sh .`, `render.sh . draft`, then `render.sh . final --preset landscape-4k`;

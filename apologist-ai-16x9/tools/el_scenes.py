@@ -38,11 +38,12 @@ SCENES = {
     "product": {"settings": _S, "build": lambda T: "[warm, clear, conversational] " + T["L5"] + " " + T["L6"]},
     # the hand-off is its own take: inside the product take it came out the fastest line (3.85 words/s), as in Zogreo
     "handoff": {"settings": _S, "build": lambda T: "[warm, sincere] " + T["L7"]},
+    "channels": {"settings": _S, "build": lambda T: "[warm, clear, conversational] " + T["L7b"]},
     "proof": {"settings": _S, "build": lambda T: "[warm, clear, quietly confident] " + T["L8"] + " " + T["L9"]},
     "ask": {"settings": _S, "build": lambda T: "[warmly] " + T["L10"] + " " + T["L11"] + " " + T["L12"]},
 }
 LEAD_IN, TAIL = 0.45, 0.7
-GAP_AFTER = {"open": 0.6, "verse": 0.75, "need": 0.55, "product": 0.45, "handoff": 1.0, "proof": 0.9}  # breaths at the turns; longer before the two cuts
+GAP_AFTER = {"open": 0.6, "verse": 0.75, "need": 0.55, "product": 0.45, "handoff": 1.0, "channels": 0.9, "proof": 0.9}  # breaths at the turns; longer before the two cuts
 
 
 def decode(path):

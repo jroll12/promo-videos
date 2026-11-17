@@ -2,11 +2,26 @@
   "fps": 30,
   "seams": [
     {
-      "id": "chat→proof",
-      "cut": 40.11,
+      "id": "chat→channels",
+      "cut": 40.1,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#ct-stage",
+        "axis": "x",
+        "dir": -1
+      },
+      "entry": {
+        "selector": "#ch-stage",
+        "axis": "x",
+        "dir": -1
+      }
+    },
+    {
+      "id": "channels→proof",
+      "cut": 49.65,
+      "technique": "cut-the-curve LEFT",
+      "exit": {
+        "selector": "#ch-stage",
         "axis": "x",
         "dir": -1
       },
@@ -18,7 +33,7 @@
     },
     {
       "id": "proof→cta",
-      "cut": 52.22,
+      "cut": 61.23,
       "technique": "cut-the-curve UP",
       "exit": {
         "selector": "#pf-stage",

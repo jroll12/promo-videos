@@ -58,46 +58,54 @@
   "id": "L7",
   "heard": "When someone needs a real person, it passes them to your team.",
   "wer": 0.0,
-  "seconds": 3.84,
+  "seconds": 3.83,
   "words_per_second": 3.13,
+  "names": []
+ },
+ {
+  "id": "L7b",
+  "heard": "Not looking for a website chatbot? The same AI can answer on WhatsApp, Messenger or Telegram, or power your own app through our API.",
+  "wer": 0.0,
+  "seconds": 8.16,
+  "words_per_second": 2.94,
   "names": []
  },
  {
   "id": "L8",
   "heard": "It's the number one Christian AI platform on the Gospel Coalition's twenty twenty six AI Christian Benchmark.",
   "wer": 0.2,
-  "seconds": 6.28,
-  "words_per_second": 2.39,
+  "seconds": 6.26,
+  "words_per_second": 2.4,
   "names": []
  },
  {
   "id": "L9",
   "heard": "It's trusted by GotQuestions, Apologetics Canada, Dare to Share, and more.",
   "wer": 0.167,
-  "seconds": 4.55,
-  "words_per_second": 2.64,
+  "seconds": 4.4,
+  "words_per_second": 2.73,
   "names": []
  },
  {
   "id": "L10",
   "heard": "We run your AI infrastructure so you can focus on the people you serve.",
   "wer": 0.0,
-  "seconds": 4.44,
-  "words_per_second": 3.15,
+  "seconds": 4.38,
+  "words_per_second": 3.2,
   "names": []
  },
  {
   "id": "L11",
-  "heard": "Your Mission. Our platform. Christ Made Known.",
+  "heard": "Your mission. Our platform Christ Made Known",
   "wer": 0.0,
-  "seconds": 3.7,
-  "words_per_second": 1.89,
+  "seconds": 3.67,
+  "words_per_second": 1.91,
   "names": []
  },
  {
   "id": "L12",
-  "heard": "Book a quick intro call or visit ApologistAI.com.",
-  "wer": 0.0,
+  "heard": "Book a quick intro call or visit ApologistAI dot com. Mm-hmm.",
+  "wer": 0.111,
   "seconds": 3.2,
   "words_per_second": 2.5,
   "names": [

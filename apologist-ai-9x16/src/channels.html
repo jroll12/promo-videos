@@ -1,0 +1,127 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #111828; }
+    #root * { box-sizing: border-box; }
+    #ch-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    #ch-eyebrow { position: absolute; left: 90px; top: 200px; font: 700 30px/34px "Inter PV"; letter-spacing: 0.22em; color: #A88BFF; white-space: nowrap; }
+    #ch-eyebrow i { display: inline-block; width: 48px; height: 3px; background: #A88BFF; vertical-align: middle; margin-right: 20px; position: relative; top: -4px; }
+    #ch-ring, #ch-node { position: absolute; left: 90px; top: 300px; width: 160px; height: 160px; border-radius: 50%; }
+    #ch-node { background: #1D1640; box-shadow: 0 0 0 6px #A88BFF, 0 24px 60px rgba(3, 6, 18, 0.55); color: #FFFFFF; font: 800 62px/160px "Inter PV"; text-align: center; letter-spacing: -0.02em; }
+    #ch-ring { border: 4px solid #A88BFF; }
+    #ch-node-t { position: absolute; left: 280px; top: 330px; font: 700 48px/56px "Inter PV"; color: #FFFFFF; white-space: nowrap; }
+    #ch-node-s { position: absolute; left: 280px; top: 392px; font: 500 32px/38px "Inter PV"; color: #A9A8C6; white-space: nowrap; }
+    #ch-trunk { position: absolute; left: 168px; top: 460px; width: 4px; height: 673px; background: #5A4FA6; border-radius: 2px; }
+    #ch-hline { position: absolute; left: 0px; top: 0px; width: 0px; height: 4px; background: #5A4FA6; border-radius: 2px; display: none; }
+    .ch-stub { position: absolute; left: 172px; width: 98px; height: 4px; background: #5A4FA6; border-radius: 2px; }
+    .ch-card { position: absolute; left: 270px; width: 720px; height: 210px; border-radius: 40px; background: #18203A; box-shadow: inset 0 0 0 2px #232C47, 0 24px 60px rgba(3, 6, 18, 0.45); }
+    .ch-pill { position: absolute; left: 28px; top: 22px; height: 44px; padding: 0 22px; border-radius: 22px; background: #232C47; color: #C9BFFB; font: 700 28px/44px "Inter PV"; letter-spacing: 0.08em; white-space: nowrap; }
+    .ch-b { position: absolute; padding: 12px 26px 14px; border-radius: 28px; font: 500 28px/38px "Inter PV"; white-space: nowrap; }
+    .ch-u { right: 28px; top: 78px; background: #2D2668; color: #FFFFFF; border-bottom-right-radius: 8px; }
+    .ch-r { left: 28px; top: 140px; background: #FFFFFF; color: #111828; border-top-left-radius: 8px; }
+    .ch-more { position: absolute; top: 1280px; height: 56px; padding: 0 28px; border-radius: 28px; box-shadow: inset 0 0 0 2px #3A4258; color: #A9A8C6; font: 600 28px/56px "Inter PV"; white-space: nowrap; }
+    #ch-api { position: absolute; left: 270px; top: 540px; width: 720px; height: 560px; border-radius: 40px; background: #0B1020; box-shadow: inset 0 0 0 2px #232C47, 0 24px 60px rgba(3, 6, 18, 0.5); }
+    #ch-api .ch-pill { background: #A88BFF; color: #111828; }
+    #ch-api-note { position: absolute; right: 32px; top: 28px; font: 500 26px/34px "Inter PV"; color: #7E8199; white-space: nowrap; }
+    #ch-code { position: absolute; left: 36px; top: 98px; font: 500 28px/44px "JetBrains Mono PV"; color: #E6E4F5; white-space: pre; }
+    #ch-code .k { color: #C9BFFB; }
+    #ch-code .s { color: #A88BFF; }
+    #ch-resp { position: absolute; left: 36px; top: 440px; }
+    #ch-resp .ok { display: inline-block; height: 48px; padding: 0 22px; border-radius: 24px; background: #A88BFF; color: #111828; font: 800 28px/48px "Inter PV"; letter-spacing: 0.04em; vertical-align: middle; }
+    #ch-resp .tx { display: inline-block; margin-left: 20px; font: 500 28px/48px "JetBrains Mono PV"; color: #E6E4F5; vertical-align: middle; white-space: nowrap; }
+
+  </style>
+
+  <div data-hf-id="hf-ch00" id="root" data-composition-id="channels" data-width="1080" data-height="1920">
+    <div data-hf-id="hf-ch01" id="ch-stage">
+      <div data-hf-id="hf-ch02" id="ch-eyebrow"><i data-hf-id="hf-ch03"></i>BEYOND THE WEBSITE</div>
+      <div data-hf-id="hf-ch04" id="ch-ring" data-layout-allow-overlap></div>
+      <div data-hf-id="hf-ch05" id="ch-node" data-layout-allow-overlap>YM</div>
+      <div data-hf-id="hf-ch06" id="ch-node-t">Your Ministry</div>
+      <div data-hf-id="hf-ch07" id="ch-node-s">AI assistant</div>
+      <div data-hf-id="hf-ch08" id="ch-trunk" data-layout-allow-overlap></div>
+      <div data-hf-id="hf-ch09" id="ch-hline" data-layout-allow-overlap></div>
+      <div data-hf-id="hf-ch10" id="ch-s1" class="ch-stub" style="top: 643px" data-layout-allow-overlap></div>
+      <div data-hf-id="hf-ch11" id="ch-s2" class="ch-stub" style="top: 887px" data-layout-allow-overlap></div>
+      <div data-hf-id="hf-ch12" id="ch-s3" class="ch-stub" style="top: 1131px" data-layout-allow-overlap></div>
+      <div data-hf-id="hf-ch13" id="ch-c1" class="ch-card" style="top: 540px" data-layout-allow-overlap>
+        <div data-hf-id="hf-ch14" class="ch-pill">WHATSAPP</div>
+        <div data-hf-id="hf-ch15" class="ch-b ch-u">Is there any hope for someone like me?</div>
+        <div data-hf-id="hf-ch16" class="ch-b ch-r">That's an important question.</div>
+      </div>
+      <div data-hf-id="hf-ch17" id="ch-c2" class="ch-card" style="top: 784px" data-layout-allow-overlap>
+        <div data-hf-id="hf-ch18" class="ch-pill">MESSENGER</div>
+        <div data-hf-id="hf-ch19" class="ch-b ch-u">Is there any hope for someone like me?</div>
+        <div data-hf-id="hf-ch20" class="ch-b ch-r">That's an important question.</div>
+      </div>
+      <div data-hf-id="hf-ch21" id="ch-c3" class="ch-card" style="top: 1028px" data-layout-allow-overlap>
+        <div data-hf-id="hf-ch22" class="ch-pill">TELEGRAM</div>
+        <div data-hf-id="hf-ch23" class="ch-b ch-u">Is there any hope for someone like me?</div>
+        <div data-hf-id="hf-ch24" class="ch-b ch-r">That's an important question.</div>
+      </div>
+      <div data-hf-id="hf-ch25" class="ch-more" style="left: 270px" data-layout-allow-overlap>Discord</div>
+      <div data-hf-id="hf-ch26" class="ch-more" style="left: 470px" data-layout-allow-overlap>LINE</div>
+      <div data-hf-id="hf-ch27" class="ch-more" style="left: 620px" data-layout-allow-overlap>SMS</div>
+      <div data-hf-id="hf-ch28" id="ch-api" data-layout-allow-overlap>
+        <div data-hf-id="hf-ch29" class="ch-pill">YOUR OWN APP</div>
+        <div data-hf-id="hf-ch30" id="ch-api-note">Illustrative</div>
+        <div data-hf-id="hf-ch31" id="ch-code"><span data-hf-id="hf-ch32" class="ln"><span data-hf-id="hf-ch33" class="k">POST</span> /v1/chat/completions</span>
+<span data-hf-id="hf-ch34" class="ln">{</span>
+<span data-hf-id="hf-ch35" class="ln">  <span data-hf-id="hf-ch36" class="k">"model"</span>: <span data-hf-id="hf-ch37" class="s">"your-ministry-ai"</span>,</span>
+<span data-hf-id="hf-ch38" class="ln">  <span data-hf-id="hf-ch39" class="k">"messages"</span>: [{</span>
+<span data-hf-id="hf-ch40" class="ln">    <span data-hf-id="hf-ch41" class="k">"content"</span>: <span data-hf-id="hf-ch42" class="s">"Is there any hope…"</span></span>
+<span data-hf-id="hf-ch43" class="ln">  }]</span>
+<span data-hf-id="hf-ch44" class="ln">}</span></div>
+        <div data-hf-id="hf-ch45" id="ch-resp"><span data-hf-id="hf-ch46" class="ok">200 OK</span><span data-hf-id="hf-ch47" class="tx">"Here's what Scripture says…"</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      const q = (s) => Array.from(document.querySelectorAll(s));
+      const KEEP = 0.6375; // how much of the trunk stays to join the code card
+
+      // entry: cut the curve, still travelling left
+      tl.fromTo("#ch-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set(["#ch-eyebrow", "#ch-ring", "#ch-node", "#ch-node-t", "#ch-node-s", "#ch-trunk", "#ch-hline", ".ch-stub", ".ch-card", ".ch-more", "#ch-api", "#ch-resp"], { autoAlpha: 0 });
+      gsap.set(".ln", { opacity: 0 });
+      gsap.set(".ch-b", { autoAlpha: 0 });
+
+      tl.fromTo("#ch-eyebrow", { autoAlpha: 0, x: -20 }, { autoAlpha: 1, x: 0, duration: 0.3, ease: "power2.out" }, 0.2);
+      // "Not looking for a website chatbot?": the ministry's AI steps forward as a node
+      tl.fromTo("#ch-node", { autoAlpha: 0, scale: 0.5, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, T.node);
+      tl.fromTo("#ch-ring", { autoAlpha: 0.7, scale: 1, transformOrigin: "50% 50%" }, { autoAlpha: 0, scale: 1.8, duration: 0.9, ease: "power2.out" }, T.node + 0.1);
+      tl.fromTo(["#ch-node-t", "#ch-node-s"], { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out", stagger: 0.08 }, T.node + 0.15);
+
+      // "WhatsApp, Messenger, or Telegram": one door lights per spoken name
+      tl.fromTo("#ch-hline", { autoAlpha: 0, scaleX: 0, transformOrigin: "0% 50%" }, { autoAlpha: 1, scaleX: 1, duration: 0.3, ease: "power2.out" }, T.c1 - 0.35);
+      tl.fromTo("#ch-trunk", { autoAlpha: 0, scaleY: 0, transformOrigin: "50% 0%" }, { autoAlpha: 1, scaleY: 1, duration: T.c3 - T.c1 + 0.5, ease: "none" }, T.c1 - 0.3);
+      [1, 2, 3].forEach((i) => {
+        const t = T["c" + i];
+        tl.fromTo("#ch-s" + i, { autoAlpha: 0, scaleX: 0, transformOrigin: "0% 50%" }, { autoAlpha: 1, scaleX: 1, duration: 0.2, ease: "power2.out" }, t - 0.02);
+        tl.fromTo("#ch-c" + i, { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 0.5, ease: "expo.out" }, t);
+        tl.fromTo("#ch-c" + i + " .ch-u", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }, t + 0.2);
+        tl.fromTo("#ch-c" + i + " .ch-r", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }, t + 0.5);
+        tl.to("#ch-c" + i + " .ch-pill", { backgroundColor: "#A88BFF", color: "#111828", duration: 0.2 }, t + 0.1);
+        tl.to("#ch-c" + i + " .ch-pill", { backgroundColor: "#232C47", color: "#C9BFFB", duration: 0.5 }, t + 1.3);
+      });
+      tl.fromTo(".ch-more", { autoAlpha: 0, y: 14 }, { autoAlpha: 0.85, y: 0, duration: 0.3, ease: "power2.out", stagger: 0.08 }, T.more);
+
+      // "or power your own app through our API": the doors make way for a request and its reply
+      tl.to([".ch-card", "#ch-s1", "#ch-s3", ".ch-more"], { autoAlpha: 0, x: -24, duration: 0.3, ease: "power2.in" }, T.api - 0.1);
+      tl.to("#ch-trunk", { scaleY: KEEP, duration: 0.35, ease: "power2.inOut" }, T.api - 0.1);
+      tl.fromTo("#ch-api", { autoAlpha: 0, y: 40, scale: 0.97, transformOrigin: "50% 50%" }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out" }, T.api + 0.1);
+      q(".ln").forEach((el, i) => tl.to(el, { opacity: 1, duration: 0.12, ease: "none" }, T.lines[i]));
+      tl.fromTo("#ch-resp", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "expo.out" }, T.resp);
+
+      // exit: cut the curve, leftward
+      tl.to("#ch-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#ch-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+
+      window.__timelines["channels"] = tl;
+    })();
+  </script>
+</template>

@@ -50,6 +50,13 @@
       "scene": "handoff"
     },
     {
+      "id": "L7b",
+      "text": "Not looking for a website chatbot? The same AI can answer on WhatsApp, Messenger, or Telegram, or power your own app through our API.",
+      "pause": 0.8,
+      "cap": "Not looking for / a website chatbot? / The same AI can answer / on WhatsApp, Messenger, / or Telegram, / or power your own app / through our API.",
+      "scene": "channels"
+    },
+    {
       "id": "L8",
       "text": "It's the number one Christian AI platform on The Gospel Coalition's 2026 AI Christian Benchmark.",
       "pause": 0.5,
@@ -94,7 +101,8 @@
   "spoken_elevenlabs": {
     "apologistai.com": "apologist A.I. dot com",
     "Ligonier": "Lih-guh-neer",
-    "2026": "twenty twenty-six"
+    "2026": "twenty twenty-six",
+    "API": "A.P.I"
   },
   "elevenlabs": {
     "voice_id": "Gfpl8Yo74Is0W6cPUWWT",

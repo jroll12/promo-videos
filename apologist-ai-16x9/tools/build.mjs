@@ -72,14 +72,28 @@ chat.hand = max(W("L7", "real") - 0.15, chat.cites + 0.4);
 chat.scrollHand = 370;
 chat.press = max(W("L7", "passes") - 0.05, chat.hand + 0.55);
 chat.connected = chat.press + 0.45;
-const cutA = r3(max(min(L.L7.end + 0.7, L.L8.start - 0.05), chat.connected + 1.3)); // the connected state holds before the cut
+const cutA = r3(max(min(L.L7.end + 0.7, L.L7b.start - 0.05), chat.connected + 1.3)); // the connected state holds before the cut
 chat.exit = cutA - 0.32;
 
-// ── scene 2 "proof": #1 on the TGC benchmark, the stat band, trusted by (in the brochure's order) ──
+// ── scene 2 "channels": beyond the website: messaging apps and an API (all from the platform's own channels and docs) ──
+const CH = (t) => t - cutA;
+const channels = {};
+channels.node = max(CH(W("L7b", "Not")), 0.3);
+channels.c1 = max(CH(W("L7b", "WhatsApp")), channels.node + 0.6);
+channels.c2 = max(CH(W("L7b", "Messenger")), channels.c1 + 0.45);
+channels.c3 = max(CH(W("L7b", "Telegram")), channels.c2 + 0.45);
+channels.more = channels.c3 + 0.55;
+channels.api = max(CH(W("L7b", "power")), channels.more + 0.6);
+channels.lines = [0, 1, 2, 3, 4, 5, 6].map((k) => channels.api + 0.3 + k * 0.17);
+channels.resp = max(CH(W("L7b", "API")), channels.lines[6] + 0.25);
+const cutB = r3(max(min(L.L7b.end + 0.6, L.L8.start - 0.05), cutA + channels.resp + 1.3));
+channels.exit = cutB - cutA - 0.32;
+
+// ── scene 3 "proof": #1 on the TGC benchmark, the stat band, trusted by (in the brochure's order) ──
 // spoken first, in the order said; the others are on screen but not named aloud (they light up together on "and more")
 const NAMES = ["Got Questions", "Apologetics Canada", "Dare 2 Share", "Ligonier", "Radical", "Sightline", "Jesus Film"];
 const proof = {};
-const A = (t) => t - cutA;
+const A = (t) => t - cutB;
 proof.one = max(A(W("L8", "one")), 0.45);
 proof.label = max(A(W("L8", "Christian")), proof.one + 0.25);
 proof.method = proof.label + 0.6;
@@ -88,12 +102,12 @@ proof.band = max(A(L.L9.start) - 0.3, proof.source + 0.8);
 const spoken = [W("L9", "Got"), W("L9", "Apologetics"), W("L9", "Dare")].map(A).map((t, i) => max(t, proof.band + 0.9 + i * 0.25));
 const more = max(A(W("L9", "and")), spoken[2] + 0.3);
 proof.nameAt = [...spoken, ...[0, 1, 2, 3].map((k) => more + k * 0.1)]; // the other four ink in order on "and more"
-const cutB = r3(max(min(L.L9.end + 0.6, L.L10.start - 0.05), cutA + proof.nameAt[6] + 0.5));
-proof.exit = cutB - cutA - 0.32;
+const cutC = r3(max(min(L.L9.end + 0.6, L.L10.start - 0.05), cutB + proof.nameAt[6] + 0.5));
+proof.exit = cutC - cutB - 0.32;
 
-// ── scene 3 "cta": the promise, the tagline, the ask ──
+// ── scene 4 "cta": the promise, the tagline, the ask ──
 const cta = {};
-const B = (t) => t - cutB;
+const B = (t) => t - cutC;
 cta.head = L.L10.words.map((w) => max(B(w.start), 0.2));
 cta.flood = max(B(L.L11.start) - 0.3, cta.head[cta.head.length - 1] + 0.4);
 cta.tag = L.L11.words.map((w) => max(B(w.start), cta.flood + 0.25));
@@ -102,7 +116,7 @@ cta.book = max(B(W("L12", "Book")), cta.settle + 0.3);
 cta.visit = max(B(W("L12", "visit")), cta.book + 0.35);
 cta.site = max(B(W("L12", "apologistai.com")), cta.visit + 0.3);
 cta.foot = cta.site + 0.5; // one line above the caption band, with the rest of the end card
-const total = r3(max(L.L12.end + 3.2, cutB + cta.foot + 3.0));
+const total = r3(max(L.L12.end + 3.2, cutC + cta.foot + 3.0));
 
 // ── markup slots ──
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -165,31 +179,39 @@ sfx("pop", chat.hand + 0.06, 0.14);
 sfx("click", chat.press, 0.38);
 sfx("click-soft", chat.connected + 0.06, 0.3);
 sfx("whoosh-short", cutA, 0.22);
-sfx("pop", cutA + proof.one + 0.12, 0.18);
-sfx("whoosh-short", cutA + proof.band + 0.1, 0.14);
-sfx("pop", cutA + proof.band + 0.55, 0.12);
-proof.nameAt.slice(0, 3).forEach((t) => sfx("click-soft", cutA + t + 0.04, 0.22));
+sfx("pop", cutA + channels.node + 0.05, 0.18);
+["c1", "c2", "c3"].forEach((k) => sfx("pop", cutA + channels[k] + 0.04, 0.14));
+sfx("click-soft", cutA + channels.api + 0.12, 0.3);
+sfx("click-soft", cutA + channels.resp + 0.06, 0.3);
 sfx("whoosh-short", cutB, 0.22);
-sfx("whoosh", cutB + cta.flood + 0.1, 0.14);
-sfx("whoosh-short", cutB + cta.settle + 0.15, 0.12);
-sfx("pop", cutB + cta.book + 0.08, 0.16);
-sfx("pop", cutB + cta.visit + 0.08, 0.18);
-sfx("click-soft", cutB + cta.site + 0.06, 0.25);
+sfx("pop", cutB + proof.one + 0.12, 0.18);
+sfx("whoosh-short", cutB + proof.band + 0.1, 0.14);
+sfx("pop", cutB + proof.band + 0.55, 0.12);
+proof.nameAt.slice(0, 3).forEach((t) => sfx("click-soft", cutB + t + 0.04, 0.22));
+sfx("whoosh-short", cutC, 0.22);
+sfx("whoosh", cutC + cta.flood + 0.1, 0.14);
+sfx("whoosh-short", cutC + cta.settle + 0.15, 0.12);
+sfx("pop", cutC + cta.book + 0.08, 0.16);
+sfx("pop", cutC + cta.visit + 0.08, 0.18);
+sfx("click-soft", cutC + cta.site + 0.06, 0.25);
 
 // ── write ──
 p.writeScene("chat", chat, { TYPED: typed, CARDS: cards, VERSE: verse });
+p.writeScene("channels", channels, {});
 p.writeScene("proof", proof, { NAMES: names });
 p.writeScene("cta", cta, { HEAD: head, TAG: tag });
 const caps = p.writeCaptions();
 p.writeIndex(total, [
   { id: "chat", start: 0, dur: cutA },
-  { id: "proof", start: cutA, dur: r3(cutB - cutA) },
-  { id: "cta", start: cutB, dur: r3(total - cutB) },
+  { id: "channels", start: cutA, dur: r3(cutB - cutA) },
+  { id: "proof", start: cutB, dur: r3(cutC - cutB) },
+  { id: "cta", start: cutC, dur: r3(total - cutC) },
 ]);
-p.writeCues(total, { cutA, cutB, chat, proof, cta });
+p.writeCues(total, { cutA, cutB, cutC, chat, channels, proof, cta });
 p.writeLedger([
-  { id: "chat→proof", cut: r3(cutA), technique: "cut-the-curve LEFT", exit: { selector: "#ct-stage", axis: "x", dir: -1 }, entry: { selector: "#pf-stage", axis: "x", dir: -1 } },
-  { id: "proof→cta", cut: r3(cutB), technique: "cut-the-curve UP", exit: { selector: "#pf-stage", axis: "y", dir: -1 }, entry: { selector: "#cta-stage", axis: "y", dir: -1 } },
+  { id: "chat→channels", cut: r3(cutA), technique: "cut-the-curve LEFT", exit: { selector: "#ct-stage", axis: "x", dir: -1 }, entry: { selector: "#ch-stage", axis: "x", dir: -1 } },
+  { id: "channels→proof", cut: r3(cutB), technique: "cut-the-curve LEFT", exit: { selector: "#ch-stage", axis: "x", dir: -1 }, entry: { selector: "#pf-stage", axis: "x", dir: -1 } },
+  { id: "proof→cta", cut: r3(cutC), technique: "cut-the-curve UP", exit: { selector: "#pf-stage", axis: "y", dir: -1 }, entry: { selector: "#cta-stage", axis: "y", dir: -1 } },
 ]);
 p.writeEvents({
   "message sent": chat.send,
@@ -206,11 +228,15 @@ p.writeEvents({
   "language roll": chat.lang + 0.4,
   "handoff scroll": chat.hand + 0.3,
   "connected": chat.connected,
-  "cut chat→proof": cutA,
-  "#1 lands": cutA + proof.one,
-  "band rises": cutA + proof.band + 0.2,
-  "cut proof→cta": cutB,
-  "colour flood": cutB + cta.flood + 0.2,
-  "tagline settles": cutB + cta.settle + 0.25,
+  "cut chat→channels": cutA,
+  "AI node": cutA + channels.node,
+  "messaging apps light": cutA + channels.c1,
+  "API card": cutA + channels.api + 0.1,
+  "cut channels→proof": cutB,
+  "#1 lands": cutB + proof.one,
+  "band rises": cutB + proof.band + 0.2,
+  "cut proof→cta": cutC,
+  "colour flood": cutC + cta.flood + 0.2,
+  "tagline settles": cutC + cta.settle + 0.25,
 });
-console.log(`built: ${total}s · cuts ${r3(cutA)} / ${r3(cutB)} · ${caps.length} caption groups · ${p.cues.length} sfx`);
+console.log(`built: ${total}s · cuts ${r3(cutA)} / ${r3(cutB)} / ${r3(cutC)} · ${caps.length} caption groups · ${p.cues.length} sfx`);
