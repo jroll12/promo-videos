@@ -52,3 +52,16 @@
   holds the frame until fonts are in and redraws.
 
 ## Phase 2: section fan-out (in progress)
+- All eight section agents delivered (intro, verse1, hook x3, verse2, prehook, bridge, verse3, outro). Seven were cut off
+  by the account's 5-hour usage limit mid-build and resumed from their saved state with a tighter still budget.
+- Each section: tsc clean, lint clean, stills checked with and without lyric cards, manifest written.
+
+## Phase 3: reduce
+- `node tools/reduce.mjs`: 89/89 lines covered; 28 unique literal gags (target 27..33), 36 literal moments on screen
+  (the hook's 4 gags recur in all three hooks); every literal gag holds >= 2 beats; no edits outside section folders.
+  One soft warning kept: the pencil glyph appears in two different gags (spoon in a pencil drawer; "brb" pencil).
+- Literal per section: intro 2, verse1 5, hook 4 (x3), verse2 6, prehook 2, bridge 3, verse3 4, outro 2.
+- Library issues found by section agents, worked around locally, not changed in the library to avoid shifting tuned
+  layouts: BrowserWindow's tab bar is about 55 px right of window centre (hook uses a centred local copy), content area
+  sits 8 px below BROWSER_CHROME_H (verse2 corrects locally).
+- Outputs: `storyboard.json`, `storyboard.md`.

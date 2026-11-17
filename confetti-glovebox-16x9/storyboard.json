@@ -1,0 +1,2024 @@
+{
+ "generated": "tools/reduce.mjs",
+ "totals": {
+  "lines": 89,
+  "literalUnique": 28,
+  "literalOnScreen": 36
+ },
+ "sections": [
+  {
+   "id": "intro",
+   "startFrame": 0,
+   "endFrame": 219,
+   "tabs": [
+    0,
+    1
+   ],
+   "confetti": [
+    0,
+    0.02
+   ]
+  },
+  {
+   "id": "verse1",
+   "startFrame": 219,
+   "endFrame": 1042,
+   "tabs": [
+    1,
+    48
+   ],
+   "confetti": [
+    0.02,
+    0.14
+   ]
+  },
+  {
+   "id": "hook1",
+   "startFrame": 1042,
+   "endFrame": 1557,
+   "tabs": [
+    48,
+    48
+   ],
+   "confetti": [
+    0.2,
+    0.24
+   ]
+  },
+  {
+   "id": "verse2",
+   "startFrame": 1557,
+   "endFrame": 2379,
+   "tabs": [
+    2,
+    96
+   ],
+   "confetti": [
+    0.24,
+    0.4
+   ]
+  },
+  {
+   "id": "prehook",
+   "startFrame": 2379,
+   "endFrame": 2585,
+   "tabs": [
+    96,
+    96
+   ],
+   "confetti": [
+    0.42,
+    0.46
+   ]
+  },
+  {
+   "id": "hook2",
+   "startFrame": 2585,
+   "endFrame": 3099,
+   "tabs": [
+    96,
+    96
+   ],
+   "confetti": [
+    0.55,
+    0.6
+   ]
+  },
+  {
+   "id": "bridge",
+   "startFrame": 3099,
+   "endFrame": 3511,
+   "tabs": [
+    96,
+    96
+   ],
+   "confetti": [
+    0.6,
+    0.66
+   ]
+  },
+  {
+   "id": "verse3",
+   "startFrame": 3511,
+   "endFrame": 4128,
+   "tabs": [
+    3,
+    160
+   ],
+   "confetti": [
+    0.66,
+    0.8
+   ]
+  },
+  {
+   "id": "hook3",
+   "startFrame": 4128,
+   "endFrame": 4539,
+   "tabs": [
+    160,
+    160
+   ],
+   "confetti": [
+    0.85,
+    1
+   ]
+  },
+  {
+   "id": "outro",
+   "startFrame": 4539,
+   "endFrame": 4897,
+   "tabs": [
+    160,
+    160
+   ],
+   "confetti": [
+    1,
+    1
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "in.01",
+   "section": "intro",
+   "start": 0.458,
+   "end": 2.173,
+   "startFrame": 14,
+   "endFrame": 65,
+   "text": "Okay.",
+   "owner": "intro",
+   "treatment": "ambient",
+   "gag": "cursor arrives",
+   "description": "Empty desktop at REST_POSE; the cursor pops in with a click ring, then a cluttered 'Downloads (412)' window pops open top-left.",
+   "tab": null,
+   "holdFrames": [
+    14,
+    65
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "in.02",
+   "section": "intro",
+   "start": 2.173,
+   "end": 3.887,
+   "startFrame": 65,
+   "endFrame": 117,
+   "text": "Yeah.",
+   "owner": "intro",
+   "treatment": "ambient",
+   "gag": "grab from the clutter",
+   "description": "The grab hand digs the glovebox icon (wedged, tilted, half on top of 'untitled') out of Downloads; it strains, then pops loose. A dashed gap stays behind. Tooltip: Move 'glovebox' to...",
+   "tab": null,
+   "holdFrames": [
+    65,
+    91
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "in.03",
+   "section": "intro",
+   "start": 3.92,
+   "end": 4.84,
+   "startFrame": 118,
+   "endFrame": 145,
+   "text": "Where do I even put this?",
+   "owner": "intro",
+   "treatment": "literal",
+   "gag": "wrong spots say no",
+   "description": "The dragged icon tries three spots on the desktop. Each lights up as a pink dashed drop zone with a no-sign and a chip (NOPE / NOT THERE / RESERVED FOR TABS), and the icon wiggles 'no'. Tooltip next to the icon: 'where do I even put this?'",
+   "tab": null,
+   "holdFrames": [
+    91,
+    146
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "in.04",
+   "section": "intro",
+   "start": 4.86,
+   "end": 5.6,
+   "startFrame": 146,
+   "endFrame": 168,
+   "text": "Right here?",
+   "owner": "intro",
+   "treatment": "ambient",
+   "gag": "dotted target at ICON_HOME",
+   "description": "Hovering over ICON_HOME: a faint dotted target with a tangerine crosshair appears; tooltip turns mustard: Move 'glovebox' here?",
+   "tab": null,
+   "holdFrames": [
+    146,
+    177
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "in.05",
+   "section": "intro",
+   "start": 5.9,
+   "end": 6.9,
+   "startFrame": 177,
+   "endFrame": 207,
+   "text": "Cool.",
+   "owner": "intro",
+   "treatment": "literal",
+   "gag": "icon dropped into place",
+   "description": "Drop: the icon lands on ICON_HOME with an elastic bounce, the lid pops open a crack with a small confetti burst, and a pickle chip reads 'COOL.' At bar 3.5 a one-tab browser ('new tab') rises out of the glovebox to VERSE_WINDOW. The icon stays in front, at home, to the last frame.",
+   "tab": null,
+   "holdFrames": [
+    177,
+    219
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.01",
+   "section": "verse1",
+   "start": 7.02,
+   "end": 9,
+   "startFrame": 211,
+   "endFrame": 270,
+   "text": "I got confetti in the glovebox, waffles in a windstorm,",
+   "owner": "verse1",
+   "treatment": "ambient",
+   "gag": "glovebox home tab",
+   "description": "Opening tab 'glovebox': the glovebox glyph pops confetti while waffles blow across in wind streaks; camera at REST_POSE then a jump cut closer.",
+   "tab": {
+    "title": "glovebox",
+    "glyph": "glovebox"
+   },
+   "holdFrames": [
+    219,
+    270
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.02",
+   "section": "verse1",
+   "start": 9.12,
+   "end": 10.7,
+   "startFrame": 274,
+   "endFrame": 321,
+   "text": "Left shoe talking like it’s asking what the socks for,",
+   "owner": "verse1",
+   "treatment": "literal",
+   "gag": "talking left shoe",
+   "description": "Video-call tab: a pink left shoe in the main tile, its mouth flapping on each word, speech bubble 'what are the socks for?'; self-view tile shows a pair of socks.",
+   "tab": {
+    "title": "call: Left Shoe",
+    "glyph": "shoe"
+   },
+   "holdFrames": [
+    280,
+    322
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.03",
+   "section": "verse1",
+   "start": 10.82,
+   "end": 12.38,
+   "startFrame": 325,
+   "endFrame": 371,
+   "text": "Microwave beeped and it sounded like a trap door,",
+   "owner": "verse1",
+   "treatment": "type-only",
+   "gag": "microwave search",
+   "description": "New tab pops, cursor clicks it; search page types 'microwave beep sounds like a trap door'. Jump cuts every beat.",
+   "tab": {
+    "title": "microwave beep??",
+    "glyph": "microwave"
+   },
+   "holdFrames": [
+    322,
+    374
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v1.04",
+   "section": "verse1",
+   "start": 12.5,
+   "end": 14.16,
+   "startFrame": 375,
+   "endFrame": 425,
+   "text": "Opened up the fridge, saw a pickle doing parkour.",
+   "owner": "verse1",
+   "treatment": "literal",
+   "gag": "pickle parkour",
+   "description": "'fridge cam LIVE' tab: the fridge door swings open on 'fridge', a pickle leaps out and does parkour across UI (Add to cart button, a window's top edge, a tab strip, Subscribe button) with a dotted trajectory trail.",
+   "tab": {
+    "title": "fridge cam LIVE",
+    "glyph": "fridge"
+   },
+   "holdFrames": [
+    385,
+    451
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.05",
+   "section": "verse1",
+   "start": 14.16,
+   "end": 15.8,
+   "startFrame": 425,
+   "endFrame": 474,
+   "text": "Hold up, wait, I’m not done with the nonsense,",
+   "owner": "verse1",
+   "treatment": "type-only",
+   "gag": "PAUSED",
+   "description": "On 'Hold up' the fridge-cam video freezes with the pickle mid-air and a PAUSED badge; zoom punch, then whip up to the tab bar.",
+   "tab": {
+    "title": "fridge cam LIVE",
+    "glyph": "fridge"
+   },
+   "holdFrames": [
+    425,
+    451
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v1.06",
+   "section": "verse1",
+   "start": 15.96,
+   "end": 17.64,
+   "startFrame": 479,
+   "endFrame": 529,
+   "text": "Brain got tabs like a discount conference,",
+   "owner": "verse1",
+   "treatment": "ambient",
+   "gag": "tab conference",
+   "description": "Tab-multiplication motif: 'brain.conf' tab shows every open tab as an attendee card ('attendees: N', -70% sticker); cursor clicks each new tab as it pops; jump cuts on beats.",
+   "tab": {
+    "title": "brain.conf",
+    "glyph": "notebook"
+   },
+   "holdFrames": [
+    451,
+    528
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.07",
+   "section": "verse1",
+   "start": 17.7,
+   "end": 19.06,
+   "startFrame": 531,
+   "endFrame": 572,
+   "text": "One says taxes, one says tacos,",
+   "owner": "verse1",
+   "treatment": "ambient",
+   "gag": "taxes | tacos split",
+   "description": "Named tabs 'taxes' and 'tacos'; split screen, jump cut from TAXES to TACOS on the word.",
+   "tab": {
+    "title": "taxes / tacos",
+    "glyph": "taco"
+   },
+   "holdFrames": [
+    528,
+    579
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.08",
+   "section": "verse1",
+   "start": 19.22,
+   "end": 21.24,
+   "startFrame": 577,
+   "endFrame": 637,
+   "text": "One says build a little boat out of Costco boxes.",
+   "owner": "verse1",
+   "treatment": "literal",
+   "gag": "Costco-box boat",
+   "description": "DIY tutorial tab 'build a little boat out of boxes': eight cardboard boxes fly in and stack into a hull, a sail pops up and the box boat bobs and floats on the waves (step chips 1 boxes / 2 stack / 3 float).",
+   "tab": {
+    "title": "DIY: box boat",
+    "glyph": "box"
+   },
+   "holdFrames": [
+    583,
+    644
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.09",
+   "section": "verse1",
+   "start": 21.3,
+   "end": 22.7,
+   "startFrame": 639,
+   "endFrame": 681,
+   "text": "I don’t need a cape, I got cargo shorts,",
+   "owner": "verse1",
+   "treatment": "type-only",
+   "gag": "cargo shorts search",
+   "description": "Search tab 'cape vs cargo shorts', whip and jump cut.",
+   "tab": {
+    "title": "cargo shorts",
+    "glyph": "shorts"
+   },
+   "holdFrames": [
+    644,
+    682
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v1.10",
+   "section": "verse1",
+   "start": 23,
+   "end": 24.42,
+   "startFrame": 690,
+   "endFrame": 733,
+   "text": "I don’t play golf, but I’m yelling “fore”",
+   "owner": "verse1",
+   "treatment": "type-only",
+   "gag": "fore search",
+   "description": "Camera whips along the tab bar (10+ tabs) while the cursor clicks new tabs; search 'is yelling fore indoors ok'.",
+   "tab": {
+    "title": "yelling fore?",
+    "glyph": "golf"
+   },
+   "holdFrames": [
+    682,
+    734
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v1.11",
+   "section": "verse1",
+   "start": 24.46,
+   "end": 25.88,
+   "startFrame": 734,
+   "endFrame": 776,
+   "text": "At a shopping cart drifting through aisle four,",
+   "owner": "verse1",
+   "treatment": "literal",
+   "gag": "shopping cart as F1",
+   "description": "'GROCERY GP live' tab: a shopping cart with a rear wing and number 1 drifts sideways through a grocery aisle under a hanging AISLE 4 sign, tyre smoke, skid marks, speed lines, DRIFT! tag; race HUD with LAP 3/3, running lap timer, P1, km/h.",
+   "tab": {
+    "title": "GROCERY GP live",
+    "glyph": "cart"
+   },
+   "holdFrames": [
+    751,
+    837
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.12",
+   "section": "verse1",
+   "start": 25.98,
+   "end": 27.88,
+   "startFrame": 779,
+   "endFrame": 836,
+   "text": "Like it’s Formula One at the grocery store.",
+   "owner": "verse1",
+   "treatment": "ambient",
+   "gag": "F1 finish (continuation of v1.11)",
+   "description": "Same scene: zoom punches on 'Formula' and 'One', chequered flag waves in, the cart crosses the chequered finish line in P1.",
+   "tab": {
+    "title": "GROCERY GP live",
+    "glyph": "cart"
+   },
+   "holdFrames": [
+    785,
+    837
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.13",
+   "section": "verse1",
+   "start": 27.88,
+   "end": 29.3,
+   "startFrame": 836,
+   "endFrame": 879,
+   "text": "Wallet got receipts from a month ago,",
+   "owner": "verse1",
+   "treatment": "type-only",
+   "gag": "receipts (ledger)",
+   "description": "Camera frames the bottom-left: an open wallet in the 'glovebox inventory' tab while ledger receipts rain down and land bottom-left. No receipts drawn by the section.",
+   "tab": {
+    "title": "glovebox inventory",
+    "glyph": "receipt"
+   },
+   "holdFrames": [
+    837,
+    888
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v1.14",
+   "section": "verse1",
+   "start": 29.44,
+   "end": 31.16,
+   "startFrame": 883,
+   "endFrame": 935,
+   "text": "Crumbs in the car doing dominoes,",
+   "owner": "verse1",
+   "treatment": "ambient",
+   "gag": "crumbs (ledger)",
+   "description": "Camera pans left to right along the bottom edge, next to a small car in the inventory tab, following the ledger crumbs as they land in a domino line. No crumbs drawn by the section.",
+   "tab": {
+    "title": "glovebox inventory",
+    "glyph": "receipt"
+   },
+   "holdFrames": [
+    888,
+    939
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.15",
+   "section": "verse1",
+   "start": 31.22,
+   "end": 32.8,
+   "startFrame": 937,
+   "endFrame": 984,
+   "text": "Dog in the window with a judgmental face,",
+   "owner": "verse1",
+   "treatment": "literal",
+   "gag": "judgmental dog in a window",
+   "description": "An OS window titled 'window' pops out over the browser: the dog behind a house window, half-lidded, raises one eyebrow on 'judgmental'; caption 'status: judging you'; a Clock window shows the time past 'standup: 9:00' with a LATE chip.",
+   "tab": {
+    "title": "dog.window",
+    "glyph": "dog"
+   },
+   "holdFrames": [
+    939,
+    1042
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v1.16",
+   "section": "verse1",
+   "start": 32.94,
+   "end": 34.76,
+   "startFrame": 988,
+   "endFrame": 1043,
+   "text": "Like, “Man, even I know you’re running late.”",
+   "owner": "verse1",
+   "treatment": "ambient",
+   "gag": "dog's verdict (continuation of v1.15)",
+   "description": "Hard cut to a wide REST_POSE shot: 48 sliver tabs, the dog window, speech bubble 'Man, even I know you're running late.', clock with blinking LATE. Holds to the downbeat, hard cut into the hook.",
+   "tab": {
+    "title": "dog.window",
+    "glyph": "dog"
+   },
+   "holdFrames": [
+    991,
+    1042
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "h1.01",
+   "section": "hook1",
+   "start": 34.76,
+   "end": 37.24,
+   "startFrame": 1043,
+   "endFrame": 1117,
+   "text": "Too much sauce in the backpack,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "sauce leaking out of a backpack",
+   "description": "pink backpack with a tipped sauce bottle, sauce running down it into a puddle; label SAUCE: TOO MUCH (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "backpack",
+    "glyph": "sauce"
+   },
+   "holdFrames": [
+    1043,
+    1556
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h1.02",
+   "section": "hook1",
+   "start": 37.42,
+   "end": 38.5,
+   "startFrame": 1123,
+   "endFrame": 1155,
+   "text": "Too much fizz in the cup,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "fizz cup overflowing",
+   "description": "fizz cup with foam spilling over the rim and bubbles escaping; label FIZZ: OVERFLOW (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "fizz cup",
+    "glyph": "cup"
+   },
+   "holdFrames": [
+    1123,
+    1556
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h1.03",
+   "section": "hook1",
+   "start": 38.66,
+   "end": 40.48,
+   "startFrame": 1160,
+   "endFrame": 1214,
+   "text": "Too many tabs in my brain right now,",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "loose tabs pop out",
+   "description": "loose tabs pop out on each word and join the orbit ring (count grows with intensity)",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h1.04",
+   "section": "hook1",
+   "start": 40.7,
+   "end": 42.26,
+   "startFrame": 1221,
+   "endFrame": 1268,
+   "text": "But I’m still showing up.",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "status card on the",
+   "description": "status card on the page gets a pickle check stamp; cursor still holding the active tab",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h1.05",
+   "section": "hook1",
+   "start": 42.26,
+   "end": 44.1,
+   "startFrame": 1268,
+   "endFrame": 1323,
+   "text": "Confetti in the glovebox,",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "glovebox lid pops open",
+   "description": "glovebox lid pops open and a small confetti burst comes out of the icon",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h1.06",
+   "section": "hook1",
+   "start": 44.32,
+   "end": 45.8,
+   "startFrame": 1330,
+   "endFrame": 1374,
+   "text": "Keys in the wrong spot,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "keys in the fridge",
+   "description": "open fridge, keys on the middle shelf under a bobbing map pin; label FOUND: IN FRIDGE (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "find keys",
+    "glyph": "key"
+   },
+   "holdFrames": [
+    1330,
+    1556
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h1.07",
+   "section": "hook1",
+   "start": 45.94,
+   "end": 46.92,
+   "startFrame": 1378,
+   "endFrame": 1408,
+   "text": "Life got weird by lunch,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "lunch clock gone weird",
+   "description": "clock just past twelve beside a wobbling sandwich, blinking warning triangle; label LUNCH: WEIRD (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "lunch",
+    "glyph": "taco"
+   },
+   "holdFrames": [
+    1378,
+    1556
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h1.08",
+   "section": "hook1",
+   "start": 47.2,
+   "end": 49.1,
+   "startFrame": 1416,
+   "endFrame": 1473,
+   "text": "But I’m still not lost.",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "status card switches to",
+   "description": "status card switches to STILL NOT LOST with a pin glyph",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "v2.01",
+   "section": "verse2",
+   "start": 51.19,
+   "end": 53.2,
+   "startFrame": 1536,
+   "endFrame": 1596,
+   "text": "Okay, who put a spoon in the pencil drawer?",
+   "owner": "verse2",
+   "treatment": "literal",
+   "gag": "spoon in the pencil drawer",
+   "description": "Top-down drawer labelled PENCIL DRAWER full of pencils, one spoon among them circled, 'spoon?!' tag, counter 'pencils: 9 · spoons: 1 (??)', cursor pointing at it; opens on a zoom punch, cuts tighter on the spoon",
+   "tab": {
+    "title": "pencil drawer",
+    "glyph": "pencil"
+   },
+   "holdFrames": [
+    1557,
+    1598
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v2.02",
+   "section": "verse2",
+   "start": 53.26,
+   "end": 54.86,
+   "startFrame": 1598,
+   "endFrame": 1646,
+   "text": "Who made a plan, then planned twelve more?",
+   "owner": "verse2",
+   "treatment": "literal",
+   "gag": "one plan, then twelve more",
+   "description": "Notes window plan.txt: THE PLAN, then plan B..plan M pop in fast; title counts to 13 plans, '+12 MORE' stamp",
+   "tab": {
+    "title": "plan.txt",
+    "glyph": "notebook"
+   },
+   "holdFrames": [
+    1598,
+    1662
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v2.03",
+   "section": "verse2",
+   "start": 54.94,
+   "end": 56.3,
+   "startFrame": 1648,
+   "endFrame": 1689,
+   "text": "Who had one job, then ignored that job",
+   "owner": "verse2",
+   "treatment": "ambient",
+   "gag": "",
+   "description": "beat jump cuts over the growing tab bar and filler tab pages",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": false
+  },
+  {
+   "id": "v2.04",
+   "section": "verse2",
+   "start": 56.44,
+   "end": 58.58,
+   "startFrame": 1693,
+   "endFrame": 1757,
+   "text": "For a deep-dive video on dinosaur chores?",
+   "owner": "verse2",
+   "treatment": "type-only",
+   "gag": "",
+   "description": "punchline card over tab montage",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": true
+  },
+  {
+   "id": "v2.05",
+   "section": "verse2",
+   "start": 58.68,
+   "end": 59.24,
+   "startFrame": 1760,
+   "endFrame": 1777,
+   "text": "Me.",
+   "owner": "verse2",
+   "treatment": "ambient",
+   "gag": "",
+   "description": "big zoom punch onto the newest tab",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": false
+  },
+  {
+   "id": "v2.06",
+   "section": "verse2",
+   "start": 59.32,
+   "end": 59.78,
+   "startFrame": 1780,
+   "endFrame": 1793,
+   "text": "Probably me.",
+   "owner": "verse2",
+   "treatment": "type-only",
+   "gag": "",
+   "description": "second punch, dutch wide; PROBABLY ME card",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": true
+  },
+  {
+   "id": "v2.07",
+   "section": "verse2",
+   "start": 59.86,
+   "end": 61.82,
+   "startFrame": 1796,
+   "endFrame": 1855,
+   "text": "But I move like a sneeze through a library.",
+   "owner": "verse2",
+   "treatment": "literal",
+   "gag": "a sneeze through a library",
+   "description": "CITY LIBRARY page with full shelves and a QUIET PLEASE sign; a sneezing face with ACHOO! travels left to right and blasts the books off the shelves as it passes, sign knocked crooked, camera shake",
+   "tab": {
+    "title": "quiet library",
+    "glyph": "sneeze"
+   },
+   "holdFrames": [
+    1804,
+    1881
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v2.08",
+   "section": "verse2",
+   "start": 61.82,
+   "end": 63.42,
+   "startFrame": 1855,
+   "endFrame": 1903,
+   "text": "Quiet for a second, then suddenly alarming,",
+   "owner": "verse2",
+   "treatment": "ambient",
+   "gag": "",
+   "description": "library aftermath (empty shelves, book pile), then whip into montage",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": false
+  },
+  {
+   "id": "v2.09",
+   "section": "verse2",
+   "start": 63.48,
+   "end": 65.18,
+   "startFrame": 1904,
+   "endFrame": 1955,
+   "text": "Trying to be normal, but the weird keeps farming.",
+   "owner": "verse2",
+   "treatment": "type-only",
+   "gag": "",
+   "description": "punchline card over tab montage",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": true
+  },
+  {
+   "id": "v2.10",
+   "section": "verse2",
+   "start": 65.18,
+   "end": 67.14,
+   "startFrame": 1955,
+   "endFrame": 2014,
+   "text": "Got a backpack snack and a half-charged phone,",
+   "owner": "verse2",
+   "treatment": "ambient",
+   "gag": "",
+   "description": "tab montage, beat cuts, whips on downbeats",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": false
+  },
+  {
+   "id": "v2.11",
+   "section": "verse2",
+   "start": 67.2,
+   "end": 68.58,
+   "startFrame": 2016,
+   "endFrame": 2057,
+   "text": "Three missed calls from an unknown zone,",
+   "owner": "verse2",
+   "treatment": "literal",
+   "gag": "three missed calls from an unknown zone",
+   "description": "Big phone at half battery ('battery: 50%') with a badge counting 1..3; three 'Missed call' dialogs 'from UNKNOWN ZONE' pop in on the beat",
+   "tab": {
+    "title": "3 missed calls",
+    "glyph": "phone"
+   },
+   "holdFrames": [
+    2016,
+    2061
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v2.12",
+   "section": "verse2",
+   "start": 68.98,
+   "end": 70.46,
+   "startFrame": 2069,
+   "endFrame": 2114,
+   "text": "Calendar looking like a boss fight screen,",
+   "owner": "verse2",
+   "treatment": "literal",
+   "gag": "calendar as an RPG boss fight",
+   "description": "Busy Calendar app, battle wipe, then 'Calendar — BOSS FIGHT': angry calendar boss (Lv.99, HP 9999/9999), the cursor as player on a platform with a tangerine, text 'A wild CALENDAR appears!' then 'What will YOU do?' with FIGHT / ITEM / RUN menu; zoom punch on 'boss'",
+   "tab": {
+    "title": "calendar: BOSS",
+    "glyph": "calendar"
+   },
+   "holdFrames": [
+    2061,
+    2118
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v2.13",
+   "section": "verse2",
+   "start": 70.6,
+   "end": 72.16,
+   "startFrame": 2118,
+   "endFrame": 2165,
+   "text": "And I’m underprepared with a tangerine.",
+   "owner": "verse2",
+   "treatment": "literal",
+   "gag": "underprepared with a tangerine",
+   "description": "Selector to ITEM, 'BAG: 1 TANGERINE.', 'TANGERINE equipped!' (player card shows it, tight shot), the tangerine is thrown, POW, screen shake and confetti burst, HP 9998/9999, '-1', 'It's not very effective...'",
+   "tab": {
+    "title": "calendar: BOSS",
+    "glyph": "calendar"
+   },
+   "holdFrames": [
+    2118,
+    2202
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v2.14",
+   "section": "verse2",
+   "start": 72.16,
+   "end": 73.88,
+   "startFrame": 2165,
+   "endFrame": 2216,
+   "text": "I’m not flexing, I’m stretching the chaos,",
+   "owner": "verse2",
+   "treatment": "type-only",
+   "gag": "",
+   "description": "card starts over the end of the boss fight, then tab montage",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": true
+  },
+  {
+   "id": "v2.15",
+   "section": "verse2",
+   "start": 74,
+   "end": 75.68,
+   "startFrame": 2220,
+   "endFrame": 2270,
+   "text": "Trying to make art out of stuff that fell off,",
+   "owner": "verse2",
+   "treatment": "ambient",
+   "gag": "",
+   "description": "tab montage ending on an 'art from stuff' tab",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": false
+  },
+  {
+   "id": "v2.16",
+   "section": "verse2",
+   "start": 75.72,
+   "end": 77.3,
+   "startFrame": 2272,
+   "endFrame": 2319,
+   "text": "Paint on the floor, little dots on the ceiling,",
+   "owner": "verse2",
+   "treatment": "ambient",
+   "gag": "",
+   "description": "camera at rest-wide on the whole desktop so the ledger's paint dots (floor and ceiling band) land in frame; no section-drawn paint",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": false
+  },
+  {
+   "id": "v2.17",
+   "section": "verse2",
+   "start": 77.58,
+   "end": 79.26,
+   "startFrame": 2327,
+   "endFrame": 2378,
+   "text": "Somehow still got a pretty good feeling.",
+   "owner": "verse2",
+   "treatment": "type-only",
+   "gag": "",
+   "description": "full window, 96 sliver tabs, beat cuts with tilt; card; hard cut to pre-hook",
+   "tab": null,
+   "holdFrames": [],
+   "lyricType": true
+  },
+  {
+   "id": "ph.01",
+   "section": "prehook",
+   "start": 79.3,
+   "end": 81.16,
+   "startFrame": 2379,
+   "endFrame": 2435,
+   "text": "Maybe I’m a little all over the map,",
+   "owner": "prehook",
+   "treatment": "literal",
+   "gag": "all over the map",
+   "description": "A small 'map' app window (lake, park, streets, no pin) where the cursor wanders everywhere and leaves a dotted trail that loops all over; label 'route: recalculating...'. Trail finishes on the word 'map', then the window floats off left.",
+   "tab": null,
+   "holdFrames": [
+    2422,
+    2455
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "ph.02",
+   "section": "prehook",
+   "start": 81.16,
+   "end": 82.58,
+   "startFrame": 2435,
+   "endFrame": 2477,
+   "text": "Maybe every straight line takes a nap,",
+   "owner": "prehook",
+   "treatment": "literal",
+   "gag": "straight lines take a nap",
+   "description": "A 'straight lines' window: a ruler, a progress bar and an <hr> divider lie straight ('status: perfectly straight'), then on 'takes a nap' curl up like sleeping cats, eyes closed, 'z z z' rising; status bar flips to 'status: napping · do not disturb'. Floats off right during ph.03.",
+   "tab": null,
+   "holdFrames": [
+    2471,
+    2508
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "ph.03",
+   "section": "prehook",
+   "start": 82.9,
+   "end": 84.24,
+   "startFrame": 2487,
+   "endFrame": 2527,
+   "text": "Maybe the mess has a rhythm in it,",
+   "owner": "prehook",
+   "treatment": "ambient",
+   "gag": "the mess bobs on the beat",
+   "description": "Camera, browser, its 96 tabs, page blocks, floating icons and the desktop icon lift smoothly on every beat during bar 48 (debris untouched, moves only with the camera). Soft floating paper KineticLine card.",
+   "tab": null,
+   "holdFrames": [
+    2482,
+    2533
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "ph.04",
+   "section": "prehook",
+   "start": 84.5,
+   "end": 86.32,
+   "startFrame": 2535,
+   "endFrame": 2590,
+   "text": "Maybe I’m late, but I’m still in it.",
+   "owner": "prehook",
+   "treatment": "ambient",
+   "gag": "drift back home",
+   "description": "From bar 49.42 everything eases back: browser to HOOK_WINDOW, icon to ICON_HOME, camera to REST_POSE, loose tabs and address bar re-seat, ready for the hook's hard cut. Soft floating paper KineticLine card.",
+   "tab": null,
+   "holdFrames": [
+    2554,
+    2585
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h2.01",
+   "section": "hook2",
+   "start": 86.32,
+   "end": 88.54,
+   "startFrame": 2590,
+   "endFrame": 2656,
+   "text": "Too much sauce in the backpack,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "sauce leaking out of a backpack",
+   "description": "pink backpack with a tipped sauce bottle, sauce running down it into a puddle; label SAUCE: TOO MUCH (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "backpack",
+    "glyph": "sauce"
+   },
+   "holdFrames": [
+    2590,
+    3098
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h2.02",
+   "section": "hook2",
+   "start": 88.82,
+   "end": 89.96,
+   "startFrame": 2665,
+   "endFrame": 2699,
+   "text": "Too much fizz in the cup,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "fizz cup overflowing",
+   "description": "fizz cup with foam spilling over the rim and bubbles escaping; label FIZZ: OVERFLOW (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "fizz cup",
+    "glyph": "cup"
+   },
+   "holdFrames": [
+    2665,
+    3098
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h2.03",
+   "section": "hook2",
+   "start": 90,
+   "end": 91.9,
+   "startFrame": 2700,
+   "endFrame": 2757,
+   "text": "Too many tabs in my brain right now,",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "loose tabs pop out",
+   "description": "loose tabs pop out on each word and join the orbit ring (count grows with intensity)",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h2.04",
+   "section": "hook2",
+   "start": 92.14,
+   "end": 93.68,
+   "startFrame": 2764,
+   "endFrame": 2810,
+   "text": "But I’m still showing up.",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "status card on the",
+   "description": "status card on the page gets a pickle check stamp; cursor still holding the active tab",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h2.05",
+   "section": "hook2",
+   "start": 93.68,
+   "end": 95.54,
+   "startFrame": 2810,
+   "endFrame": 2866,
+   "text": "Confetti in the glovebox,",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "glovebox lid pops open",
+   "description": "glovebox lid pops open and a small confetti burst comes out of the icon",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h2.06",
+   "section": "hook2",
+   "start": 95.72,
+   "end": 97.2,
+   "startFrame": 2872,
+   "endFrame": 2916,
+   "text": "Keys in the wrong spot,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "keys in the fridge",
+   "description": "open fridge, keys on the middle shelf under a bobbing map pin; label FOUND: IN FRIDGE (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "find keys",
+    "glyph": "key"
+   },
+   "holdFrames": [
+    2872,
+    3098
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h2.07",
+   "section": "hook2",
+   "start": 97.36,
+   "end": 98.34,
+   "startFrame": 2921,
+   "endFrame": 2950,
+   "text": "Life got weird by lunch,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "lunch clock gone weird",
+   "description": "clock just past twelve beside a wobbling sandwich, blinking warning triangle; label LUNCH: WEIRD (orbits the mirrored side loop until the end of the hook)",
+   "tab": {
+    "title": "lunch",
+    "glyph": "taco"
+   },
+   "holdFrames": [
+    2921,
+    3098
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h2.08",
+   "section": "hook2",
+   "start": 98.62,
+   "end": 99.82,
+   "startFrame": 2959,
+   "endFrame": 2995,
+   "text": "But I’m still not lost.",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "status card switches to",
+   "description": "status card switches to STILL NOT LOST with a pin glyph",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "br.01",
+   "section": "bridge",
+   "start": 101.601,
+   "end": 105.029,
+   "startFrame": 3048,
+   "endFrame": 3151,
+   "text": "I got left-turn energy,",
+   "owner": "bridge",
+   "treatment": "ambient",
+   "gag": "left-turns-only directions",
+   "description": "Browser maps page: a numbered 'Turn left' step pops in on each beat of bar 60 while the pin loops four lefts back to its start; the camera cuts on every beat, turning further left each time",
+   "tab": {
+    "title": "(96 slivers)",
+    "glyph": "pin"
+   },
+   "holdFrames": [
+    3099,
+    3151
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "br.02",
+   "section": "bridge",
+   "start": 105.12,
+   "end": 106.22,
+   "startFrame": 3154,
+   "endFrame": 3187,
+   "text": "Snack-pack chemistry,",
+   "owner": "bridge",
+   "treatment": "ambient",
+   "gag": "snack lab",
+   "description": "'snack lab' window: two flasks holding snack packs A and B, a beating heart between them, a CHEMISTRY meter filling one segment per beat to 100%",
+   "tab": null,
+   "holdFrames": [
+    3151,
+    3202
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "br.03",
+   "section": "bridge",
+   "start": 107.26,
+   "end": 108.12,
+   "startFrame": 3218,
+   "endFrame": 3244,
+   "text": "Calendar enemies,",
+   "owner": "bridge",
+   "treatment": "ambient",
+   "gag": "calendar events marching (callback to verse 2)",
+   "description": "'Calendar (hostile)': event chips (MEETING, DENTIST, TAXES...) with angry eyebrows and little legs march left across the month on eighth notes. Brief callback, not counted as a new gag",
+   "tab": null,
+   "holdFrames": [
+    3215,
+    3254
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "br.04",
+   "section": "bridge",
+   "start": 108.44,
+   "end": 109.9,
+   "startFrame": 3253,
+   "endFrame": 3297,
+   "text": "Laundry like a dynasty.",
+   "owner": "bridge",
+   "treatment": "literal",
+   "gag": "laundry dynasty",
+   "description": "'Royal Laundry Museum': a crowned laundry basket (LAUNDRY V) sits on a throne on a pink carpet under a HOUSE OF LAUNDRY banner, flanked by framed portraits of crowned ancestor piles LAUNDRY I to IV; wide for 2 beats, then cuts to the portraits and the throne with a confetti pop",
+   "tab": {
+    "title": "Royal Laundry Museum",
+    "glyph": "laundry"
+   },
+   "holdFrames": [
+    3253,
+    3305
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "br.05",
+   "section": "bridge",
+   "start": 109.9,
+   "end": 111.62,
+   "startFrame": 3297,
+   "endFrame": 3349,
+   "text": "I got “wait, what?” memory,",
+   "owner": "bridge",
+   "treatment": "ambient",
+   "gag": "'wait, what?' popup stack",
+   "description": "Four 'wait, what?' dialogs (Why did you open this window? / You walked in here for something. / It was important. Probably. / Wait. What?) stack diagonally, one per beat, buttons Wait and What?",
+   "tab": null,
+   "holdFrames": [
+    3305,
+    3357
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "br.06",
+   "section": "bridge",
+   "start": 112.12,
+   "end": 113.2,
+   "startFrame": 3364,
+   "endFrame": 3396,
+   "text": "Half-done symmetry,",
+   "owner": "bridge",
+   "treatment": "literal",
+   "gag": "half-done symmetry",
+   "description": "mirror.app, camera locked and centred: a butterfly, sun and plants drawn in full colour on the left half; the mirrored right half is only dashed pencil outline with TODO labels, the SYMMETRY bar stops at 50% and the pencil says 'brb'",
+   "tab": {
+    "title": "mirror.app - symmetry.png",
+    "glyph": "pencil"
+   },
+   "holdFrames": [
+    3357,
+    3408
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "br.07",
+   "section": "bridge",
+   "start": 114.12,
+   "end": 114.68,
+   "startFrame": 3424,
+   "endFrame": 3440,
+   "text": "Tiny victories",
+   "owner": "bridge",
+   "treatment": "literal",
+   "gag": "tiny trophies stacked up mentally",
+   "description": "A thought bubble above the glovebox icon labelled MENTAL TROPHY SHELF: tiny trophies with labels (drank water, found keys, sent it...) drop in one per beat, then one per eighth note in bar 67, stacking into a swaying tower; a WINS counter counts up; the camera climbs the tower and pulls back wide",
+   "tab": {
+    "title": "mental trophy shelf",
+    "glyph": "trophy"
+   },
+   "holdFrames": [
+    3424,
+    3511
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "br.08",
+   "section": "bridge",
+   "start": 115.22,
+   "end": 116.88,
+   "startFrame": 3457,
+   "endFrame": 3506,
+   "text": "Stacked up mentally.",
+   "owner": "bridge",
+   "treatment": "ambient",
+   "gag": "trophy tower (continuation of br.07)",
+   "description": "Same gag as br.07: the tower stacks on eighth notes and sways; not counted separately",
+   "tab": null,
+   "holdFrames": [
+    3457,
+    3511
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v3.01",
+   "section": "verse3",
+   "start": 116.88,
+   "end": 118.42,
+   "startFrame": 3506,
+   "endFrame": 3553,
+   "text": "Let me land this plane on a tennis court,",
+   "owner": "verse3",
+   "treatment": "literal",
+   "gag": "paper plane lands on a tennis court",
+   "description": "Top-down green tennis court on tangerine clay; a paper plane descends with its shadow, touches down on 'court' and skids with skid marks; signs COURT 3 and NOW LANDING: PAPER PLANE",
+   "tab": {
+    "title": "court 3: now landing",
+    "glyph": "tennis"
+   },
+   "holdFrames": [
+    3511,
+    3562
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.02",
+   "section": "verse3",
+   "start": 118.56,
+   "end": 119.9,
+   "startFrame": 3557,
+   "endFrame": 3597,
+   "text": "Let me file these thoughts in a blanket fort,",
+   "owner": "verse3",
+   "treatment": "ambient",
+   "gag": "tab chaos",
+   "description": "whips across the tab bar and a mosaic of open-tab previews, new tab pops on each beat",
+   "tab": null,
+   "holdFrames": [
+    3562,
+    3614
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.03",
+   "section": "verse3",
+   "start": 120.22,
+   "end": 121.96,
+   "startFrame": 3607,
+   "endFrame": 3659,
+   "text": "Let me turn this glitch into airport art,",
+   "owner": "verse3",
+   "treatment": "ambient",
+   "gag": "tab chaos",
+   "description": "jump cuts between tab-bar close-ups and the tab mosaic",
+   "tab": null,
+   "holdFrames": [
+    3614,
+    3665
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.04",
+   "section": "verse3",
+   "start": 121.96,
+   "end": 123.68,
+   "startFrame": 3659,
+   "endFrame": 3710,
+   "text": "Let me restart twice and still play my part.",
+   "owner": "verse3",
+   "treatment": "ambient",
+   "gag": "tab chaos",
+   "description": "cuts with paper flashes on beats 3 and 4",
+   "tab": null,
+   "holdFrames": [
+    3665,
+    3717
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.05",
+   "section": "verse3",
+   "start": 123.72,
+   "end": 125.4,
+   "startFrame": 3712,
+   "endFrame": 3762,
+   "text": "I’m a houseplant thriving in a thunderstorm,",
+   "owner": "verse3",
+   "treatment": "literal",
+   "gag": "houseplant thriving in a thunderstorm",
+   "description": "Dark storm sky, clouds, fizz rain, a lightning bolt on every beat; the potted plant sways, grows a step and sprouts a new leaf on each flash (+1 LEAF chips), sunglasses and a grin on the pot; THUNDERSTORM WARNING bar and a HOUSEPLANT STATUS: THRIVING card",
+   "tab": {
+    "title": "storm (plant: thriving)",
+    "glyph": "plant"
+   },
+   "holdFrames": [
+    3723,
+    3768
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v3.06",
+   "section": "verse3",
+   "start": 125.54,
+   "end": 127.2,
+   "startFrame": 3766,
+   "endFrame": 3816,
+   "text": "A notebook page with a dragon drawn,",
+   "owner": "verse3",
+   "treatment": "ambient",
+   "gag": "tab chaos",
+   "description": "whips and punches over the tab mosaic",
+   "tab": null,
+   "holdFrames": [
+    3768,
+    3819
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.07",
+   "section": "verse3",
+   "start": 127.28,
+   "end": 128.9,
+   "startFrame": 3818,
+   "endFrame": 3867,
+   "text": "A lemonade stand in a hurricane,",
+   "owner": "verse3",
+   "treatment": "literal",
+   "gag": "lemonade stand in a hurricane",
+   "description": "Weather-radar hurricane spiral rotating around a calm eye; lemons, cups, shoes and boxes fly around it; the lemonade stand sits in the eye with a LEMONADE sign and a swinging OPEN sign, STILL OPEN sticker, HURRICANE WARNING bar",
+   "tab": {
+    "title": "lemonade (still open)",
+    "glyph": "stand"
+   },
+   "holdFrames": [
+    3825,
+    3871
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.08",
+   "section": "verse3",
+   "start": 129.12,
+   "end": 130.56,
+   "startFrame": 3874,
+   "endFrame": 3917,
+   "text": "Selling good vibes from a paper plane.",
+   "owner": "verse3",
+   "treatment": "literal",
+   "gag": "paper plane selling good vibes",
+   "description": "The same paper plane from court 3 flies left to right across the top of the window over the tab bar, towing a mustard banner GOOD VIBES 4 SALE; blue sky tab below with clouds and little glyph customers bouncing",
+   "tab": {
+    "title": "good vibes 4 sale",
+    "glyph": "plane"
+   },
+   "holdFrames": [
+    3871,
+    3922
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "v3.09",
+   "section": "verse3",
+   "start": 130.62,
+   "end": 132.18,
+   "startFrame": 3919,
+   "endFrame": 3965,
+   "text": "Not polished, not perfect, still moving though,",
+   "owner": "verse3",
+   "treatment": "ambient",
+   "gag": "tab chaos",
+   "description": "three whips in a row, tabs now glyph-only",
+   "tab": null,
+   "holdFrames": [
+    3922,
+    3974
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.10",
+   "section": "verse3",
+   "start": 132.28,
+   "end": 133.74,
+   "startFrame": 3968,
+   "endFrame": 4012,
+   "text": "Little bit of static in the stereo,",
+   "owner": "verse3",
+   "treatment": "ambient",
+   "gag": "tab chaos",
+   "description": "eighth-note jump cuts with heavy shake",
+   "tab": null,
+   "holdFrames": [
+    3974,
+    4025
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.11",
+   "section": "verse3",
+   "start": 134.02,
+   "end": 135.74,
+   "startFrame": 4021,
+   "endFrame": 4072,
+   "text": "If the day throws paint, let it splatter nonstop,",
+   "owner": "verse3",
+   "treatment": "ambient",
+   "gag": "paint splatter (ledger)",
+   "description": "wide tilted framings with a punch per beat so the DebrisLayer paint dots landing over the desktop are visible; no own paint drawn",
+   "tab": null,
+   "holdFrames": [
+    4025,
+    4077
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "v3.12",
+   "section": "verse3",
+   "start": 135.8,
+   "end": 137.62,
+   "startFrame": 4074,
+   "endFrame": 4129,
+   "text": "I’ll call it confetti in the glovebox.",
+   "owner": "verse3",
+   "treatment": "type-only",
+   "gag": "rush home",
+   "description": "whip out, then the camera rushes back to REST_POSE while the window settles onto HOOK_WINDOW and the glovebox icon wiggles on 'glovebox'; lyric card at the top where the hook type will sit; hard cut on the downbeat into hook3",
+   "tab": null,
+   "holdFrames": [
+    4077,
+    4128
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h3.01",
+   "section": "hook3",
+   "start": 137.78,
+   "end": 139.72,
+   "startFrame": 4133,
+   "endFrame": 4192,
+   "text": "Too much sauce in the backpack,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "sauce leaking out of a backpack",
+   "description": "pink backpack with a tipped sauce bottle, sauce running down it into a puddle; label SAUCE: TOO MUCH (final hook: minimised into the glovebox with the window)",
+   "tab": {
+    "title": "backpack",
+    "glyph": "sauce"
+   },
+   "holdFrames": [
+    4133,
+    4347
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h3.02",
+   "section": "hook3",
+   "start": 140.26,
+   "end": 141.44,
+   "startFrame": 4208,
+   "endFrame": 4243,
+   "text": "Too much fizz in the cup,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "fizz cup overflowing",
+   "description": "fizz cup with foam spilling over the rim and bubbles escaping; label FIZZ: OVERFLOW (final hook: minimised into the glovebox with the window)",
+   "tab": {
+    "title": "fizz cup",
+    "glyph": "cup"
+   },
+   "holdFrames": [
+    4208,
+    4347
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h3.03",
+   "section": "hook3",
+   "start": 141.52,
+   "end": 143.4,
+   "startFrame": 4246,
+   "endFrame": 4302,
+   "text": "Too many tabs in my brain right now,",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "loose tabs pop out",
+   "description": "loose tabs pop out on each word and join the orbit ring (count grows with intensity)",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h3.04",
+   "section": "hook3",
+   "start": 143.54,
+   "end": 144.94,
+   "startFrame": 4306,
+   "endFrame": 4348,
+   "text": "But I’m still showing up.",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "status card on the",
+   "description": "status card on the page gets a pickle check stamp; cursor still holding the active tab",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h3.05",
+   "section": "hook3",
+   "start": 145.08,
+   "end": 146.96,
+   "startFrame": 4352,
+   "endFrame": 4409,
+   "text": "Confetti in the glovebox,",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "window minimises into the glovebox, lid bursts confetti",
+   "description": "over MINIMISE_BARS the browser window, cursor and orbiters shrink into the glovebox icon; the lid pops and bursts confetti as the camera pulls back",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "h3.06",
+   "section": "hook3",
+   "start": 147.12,
+   "end": 148.68,
+   "startFrame": 4414,
+   "endFrame": 4460,
+   "text": "Keys in the wrong spot,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "keys in the fridge",
+   "description": "open fridge, keys on the middle shelf under a bobbing map pin; label FOUND: IN FRIDGE (final hook: pops up in screen space during the pull-back, holds, then is swallowed by the glovebox)",
+   "tab": {
+    "title": "find keys",
+    "glyph": "key"
+   },
+   "holdFrames": [
+    4414,
+    4466
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h3.07",
+   "section": "hook3",
+   "start": 148.78,
+   "end": 149.94,
+   "startFrame": 4463,
+   "endFrame": 4498,
+   "text": "Life got weird by lunch,",
+   "owner": "hook",
+   "treatment": "literal",
+   "gag": "lunch clock gone weird",
+   "description": "clock just past twelve beside a wobbling sandwich, blinking warning triangle; label LUNCH: WEIRD (final hook: pops up in screen space during the pull-back, holds, then is swallowed by the glovebox)",
+   "tab": {
+    "title": "lunch",
+    "glyph": "taco"
+   },
+   "holdFrames": [
+    4463,
+    4515
+   ],
+   "lyricType": true
+  },
+  {
+   "id": "h3.08",
+   "section": "hook3",
+   "start": 150.1,
+   "end": 152.12,
+   "startFrame": 4503,
+   "endFrame": 4564,
+   "text": "But I’m still not lost.",
+   "owner": "hook",
+   "treatment": "ambient",
+   "gag": "status card switches to",
+   "description": "status card switches to STILL NOT LOST with a pin glyph",
+   "tab": null,
+   "holdFrames": null,
+   "lyricType": true
+  },
+  {
+   "id": "out.01",
+   "section": "outro",
+   "start": 153.458,
+   "end": 156.029,
+   "startFrame": 4604,
+   "endFrame": 4681,
+   "text": "Still not lost.",
+   "owner": "outro",
+   "treatment": "literal",
+   "gag": "buffering spinner on the map pin",
+   "description": "The 'You are here' mural's pin gets a loading spinner in its head, a wait cursor beside it, and a route panel below reads 'buffering route...' with a progress bar that creeps to 99% and sticks; the panel prints STILL NOT LOST. word by word.",
+   "tab": null,
+   "holdFrames": [
+    4600,
+    4792
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "out.02",
+   "section": "outro",
+   "start": 156.5,
+   "end": 158.44,
+   "startFrame": 4695,
+   "endFrame": 4753,
+   "text": "Just creatively delayed.",
+   "owner": "outro",
+   "treatment": "ambient",
+   "gag": "spinner keeps spinning, line printed in the route panel",
+   "description": "Spinner and 99% bar stay stuck while JUST CREATIVELY DELAYED. pops into the route panel on its sung words (sung word tangerine).",
+   "tab": null,
+   "holdFrames": [
+    4693,
+    4802
+   ],
+   "lyricType": false
+  },
+  {
+   "id": "out.03",
+   "section": "outro",
+   "start": 159.62,
+   "end": 160.72,
+   "startFrame": 4789,
+   "endFrame": 4822,
+   "text": "With snacks.",
+   "owner": "outro",
+   "treatment": "literal",
+   "gag": "taco lands on the pin, end card",
+   "description": "A taco drops onto the pin head on 'snacks' (squash, small confetti burst), the spinner vanishes, the bar jumps to 100% 'route loaded', then the end card resolves: STILL NOT LOST. (top) / JUST CREATIVELY DELAYED. / WITH SNACKS. + taco (mustard), camera pushes gently into the pin and holds still for the ring-out.",
+   "tab": null,
+   "holdFrames": [
+    4792,
+    4897
+   ],
+   "lyricType": false
+  }
+ ],
+ "manifests": {
+  "intro": {
+   "localProps": [
+    "DownloadsWindow",
+    "NoSpot",
+    "HomeTarget",
+    "DragTip",
+    "CoolChip",
+    "RisingBrowser"
+   ],
+   "promotionCandidates": [
+    "DragTip (cursor tooltip chip)",
+    "NoSpot (rejecting drop zone)"
+   ],
+   "notes": "Camera locked at REST_POSE throughout. No lyric cards: all spoken lines appear as UI text (drag tooltip, chips). The icon lands exactly on ICON_HOME from drop+16 (frame 193) onward, unselected, with lid pose about 0.7 (open, because the browser rises out of it). From frame 194 (bar 3.5) the BrowserWindow shows tabCountAt(frame) = 1 tab, named {0: {title: 'new tab', glyph: 'glovebox'}}, active 0, url confetti://glovebox. It finishes growing to exactly VERSE_WINDOW at frame 216 and holds there. It sits BEHIND the icon, so the icon overlaps the window's bottom edge on the last frame. Verse 1 may want to match this or cut to the window in front. Menu bar title reads 'Desktop' until bar 3.5, then 'Browser'. The cursor ends as an arrow at (1310, 700)."
+  },
+  "verse1": {
+   "localProps": [
+    "SpeechBubble",
+    "Sock",
+    "Fridge",
+    "Wallet",
+    "ChequeredFlag",
+    "AnalogClock",
+    "Car",
+    "PauseBadge",
+    "Chip",
+    "SearchScene",
+    "ConferenceScene",
+    "shot-list camera (cameraAt)"
+   ],
+   "promotionCandidates": [
+    "SpeechBubble",
+    "Chip",
+    "AnalogClock",
+    "shot-list camera helper (beats -> poses with cut/whip/drift)",
+    "wf(lineId, word): word start frame by text"
+   ],
+   "notes": "Main browser at VERSE_WINDOW always renders tabCountAt(frame) tabs (flow mode), newest tab pops on its beat. Tab per scene = newest tab at scene start; at low counts tabs 0 and 1 navigate (glovebox -> shoe call, microwave -> fridge cam). Cuts only on beats or eighths; camera whips 6 frames. Literal lines: v1.02, v1.04, v1.08, v1.11, v1.15 (5); v1.12 and v1.16 are continuations of the cart and dog gags. KineticLine on v1.03, v1.05, v1.09, v1.10, v1.13 (5 of 16). Final bar is a wide REST_POSE shot of the dog scene; no transition out (hard cut on the hook downbeat). Fake clock reads 9:59-10:01 in the last bar vs 'standup: 9:00'."
+  },
+  "hook": {
+   "localProps": [
+    "HookBrowser (BrowserWindow copy with the symmetric tab bar centred on the window instead of after the traffic lights)",
+    "HookLyric (HookType-style card with a fixed two-row break and fit-to-width size)",
+    "StatusCard",
+    "TabChip",
+    "GagWindow (sauce, fizz, keys, lunch bodies)"
+   ],
+   "promotionCandidates": [
+    "BrowserWindow: option to centre the symmetric tab bar on the window axis (lib version puts the active tab ~55 px right of centre)",
+    "HookType: size/width/top-anchor overrides or a balanced two-row break; at 140 px most hook lines wrap and line .03 would need 3 rows",
+    "GagWindow-style mini AppWindow with an in-picture label chip"
+   ],
+   "notes": "Hook type: hooks 1-2 and hook3 lines .01-.04 use HookLyric top-anchored at y 230 (inside the window content, so the tab bar and the held cursor stay clear), size min(80+60*intensity, fit) = 104/122/<=140. From h3.05 (startFrame-4) hook3 switches to the lib HookType(intensity 1, y 140, beatPulse 0.4), i.e. LyricCard size 140 y 140, which is exactly what the outro holds at its first frame. That card wraps to two rows and reaches about screen y 305, slightly into the mural top band; it is the outro-agreed seam. Last frame (4538) is exactly MURAL_POSE, muralAt=1, no window, cursor or orbiters left; ConfettiField orbit spin 2. Tails of hook1/hook2 hold the image and the h.08 card; the next section pickups are not shown. Window punch on bar downbeats scales the window around the active tab (amount 0.01+0.03*intensity) so the tab stays under the still cursor. Active tab centre is at x 964 (HOOK_WINDOW is content-box, its centre is 964). Gag budget: 4 literal per hook (same gags recur). In hook3, keys and lunch are sung during the pull-back, so they appear in screen space at mirrored lower-left/right positions instead of on the loops."
+  },
+  "verse2": {
+   "localProps": [
+    "DrawerPage",
+    "PlansPage",
+    "LibraryPage (flying books)",
+    "PhonePage",
+    "TabPage (generic filler tab page)",
+    "BossPage / Battle (RPG boss UI on CalendarApp: HP bar, menu, text box, battle wipe)",
+    "shot list camera (shots.ts)"
+   ],
+   "promotionCandidates": [
+    "TabPage generic filler page",
+    "shot-list camera helper (cameraAt with whip between shots)",
+    "content-area origin constant for BrowserWindow (BROWSER_CHROME_H omits the address bar borders, 8 px)"
+   ],
+   "notes": "6 literal lines (v2.01, v2.02, v2.07, v2.11, v2.12, v2.13); 5 kinetic cards (v2.04, v2.06, v2.09, v2.14, v2.17). Tab bar always renders tabCountAt(frame); gag tabs are named at the index that was newest when each gag opened. Content scene switches at mid-whip. One ConfettiBurst (60) at the tangerine hit. BrowserWindow content area actually starts 8 px lower than BROWSER_CHROME_H suggests; handled locally in cues.ts."
+  },
+  "prehook": {
+   "localProps": [
+    "FloatBrowser (browser whose tabs, address bar, page blocks and glyphs float loose; takes loose and bob)",
+    "MapWindow (map app with arc-length-resampled wandering cursor trail)",
+    "NapWindow (ruler / progress bar / divider drawn as curlable centrelines with closed eyes and z z z)"
+   ],
+   "promotionCandidates": [
+    "FloatBrowser's per-tab offset support could become an optional tabOffset(i) prop on lib TabBar/BrowserWindow"
+   ],
+   "notes": "Camera = REST_POSE + float(seed 'ph-cam') * (1-settle), scale up to 1.07 so edges never show; settles to exactly REST_POSE by bar 49.97. Browser lerps VERSE_WINDOW -> floating rect (250,128,1420,680) over bar 46, then -> HOOK_WINDOW over bar 49.42..49.97, flow tab mode with tabCountAt (96) throughout; hook switches to symmetric on its cut. Desktop icon drawn by the section (showIcon=false) and returns to ICON_HOME. ConfettiField mode float speed 0.5, no level override. Lyric cards only for ph.03 and ph.04 (ph.03 tail 6 so cards never overlap)."
+  },
+  "bridge": {
+   "localProps": [
+    "MapsPage",
+    "LeftArrow",
+    "SnackLab",
+    "Flask",
+    "CountingList (NotesApp checklist with N/8 counter and clicking cursor; cutaways at beats 6, 8, 24)",
+    "HostileCalendar",
+    "LaundryDynasty",
+    "Pile",
+    "WaitStack",
+    "MirrorApp",
+    "Half (filled or wireframe half-picture)",
+    "TrophyMind (thought bubble + trophy tower)",
+    "BridgeLyric (lower-left lyric card, synthetic word timing for grid line br.01)"
+   ],
+   "promotionCandidates": [
+    "ThoughtBubble (scalloped outline via stroked circles under filled circles)",
+    "relBeat(frame): beat index exact against rounded frameOfBeat values"
+   ],
+   "notes": "Cuts on every beat (two beats on the laundry wide shot, four on the locked mirror shot), small zoom punch per cut, no whips. The browser (VERSE_WINDOW, tabCountAt = 96 slivers) is always in the world behind the app windows. br.01 is grid-timed: the local lyric card gives 'I got' the two pickup beats of bar 59 and lands 'left-turn' on the bar 60 downbeat. Lyric cards: paper for ambient lines, mustard for gag lines, lower-left (centred on the mirror shot). Last frame 3510 is a wide shot of the full tower; hard cut into verse 3 on the bar 68 downbeat."
+  },
+  "verse3": {
+   "localProps": [
+    "Sign",
+    "AlertBar",
+    "CourtScene",
+    "StormScene",
+    "HurricaneScene",
+    "SkyScene",
+    "VibesPlane",
+    "TabMosaic"
+   ],
+   "promotionCandidates": [
+    "Sign (sticker label) is generic and useful to every section",
+    "TabMosaic (tab-overview grid driven by tabCountAt)"
+   ],
+   "notes": "One BrowserWindow throughout, always tabs=tabCountAt(frame) (3 -> 160, slivers by the end). Gag tab indices are derived from tabCountAt at each gag bar's downbeat. Last frame is exactly REST_POSE with the window at HOOK_WINDOW (flow tab mode, 160 slivers), icon at ICON_HOME visible below; hook3 swaps to symmetric tabs on the cut. Shot list with beat-relative timing in Section.tsx (SHOTS)."
+  },
+  "outro": {
+   "localProps": [
+    "SungWords (in-picture word-timed UI text)",
+    "RoutePanel (buffering panel, progress bar stuck at 99%)",
+    "EndCard (end-card phrase sticker, renders without lyrics)"
+   ],
+   "promotionCandidates": [
+    "EndCard: a LyricCard-styled sticker that ignores showLyrics, for in-picture type"
+   ],
+   "notes": "No browser window or tab bar is visible in the outro (window minimised in hook3), so tabCountAt is never drawn. Seam: frame 4539 is Camera MURAL_POSE + Desktop + DebrisLayer(MURAL_POSE) + h3.08 LyricCard (size 140, y 140, centred, enter 1) held until line('h3.08').endFrame (4564), then shrinks out over 6 frames. Confetti: ConfettiField orbit (spin 2, as the hook) crossfades by opacity into float (speed 0.5) over the first 2 beats; no level override. Camera still at MURAL_POSE until the taco lands (4792), push 4792-4843, still to the end. End-card text is uppercase Archivo 900/125% on paper and mustard cards; drawn above the confetti for legibility."
+  }
+ }
+}
