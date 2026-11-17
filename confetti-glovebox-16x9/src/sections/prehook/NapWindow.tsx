@@ -13,8 +13,8 @@ const BODY_H = NAP_H - 52 - 8;
 const STATUS_H = 44;
 
 const N = 72;
-const TURN = Math.PI * 2.05; // total bend when fully curled
-const POW = 1.45; // bend tightens toward the tail, so it spirals in
+const TURN = Math.PI * 3; // total bend when fully curled
+const POW = 1.2; // bend tightens toward the tail, so it spirals in
 
 type P = {x: number; y: number; th: number};
 const centreline = (L: number, c: number): P[] => {
@@ -35,9 +35,9 @@ const pathOf = (pts: P[]) => pts.map((p, i) => `${i ? 'L' : 'M'}${p.x.toFixed(1)
 
 type Kind = 'ruler' | 'progress' | 'divider';
 const SLOTS: {kind: Kind; label: string; L: number; th: number; base: number}[] = [
-  {kind: 'ruler', label: 'ruler', L: 400, th: 30, base: 118},
-  {kind: 'progress', label: 'progress', L: 400, th: 24, base: 246},
-  {kind: 'divider', label: '<hr>', L: 400, th: 9, base: 364},
+  {kind: 'ruler', label: 'ruler', L: 340, th: 26, base: 118},
+  {kind: 'progress', label: 'progress', L: 340, th: 21, base: 246},
+  {kind: 'divider', label: '<hr>', L: 340, th: 9, base: 364},
 ];
 const SLOT_CX = 430;
 
@@ -92,8 +92,8 @@ const Sleeper: React.FC<{kind: Kind; L: number; th: number; base: number; curl: 
       {snore > 0 &&
         [0, 1, 2].map((k) => {
           const ph = (((frame + seed * 7) / 34 + k / 3) % 1 + 1) % 1;
-          const zx = maxX + dx - 18 + ph * 34 + k * 4;
-          const zy = minY + dy - 10 - ph * 70;
+          const zx = maxX + dx + 16 + ph * 40 + k * 4;
+          const zy = minY + dy + 30 - ph * 56;
           return (
             <text
               key={k}

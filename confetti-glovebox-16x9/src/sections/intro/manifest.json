@@ -1,0 +1,17 @@
+{
+  "section": "intro",
+  "frames": [0, 219],
+  "gags": [
+    {"lineId": "in.01", "treatment": "ambient", "gag": "cursor arrives", "description": "Empty desktop at REST_POSE; the cursor pops in with a click ring, then a cluttered 'Downloads (412)' window pops open top-left.", "holdFrames": [14, 65], "lyricType": false},
+    {"lineId": "in.02", "treatment": "ambient", "gag": "grab from the clutter", "description": "The grab hand digs the glovebox icon (wedged, tilted, half on top of 'untitled') out of Downloads; it strains, then pops loose. A dashed gap stays behind. Tooltip: Move 'glovebox' to...", "holdFrames": [65, 91], "lyricType": false},
+    {"lineId": "in.03", "treatment": "literal", "gag": "wrong spots say no", "description": "The dragged icon tries three spots on the desktop. Each lights up as a pink dashed drop zone with a no-sign and a chip (NOPE / NOT THERE / RESERVED FOR TABS), and the icon wiggles 'no'. Tooltip next to the icon: 'where do I even put this?'", "holdFrames": [91, 146], "lyricType": false},
+    {"lineId": "in.04", "treatment": "ambient", "gag": "dotted target at ICON_HOME", "description": "Hovering over ICON_HOME: a faint dotted target with a tangerine crosshair appears; tooltip turns mustard: Move 'glovebox' here?", "holdFrames": [146, 177], "lyricType": false},
+    {"lineId": "in.05", "treatment": "literal", "gag": "icon dropped into place", "description": "Drop: the icon lands on ICON_HOME with an elastic bounce, the lid pops open a crack with a small confetti burst, and a pickle chip reads 'COOL.' At bar 3.5 a one-tab browser ('new tab') rises out of the glovebox to VERSE_WINDOW. The icon stays in front, at home, to the last frame.", "holdFrames": [177, 219], "lyricType": false}
+  ],
+  "tabs": {"start": 0, "end": 1},
+  "confetti": {"start": 0, "end": 0.02},
+  "debrisIds": "ledger (no manual debris)",
+  "localProps": ["DownloadsWindow", "NoSpot", "HomeTarget", "DragTip", "CoolChip", "RisingBrowser"],
+  "promotionCandidates": ["DragTip (cursor tooltip chip)", "NoSpot (rejecting drop zone)"],
+  "notes": "Camera locked at REST_POSE throughout. No lyric cards: all spoken lines appear as UI text (drag tooltip, chips). The icon lands exactly on ICON_HOME from drop+16 (frame 193) onward, unselected, with lid pose about 0.7 (open, because the browser rises out of it). From frame 194 (bar 3.5) the BrowserWindow shows tabCountAt(frame) = 1 tab, named {0: {title: 'new tab', glyph: 'glovebox'}}, active 0, url confetti://glovebox. It finishes growing to exactly VERSE_WINDOW at frame 216 and holds there. It sits BEHIND the icon, so the icon overlaps the window's bottom edge on the last frame. Verse 1 may want to match this or cut to the window in front. Menu bar title reads 'Desktop' until bar 3.5, then 'Browser'. The cursor ends as an arrow at (1310, 700)."
+}

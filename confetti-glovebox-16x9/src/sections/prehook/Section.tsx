@@ -77,7 +77,7 @@ const Section: React.FC<SectionProps> = () => {
   const l1 = line('ph.01');
   const mapWord = wordFrame('ph.01', 'map');
   const trail = soft(prog(frame, l1.startFrame, mapWord + 6));
-  const mapIn = ease.outCubic(prog(bar, -0.05, 0.2));
+  const mapIn = ease.outCubic(prog(bar, -0.12, 0.15));
   const mapOut = soft(prog(bar, 1.47, 2.3));
   const mf = float(frame, seedOf('ph-map'), 16);
   const map = {
