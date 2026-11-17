@@ -14,6 +14,7 @@
       radial-gradient(900px 760px at 50% 26%, rgba(113, 55, 255, 0.30), rgba(113, 55, 255, 0) 70%),
       radial-gradient(700px 600px at 20% 90%, rgba(71, 0, 246, 0.16), rgba(71, 0, 246, 0) 70%), var(--bg); }
     .stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .fit { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; }
     .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 660px; }
     .kicker { position: absolute; left: 0; width: 1080px; text-align: center; font: 600 30px/1 "AP Outfit"; letter-spacing: 0.22em; color: var(--lilac); }
     .bubble { position: absolute; border-radius: 40px; padding: 34px 40px; }
@@ -21,15 +22,15 @@
     .bubble.ai { background: var(--panel); border: 2px solid var(--line); border-bottom-left-radius: 12px; }
     .avatar { position: absolute; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--lilac)); }
     .chip { display: inline-block; border-radius: 18px; padding: 10px 22px; font: 600 40px/1.15 "AP Outfit"; }
-    #hw-ai { left: 150px; top: 250px; width: 840px; height: 470px; }
-    #hw-av { left: 66px; top: 656px; }
+    #hw-ai { left: 140px; top: 250px; width: 800px; height: 470px; }
+    #hw-av { left: 70px; top: 656px; }
     #hw-lead { position: absolute; left: 44px; top: 40px; font: 500 36px/1 "AP Inter"; color: var(--muted); }
-    #hw-slot { position: absolute; left: 44px; top: 110px; width: 752px; height: 300px; border-radius: 24px; border: 3px dashed var(--line); }
+    #hw-slot { position: absolute; left: 44px; top: 110px; width: 712px; height: 300px; border-radius: 24px; border: 3px dashed var(--line); }
     #hw-ref { position: absolute; left: 44px; top: 110px; border: 3px solid var(--purple); background: rgba(113, 55, 255, 0.16); color: var(--ink); }
-    #hw-verse { position: absolute; left: 44px; top: 108px; width: 752px; font: 400 38px/1.42 "AP Inter"; color: var(--ink); }
+    #hw-verse { position: absolute; left: 44px; top: 108px; width: 712px; font: 400 38px/1.42 "AP Inter"; color: var(--ink); }
     #hw-cite { position: absolute; left: 44px; top: 400px; font: 600 28px/1 "AP Outfit"; letter-spacing: 0.06em; color: var(--lilac); }
-    #hw-gap { position: absolute; left: 44px; top: 190px; width: 752px; height: 230px; border-radius: 24px; border: 4px dashed var(--lilac); }
-    #hw-gaplab { position: absolute; left: 44px; top: 288px; width: 752px; text-align: center; font: 600 34px/1 "AP Outfit"; color: var(--lilac); }
+    #hw-gap { position: absolute; left: 44px; top: 190px; width: 712px; height: 230px; border-radius: 24px; border: 4px dashed var(--lilac); }
+    #hw-gaplab { position: absolute; left: 44px; top: 288px; width: 712px; text-align: center; font: 600 34px/1 "AP Outfit"; color: var(--lilac); }
     #hw-src { position: absolute; left: 230px; top: 930px; width: 620px; height: 150px; border-radius: 32px; background: var(--panel); border: 2px solid var(--line); }
     #hw-src svg { position: absolute; left: 40px; top: 35px; }
     #hw-srcname { position: absolute; left: 150px; top: 36px; font: 600 38px/1 "AP Outfit"; color: var(--ink); }
@@ -42,7 +43,7 @@
   <div id="root" data-composition-id="how" data-width="1080" data-height="1920">
     <div class="bg"></div>
     <div class="stage" id="hw-stage">
-      <div class="cam" id="hw-cam">
+      <div class="fit" style="transform: translate(-41px, -12px) scale(1.15)"><div class="cam" id="hw-cam">
         <div class="avatar" id="hw-av"></div>
         <div class="bubble ai" id="hw-ai">
           <div id="hw-lead">Here's the verse you asked for:</div>
@@ -63,6 +64,7 @@
           <div id="hw-srcname">Licensed Bible source</div>
           <div id="hw-srcsub">Bible API: the exact text</div>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -98,7 +100,7 @@
       tl.fromTo("#hw-gaplab", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3 }, T.noverse + 0.15);
       // "A gap you can spot": the gap pulses
       tl.to("#hw-gap", { scale: 1.03, duration: 0.3, yoyo: true, repeat: 3, ease: "sine.inOut" }, T.gap);
-      tl.fromTo("#hw-cam", { scale: 1 }, { scale: 1.04, duration: T.exit, ease: "sine.inOut" }, 0);
+      tl.fromTo("#hw-cam", { scale: 1 }, { scale: 1.02, duration: T.exit, ease: "sine.inOut" }, 0);
       tl.to("#hw-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
       tl.to("#hw-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
       window.__timelines["how"] = tl;

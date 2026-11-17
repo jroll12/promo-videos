@@ -22,13 +22,14 @@
   <div id="root" data-composition-id="results" data-width="1080" data-height="1920">
     <div class="bg"></div>
     <div class="stage" id="rs-stage">
-      <div class="cam" id="rs-cam">
+      <div class="fit" style="transform: translate(-54px, 3px) scale(1.1)"><div class="cam" id="rs-cam">
         <div id="rs-num">0</div>
         <div id="rs-numlab">tests of 5 methods</div>
         <div id="rs-dots"><!--{{DOTS}}--></div>
         <div id="rs-head"><b>33,000</b> tests · how often each method quoted the passage exactly (English translations)</div>
         <!--{{ROWS}}-->
         <div id="rs-tag">99.4% across 10 other languages</div>
+      </div>
       </div>
     </div>
   </div>
@@ -64,7 +65,7 @@
       // "One method": the others step back
       tl.to(["#rs-r0", "#rs-r1", "#rs-r2", "#rs-r3"], { opacity: 0.42, duration: 0.4 }, T.fills[4]);
       tl.fromTo("#rs-tag", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35 }, T.tag);
-      tl.fromTo("#rs-cam", { scale: 1 }, { scale: 1.035, duration: T.exit, ease: "sine.inOut" }, 0);
+      tl.fromTo("#rs-cam", { scale: 1 }, { scale: 1.02, duration: T.exit, ease: "sine.inOut" }, 0);
       tl.to("#rs-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
       tl.to("#rs-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
       window.__timelines["results"] = tl;

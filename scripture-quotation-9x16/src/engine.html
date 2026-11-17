@@ -6,22 +6,22 @@
       background: linear-gradient(140deg, var(--purple), var(--deep)); box-shadow: 0 0 80px rgba(113, 55, 255, 0.45); }
     #en-node svg { position: absolute; left: 50px; top: 50px; }
     #en-name { position: absolute; left: 0; top: 500px; width: 1080px; text-align: center; font: 600 40px/1 "AP Outfit"; color: var(--ink); }
-    #en-words { position: absolute; left: 90px; top: 640px; width: 900px; height: 300px; }
+    #en-words { position: absolute; left: 110px; top: 640px; width: 900px; height: 300px; }
     .en-w { position: absolute; top: 0; background: var(--panel); border: 2px solid var(--line); color: var(--ink); }
-    #en-q { position: absolute; left: 740px; top: 600px; font: 500 30px/1 "AP Inter"; color: var(--muted); }
-    .en-c { position: absolute; left: 740px; border: 2px solid var(--line); background: var(--panel); color: var(--muted); }
+    #en-q { position: absolute; left: 750px; top: 600px; font: 500 30px/1 "AP Inter"; color: var(--muted); }
+    .en-c { position: absolute; left: 750px; font-size: 36px; border: 2px solid var(--line); background: var(--panel); color: var(--muted); }
     .en-bar { position: absolute; left: 905px; height: 14px; border-radius: 7px; background: var(--dim); }
     #en-tag { position: absolute; left: 0; width: 1080px; text-align: center; top: 940px; font: 600 30px/1 "AP Outfit"; letter-spacing: 0.1em; color: var(--amber); }
     #en-dial { position: absolute; left: 700px; top: 520px; width: 260px; height: 200px; }
     #en-dlab { position: absolute; left: 700px; top: 730px; width: 260px; text-align: center; font: 500 30px/1 "AP Inter"; color: var(--muted); }
-    #en-frame { position: absolute; left: 70px; top: 200px; width: 940px; height: 700px; overflow: visible; }
-    #en-flab { position: absolute; left: 110px; top: 226px; font: 600 44px/1 "AP Outfit"; color: var(--lilac); }
+    #en-frame { position: absolute; left: 100px; top: 200px; width: 880px; height: 700px; overflow: visible; }
+    #en-flab { position: absolute; left: 134px; top: 226px; font: 600 44px/1 "AP Outfit"; color: var(--lilac); }
   </style>
 
   <div id="root" data-composition-id="engine" data-width="1080" data-height="1920">
     <div class="bg"></div>
     <div class="stage" id="en-stage">
-      <div class="cam" id="en-cam">
+      <div class="fit" style="transform: translate(-81px, 115px) scale(1.15)"><div class="cam" id="en-cam">
         <div id="en-node">
           <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="30" cy="60" r="12" fill="#fff" /><circle cx="60" cy="60" r="12" fill="#fff" opacity="0.75" /><circle cx="90" cy="60" r="12" fill="#fff" opacity="0.5" /></svg>
         </div>
@@ -37,9 +37,9 @@
         <div class="chip en-c" id="en-c0" style="top: 650px">world</div>
         <div class="chip en-c" id="en-c1" style="top: 740px">earth</div>
         <div class="chip en-c" id="en-c2" style="top: 830px">people</div>
-        <div class="en-bar" id="en-b0" style="top: 676px; width: 80px"></div>
-        <div class="en-bar" id="en-b1" style="top: 766px; width: 32px"></div>
-        <div class="en-bar" id="en-b2" style="top: 856px; width: 14px"></div>
+        <div class="en-bar" id="en-b0" style="top: 676px; width: 56px"></div>
+        <div class="en-bar" id="en-b1" style="top: 766px; width: 24px"></div>
+        <div class="en-bar" id="en-b2" style="top: 856px; width: 12px"></div>
         <div id="en-tag">A GUESS THAT DRIFTED</div>
         <svg id="en-dial" viewBox="0 0 260 200">
           <path d="M30 170 A100 100 0 0 1 230 170" fill="none" stroke="#374151" stroke-width="18" stroke-linecap="round" />
@@ -48,10 +48,11 @@
           <circle cx="130" cy="170" r="14" fill="#F9FAFB" />
         </svg>
         <div id="en-dlab">settings</div>
-        <svg id="en-frame" viewBox="0 0 940 700">
-          <rect id="en-rect" x="4" y="4" width="932" height="692" rx="56" fill="none" stroke="#7137FF" stroke-width="6" pathLength="100" stroke-dasharray="100 100" stroke-dashoffset="100" />
+        <svg id="en-frame" viewBox="0 0 880 700">
+          <rect id="en-rect" x="4" y="4" width="872" height="692" rx="56" fill="none" stroke="#7137FF" stroke-width="6" pathLength="100" stroke-dasharray="100 100" stroke-dashoffset="100" />
         </svg>
         <div id="en-flab">the method</div>
+      </div>
       </div>
     </div>
   </div>
@@ -95,7 +96,7 @@
       tl.to("#en-rect", { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" }, T.method - 0.5);
       tl.to("#en-flab", { autoAlpha: 1, duration: 0.25 }, T.method);
       tl.to(["#en-node", "#en-dial"], { opacity: 0.55, duration: 0.4 }, T.method + 0.1);
-      tl.fromTo("#en-cam", { scale: 1 }, { scale: 1.05, duration: T.exit, ease: "sine.inOut" }, 0);
+      tl.fromTo("#en-cam", { scale: 1 }, { scale: 1.02, duration: T.exit, ease: "sine.inOut" }, 0);
       tl.to("#en-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
       tl.to("#en-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
       window.__timelines["engine"] = tl;

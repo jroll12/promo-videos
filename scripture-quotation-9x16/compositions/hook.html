@@ -14,6 +14,7 @@
       radial-gradient(900px 760px at 50% 26%, rgba(113, 55, 255, 0.30), rgba(113, 55, 255, 0) 70%),
       radial-gradient(700px 600px at 20% 90%, rgba(71, 0, 246, 0.16), rgba(71, 0, 246, 0) 70%), var(--bg); }
     .stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .fit { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 0 0; }
     .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 660px; }
     .kicker { position: absolute; left: 0; width: 1080px; text-align: center; font: 600 30px/1 "AP Outfit"; letter-spacing: 0.22em; color: var(--lilac); }
     .bubble { position: absolute; border-radius: 40px; padding: 34px 40px; }
@@ -21,9 +22,9 @@
     .bubble.ai { background: var(--panel); border: 2px solid var(--line); border-bottom-left-radius: 12px; }
     .avatar { position: absolute; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--lilac)); }
     .chip { display: inline-block; border-radius: 18px; padding: 10px 22px; font: 600 40px/1.15 "AP Outfit"; }
-    #hk-user { right: 90px; top: 250px; max-width: 760px; }
-    #hk-ai { left: 150px; top: 480px; width: 840px; height: 440px; }
-    #hk-av { left: 66px; top: 856px; }
+    #hk-user { right: 140px; top: 250px; max-width: 700px; }
+    #hk-ai { left: 140px; top: 480px; width: 800px; height: 440px; }
+    #hk-av { left: 70px; top: 856px; }
     .hk-row { position: absolute; left: 44px; height: 30px; }
     .hk-seg { position: absolute; top: 0; height: 30px; border-radius: 15px; background: var(--dim); }
     #hk-who { position: absolute; left: 44px; top: 30px; font: 600 28px/1 "AP Outfit"; letter-spacing: 0.08em; color: var(--muted); }
@@ -32,17 +33,18 @@
   <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
     <div class="bg" id="hk-bg"></div>
     <div class="stage" id="hk-stage">
-      <div class="cam" id="hk-cam">
+      <div class="fit" style="transform: translate(-41px, 172px) scale(1.15)"><div class="cam" id="hk-cam">
         <div class="bubble user" id="hk-user">Can you quote a Bible verse for me?</div>
         <div class="avatar" id="hk-av"></div>
         <div class="bubble ai" id="hk-ai">
           <div id="hk-who">AI</div>
-          <div class="hk-row" style="top:100px"><div class="hk-seg" style="left:0px;width:140px"></div><div class="hk-seg" style="left:158px;width:80px"></div><div class="hk-seg" style="left:256px;width:180px"></div><div class="hk-seg drift" style="left:454px;width:110px"></div><div class="hk-seg" style="left:582px;width:130px"></div></div>
+          <div class="hk-row" style="top:100px"><div class="hk-seg" style="left:0px;width:130px"></div><div class="hk-seg" style="left:148px;width:80px"></div><div class="hk-seg" style="left:246px;width:180px"></div><div class="hk-seg drift" style="left:444px;width:110px"></div><div class="hk-seg" style="left:572px;width:130px"></div></div>
           <div class="hk-row" style="top:162px"><div class="hk-seg" style="left:0px;width:110px"></div><div class="hk-seg drift" style="left:128px;width:190px"></div><div class="hk-seg" style="left:336px;width:130px"></div><div class="hk-seg" style="left:484px;width:170px"></div></div>
           <div class="hk-row" style="top:224px"><div class="hk-seg" style="left:0px;width:170px"></div><div class="hk-seg" style="left:188px;width:110px"></div><div class="hk-seg drift" style="left:316px;width:160px"></div><div class="hk-seg" style="left:494px;width:140px"></div></div>
           <div class="hk-row" style="top:286px"><div class="hk-seg drift" style="left:0px;width:120px"></div><div class="hk-seg" style="left:138px;width:150px"></div><div class="hk-seg drift" style="left:306px;width:200px"></div><div class="hk-seg" style="left:524px;width:100px"></div></div>
           <div class="hk-row" style="top:348px"><div class="hk-seg" style="left:0px;width:170px"></div><div class="hk-seg" style="left:188px;width:140px"></div></div>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -55,7 +57,7 @@
       gsap.set(".hk-seg", { transformOrigin: "50% 50%" });
       tl.fromTo(".hk-row", { opacity: 0.55 }, { opacity: 1, duration: 0.5, stagger: 0.12, ease: "sine.out" }, 0);
       // the camera drifts in toward the reply for the whole shot
-      tl.fromTo("#hk-cam", { scale: 1 }, { scale: 1.07, y: -40, duration: T.exit, ease: "sine.inOut" }, 0);
+      tl.fromTo("#hk-cam", { scale: 1 }, { scale: 1.03, y: -20, duration: T.exit, ease: "sine.inOut" }, 0);
       // "come back wrong": a few words drift (amber), shifting position and length
       tl.to(".hk-seg.drift", { backgroundColor: "#FBBF24", duration: 0.25 }, T.wrong);
       tl.fromTo(".hk-seg.drift", { x: 0 }, { x: (i) => [-6, 5, -4, 6, -5][i % 5], scaleX: (i) => [1.12, 0.78, 1.1, 0.8, 1.14][i % 5], duration: 0.35, ease: "back.out(2)", stagger: 0.08 }, T.wrong);

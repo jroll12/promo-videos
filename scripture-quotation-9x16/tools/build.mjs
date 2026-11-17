@@ -88,7 +88,7 @@ const round = (o) => JSON.parse(JSON.stringify(o, (k, v) => (typeof v === "numbe
 // ── generated markup ────────────────────────────────────────────────────────
 function hookRows() {
   // the reply drawn as text bars; five segments (".drift") are the words that come back wrong
-  const rows = [[140, 80, 180, 110, 130], [110, 190, 130, 170], [170, 110, 160, 140], [120, 150, 200, 100], [170, 140]]; // each row under 700 px (inner width 752)
+  const rows = [[130, 80, 180, 110, 130], [110, 190, 130, 170], [170, 110, 160, 140], [120, 150, 200, 100], [170, 140]]; // each row under 700 px (inner width 752)
   const drift = new Set(["0:3", "1:1", "2:2", "3:0", "3:2"]);
   return rows
     .map((segs, r) => {

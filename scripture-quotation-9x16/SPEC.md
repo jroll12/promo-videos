@@ -2,7 +2,7 @@
 
 - Canvas 1080 × 1920, 30 fps; master 2160 × 3840 (portrait-4k), 1080p copy by ffmpeg downscale. One full render only.
 - Length target 45–60 s (provisional build: 59.6 s including a 2.6 s end card).
-- Graphics band 168–1130 px; captions band 1170–1340 px (one group visible, Inter 600 52 px, white on a feathered scrim).
+- Graphics band about 275–1230 px after the fit transform (scene scale 1.1–1.2); captions band 1290–1490 px (one group visible, Inter 600 64 px, white on a feathered scrim).
 
 ## Apologist AI tokens (from apologist.ai live CSS, 2026-11-17)
 | Token | Value | Use |
