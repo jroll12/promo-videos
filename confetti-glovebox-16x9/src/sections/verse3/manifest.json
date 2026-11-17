@@ -1,0 +1,24 @@
+{
+  "section": "verse3",
+  "frames": [3511, 4128],
+  "gags": [
+    {"lineId": "v3.01", "treatment": "literal", "gag": "paper plane lands on a tennis court", "description": "Top-down green tennis court on tangerine clay; a paper plane descends with its shadow, touches down on 'court' and skids with skid marks; signs COURT 3 and NOW LANDING: PAPER PLANE", "tab": {"title": "court 3: now landing", "glyph": "tennis"}, "holdFrames": [3511, 3562], "lyricType": false},
+    {"lineId": "v3.02", "treatment": "ambient", "gag": "tab chaos", "description": "whips across the tab bar and a mosaic of open-tab previews, new tab pops on each beat", "holdFrames": [3562, 3614], "lyricType": false},
+    {"lineId": "v3.03", "treatment": "ambient", "gag": "tab chaos", "description": "jump cuts between tab-bar close-ups and the tab mosaic", "holdFrames": [3614, 3665], "lyricType": false},
+    {"lineId": "v3.04", "treatment": "ambient", "gag": "tab chaos", "description": "cuts with paper flashes on beats 3 and 4", "holdFrames": [3665, 3717], "lyricType": false},
+    {"lineId": "v3.05", "treatment": "literal", "gag": "houseplant thriving in a thunderstorm", "description": "Dark storm sky, clouds, fizz rain, a lightning bolt on every beat; the potted plant sways, grows a step and sprouts a new leaf on each flash (+1 LEAF chips), sunglasses and a grin on the pot; THUNDERSTORM WARNING bar and a HOUSEPLANT STATUS: THRIVING card", "tab": {"title": "storm (plant: thriving)", "glyph": "plant"}, "holdFrames": [3723, 3768], "lyricType": true},
+    {"lineId": "v3.06", "treatment": "ambient", "gag": "tab chaos", "description": "whips and punches over the tab mosaic", "holdFrames": [3768, 3819], "lyricType": false},
+    {"lineId": "v3.07", "treatment": "literal", "gag": "lemonade stand in a hurricane", "description": "Weather-radar hurricane spiral rotating around a calm eye; lemons, cups, shoes and boxes fly around it; the lemonade stand sits in the eye with a LEMONADE sign and a swinging OPEN sign, STILL OPEN sticker, HURRICANE WARNING bar", "tab": {"title": "lemonade (still open)", "glyph": "stand"}, "holdFrames": [3825, 3871], "lyricType": false},
+    {"lineId": "v3.08", "treatment": "literal", "gag": "paper plane selling good vibes", "description": "The same paper plane from court 3 flies left to right across the top of the window over the tab bar, towing a mustard banner GOOD VIBES 4 SALE; blue sky tab below with clouds and little glyph customers bouncing", "tab": {"title": "good vibes 4 sale", "glyph": "plane"}, "holdFrames": [3871, 3922], "lyricType": true},
+    {"lineId": "v3.09", "treatment": "ambient", "gag": "tab chaos", "description": "three whips in a row, tabs now glyph-only", "holdFrames": [3922, 3974], "lyricType": false},
+    {"lineId": "v3.10", "treatment": "ambient", "gag": "tab chaos", "description": "eighth-note jump cuts with heavy shake", "holdFrames": [3974, 4025], "lyricType": false},
+    {"lineId": "v3.11", "treatment": "ambient", "gag": "paint splatter (ledger)", "description": "wide tilted framings with a punch per beat so the DebrisLayer paint dots landing over the desktop are visible; no own paint drawn", "holdFrames": [4025, 4077], "lyricType": false},
+    {"lineId": "v3.12", "treatment": "type-only", "gag": "rush home", "description": "whip out, then the camera rushes back to REST_POSE while the window settles onto HOOK_WINDOW and the glovebox icon wiggles on 'glovebox'; lyric card at the top where the hook type will sit; hard cut on the downbeat into hook3", "holdFrames": [4077, 4128], "lyricType": true}
+  ],
+  "tabs": {"start": 3, "end": 160},
+  "confetti": {"start": 0.66, "end": 0.8},
+  "debrisIds": "ledger (no manual debris)",
+  "localProps": ["Sign", "AlertBar", "CourtScene", "StormScene", "HurricaneScene", "SkyScene", "VibesPlane", "TabMosaic"],
+  "promotionCandidates": ["Sign (sticker label) is generic and useful to every section", "TabMosaic (tab-overview grid driven by tabCountAt)"],
+  "notes": "One BrowserWindow throughout, always tabs=tabCountAt(frame) (3 -> 160, slivers by the end). Gag tab indices are derived from tabCountAt at each gag bar's downbeat. Last frame is exactly REST_POSE with the window at HOOK_WINDOW (flow tab mode, 160 slivers), icon at ICON_HOME visible below; hook3 swaps to symmetric tabs on the cut. Shot list with beat-relative timing in Section.tsx (SHOTS)."
+}
