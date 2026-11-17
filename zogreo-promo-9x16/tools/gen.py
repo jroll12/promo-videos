@@ -202,7 +202,7 @@ html, body { margin:0; width:1080px; height:1920px; overflow:hidden; background:
 
   <div id="cap"></div>
 
-  <audio id="vo" class="clip" src="assets/vo/narration-zogreo.mp3" data-start="0" data-duration="32.166" data-track-index="4" data-volume="1" data-audio-group="voiceover"></audio>
+  <audio id="vo" class="clip" src="assets/vo/narration-zogreo.mp3" data-start="0" data-duration="32.026" data-track-index="4" data-volume="1" data-audio-group="voiceover"></audio>
   __SFX__
 </div>
 <script>

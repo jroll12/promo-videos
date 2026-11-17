@@ -20,3 +20,6 @@ Narration: ElevenLabs "Jason - Friendly and Approachable" take, used unedited (3
 
 ## v4: smoother splice
 - tools/splice_zogreo.py rebuilds narration-zogreo.mp3: the reference word is EQ-matched 90% toward the narration's speech spectrum, level-matched, faded out, followed by a 45 ms natural gap before "dot", and joined with a 25 ms equal-power crossfade. The words after it shifted +0.165 s in total (audio 32.17 s).
+
+## v5: splice refined
+- Reference word trimmed to 0.065-0.715 s (drops its ~150 ms room/breath tail), stretched x0.985 (pitch and formants kept) so "dot org" stays exactly where the narrator put it, EQ'd 70% toward the narration (max 6 dB), joined with 25 ms and 15 ms crossfades into the narrator's own quiet dips. Audio length and every other word time equal the original narration.

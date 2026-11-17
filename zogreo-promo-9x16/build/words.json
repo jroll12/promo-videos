@@ -1,6 +1,6 @@
 {
  "source": "assets/vo/narration-zogreo.mp3",
- "duration": 32.166,
+ "duration": 32.026,
  "method": "pocketsphinx forced alignment of the known script (word times measured against the audio; the spoken words themselves are NOT independently transcribed)",
  "words": [
   {
@@ -817,7 +817,7 @@
    "word": "Zogreo",
    "aligned": "zogreo",
    "start": 30.64,
-   "end": 31.385,
+   "end": 31.22,
    "line": 5,
    "aligned_start": 30.64,
    "aligned_end": 31.22
@@ -825,8 +825,8 @@
   {
    "word": "dot",
    "aligned": "dot",
-   "start": 31.385,
-   "end": 31.655,
+   "start": 31.22,
+   "end": 31.49,
    "line": 5,
    "aligned_start": 31.22,
    "aligned_end": 31.49
@@ -834,13 +834,13 @@
   {
    "word": "org",
    "aligned": "org",
-   "start": 31.655,
-   "end": 32.195,
+   "start": 31.49,
+   "end": 32.03,
    "line": 5,
    "aligned_start": 31.49,
    "aligned_end": 32.03
   }
  ],
  "snap": "word ends snapped to ffmpeg silencedetect pause starts (-38 dB, 0.12 s) and starts to pause ends where within 0.45 s / 0.2 s; tolerance about 0.1 s",
- "note": "v4: 'Zogreo' replaced by the user's reference recording (tone-matched, room-tone bed, soft joins; tools/splice_zogreo.py); words after it shifted +0.165 s"
+ "note": "v5: 'Zogreo' replaced by the user's reference recording (room tail trimmed, pace matched, tone-matched, crossfaded into the narrator's own dips; tools/splice_zogreo.py). Total length and all other word times equal the original."
 }
