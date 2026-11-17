@@ -1,0 +1,353 @@
+{
+  "provisional": true,
+  "total": 59.564,
+  "cut1": 7.144,
+  "cut2": 16.663,
+  "cut3": 33.874,
+  "cut4": 50.735,
+  "hook": {
+    "wrong": 5.039,
+    "bug": 6.759,
+    "exit": 6.824
+  },
+  "engine": {
+    "writes": 0.642,
+    "likely": 1.67,
+    "guess": 3.04,
+    "drift": 3.724,
+    "fix": 5.102,
+    "smarter": 6.129,
+    "settings": 7.499,
+    "method": 8.527,
+    "exit": 9.199,
+    "wordStep": 0.166
+  },
+  "results": {
+    "five": 0.985,
+    "count": 2.667,
+    "ladder": 3.39,
+    "fills": [
+      3.69,
+      7.842,
+      9.212,
+      11.951,
+      13.671
+    ],
+    "tag": 15.041,
+    "exit": 16.891
+  },
+  "how": {
+    "placeholder": 3.382,
+    "software": 5.779,
+    "fills": 6.122,
+    "exact": 7.149,
+    "source": 9.204,
+    "fails": 10.581,
+    "noverse": 12.636,
+    "gap": 13.664,
+    "exit": 16.541
+  },
+  "end": {
+    "read": 2.492,
+    "url": 4.889,
+    "total": 8.829
+  },
+  "captions": [
+    {
+      "text": "Ask an AI",
+      "start": 0.39,
+      "end": 1.554
+    },
+    {
+      "text": "to quote the Bible,",
+      "start": 1.554,
+      "end": 2.924
+    },
+    {
+      "text": "and the words often",
+      "start": 2.924,
+      "end": 4.294
+    },
+    {
+      "text": "come back wrong.",
+      "start": 4.294,
+      "end": 5.672
+    },
+    {
+      "text": "It's not a bug.",
+      "start": 5.672,
+      "end": 7.041
+    },
+    {
+      "text": "A model writes",
+      "start": 7.041,
+      "end": 8.069
+    },
+    {
+      "text": "by guessing likely words,",
+      "start": 8.069,
+      "end": 9.439
+    },
+    {
+      "text": "and every guess can drift.",
+      "start": 9.439,
+      "end": 11.501
+    },
+    {
+      "text": "So the fix isn't",
+      "start": 11.501,
+      "end": 12.871
+    },
+    {
+      "text": "a smarter model",
+      "start": 12.871,
+      "end": 13.898
+    },
+    {
+      "text": "or new settings.",
+      "start": 13.898,
+      "end": 14.926
+    },
+    {
+      "text": "It's the method.",
+      "start": 14.926,
+      "end": 16.333
+    },
+    {
+      "text": "We tested five methods,",
+      "start": 16.903,
+      "end": 18.273
+    },
+    {
+      "text": "33,000 times.",
+      "start": 18.273,
+      "end": 19.993
+    },
+    {
+      "text": "Alone, the model",
+      "start": 19.993,
+      "end": 21.02
+    },
+    {
+      "text": "was exactly right",
+      "start": 21.02,
+      "end": 22.048
+    },
+    {
+      "text": "about a third of the time.",
+      "start": 22.048,
+      "end": 24.102
+    },
+    {
+      "text": "With web search,",
+      "start": 24.102,
+      "end": 25.13
+    },
+    {
+      "text": "under half.",
+      "start": 25.13,
+      "end": 25.815
+    },
+    {
+      "text": "Handed the passage,",
+      "start": 25.815,
+      "end": 26.842
+    },
+    {
+      "text": "93 percent.",
+      "start": 26.842,
+      "end": 27.869
+    },
+    {
+      "text": "Using a lookup tool, 96.",
+      "start": 27.869,
+      "end": 30.274
+    },
+    {
+      "text": "One method got",
+      "start": 30.274,
+      "end": 31.302
+    },
+    {
+      "text": "every English quote",
+      "start": 31.302,
+      "end": 32.329
+    },
+    {
+      "text": "exactly right.",
+      "start": 32.329,
+      "end": 33.394
+    },
+    {
+      "text": "The model never",
+      "start": 34.114,
+      "end": 35.141
+    },
+    {
+      "text": "writes the verse.",
+      "start": 35.141,
+      "end": 36.169
+    },
+    {
+      "text": "It leaves a placeholder,",
+      "start": 36.169,
+      "end": 37.539
+    },
+    {
+      "text": "like John 3:16,",
+      "start": 37.539,
+      "end": 38.908
+    },
+    {
+      "text": "and the software",
+      "start": 38.908,
+      "end": 39.936
+    },
+    {
+      "text": "fills in the exact text",
+      "start": 39.936,
+      "end": 41.648
+    },
+    {
+      "text": "from a licensed",
+      "start": 41.648,
+      "end": 42.676
+    },
+    {
+      "text": "Bible source.",
+      "start": 42.676,
+      "end": 43.711
+    },
+    {
+      "text": "If anything fails,",
+      "start": 43.711,
+      "end": 44.738
+    },
+    {
+      "text": "you see the reference",
+      "start": 44.738,
+      "end": 46.108
+    },
+    {
+      "text": "with no verse.",
+      "start": 46.108,
+      "end": 47.135
+    },
+    {
+      "text": "A gap you can spot,",
+      "start": 47.135,
+      "end": 48.848
+    },
+    {
+      "text": "never a misquote.",
+      "start": 48.848,
+      "end": 50.255
+    },
+    {
+      "text": "That's how Apologist AI",
+      "start": 50.975,
+      "end": 52.482
+    },
+    {
+      "text": "quotes Scripture.",
+      "start": 52.482,
+      "end": 53.167
+    },
+    {
+      "text": "Read the study,",
+      "start": 53.167,
+      "end": 54.194
+    },
+    {
+      "text": "and try it at apologist.ai.",
+      "start": 54.194,
+      "end": 57.314
+    }
+  ],
+  "sfx": [
+    {
+      "f": "whoosh-short",
+      "start": 7.017,
+      "dur": 0.575,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "whoosh",
+      "start": 16.536,
+      "dur": 0.575,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "whoosh-short",
+      "start": 33.747,
+      "dur": 0.575,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "whoosh",
+      "start": 50.608,
+      "dur": 0.575,
+      "vol": 0.16,
+      "track": 5
+    },
+    {
+      "f": "pop-lo",
+      "start": 19.223,
+      "dur": 0.881,
+      "vol": 0.15,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 20.966,
+      "dur": 0.72,
+      "vol": 0.13,
+      "track": 6
+    },
+    {
+      "f": "pop-lo",
+      "start": 25.098,
+      "dur": 0.881,
+      "vol": 0.13,
+      "track": 6
+    },
+    {
+      "f": "pop-hi",
+      "start": 26.498,
+      "dur": 0.7,
+      "vol": 0.13,
+      "track": 6
+    },
+    {
+      "f": "pop",
+      "start": 29.227,
+      "dur": 0.72,
+      "vol": 0.13,
+      "track": 6
+    },
+    {
+      "f": "pop-hi",
+      "start": 31.157,
+      "dur": 0.7,
+      "vol": 0.16,
+      "track": 6
+    },
+    {
+      "f": "click-soft",
+      "start": 37.289,
+      "dur": 0.366,
+      "vol": 0.35,
+      "track": 6
+    },
+    {
+      "f": "click-soft",
+      "start": 44.558,
+      "dur": 0.366,
+      "vol": 0.3,
+      "track": 6
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+ "pop": {
+  "duration": 0.72,
+  "peak": 0.12,
+  "onset": 0.11,
+  "audible_end": 0.16,
+  "peak_dbfs": -0.2
+ },
+ "click-soft": {
+  "duration": 0.366,
+  "peak": 0.05,
+  "onset": 0.04,
+  "audible_end": 0.17,
+  "peak_dbfs": -2.4
+ },
+ "whoosh": {
+  "duration": 0.575,
+  "peak": 0.16,
+  "onset": 0.09,
+  "audible_end": 0.3,
+  "peak_dbfs": 0.7
+ },
+ "whoosh-short": {
+  "duration": 0.575,
+  "peak": 0.16,
+  "onset": 0.09,
+  "audible_end": 0.3,
+  "peak_dbfs": 0.7
+ },
+ "whoosh-cinematic": {
+  "duration": 5.544,
+  "peak": 2.54,
+  "onset": 1.95,
+  "audible_end": 3.99,
+  "peak_dbfs": 2.8
+ },
+ "impact-bass-2": {
+  "duration": 2.592,
+  "peak": 2.06,
+  "onset": 0.02,
+  "audible_end": 2.49,
+  "peak_dbfs": 3.0
+ },
+ "pop-lo": {
+  "duration": 0.881,
+  "peak": 0.14,
+  "onset": 0.14,
+  "audible_end": 0.19,
+  "peak_dbfs": -0.4
+ },
+ "pop-hi": {
+  "duration": 0.7,
+  "peak": 0.11,
+  "onset": 0.11,
+  "audible_end": 0.15,
+  "peak_dbfs": -0.5
+ }
+}

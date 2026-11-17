@@ -1,0 +1,31 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #cp-band { position: absolute; left: 0; top: 1170px; width: 1080px; height: 170px; }
+    .cp { position: absolute; left: 90px; top: 0; width: 900px; height: 170px; display: flex; align-items: center; justify-content: center;
+      text-align: center; font: 600 52px/1.2 "AP Inter"; color: #FFFFFF; text-shadow: 0 2px 16px rgba(0, 0, 0, 0.85), 0 0 4px rgba(0, 0, 0, 0.6); }
+    #cp-scrim { position: absolute; left: 40px; top: 1150px; width: 1000px; height: 210px;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(10, 14, 28, 0.78), rgba(10, 14, 28, 0) 100%); }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cp-scrim" data-layout-allow-occlusion></div>
+    <div id="cp-band">
+      <!--{{CAPS}}-->
+    </div>
+  </div>
+  <script>
+    (function () {
+      const C = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(".cp", { autoAlpha: 0 });
+      const els = document.querySelectorAll("#cp-band .cp");
+      C.groups.forEach((g, i) => {
+        tl.fromTo(els[i], { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" }, g.start);
+        tl.to(els[i], { autoAlpha: 0, duration: 0.08 }, Math.max(g.start + 0.13, g.end - 0.08));
+      });
+      tl.set({}, {}, C.total);
+      window.__timelines["captions"] = tl;
+    })();
+  </script>
+</template>

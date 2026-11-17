@@ -1,0 +1,96 @@
+<template>
+  <style>
+    @font-face { font-family: "AP Outfit"; font-style: normal; font-weight: 100 900; src: url("assets/fonts/outfit-latin-var.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+    /* Apologist AI tokens, read from apologist.ai's live CSS (2026-11-17): see SPEC.md */
+    #root { --bg: #111827; --panel: #1F2937; --line: #374151; --ink: #F9FAFB; --muted: #9CA3AF; --dim: #4B5563;
+      --purple: #7137FF; --purple2: #8A50FF; --lilac: #B177FF; --deep: #4700F6; --amber: #FBBF24; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--bg); font-family: "AP Inter"; color: var(--ink); }
+    #root * { box-sizing: border-box; }
+    .bg { position: absolute; inset: -200px; background:
+      radial-gradient(900px 760px at 50% 26%, rgba(113, 55, 255, 0.30), rgba(113, 55, 255, 0) 70%),
+      radial-gradient(700px 600px at 20% 90%, rgba(71, 0, 246, 0.16), rgba(71, 0, 246, 0) 70%), var(--bg); }
+    .stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    .cam { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform-origin: 540px 660px; }
+    .kicker { position: absolute; left: 0; width: 1080px; text-align: center; font: 600 30px/1 "AP Outfit"; letter-spacing: 0.22em; color: var(--lilac); }
+    .bubble { position: absolute; border-radius: 40px; padding: 34px 40px; }
+    .bubble.user { background: var(--purple); color: #fff; font: 500 40px/1.3 "AP Inter"; border-bottom-right-radius: 12px; }
+    .bubble.ai { background: var(--panel); border: 2px solid var(--line); border-bottom-left-radius: 12px; }
+    .avatar { position: absolute; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--lilac)); }
+    .chip { display: inline-block; border-radius: 18px; padding: 10px 22px; font: 600 40px/1.15 "AP Outfit"; }
+    #rs-num { position: absolute; left: 0; top: 400px; width: 1080px; text-align: center; font: 700 200px/1 "AP Outfit"; font-variant-numeric: tabular-nums lining-nums; color: var(--ink); }
+    #rs-numlab { position: absolute; left: 0; top: 640px; width: 1080px; text-align: center; font: 600 48px/1 "AP Outfit"; color: var(--lilac); }
+    #rs-dots { position: absolute; left: 315px; top: 760px; width: 450px; height: 60px; }
+    .rs-dot { position: absolute; top: 0; width: 60px; height: 60px; border-radius: 18px; border: 4px solid var(--purple); }
+    #rs-head { position: absolute; left: 90px; top: 220px; width: 900px; font: 500 30px/1.3 "AP Inter"; color: var(--muted); }
+    #rs-head b { font: 700 34px/1 "AP Outfit"; color: var(--ink); }
+    .rs-row { position: absolute; left: 90px; width: 900px; height: 150px; }
+    .rs-name { position: absolute; left: 0; top: 0; font: 600 42px/1 "AP Outfit"; color: var(--ink); }
+    .rs-sub { position: absolute; left: 0; top: 52px; font: 400 28px/1 "AP Inter"; color: var(--muted); }
+    .rs-val { position: absolute; right: 0; top: 0; font: 700 46px/1 "AP Outfit"; font-variant-numeric: tabular-nums lining-nums; color: var(--ink); }
+    .rs-track { position: absolute; left: 0; top: 100px; width: 900px; height: 24px; border-radius: 12px; background: var(--panel); }
+    .rs-fill { position: absolute; left: 0; top: 0; height: 24px; border-radius: 12px; background: #6D5BD0; transform-origin: 0% 50%; }
+    #rs-r4 .rs-fill { background: linear-gradient(90deg, var(--purple), var(--lilac)); box-shadow: 0 0 36px rgba(177, 119, 255, 0.7); }
+    #rs-r4 .rs-name { color: var(--lilac); }
+    #rs-tag { position: absolute; left: 90px; top: 1060px; border: 3px solid var(--lilac); border-radius: 40px; padding: 14px 30px; font: 600 34px/1 "AP Outfit"; color: var(--ink); }
+  </style>
+
+  <div id="root" data-composition-id="results" data-width="1080" data-height="1920">
+    <div class="bg"></div>
+    <div class="stage" id="rs-stage">
+      <div class="cam" id="rs-cam">
+        <div id="rs-num">0</div>
+        <div id="rs-numlab">tests of 5 methods</div>
+        <div id="rs-dots"><div class="rs-dot" style="left:0px"></div><div class="rs-dot" style="left:97px"></div><div class="rs-dot" style="left:194px"></div><div class="rs-dot" style="left:291px"></div><div class="rs-dot" style="left:388px"></div></div>
+        <div id="rs-head"><b>33,000</b> tests · how often each method quoted the passage exactly (English translations)</div>
+        <div class="rs-row" id="rs-r0" style="top:330px"><div class="rs-name">Model alone</div><div class="rs-sub">Unassisted, from memory</div><div class="rs-val">0.0%</div><div class="rs-track"><div class="rs-fill" style="width:900px"></div></div></div>
+        <div class="rs-row" id="rs-r1" style="top:478px"><div class="rs-name">Web search</div><div class="rs-sub">Open web search</div><div class="rs-val">0.0%</div><div class="rs-track"><div class="rs-fill" style="width:900px"></div></div></div>
+        <div class="rs-row" id="rs-r2" style="top:626px"><div class="rs-name">Handed the passage</div><div class="rs-sub">Simulated RAG, best case</div><div class="rs-val">0.0%</div><div class="rs-track"><div class="rs-fill" style="width:900px"></div></div></div>
+        <div class="rs-row" id="rs-r3" style="top:774px"><div class="rs-name">Lookup tool</div><div class="rs-sub">Tool calls to a Bible API</div><div class="rs-val">0.0%</div><div class="rs-track"><div class="rs-fill" style="width:900px"></div></div></div>
+        <div class="rs-row" id="rs-r4" style="top:922px"><div class="rs-name">Output transform</div><div class="rs-sub">Placeholder, then the exact text</div><div class="rs-val">0.0%</div><div class="rs-track"><div class="rs-fill" style="width:900px"></div></div></div>
+        <div id="rs-tag">99.4% across 10 other languages</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"five":0.985,"count":2.667,"ladder":3.39,"fills":[3.69,7.842,9.212,11.951,13.671],"tag":15.041,"exit":16.891};
+      const V = [32.6,48.5,93,96.2,100];
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#rs-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set([".rs-dot", "#rs-head", ".rs-row", "#rs-tag", ".rs-val"], { autoAlpha: 0 });
+      gsap.set(".rs-fill", { scaleX: 0 });
+      // "We tested five methods": five methods appear
+      tl.fromTo(".rs-dot", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.08 }, T.five);
+      // "33,000 times": the count lands on the spoken number
+      const n = { v: 0 };
+      tl.to(n, { v: 33000, duration: Math.max(0.6, T.count - 0.1), ease: "power2.out", onUpdate: () => { document.getElementById("rs-num").textContent = Math.round(n.v).toLocaleString("en-US"); } }, 0.1);
+      // into the ladder: the count becomes the header
+      tl.to(["#rs-num", "#rs-numlab", "#rs-dots"], { autoAlpha: 0, y: -120, duration: 0.35, ease: "power2.in" }, T.ladder - 0.35);
+      tl.fromTo("#rs-head", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.35 }, T.ladder - 0.1);
+      tl.to(".rs-row", { autoAlpha: 1, duration: 0.3, stagger: 0.06 }, T.ladder - 0.05);
+      // each bar fills on its spoken line; the value counts with it
+      const fills = document.querySelectorAll("#rs-stage .rs-fill");
+      const vals = document.querySelectorAll("#rs-stage .rs-val");
+      V.forEach((v, i) => {
+        const at = T.fills[i];
+        const d = i === 4 ? 1.0 : 0.8;
+        tl.to(fills[i], { scaleX: v / 100, duration: d, ease: "power2.out" }, at);
+        tl.to(vals[i], { autoAlpha: 1, duration: 0.15 }, at);
+        const c = { v: 0 };
+        tl.to(c, { v, duration: d, ease: "power2.out", onUpdate: () => { vals[i].textContent = (i === 4 ? Math.round(c.v) : c.v.toFixed(1)) + "%"; } }, at);
+      });
+      // "One method": the others step back
+      tl.to(["#rs-r0", "#rs-r1", "#rs-r2", "#rs-r3"], { opacity: 0.42, duration: 0.4 }, T.fills[4]);
+      tl.fromTo("#rs-tag", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35 }, T.tag);
+      tl.fromTo("#rs-cam", { scale: 1 }, { scale: 1.035, duration: T.exit, ease: "sine.inOut" }, 0);
+      tl.to("#rs-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#rs-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+      window.__timelines["results"] = tl;
+    })();
+  </script>
+</template>
