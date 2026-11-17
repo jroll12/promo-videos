@@ -13,7 +13,7 @@ import {clamp, ease} from '../../lib/motion';
 import {ColorName} from '../../lib/theme';
 import {VERSE_WINDOW, tabCountAt} from '../../data/contract';
 import {Line, beatAt, frameOfBeat, line, linesOf, section} from '../../data/timing';
-import {CountingList, HostileCalendar, LaundryDynasty, MapsPage, MirrorApp, SnackLab, TOWER, TrophyMind, WAIT_POPUPS, WaitStack} from './scenes';
+import {CountingList, HostileCalendar, LaundryDynasty, MapsPage, MirrorApp, SnackLab, TOWER, TrophyMind, WaitStack} from './scenes';
 
 const S = section('bridge');
 const BASE = S.startBar * 4; // global beat index of bar 60, beat 1
@@ -76,7 +76,6 @@ const shotAt = (frame: number) => {
 const TURNS = [0, 1, 2, 3].map((r) => bf(r));
 const LAB_SEGS = [4, 5, 6, 7].map((r) => bf(r));
 const LAUNDRY_AT = line('br.04').startFrame;
-const DYNASTY_AT = line('br.04').words[3]?.startFrame ?? bf(13);
 const WAIT_AT = [16, 17, 18, 19].map((r) => bf(r));
 const MIRROR_BEATS = [20, 21, 22, 23].map((r) => bf(r));
 const TROPHIES = [line('br.07').startFrame, bf(26), bf(27), ...[0, 1, 2, 3, 4, 5, 6, 7].map((j) => frameOfBeat(BASE + 28 + j * 0.5))];
@@ -136,13 +135,9 @@ const Section: React.FC<SectionProps> = () => {
       <DebrisLayer frame={frame} pose={camPose} />
       <ConfettiField frame={frame} />
       {shot.kind === 'laundry' && <ConfettiBurst frame={frame} at={bf(15)} x={960} y={420} count={90} seed={61} life={30} />}
-      {shot.kind === 'wait' && frame < bf(17) && DYNASTY_AT < 0 && null}
-      {shot.kind === 'trophy' && <ConfettiBurst frame={frame} at={TROPHIES[TROPHIES.length - 1]} x={960} y={540 - (TOWER.base - TOWER.step * TROPHIES.length - 480)} count={70} seed={62} life={24} />}
+      {shot.kind === 'trophy' && <ConfettiBurst frame={frame} at={TROPHIES[TROPHIES.length - 1]} x={960} y={540 + (TOWER.base - TOWER.step * TROPHIES.length - 480)} count={70} seed={62} life={24} />}
       <BridgeLyric frame={frame} kind={shot.kind} />
     </AbsoluteFill>
   );
 };
 export default Section;
-
-// Exported for the manifest check only.
-export const BRIDGE_DEBUG = {SHOTS, TROPHIES, WAIT_POPUPS};
