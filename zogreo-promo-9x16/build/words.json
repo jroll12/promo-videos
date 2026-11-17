@@ -1,6 +1,6 @@
 {
- "source": "assets/vo/narration.mp3",
- "duration": 32.026,
+ "source": "assets/vo/narration-zogreo.mp3",
+ "duration": 32.157,
  "method": "pocketsphinx forced alignment of the known script (word times measured against the audio; the spoken words themselves are NOT independently transcribed)",
  "words": [
   {
@@ -817,7 +817,7 @@
    "word": "Zogreo",
    "aligned": "zogreo",
    "start": 30.64,
-   "end": 31.22,
+   "end": 31.345,
    "line": 5,
    "aligned_start": 30.64,
    "aligned_end": 31.22
@@ -825,8 +825,8 @@
   {
    "word": "dot",
    "aligned": "dot",
-   "start": 31.22,
-   "end": 31.49,
+   "start": 31.345,
+   "end": 31.615,
    "line": 5,
    "aligned_start": 31.22,
    "aligned_end": 31.49
@@ -834,12 +834,13 @@
   {
    "word": "org",
    "aligned": "org",
-   "start": 31.49,
-   "end": 32.03,
+   "start": 31.615,
+   "end": 32.155,
    "line": 5,
    "aligned_start": 31.49,
    "aligned_end": 32.03
   }
  ],
- "snap": "word ends snapped to ffmpeg silencedetect pause starts (-38 dB, 0.12 s) and starts to pause ends where within 0.45 s / 0.2 s; tolerance about 0.1 s"
+ "snap": "word ends snapped to ffmpeg silencedetect pause starts (-38 dB, 0.12 s) and starts to pause ends where within 0.45 s / 0.2 s; tolerance about 0.1 s",
+ "note": "v3: the word \"Zogreo\" (30.65-31.27 s of the original narration) replaced by the user's reference recording; words after it shifted +0.125 s"
 }

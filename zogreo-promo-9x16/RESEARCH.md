@@ -13,3 +13,7 @@ Narration: ElevenLabs "Jason - Friendly and Approachable" take, used unedited (3
 - "A PROGRAM OF THE APOLOGIST PROJECT": from the supplied brochure (Zogreo___Missions.pdf), added at the user's request.
 - End-card pills "Book a free demo call" and "Make a donation" restate the narration.
 - Sound effects: repo SFX (intro project), each peak 11 to 22 dB under the narration peak.
+
+## v3: pronunciation fix
+- The word "Zogreo" (30.65 to 31.27 s of the original ElevenLabs narration) was replaced by the user's own reference recording (Zogreo_Correct_Pronunciation.m4a, 0.055 to 0.80 s, gain -0.9 dB, 12 ms equal-power crossfades). Words after it shifted +0.125 s. New audio: assets/vo/narration-zogreo.mp3 (32.16 s). The original assets/vo/narration.mp3 is unchanged.
+- Everything before the splice is unchanged (0.9999 correlation with the original at 0 offset).
