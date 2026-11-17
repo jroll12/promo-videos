@@ -1,0 +1,44 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    /*{{KIT}}*/
+    #hk-user { right: 200px; top: 70px; max-width: 1100px; }
+    #hk-ai { left: 300px; top: 260px; width: 1420px; height: 560px; }
+    #hk-av { left: 190px; top: 736px; }
+    .hk-row { position: absolute; left: 60px; height: 44px; }
+    .hk-seg { position: absolute; top: 0; height: 44px; border-radius: 22px; background: var(--dim); }
+    #hk-who { position: absolute; left: 60px; top: 40px; font: 600 40px/1 "AP Outfit"; letter-spacing: 0.08em; color: var(--muted); }
+  </style>
+
+  <div id="root" data-composition-id="hook" data-width="1920" data-height="1080">
+    <div class="bg" id="hk-bg"></div>
+    <div class="stage" id="hk-stage">
+      <div class="cam" id="hk-cam">
+        <div class="bubble user" id="hk-user">Can you quote a Bible verse for me?</div>
+        <div class="avatar" id="hk-av"></div>
+        <div class="bubble ai" id="hk-ai">
+          <div id="hk-who">AI</div>
+          <!--{{ROWS}}-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      // frame 0 already shows the question and the reply (the thumbnail)
+      gsap.set(".hk-seg", { transformOrigin: "50% 50%" });
+      tl.fromTo(".hk-row", { opacity: 0.55 }, { opacity: 1, duration: 0.5, stagger: 0.12, ease: "sine.out" }, 0);
+      tl.fromTo("#hk-cam", { scale: 1 }, { scale: 1.03, y: 10, duration: T.exit, ease: "sine.inOut" }, 0);
+      // "come back wrong": a few words drift (amber), changing length in place
+      tl.to(".hk-seg.drift", { backgroundColor: "#FBBF24", duration: 0.25 }, T.wrong);
+      tl.fromTo(".hk-seg.drift", { x: 0 }, { x: (i) => [-8, 7, -6, 8, -7][i % 5], scaleX: (i) => [1.12, 0.78, 1.1, 0.8, 1.14][i % 5], duration: 0.35, ease: "back.out(2)", stagger: 0.08 }, T.wrong);
+      tl.to(".hk-seg.drift", { x: (i) => [7, -8, 6, -4, 8][i % 5], scaleX: (i) => [0.82, 1.12, 0.86, 1.14, 0.8][i % 5], duration: 0.5, ease: "sine.inOut", stagger: 0.1 }, T.bug);
+      tl.to("#hk-stage", { x: -320, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#hk-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

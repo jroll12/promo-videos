@@ -1,0 +1,15 @@
+/* Apologist AI tokens, read from apologist.ai's live CSS (2026-11-17): see SPEC.md. 16:9 layout, 1920 x 1080. */
+#root { --bg: #111827; --panel: #1F2937; --line: #374151; --ink: #F9FAFB; --muted: #9CA3AF; --dim: #4B5563;
+  --purple: #7137FF; --purple2: #8A50FF; --lilac: #B177FF; --deep: #4700F6; --amber: #FBBF24; }
+#root { position: absolute; inset: 0; overflow: hidden; background: var(--bg); font-family: "AP Inter"; color: var(--ink); }
+#root * { box-sizing: border-box; }
+.bg { position: absolute; inset: -200px; background:
+  radial-gradient(1300px 760px at 50% 30%, rgba(113, 55, 255, 0.30), rgba(113, 55, 255, 0) 70%),
+  radial-gradient(900px 600px at 12% 95%, rgba(71, 0, 246, 0.16), rgba(71, 0, 246, 0) 70%), var(--bg); }
+.stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+.cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 960px 460px; }
+.bubble { position: absolute; border-radius: 48px; padding: 36px 48px; }
+.bubble.user { background: var(--purple); color: #fff; font: 500 52px/1.25 "AP Inter"; border-bottom-right-radius: 14px; }
+.bubble.ai { background: var(--panel); border: 3px solid var(--line); border-bottom-left-radius: 14px; }
+.avatar { position: absolute; width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--lilac)); }
+.chip { display: inline-block; border-radius: 22px; padding: 12px 28px; font: 600 56px/1.15 "AP Outfit"; }

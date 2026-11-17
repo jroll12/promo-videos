@@ -1,0 +1,66 @@
+<template>
+  <style>
+    @font-face { font-family: "AP Outfit"; font-style: normal; font-weight: 100 900; src: url("assets/fonts/outfit-latin-var.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+    /* Apologist AI tokens, read from apologist.ai's live CSS (2026-11-17): see SPEC.md. 16:9 layout, 1920 x 1080. */
+    #root { --bg: #111827; --panel: #1F2937; --line: #374151; --ink: #F9FAFB; --muted: #9CA3AF; --dim: #4B5563;
+      --purple: #7137FF; --purple2: #8A50FF; --lilac: #B177FF; --deep: #4700F6; --amber: #FBBF24; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--bg); font-family: "AP Inter"; color: var(--ink); }
+    #root * { box-sizing: border-box; }
+    .bg { position: absolute; inset: -200px; background:
+      radial-gradient(1300px 760px at 50% 30%, rgba(113, 55, 255, 0.30), rgba(113, 55, 255, 0) 70%),
+      radial-gradient(900px 600px at 12% 95%, rgba(71, 0, 246, 0.16), rgba(71, 0, 246, 0) 70%), var(--bg); }
+    .stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 960px 460px; }
+    .bubble { position: absolute; border-radius: 48px; padding: 36px 48px; }
+    .bubble.user { background: var(--purple); color: #fff; font: 500 52px/1.25 "AP Inter"; border-bottom-right-radius: 14px; }
+    .bubble.ai { background: var(--panel); border: 3px solid var(--line); border-bottom-left-radius: 14px; }
+    .avatar { position: absolute; width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--lilac)); }
+    .chip { display: inline-block; border-radius: 22px; padding: 12px 28px; font: 600 56px/1.15 "AP Outfit"; }
+    #hk-user { right: 200px; top: 70px; max-width: 1100px; }
+    #hk-ai { left: 300px; top: 260px; width: 1420px; height: 560px; }
+    #hk-av { left: 190px; top: 736px; }
+    .hk-row { position: absolute; left: 60px; height: 44px; }
+    .hk-seg { position: absolute; top: 0; height: 44px; border-radius: 22px; background: var(--dim); }
+    #hk-who { position: absolute; left: 60px; top: 40px; font: 600 40px/1 "AP Outfit"; letter-spacing: 0.08em; color: var(--muted); }
+  </style>
+
+  <div id="root" data-composition-id="hook" data-width="1920" data-height="1080">
+    <div class="bg" id="hk-bg"></div>
+    <div class="stage" id="hk-stage">
+      <div class="cam" id="hk-cam">
+        <div class="bubble user" id="hk-user">Can you quote a Bible verse for me?</div>
+        <div class="avatar" id="hk-av"></div>
+        <div class="bubble ai" id="hk-ai">
+          <div id="hk-who">AI</div>
+          <div class="hk-row" style="top:120px"><div class="hk-seg" style="left:0px;width:234px"></div><div class="hk-seg" style="left:260px;width:144px"></div><div class="hk-seg" style="left:430px;width:324px"></div><div class="hk-seg drift" style="left:780px;width:198px"></div><div class="hk-seg" style="left:1004px;width:234px"></div></div>
+          <div class="hk-row" style="top:204px"><div class="hk-seg" style="left:0px;width:198px"></div><div class="hk-seg drift" style="left:224px;width:342px"></div><div class="hk-seg" style="left:592px;width:234px"></div><div class="hk-seg" style="left:852px;width:306px"></div></div>
+          <div class="hk-row" style="top:288px"><div class="hk-seg" style="left:0px;width:306px"></div><div class="hk-seg" style="left:332px;width:198px"></div><div class="hk-seg drift" style="left:556px;width:288px"></div><div class="hk-seg" style="left:870px;width:252px"></div></div>
+          <div class="hk-row" style="top:372px"><div class="hk-seg drift" style="left:0px;width:216px"></div><div class="hk-seg" style="left:242px;width:270px"></div><div class="hk-seg drift" style="left:538px;width:360px"></div><div class="hk-seg" style="left:924px;width:180px"></div></div>
+          <div class="hk-row" style="top:456px"><div class="hk-seg" style="left:0px;width:306px"></div><div class="hk-seg" style="left:332px;width:252px"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"wrong":3.891,"bug":5.251,"exit":5.591};
+      const tl = gsap.timeline({ paused: true });
+      // frame 0 already shows the question and the reply (the thumbnail)
+      gsap.set(".hk-seg", { transformOrigin: "50% 50%" });
+      tl.fromTo(".hk-row", { opacity: 0.55 }, { opacity: 1, duration: 0.5, stagger: 0.12, ease: "sine.out" }, 0);
+      tl.fromTo("#hk-cam", { scale: 1 }, { scale: 1.03, y: 10, duration: T.exit, ease: "sine.inOut" }, 0);
+      // "come back wrong": a few words drift (amber), changing length in place
+      tl.to(".hk-seg.drift", { backgroundColor: "#FBBF24", duration: 0.25 }, T.wrong);
+      tl.fromTo(".hk-seg.drift", { x: 0 }, { x: (i) => [-8, 7, -6, 8, -7][i % 5], scaleX: (i) => [1.12, 0.78, 1.1, 0.8, 1.14][i % 5], duration: 0.35, ease: "back.out(2)", stagger: 0.08 }, T.wrong);
+      tl.to(".hk-seg.drift", { x: (i) => [7, -8, 6, -4, 8][i % 5], scaleX: (i) => [0.82, 1.12, 0.86, 1.14, 0.8][i % 5], duration: 0.5, ease: "sine.inOut", stagger: 0.1 }, T.bug);
+      tl.to("#hk-stage", { x: -320, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#hk-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+      window.__timelines["hook"] = tl;
+    })();
+  </script>
+</template>

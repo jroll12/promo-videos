@@ -1,0 +1,68 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    /*{{KIT}}*/
+    #rs-num { position: absolute; left: 0; top: 150px; width: 1920px; text-align: center; font: 700 300px/1 "AP Outfit"; font-variant-numeric: tabular-nums lining-nums; color: var(--ink); }
+    #rs-numlab { position: absolute; left: 0; top: 490px; width: 1920px; text-align: center; font: 600 76px/1 "AP Outfit"; color: var(--lilac); }
+    #rs-dots { position: absolute; left: 610px; top: 630px; width: 700px; height: 100px; }
+    .rs-dot { position: absolute; top: 0; width: 100px; height: 100px; border-radius: 28px; border: 6px solid var(--purple); }
+    #rs-head { position: absolute; left: 100px; top: 40px; width: 1720px; font: 500 44px/1.2 "AP Inter"; color: var(--muted); }
+    #rs-head b { font: 700 50px/1 "AP Outfit"; color: var(--ink); }
+    .rs-row { position: absolute; left: 100px; width: 1720px; height: 126px; }
+    .rs-name { position: absolute; left: 0; top: 4px; font: 600 56px/1 "AP Outfit"; color: var(--ink); }
+    .rs-sub { position: absolute; left: 0; top: 70px; font: 400 36px/1 "AP Inter"; color: var(--muted); }
+    .rs-val { position: absolute; right: 0; top: 18px; font: 700 72px/1 "AP Outfit"; font-variant-numeric: tabular-nums lining-nums; color: var(--ink); }
+    .rs-track { position: absolute; left: 620px; top: 36px; width: 830px; height: 40px; border-radius: 20px; background: var(--panel); }
+    .rs-fill { position: absolute; left: 0; top: 0; height: 40px; border-radius: 20px; background: #6D5BD0; transform-origin: 0% 50%; }
+    #rs-r4 .rs-fill { background: linear-gradient(90deg, var(--purple), var(--lilac)); box-shadow: 0 0 40px rgba(177, 119, 255, 0.7); }
+    #rs-r4 .rs-name { color: var(--lilac); }
+    #rs-tag { position: absolute; left: 720px; top: 778px; border: 4px solid var(--lilac); border-radius: 50px; padding: 14px 36px; font: 600 48px/1 "AP Outfit"; color: var(--ink); }
+  </style>
+
+  <div id="root" data-composition-id="results" data-width="1920" data-height="1080">
+    <div class="bg"></div>
+    <div class="stage" id="rs-stage">
+      <div class="cam" id="rs-cam">
+        <div id="rs-num">0</div>
+        <div id="rs-numlab">tests of 5 methods</div>
+        <div id="rs-dots"><!--{{DOTS}}--></div>
+        <div id="rs-head"><b>33,000</b> tests · how often each method quoted the passage exactly (English)</div>
+        <!--{{ROWS}}-->
+        <div id="rs-tag">99.4% across 10 other languages</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const V = /*{{V}}*/ [];
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#rs-stage", { x: 320, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
+      gsap.set([".rs-dot", "#rs-head", ".rs-row", "#rs-tag", ".rs-val"], { autoAlpha: 0 });
+      gsap.set(".rs-fill", { scaleX: 0 });
+      tl.fromTo(".rs-dot", { autoAlpha: 0, scale: 0.4 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.08 }, T.five);
+      const n = { v: 0 };
+      tl.to(n, { v: 33000, duration: Math.max(0.6, T.count - 0.1), ease: "power2.out", onUpdate: () => { document.getElementById("rs-num").textContent = Math.round(n.v).toLocaleString("en-US"); } }, 0.1);
+      tl.to(["#rs-num", "#rs-numlab", "#rs-dots"], { autoAlpha: 0, y: -120, duration: 0.35, ease: "power2.in" }, T.ladder - 0.35);
+      tl.fromTo("#rs-head", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.35 }, T.ladder - 0.1);
+      tl.to(".rs-row", { autoAlpha: 1, duration: 0.3, stagger: 0.06 }, T.ladder - 0.05);
+      const fills = document.querySelectorAll("#rs-stage .rs-fill");
+      const vals = document.querySelectorAll("#rs-stage .rs-val");
+      V.forEach((v, i) => {
+        const at = T.fills[i];
+        const d = i === 4 ? 1.0 : 0.8;
+        tl.to(fills[i], { scaleX: v / 100, duration: d, ease: "power2.out" }, at);
+        tl.to(vals[i], { autoAlpha: 1, duration: 0.15 }, at);
+        const c = { v: 0 };
+        tl.to(c, { v, duration: d, ease: "power2.out", onUpdate: () => { vals[i].textContent = (i === 4 ? Math.round(c.v) : c.v.toFixed(1)) + "%"; } }, at);
+      });
+      tl.to(["#rs-r0", "#rs-r1", "#rs-r2", "#rs-r3"], { opacity: 0.42, duration: 0.4 }, T.fills[4]);
+      tl.fromTo("#rs-tag", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35 }, T.tag);
+      tl.fromTo("#rs-cam", { scale: 1 }, { scale: 1.015, duration: T.exit, ease: "sine.inOut" }, 0);
+      tl.to("#rs-stage", { x: -320, duration: 0.32, ease: "power4.in" }, T.exit);
+      tl.to("#rs-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);
+      window.__timelines["results"] = tl;
+    })();
+  </script>
+</template>

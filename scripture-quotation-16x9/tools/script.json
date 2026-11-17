@@ -1,0 +1,82 @@
+{
+  "title": "Scripture Quotation in Generative AI: explainer (Apologist AI)",
+  "source": "Scripture Quotation in Generative AI, Jake Carlson, The Apologist Project, Aug 5 2026 (Drive PDF 1xu7Sg9VdnpxiODHOAtdoeXl57y0TIXUo). Every claim maps to a page in RESEARCH.md.",
+  "lines": [
+    {
+      "id": "L1",
+      "scene": "why",
+      "text": "Ask an AI to quote the Bible, and the words often come back wrong.",
+      "cap": "Ask an AI / to quote the Bible, / and the words often / come back wrong."
+    },
+    {
+      "id": "L2",
+      "scene": "why",
+      "text": "It's not a bug. A model writes by guessing likely words, and every guess can drift.",
+      "cap": "It's not a bug. / A model writes / by guessing likely words, / and every guess can drift."
+    },
+    {
+      "id": "L3",
+      "scene": "why",
+      "text": "So the fix isn't a smarter model or new settings. It's the method.",
+      "cap": "So the fix isn't / a smarter model / or new settings. / It's the method."
+    },
+    {
+      "id": "L4",
+      "scene": "study",
+      "text": "We tested five methods, 33,000 times.",
+      "cap": "We tested five methods, / 33,000 times."
+    },
+    {
+      "id": "L5",
+      "scene": "study",
+      "text": "Alone, the model was exactly right about a third of the time. With web search, under half. Handed the passage, 93 percent. Using a lookup tool, 96.",
+      "cap": "Alone, the model / was exactly right / about a third of the time. / With web search, / under half. / Handed the passage, / 93 percent. / Using a lookup tool, 96."
+    },
+    {
+      "id": "L6",
+      "scene": "study",
+      "text": "One method got every English quote exactly right.",
+      "cap": "One method got / every English quote / exactly right."
+    },
+    {
+      "id": "L7",
+      "scene": "how",
+      "text": "The model never writes the verse. It leaves a placeholder, like John 3:16, and the software fills in the exact text from a licensed Bible source.",
+      "cap": "The model never / writes the verse. / It leaves a placeholder, / like John 3:16, / and the software / fills in the exact text / from a licensed / Bible source."
+    },
+    {
+      "id": "L8",
+      "scene": "how",
+      "text": "If anything fails, you see the reference with no verse. A gap you can spot, never a misquote.",
+      "cap": "If anything fails, / you see the reference / with no verse. / A gap you can spot, / never a misquote."
+    },
+    {
+      "id": "L9",
+      "scene": "end",
+      "text": "That's how Apologist AI quotes Scripture. Read the study, and try it at apologist.ai.",
+      "cap": "That's how Apologist AI / quotes Scripture. / Read the study, / and try it at apologist.ai."
+    }
+  ],
+  "spoken_elevenlabs": {
+    "33,000": "thirty-three thousand",
+    "3:16": "three sixteen",
+    "apologist.ai": "apologist dot A I",
+    "93": "ninety-three",
+    "96": "ninety-six"
+  },
+  "on_screen_figures": {
+    "unassisted": "32.6%",
+    "web_search": "48.5%",
+    "simulated_rag": "93.0%",
+    "tool_calls": "96.2%",
+    "output_transform": "100%",
+    "output_transform_non_english": "99.4%",
+    "observations": "33,000"
+  },
+  "verse": {
+    "ref": "John 3:16",
+    "translation": "BSB",
+    "text": "For God so loved the world that He gave His one and only Son, that everyone who believes in Him shall not perish but have eternal life.",
+    "checked": "bible.helloao.org/api/BSB/JHN/3.json on 2026-11-17 (footnote marker removed)"
+  }
+}

@@ -1,0 +1,789 @@
+{
+ "engine": "ElevenLabs eleven_v4 per-scene takes, /with-timestamps",
+ "voice": "Jason ILP9IN5fT2Jr2fSfmoNh",
+ "duration": 55.8,
+ "lines": [
+  {
+   "id": "L1",
+   "text": "Ask an AI to quote the Bible, and the words often come back wrong.",
+   "start": 0.531,
+   "end": 4.531,
+   "words": [
+    {
+     "w": "Ask",
+     "start": 0.531,
+     "end": 0.771
+    },
+    {
+     "w": "an",
+     "start": 0.851,
+     "end": 0.931
+    },
+    {
+     "w": "AI",
+     "start": 1.011,
+     "end": 1.251
+    },
+    {
+     "w": "to",
+     "start": 1.331,
+     "end": 1.411
+    },
+    {
+     "w": "quote",
+     "start": 1.491,
+     "end": 1.651
+    },
+    {
+     "w": "the",
+     "start": 1.731,
+     "end": 1.811
+    },
+    {
+     "w": "Bible,",
+     "start": 1.891,
+     "end": 2.411
+    },
+    {
+     "w": "and",
+     "start": 2.531,
+     "end": 2.611
+    },
+    {
+     "w": "the",
+     "start": 2.651,
+     "end": 2.691
+    },
+    {
+     "w": "words",
+     "start": 2.771,
+     "end": 3.011
+    },
+    {
+     "w": "often",
+     "start": 3.091,
+     "end": 3.331
+    },
+    {
+     "w": "come",
+     "start": 3.411,
+     "end": 3.571
+    },
+    {
+     "w": "back",
+     "start": 3.651,
+     "end": 3.731
+    },
+    {
+     "w": "wrong.",
+     "start": 3.891,
+     "end": 4.531
+    }
+   ]
+  },
+  {
+   "id": "L2",
+   "text": "It's not a bug. A model writes by guessing likely words, and every guess can drift.",
+   "start": 4.771,
+   "end": 10.504,
+   "words": [
+    {
+     "w": "It's",
+     "start": 4.771,
+     "end": 4.931
+    },
+    {
+     "w": "not",
+     "start": 5.011,
+     "end": 5.091
+    },
+    {
+     "w": "a",
+     "start": 5.131,
+     "end": 5.171
+    },
+    {
+     "w": "bug.",
+     "start": 5.251,
+     "end": 5.811
+    },
+    {
+     "w": "A",
+     "start": 6.051,
+     "end": 6.131
+    },
+    {
+     "w": "model",
+     "start": 6.211,
+     "end": 6.451
+    },
+    {
+     "w": "writes",
+     "start": 6.531,
+     "end": 6.771
+    },
+    {
+     "w": "by",
+     "start": 6.891,
+     "end": 7.011
+    },
+    {
+     "w": "guessing",
+     "start": 7.131,
+     "end": 7.411
+    },
+    {
+     "w": "likely",
+     "start": 7.491,
+     "end": 7.891
+    },
+    {
+     "w": "words,",
+     "start": 7.971,
+     "end": 8.491
+    },
+    {
+     "w": "and",
+     "start": 8.531,
+     "end": 8.771
+    },
+    {
+     "w": "every",
+     "start": 8.851,
+     "end": 9.091
+    },
+    {
+     "w": "guess",
+     "start": 9.171,
+     "end": 9.411
+    },
+    {
+     "w": "can",
+     "start": 9.491,
+     "end": 9.651
+    },
+    {
+     "w": "drift.",
+     "start": 9.731,
+     "end": 10.504
+    }
+   ]
+  },
+  {
+   "id": "L3",
+   "text": "So the fix isn't a smarter model or new settings. It's the method.",
+   "start": 10.558,
+   "end": 14.371,
+   "words": [
+    {
+     "w": "So",
+     "start": 10.558,
+     "end": 10.611
+    },
+    {
+     "w": "the",
+     "start": 10.691,
+     "end": 10.771
+    },
+    {
+     "w": "fix",
+     "start": 10.931,
+     "end": 11.091
+    },
+    {
+     "w": "isn't",
+     "start": 11.171,
+     "end": 11.331
+    },
+    {
+     "w": "a",
+     "start": 11.491,
+     "end": 11.544
+    },
+    {
+     "w": "smarter",
+     "start": 11.598,
+     "end": 11.891
+    },
+    {
+     "w": "model",
+     "start": 11.971,
+     "end": 12.291
+    },
+    {
+     "w": "or",
+     "start": 12.371,
+     "end": 12.451
+    },
+    {
+     "w": "new",
+     "start": 12.571,
+     "end": 12.691
+    },
+    {
+     "w": "settings.",
+     "start": 13.011,
+     "end": 13.371
+    },
+    {
+     "w": "It's",
+     "start": 13.411,
+     "end": 13.571
+    },
+    {
+     "w": "the",
+     "start": 13.651,
+     "end": 13.731
+    },
+    {
+     "w": "method.",
+     "start": 13.931,
+     "end": 14.371
+    }
+   ]
+  },
+  {
+   "id": "L4",
+   "text": "We tested five methods, 33,000 times.",
+   "start": 14.931,
+   "end": 18.651,
+   "words": [
+    {
+     "w": "We",
+     "start": 14.931,
+     "end": 15.011
+    },
+    {
+     "w": "tested",
+     "start": 15.251,
+     "end": 15.491
+    },
+    {
+     "w": "five",
+     "start": 15.571,
+     "end": 15.811
+    },
+    {
+     "w": "methods,",
+     "start": 15.891,
+     "end": 16.531
+    },
+    {
+     "w": "33,000",
+     "start": 16.691,
+     "end": 17.891
+    },
+    {
+     "w": "times.",
+     "start": 17.971,
+     "end": 18.651
+    }
+   ]
+  },
+  {
+   "id": "L5",
+   "text": "Alone, the model was exactly right about a third of the time. With web search, under half. Handed the passage, 93 percent. Using a lookup tool, 96.",
+   "start": 18.851,
+   "end": 29.891,
+   "words": [
+    {
+     "w": "Alone,",
+     "start": 18.851,
+     "end": 19.371
+    },
+    {
+     "w": "the",
+     "start": 19.491,
+     "end": 19.571
+    },
+    {
+     "w": "model",
+     "start": 19.651,
+     "end": 19.891
+    },
+    {
+     "w": "was",
+     "start": 19.971,
+     "end": 20.051
+    },
+    {
+     "w": "exactly",
+     "start": 20.211,
+     "end": 20.611
+    },
+    {
+     "w": "right",
+     "start": 20.691,
+     "end": 20.851
+    },
+    {
+     "w": "about",
+     "start": 20.931,
+     "end": 21.171
+    },
+    {
+     "w": "a",
+     "start": 21.251,
+     "end": 21.331
+    },
+    {
+     "w": "third",
+     "start": 21.411,
+     "end": 21.491
+    },
+    {
+     "w": "of",
+     "start": 21.571,
+     "end": 21.651
+    },
+    {
+     "w": "the",
+     "start": 21.691,
+     "end": 21.731
+    },
+    {
+     "w": "time.",
+     "start": 21.811,
+     "end": 22.331
+    },
+    {
+     "w": "With",
+     "start": 22.531,
+     "end": 22.611
+    },
+    {
+     "w": "web",
+     "start": 22.691,
+     "end": 22.851
+    },
+    {
+     "w": "search,",
+     "start": 22.931,
+     "end": 23.491
+    },
+    {
+     "w": "under",
+     "start": 23.611,
+     "end": 23.731
+    },
+    {
+     "w": "half.",
+     "start": 23.811,
+     "end": 24.611
+    },
+    {
+     "w": "Handed",
+     "start": 24.691,
+     "end": 24.851
+    },
+    {
+     "w": "the",
+     "start": 24.931,
+     "end": 25.011
+    },
+    {
+     "w": "passage,",
+     "start": 25.131,
+     "end": 25.811
+    },
+    {
+     "w": "93",
+     "start": 25.891,
+     "end": 26.371
+    },
+    {
+     "w": "percent.",
+     "start": 26.531,
+     "end": 27.331
+    },
+    {
+     "w": "Using",
+     "start": 27.411,
+     "end": 27.571
+    },
+    {
+     "w": "a",
+     "start": 27.651,
+     "end": 27.691
+    },
+    {
+     "w": "lookup",
+     "start": 27.731,
+     "end": 28.051
+    },
+    {
+     "w": "tool,",
+     "start": 28.171,
+     "end": 28.611
+    },
+    {
+     "w": "96.",
+     "start": 28.691,
+     "end": 29.891
+    }
+   ]
+  },
+  {
+   "id": "L6",
+   "text": "One method got every English quote exactly right.",
+   "start": 29.971,
+   "end": 33.091,
+   "words": [
+    {
+     "w": "One",
+     "start": 29.971,
+     "end": 30.131
+    },
+    {
+     "w": "method",
+     "start": 30.211,
+     "end": 30.531
+    },
+    {
+     "w": "got",
+     "start": 30.691,
+     "end": 30.851
+    },
+    {
+     "w": "every",
+     "start": 30.931,
+     "end": 31.251
+    },
+    {
+     "w": "English",
+     "start": 31.411,
+     "end": 31.571
+    },
+    {
+     "w": "quote",
+     "start": 31.651,
+     "end": 31.891
+    },
+    {
+     "w": "exactly",
+     "start": 32.051,
+     "end": 32.531
+    },
+    {
+     "w": "right.",
+     "start": 32.611,
+     "end": 33.091
+    }
+   ]
+  },
+  {
+   "id": "L7",
+   "text": "The model never writes the verse. It leaves a placeholder, like John 3:16, and the software fills in the exact text from a licensed Bible source.",
+   "start": 33.801,
+   "end": 42.521,
+   "words": [
+    {
+     "w": "The",
+     "start": 33.801,
+     "end": 33.881
+    },
+    {
+     "w": "model",
+     "start": 34.081,
+     "end": 34.281
+    },
+    {
+     "w": "never",
+     "start": 34.361,
+     "end": 34.601
+    },
+    {
+     "w": "writes",
+     "start": 34.681,
+     "end": 34.921
+    },
+    {
+     "w": "the",
+     "start": 34.961,
+     "end": 35.001
+    },
+    {
+     "w": "verse.",
+     "start": 35.081,
+     "end": 35.641
+    },
+    {
+     "w": "It",
+     "start": 35.801,
+     "end": 35.881
+    },
+    {
+     "w": "leaves",
+     "start": 35.921,
+     "end": 36.041
+    },
+    {
+     "w": "a",
+     "start": 36.121,
+     "end": 36.201
+    },
+    {
+     "w": "placeholder,",
+     "start": 36.481,
+     "end": 36.881
+    },
+    {
+     "w": "like",
+     "start": 37.001,
+     "end": 37.161
+    },
+    {
+     "w": "John",
+     "start": 37.321,
+     "end": 37.481
+    },
+    {
+     "w": "3:16,",
+     "start": 37.561,
+     "end": 38.561
+    },
+    {
+     "w": "and",
+     "start": 38.601,
+     "end": 38.681
+    },
+    {
+     "w": "the",
+     "start": 38.761,
+     "end": 38.841
+    },
+    {
+     "w": "software",
+     "start": 39.081,
+     "end": 39.321
+    },
+    {
+     "w": "fills",
+     "start": 39.401,
+     "end": 39.561
+    },
+    {
+     "w": "in",
+     "start": 39.641,
+     "end": 39.721
+    },
+    {
+     "w": "the",
+     "start": 39.761,
+     "end": 39.801
+    },
+    {
+     "w": "exact",
+     "start": 39.881,
+     "end": 40.361
+    },
+    {
+     "w": "text",
+     "start": 40.521,
+     "end": 40.681
+    },
+    {
+     "w": "from",
+     "start": 40.721,
+     "end": 40.761
+    },
+    {
+     "w": "a",
+     "start": 40.841,
+     "end": 40.921
+    },
+    {
+     "w": "licensed",
+     "start": 41.121,
+     "end": 41.321
+    },
+    {
+     "w": "Bible",
+     "start": 41.401,
+     "end": 41.641
+    },
+    {
+     "w": "source.",
+     "start": 41.721,
+     "end": 42.521
+    }
+   ]
+  },
+  {
+   "id": "L8",
+   "text": "If anything fails, you see the reference with no verse. A gap you can spot, never a misquote.",
+   "start": 42.561,
+   "end": 48.281,
+   "words": [
+    {
+     "w": "If",
+     "start": 42.561,
+     "end": 42.601
+    },
+    {
+     "w": "anything",
+     "start": 42.681,
+     "end": 43.001
+    },
+    {
+     "w": "fails,",
+     "start": 43.081,
+     "end": 43.681
+    },
+    {
+     "w": "you",
+     "start": 43.721,
+     "end": 43.801
+    },
+    {
+     "w": "see",
+     "start": 43.881,
+     "end": 43.961
+    },
+    {
+     "w": "the",
+     "start": 44.001,
+     "end": 44.041
+    },
+    {
+     "w": "reference",
+     "start": 44.121,
+     "end": 44.521
+    },
+    {
+     "w": "with",
+     "start": 44.641,
+     "end": 44.761
+    },
+    {
+     "w": "no",
+     "start": 44.841,
+     "end": 45.001
+    },
+    {
+     "w": "verse.",
+     "start": 45.081,
+     "end": 45.774
+    },
+    {
+     "w": "A",
+     "start": 45.828,
+     "end": 45.881
+    },
+    {
+     "w": "gap",
+     "start": 46.001,
+     "end": 46.121
+    },
+    {
+     "w": "you",
+     "start": 46.161,
+     "end": 46.201
+    },
+    {
+     "w": "can",
+     "start": 46.321,
+     "end": 46.441
+    },
+    {
+     "w": "spot,",
+     "start": 46.521,
+     "end": 47.161
+    },
+    {
+     "w": "never",
+     "start": 47.241,
+     "end": 47.481
+    },
+    {
+     "w": "a",
+     "start": 47.521,
+     "end": 47.561
+    },
+    {
+     "w": "misquote.",
+     "start": 47.681,
+     "end": 48.281
+    }
+   ]
+  },
+  {
+   "id": "L9",
+   "text": "That's how Apologist AI quotes Scripture. Read the study, and try it at apologist.ai.",
+   "start": 49.167,
+   "end": 55.18,
+   "words": [
+    {
+     "w": "That's",
+     "start": 49.167,
+     "end": 49.26
+    },
+    {
+     "w": "how",
+     "start": 49.3,
+     "end": 49.34
+    },
+    {
+     "w": "Apologist",
+     "start": 49.42,
+     "end": 49.98
+    },
+    {
+     "w": "AI",
+     "start": 50.14,
+     "end": 50.54
+    },
+    {
+     "w": "quotes",
+     "start": 50.66,
+     "end": 50.78
+    },
+    {
+     "w": "Scripture.",
+     "start": 50.86,
+     "end": 51.74
+    },
+    {
+     "w": "Read",
+     "start": 51.82,
+     "end": 51.98
+    },
+    {
+     "w": "the",
+     "start": 52.06,
+     "end": 52.14
+    },
+    {
+     "w": "study,",
+     "start": 52.22,
+     "end": 52.66
+    },
+    {
+     "w": "and",
+     "start": 52.7,
+     "end": 52.86
+    },
+    {
+     "w": "try",
+     "start": 52.94,
+     "end": 53.1
+    },
+    {
+     "w": "it",
+     "start": 53.18,
+     "end": 53.34
+    },
+    {
+     "w": "at",
+     "start": 53.42,
+     "end": 53.5
+    },
+    {
+     "w": "apologist.ai.",
+     "start": 53.62,
+     "end": 55.18
+    }
+   ]
+  }
+ ]
+}

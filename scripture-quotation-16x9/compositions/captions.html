@@ -1,0 +1,76 @@
+<template>
+  <style>
+    @font-face { font-family: "AP Outfit"; font-style: normal; font-weight: 100 900; src: url("assets/fonts/outfit-latin-var.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 400; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "AP Inter"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #cp-band { position: absolute; left: 0; top: 896px; width: 1920px; height: 170px; }
+    .cp { position: absolute; left: 160px; top: 0; width: 1600px; height: 170px; display: flex; align-items: center; justify-content: center;
+      text-align: center; font: 600 66px/1.15 "AP Inter"; color: #FFFFFF; text-shadow: 0 2px 16px rgba(0, 0, 0, 0.85), 0 0 4px rgba(0, 0, 0, 0.6); }
+    #cp-scrim { position: absolute; left: 260px; top: 870px; width: 1400px; height: 220px;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(10, 14, 28, 0.78), rgba(10, 14, 28, 0) 100%); }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1920" data-height="1080">
+    <div id="cp-scrim" data-layout-allow-occlusion></div>
+    <div id="cp-band">
+      <div class="cp" id="cp-0" data-layout-allow-overlap data-layout-allow-occlusion>Ask an AI</div>
+      <div class="cp" id="cp-1" data-layout-allow-overlap data-layout-allow-occlusion>to quote the Bible,</div>
+      <div class="cp" id="cp-2" data-layout-allow-overlap data-layout-allow-occlusion>and the words often</div>
+      <div class="cp" id="cp-3" data-layout-allow-overlap data-layout-allow-occlusion>come back wrong.</div>
+      <div class="cp" id="cp-4" data-layout-allow-overlap data-layout-allow-occlusion>It's not a bug.</div>
+      <div class="cp" id="cp-5" data-layout-allow-overlap data-layout-allow-occlusion>A model writes</div>
+      <div class="cp" id="cp-6" data-layout-allow-overlap data-layout-allow-occlusion>by guessing likely words,</div>
+      <div class="cp" id="cp-7" data-layout-allow-overlap data-layout-allow-occlusion>and every guess can drift.</div>
+      <div class="cp" id="cp-8" data-layout-allow-overlap data-layout-allow-occlusion>So the fix isn't</div>
+      <div class="cp" id="cp-9" data-layout-allow-overlap data-layout-allow-occlusion>a smarter model</div>
+      <div class="cp" id="cp-10" data-layout-allow-overlap data-layout-allow-occlusion>or new settings.</div>
+      <div class="cp" id="cp-11" data-layout-allow-overlap data-layout-allow-occlusion>It's the method.</div>
+      <div class="cp" id="cp-12" data-layout-allow-overlap data-layout-allow-occlusion>We tested five methods,</div>
+      <div class="cp" id="cp-13" data-layout-allow-overlap data-layout-allow-occlusion>33,000 times.</div>
+      <div class="cp" id="cp-14" data-layout-allow-overlap data-layout-allow-occlusion>Alone, the model</div>
+      <div class="cp" id="cp-15" data-layout-allow-overlap data-layout-allow-occlusion>was exactly right</div>
+      <div class="cp" id="cp-16" data-layout-allow-overlap data-layout-allow-occlusion>about a third of the time.</div>
+      <div class="cp" id="cp-17" data-layout-allow-overlap data-layout-allow-occlusion>With web search,</div>
+      <div class="cp" id="cp-18" data-layout-allow-overlap data-layout-allow-occlusion>under half.</div>
+      <div class="cp" id="cp-19" data-layout-allow-overlap data-layout-allow-occlusion>Handed the passage,</div>
+      <div class="cp" id="cp-20" data-layout-allow-overlap data-layout-allow-occlusion>93 percent.</div>
+      <div class="cp" id="cp-21" data-layout-allow-overlap data-layout-allow-occlusion>Using a lookup tool, 96.</div>
+      <div class="cp" id="cp-22" data-layout-allow-overlap data-layout-allow-occlusion>One method got</div>
+      <div class="cp" id="cp-23" data-layout-allow-overlap data-layout-allow-occlusion>every English quote</div>
+      <div class="cp" id="cp-24" data-layout-allow-overlap data-layout-allow-occlusion>exactly right.</div>
+      <div class="cp" id="cp-25" data-layout-allow-overlap data-layout-allow-occlusion>The model never</div>
+      <div class="cp" id="cp-26" data-layout-allow-overlap data-layout-allow-occlusion>writes the verse.</div>
+      <div class="cp" id="cp-27" data-layout-allow-overlap data-layout-allow-occlusion>It leaves a placeholder,</div>
+      <div class="cp" id="cp-28" data-layout-allow-overlap data-layout-allow-occlusion>like John 3:16,</div>
+      <div class="cp" id="cp-29" data-layout-allow-overlap data-layout-allow-occlusion>and the software</div>
+      <div class="cp" id="cp-30" data-layout-allow-overlap data-layout-allow-occlusion>fills in the exact text</div>
+      <div class="cp" id="cp-31" data-layout-allow-overlap data-layout-allow-occlusion>from a licensed</div>
+      <div class="cp" id="cp-32" data-layout-allow-overlap data-layout-allow-occlusion>Bible source.</div>
+      <div class="cp" id="cp-33" data-layout-allow-overlap data-layout-allow-occlusion>If anything fails,</div>
+      <div class="cp" id="cp-34" data-layout-allow-overlap data-layout-allow-occlusion>you see the reference</div>
+      <div class="cp" id="cp-35" data-layout-allow-overlap data-layout-allow-occlusion>with no verse.</div>
+      <div class="cp" id="cp-36" data-layout-allow-overlap data-layout-allow-occlusion>A gap you can spot,</div>
+      <div class="cp" id="cp-37" data-layout-allow-overlap data-layout-allow-occlusion>never a misquote.</div>
+      <div class="cp" id="cp-38" data-layout-allow-overlap data-layout-allow-occlusion>That's how Apologist AI</div>
+      <div class="cp" id="cp-39" data-layout-allow-overlap data-layout-allow-occlusion>quotes Scripture.</div>
+      <div class="cp" id="cp-40" data-layout-allow-overlap data-layout-allow-occlusion>Read the study,</div>
+      <div class="cp" id="cp-41" data-layout-allow-overlap data-layout-allow-occlusion>and try it at apologist.ai.</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const C = {"groups":[{"text":"Ask an AI","start":0.471,"end":1.271},{"text":"to quote the Bible,","start":1.271,"end":2.471},{"text":"and the words often","start":2.471,"end":3.351},{"text":"come back wrong.","start":3.351,"end":4.711},{"text":"It's not a bug.","start":4.711,"end":5.991},{"text":"A model writes","start":5.991,"end":6.831},{"text":"by guessing likely words,","start":6.831,"end":8.471},{"text":"and every guess can drift.","start":8.471,"end":10.498},{"text":"So the fix isn't","start":10.498,"end":11.431},{"text":"a smarter model","start":11.431,"end":12.311},{"text":"or new settings.","start":12.311,"end":13.351},{"text":"It's the method.","start":13.351,"end":14.721},{"text":"We tested five methods,","start":14.871,"end":16.631},{"text":"33,000 times.","start":16.631,"end":18.791},{"text":"Alone, the model","start":18.791,"end":19.911},{"text":"was exactly right","start":19.911,"end":20.871},{"text":"about a third of the time.","start":20.871,"end":22.471},{"text":"With web search,","start":22.471,"end":23.551},{"text":"under half.","start":23.551,"end":24.631},{"text":"Handed the passage,","start":24.631,"end":25.831},{"text":"93 percent.","start":25.831,"end":27.351},{"text":"Using a lookup tool, 96.","start":27.351,"end":29.911},{"text":"One method got","start":29.911,"end":30.871},{"text":"every English quote","start":30.871,"end":31.991},{"text":"exactly right.","start":31.991,"end":33.441},{"text":"The model never","start":33.741,"end":34.621},{"text":"writes the verse.","start":34.621,"end":35.741},{"text":"It leaves a placeholder,","start":35.741,"end":36.941},{"text":"like John 3:16,","start":36.941,"end":38.541},{"text":"and the software","start":38.541,"end":39.341},{"text":"fills in the exact text","start":39.341,"end":40.661},{"text":"from a licensed","start":40.661,"end":41.341},{"text":"Bible source.","start":41.341,"end":42.501},{"text":"If anything fails,","start":42.501,"end":43.661},{"text":"you see the reference","start":43.661,"end":44.581},{"text":"with no verse.","start":44.581,"end":45.768},{"text":"A gap you can spot,","start":45.768,"end":47.181},{"text":"never a misquote.","start":47.181,"end":48.631},{"text":"That's how Apologist AI","start":49.107,"end":50.6},{"text":"quotes Scripture.","start":50.6,"end":51.76},{"text":"Read the study,","start":51.76,"end":52.64},{"text":"and try it at apologist.ai.","start":52.64,"end":55.53}],"total":57.78};
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(".cp", { autoAlpha: 0 });
+      const els = document.querySelectorAll("#cp-band .cp");
+      C.groups.forEach((g, i) => {
+        tl.fromTo(els[i], { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.12, ease: "power2.out" }, g.start);
+        tl.to(els[i], { autoAlpha: 0, duration: 0.08 }, Math.max(g.start + 0.13, g.end - 0.08));
+      });
+      tl.set({}, {}, C.total);
+      window.__timelines["captions"] = tl;
+    })();
+  </script>
+</template>
