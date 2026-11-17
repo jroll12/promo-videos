@@ -167,14 +167,6 @@
       "track": 6
     },
     {
-      "f": "pop-lo",
-      "start": 10.323,
-      "ms": 0,
-      "dur": 0.881,
-      "vol": 0.15,
-      "track": 5
-    },
-    {
       "f": "whoosh-short",
       "start": 12.263,
       "ms": 0,
@@ -213,6 +205,14 @@
       "dur": 2.592,
       "vol": 0.14,
       "track": 5
+    },
+    {
+      "f": "pop-lo",
+      "start": 23.713,
+      "ms": 0,
+      "dur": 0.881,
+      "vol": 0.15,
+      "track": 6
     },
     {
       "f": "whoosh",

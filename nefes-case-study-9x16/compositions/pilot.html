@@ -108,7 +108,7 @@
 
       // entry: cut the curve, still travelling left. The label, the headline and the team ride in with the stage.
       tl.fromTo("#pl-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
-      gsap.set([".pl-card", "#pl-dot", ".pl-node", "#pl-end", "#pl-handed"], { autoAlpha: 0 });
+      gsap.set([".pl-card", "#pl-dot", ".pl-node", "#pl-end", "#pl-handed", "#pl-chip"], { autoAlpha: 0 });
       gsap.set(".pl-fill", { scale: 0, transformOrigin: "50% 50%" });
       gsap.set(".pl-chk", { autoAlpha: 0 });
       gsap.set(".pl-row span", { opacity: 0.45 });
@@ -154,7 +154,9 @@
       // 4 · a breath of stillness, then the hand-off: "are handed to the team on the ground"
       tl.to("#pl-dot", { x: 88, y: 900, duration: T.impact - T.handed, ease: "power3.in" }, T.handed);
       tl.to("#pl-dot", { autoAlpha: 0, duration: 0.08 }, T.impact);
-      tl.fromTo("#pl-chip", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.09, duration: 0.5, ease: "back.out(1.8)" }, T.impact);
+      // the team appears as the narration says "handed to the team on the ground", just before the dot reaches it
+      tl.fromTo("#pl-chip", { autoAlpha: 0, scale: 0.84, y: 30, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.38, ease: "back.out(1.4)" }, T.handed);
+      tl.fromTo("#pl-chip", { scale: 1 }, { scale: 1.09, duration: 0.5, ease: "back.out(1.8)", immediateRender: false }, T.impact);
       tl.fromTo("#pl-handed", { autoAlpha: 0, filter: "blur(6px)", y: 10 }, { autoAlpha: 1, filter: "blur(0px)", y: 0, duration: 0.3, ease: "power2.out" }, T.impact + 0.1);
       // the camera keeps moving in on the team the whole way down the path (no dead hold while the studies tick), then settles on the hand-off
       tl.fromTo("#pl-push", { scale: 1 }, { scale: 1.06, duration: T.impact - T.travel - T.travelDur, ease: "sine.inOut" }, T.travel + T.travelDur);

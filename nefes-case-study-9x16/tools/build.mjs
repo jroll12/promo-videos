@@ -293,7 +293,7 @@ sfx("pop-lo", wb("L1", "messages") + 0.1, 0.13); // messages landing, well after
 sfx("pop", wb("L1", "busy,") + 0.1, 0.13);
 sfx("pop-hi", wb("L1", "volume.") + 0.05, 0.14);
 sfx("whoosh-cinematic", before.pullStart + 0.5 * (before.pullEnd - before.pullStart), 0.18); // the pull-back
-sfx("pop-lo", before.chip + 0.08, 0.15); // the team lands
+sfx("pop-lo", cutA + pilot.handed + 0.08, 0.15); // the team appears at the hand-off
 sfx("whoosh-short", cutA, 0.2);
 sfx("whoosh", cutA + pilot.travel + 0.5 * pilot.travelDur, 0.16); // down the path
 sfx("click-soft", cutA + pilot.answers + 0.04, 0.3);
@@ -416,7 +416,7 @@ still under the responder's words, opening at the hand-off, steady for the numbe
 `);
 wr("build/events.json", JSON.stringify(round({
   "cut before→pilot": cutA, "cut pilot→result": cutB, "cut result→relief": cutC, "cut relief→close": cutD,
-  "pull-back": (before.pullStart + before.pullEnd) / 2, "team lands": before.chip, "down the path": cutA + pilot.travel + pilot.travelDur / 2,
+  "pull-back": (before.pullStart + before.pullEnd) / 2, "team appears": cutA + pilot.handed, "down the path": cutA + pilot.travel + pilot.travelDur / 2,
   "hand-off": cutA + pilot.impact, "3.73 lands": cutB + result.num, "second finding": cutB + result.nudge, "hostile": cutC + relief.hostile,
   "line closes": cutC + relief.pilot + 0.6, "quote in": cutC + relief.quoteIn, "field steps back": cutD + close.fieldOut, "logo wipe": cutD + close.logo,
 }), null, 2) + "\n");

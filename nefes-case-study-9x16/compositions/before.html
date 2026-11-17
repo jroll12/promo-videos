@@ -140,8 +140,7 @@
       tl.to(cam, { q: 1, duration: Math.max(0.4, T.exit + 0.32 - T.pullEnd), ease: "sine.inOut", onUpdate: applyCam }, T.pullEnd);
 
       // 4 · "The field team: two people": the team arrives on "field team", and its two people answer to "two"
-      tl.fromTo("#bf-chip", { autoAlpha: 0, scale: 0.84, y: 26, transformOrigin: "50% 50%" }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.46, ease: "back.out(1.4)" }, T.chip);
-      tl.fromTo("#bf-chip .zg-p", { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.2, duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, stagger: 0.14 }, T.two);
+      // (the team itself first appears at the hand-off in the pilot scene, where the narration reaches it)
 
       // exit: cut the curve, leftward
       tl.to("#bf-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
