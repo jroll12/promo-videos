@@ -65,3 +65,12 @@
   layouts: BrowserWindow's tab bar is about 55 px right of window centre (hook uses a centred local copy), content area
   sits 8 px below BROWSER_CHROME_H (verse2 corrects locally).
 - Outputs: `storyboard.json`, `storyboard.md`.
+
+## Phase 4: synthesize
+- `Video.tsx` mounts all ten section ranges (hook component three times) on one audio track.
+- 540p full preview rendered in 2 m 49 s (`out/preview-540p.mp4`). Audio sync PASS (offset 0.0 ms, correlation 1.000,
+  163.243 s both). Seam sheet (frames either side of all nine boundaries) and a whole-film sheet checked once:
+  every seam is a clean downbeat hard cut; hook3 -> outro hands off on an identical mural frame; end card correct.
+- Minor, left as is: the hook's lyric card and verse 1's receipts card show empty for 1 to 3 frames before their first
+  word pops; the final h3.08 card reaches about 5 px into the mural's top band.
+- 1080p final render started: `out/video.mp4`.
