@@ -74,3 +74,19 @@
 - Minor, left as is: the hook's lyric card and verse 1's receipts card show empty for 1 to 3 frames before their first
   word pops; the final h3.08 card reaches about 5 px into the mural's top band.
 - 1080p final render started: `out/video.mp4`.
+- 1080p final rendered (205 MB): 1920x1080, 30 fps, 4897 frames, H.264 + AAC, 163.243 s; audio sync PASS.
+
+## Phase 5: blind validation
+- `tools/validate_frames.mjs`: 89 strips (3 frames per line at 25/50/75 %, 540p, showLyrics=false), named by
+  opaque hash ids so file order is shuffled; key kept in `analysis/out/` (not given to reviewers).
+- Round 1: three identically briefed reviewers (about 30 strips each), each allowed to read only lyrics.txt and its
+  own strip folder. `tools/join_validation.mjs` joined their reports to storyboard.json.
+  Result: 30/36 literal moments recognised; 0 broken frames. Failures: fizz cup (h1.02, h2.02, h3.02), keys (h2.06),
+  lunch (h3.07, read as the mural), "With snacks." (out.03, read as the previous line). Report:
+  `validation/report-round1.md`.
+- Fixes: hook gag windows step in and grow during their own line while the others recede (spotlight); final hook's
+  keys and lunch pop at 1.9x; outro snack falls for the whole of out.03 at 300 px and its card lands with the line.
+- Round 2 (the one allowed re-run): a fresh reviewer, same brief, 11 re-rendered strips (6 failures + 5 controls):
+  11/11 matched. Merged with round 1 for the untouched strips: 36/36 literal moments recognised, 0 failures.
+  Report: `validation/report-round2.md`.
+- Final re-rendered with the fixes.

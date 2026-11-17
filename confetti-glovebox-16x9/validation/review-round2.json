@@ -1,0 +1,90 @@
+[
+  {
+    "strip": "6a973b3e",
+    "sees": "A retro browser with a 'still showing up' tab and confetti, with an orange 'backpack' popup window showing a pink backpack with a sauce bottle tipping into it and a 'SAUCE: TOO MUCH' label.",
+    "gag_perceived": "backpack overflowing with sauce",
+    "matches_line": "Too much sauce in the backpack,",
+    "confidence": 0.95,
+    "broken": false
+  },
+  {
+    "strip": "79b8ba6c",
+    "sees": "Same browser scene; the backpack window has shrunk to a thumbnail and a blue 'fizz cup' window pops up showing a cup foaming over, labelled 'FIZZ: OVERFLOW'.",
+    "gag_perceived": "cup overflowing with fizz",
+    "matches_line": "Too much fizz in the cup,",
+    "confidence": 0.95,
+    "broken": false
+  },
+  {
+    "strip": "65e7acb2",
+    "sees": "Browser scene with small backpack and fizz-cup thumbnails and floating mini tabs; a yellow 'find keys' window shows an open fridge with a map pin and keys inside, labelled 'FOUND: IN FRIDGE', plus a green checkmark.",
+    "gag_perceived": "keys found inside the fridge",
+    "matches_line": "Keys in the wrong spot,",
+    "confidence": 0.9,
+    "broken": false
+  },
+  {
+    "strip": "30d339ba",
+    "sees": "Browser scene with backpack and find-keys thumbnails; a green 'lunch' window shows a clock at about noon, a warning sign and a sandwich, labelled 'LUNCH: WEIRD'.",
+    "gag_perceived": "lunchtime clock with warning, lunch is weird",
+    "matches_line": "Life got weird by lunch,",
+    "confidence": 0.9,
+    "broken": false
+  },
+  {
+    "strip": "2db2c4c7",
+    "sees": "Later repeat of the browser scene (tab 1 of 96, more round confetti) with the backpack thumbnail and the 'fizz cup' window popping up, 'FIZZ: OVERFLOW'.",
+    "gag_perceived": "cup overflowing with fizz",
+    "matches_line": "Too much fizz in the cup,",
+    "confidence": 0.9,
+    "broken": false
+  },
+  {
+    "strip": "e0dae1f1",
+    "sees": "Later repeat of the browser scene (tab 1 of 96) with the 'find keys' window showing keys in an open fridge, 'FOUND: IN FRIDGE', a checkmark and a fizz-cup thumbnail.",
+    "gag_perceived": "keys found inside the fridge",
+    "matches_line": "Keys in the wrong spot,",
+    "confidence": 0.9,
+    "broken": false
+  },
+  {
+    "strip": "6a80b51c",
+    "sees": "Third repeat of the browser scene (tab 1 of 160, heavy confetti) with the backpack thumbnail and the 'fizz cup' window, 'FIZZ: OVERFLOW'.",
+    "gag_perceived": "cup overflowing with fizz",
+    "matches_line": "Too much fizz in the cup,",
+    "confidence": 0.9,
+    "broken": false
+  },
+  {
+    "strip": "5cdec686",
+    "sees": "Camera pulls back from the shrunken browser into a confetti field forming clusters and a map pin with a 'YOU ARE HERE' tag, while the 'find keys' window (keys in fridge, 'FOUND: IN FRIDGE') stays in the foreground.",
+    "gag_perceived": "keys found inside the fridge, zoom out to a confetti map",
+    "matches_line": "Keys in the wrong spot,",
+    "confidence": 0.8,
+    "broken": false
+  },
+  {
+    "strip": "5be88130",
+    "sees": "Zoomed-out confetti map with a big confetti location pin, 'YOU ARE HERE' tag, dotted route, and the green 'lunch' window (clock near noon, warning sign, sandwich, 'LUNCH: WEIRD').",
+    "gag_perceived": "lunchtime clock with warning, lunch is weird",
+    "matches_line": "Life got weird by lunch,",
+    "confidence": 0.85,
+    "broken": false
+  },
+  {
+    "strip": "0a592634",
+    "sees": "Confetti map with a loading spinner inside the location pin and a 'buffering route... 99%' progress card reading 'STILL NOT LOST. JUST CREATIVELY DELAYED.', the word 'DELAYED' arriving late.",
+    "gag_perceived": "route stuck buffering at 99%, i.e. delayed",
+    "matches_line": "Just creatively delayed.",
+    "confidence": 0.8,
+    "broken": false
+  },
+  {
+    "strip": "0ee8fd6f",
+    "sees": "Confetti map where the location pin's head is now a taco, a 'route loaded 100%' card, and big title cards 'STILL NOT LOST.', 'JUST CREATIVELY DELAYED.' and 'WITH SNACKS.' with a taco icon.",
+    "gag_perceived": "map pin turned into a taco, snacks",
+    "matches_line": "With snacks.",
+    "confidence": 0.8,
+    "broken": false
+  }
+]
