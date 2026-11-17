@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate index.html for the Zogreo channels promo (v2).
+"""Generate index.html for the Zogreo channels promo, 16:9 (landscape iPad version).
 
 Every cue is keyed to a spoken word from build/words.json (forced alignment of the
 unedited narration). Run: python3 -I tools/gen.py  (from the project folder).
@@ -28,7 +28,7 @@ NOTES = [
 ]
 notes_html = "".join(
     f'<div class="ncard" id="n-{k}"><div data-layout-ignore class="nrow"><img class="nic" src="{src}"><span>{app}</span><span class="nwhen">now</span></div>'
-    f'<div class="nname">{name}</div><div class="nprev">{msg}</div></div>'
+    f'<div class="nline"><b>{name}</b>&nbsp; {msg}</div></div>'
     for k, src, app, name, msg in NOTES)
 
 # inbox rows: (id, initials-name, channel icon, journey position 1..5), in arrival order
@@ -43,7 +43,7 @@ ROWS = [
 rows_html = ""
 for i, (rid, name, icon, pos) in enumerate(ROWS):
     dots = "".join(f'<i class="jd" data-on="{1 if k < pos else 0}"></i>' for k in range(5))
-    rows_html += (f'<div class="irow" id="r-{rid}" data-pos="{pos}" style="top:{240 + i * 200}px">'
+    rows_html += (f'<div class="irow" id="r-{rid}" data-pos="{pos}" style="top:{110 + i * 112}px">'
                   f'<div class="iav">{name[0]}</div><div class="iname">{name}<img class="ich" src="{icon}"></div>'
                   f'<div class="itrack">{dots}</div></div>')
 
@@ -65,60 +65,61 @@ html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:
 #root * { box-sizing:border-box; }
 .abs { position:absolute; }
 #rings, #erings { position:absolute; left:0; top:0; width:1920px; height:1080px; }
-#tag { position:absolute; left:1060px; top:96px; width:760px; text-align:center; font:600 28px/1 "ZG Inter"; letter-spacing:.3em; color:#F3F0E8; opacity:.62; }
+#tag { position:absolute; left:400px; top:18px; width:1120px; text-align:center; font:600 28px/1 "ZG Inter"; letter-spacing:.3em; color:#F3F0E8; opacity:.62; }
 
-/* phone (native 860x1780, scaled from its top centre) */
-#phone { position:absolute; left:190px; top:60px; width:860px; height:1780px; transform-origin:430px 0; border-radius:124px; background:#0A150B; box-shadow: inset 0 0 0 3px rgba(232,228,227,.16), 0 30px 80px rgba(0,0,0,.28); }
-#screen { position:absolute; left:14px; top:14px; width:832px; height:1752px; border-radius:110px; overflow:hidden; background:#F7F4EC; }
-.island { position:absolute; left:326px; top:26px; width:180px; height:54px; border-radius:27px; background:#000; z-index:9; }
-.status { position:absolute; top:40px; right:64px; display:flex; gap:12px; align-items:center; z-index:8; }
-.stime { position:absolute; left:92px; top:36px; font:600 30px/1 "ZG Inter"; z-index:8; }
+/* iPad, landscape 4:3, drawn at 1:1 */
+#tablet { position:absolute; left:400px; top:60px; width:1120px; height:840px; transform-origin:960px 420px; border-radius:58px; background:#0A150B; box-shadow: inset 0 0 0 3px rgba(232,228,227,.16), 0 30px 80px rgba(0,0,0,.28); }
+#cam { position:absolute; left:555px; top:7px; width:10px; height:10px; border-radius:5px; background:#1E2A1F; }
+#screen { position:absolute; left:22px; top:22px; width:1076px; height:796px; border-radius:36px; overflow:hidden; background:#F7F4EC; }
+.status { position:absolute; top:14px; right:28px; display:flex; gap:10px; align-items:center; z-index:8; transform:scale(.8); transform-origin:right top; }
+.stime { position:absolute; left:30px; top:14px; font:600 24px/1 "ZG Inter"; z-index:8; }
 .layer { position:absolute; inset:0; }
 
-#lock { background: radial-gradient(110% 70% at 50% 22%, #2A5530 0%, #173419 55%, #0E2010 100%); }
-#clock { position:absolute; left:0; top:130px; width:832px; text-align:center; font:600 200px/1 "ZG Inter"; letter-spacing:-.03em; color:#F3F0E8; }
-#date { position:absolute; left:0; top:350px; width:832px; text-align:center; font:500 44px/1 "ZG Inter"; color:#F3F0E8; opacity:.8; }
-.ncard { position:absolute; left:30px; top:430px; width:772px; border-radius:40px; background:rgba(247,244,236,.96); padding:24px 30px; color:#1B241A; }
-.nrow { display:flex; align-items:center; gap:14px; font:600 30px/1 "ZG Inter"; letter-spacing:.08em; color:#6B7468; }
-.nic { width:52px; height:52px; border-radius:13px; }
+#lock { background: radial-gradient(90% 90% at 30% 25%, #2A5530 0%, #173419 55%, #0E2010 100%); }
+#clock { position:absolute; left:0; top:22px; width:1076px; text-align:center; font:600 100px/1 "ZG Inter"; letter-spacing:-.03em; color:#F3F0E8; }
+#date { position:absolute; left:0; top:130px; width:1076px; text-align:center; font:500 30px/1 "ZG Inter"; color:#F3F0E8; opacity:.8; }
+.ncard { position:absolute; left:158px; top:180px; width:760px; border-radius:28px; background:rgba(247,244,236,.96); padding:16px 24px; color:#1B241A; }
+.nrow { display:flex; align-items:center; gap:12px; font:600 24px/1 "ZG Inter"; letter-spacing:.08em; color:#6B7468; }
+.nic { width:40px; height:40px; border-radius:10px; }
 .nwhen { margin-left:auto; letter-spacing:.02em; font-weight:500; }
-.nname { font:700 44px/1.2 "ZG Inter"; margin-top:16px; }
-.nprev { font:400 43px/1.25 "ZG Inter"; color:#3E473C; margin-top:6px; }
+.nline { font:400 30px/1.3 "ZG Inter"; color:#3E473C; margin-top:10px; white-space:nowrap; }
+.nline b { font-weight:700; color:#1B241A; }
 
-#inbox { background:#F7F4EC; }
-#ititle { position:absolute; left:56px; top:120px; font:700 64px/1 "ZG Inter"; color:#1B241A; letter-spacing:-.01em; }
-.irow { position:absolute; left:30px; width:772px; height:178px; border-radius:36px; background:#FFFFFF; box-shadow: 0 2px 0 rgba(29,61,30,.06); }
-.irow.hot { background:#E5EDDD; box-shadow: inset 8px 0 0 #4E8A4F; }
-.iav { position:absolute; left:28px; top:39px; width:100px; height:100px; border-radius:50px; background:#D9E0D2; color:#1D3D1E; font:600 44px/100px "ZG Inter"; text-align:center; }
-.iname { position:absolute; left:156px; top:34px; font:700 46px/1 "ZG Inter"; color:#1B241A; display:flex; align-items:center; gap:14px; }
-.ich { width:46px; height:46px; border-radius:12px; }
-.itrack { position:absolute; left:158px; top:108px; display:flex; gap:12px; align-items:center; }
-.jd { display:block; width:58px; height:12px; border-radius:6px; background:#DCE3D5; }
+#app { background:#F7F4EC; }
+#pane { position:absolute; left:0; top:0; width:420px; height:796px; border-right:2px solid #E3DFD3; background:#F2EFE6; }
+#ititle { position:absolute; left:30px; top:50px; font:700 40px/1 "ZG Inter"; color:#1B241A; letter-spacing:-.01em; }
+.irow { position:absolute; left:14px; width:392px; height:100px; border-radius:24px; background:#FFFFFF; box-shadow: 0 2px 0 rgba(29,61,30,.06); }
+.irow.hot { background:#E5EDDD; box-shadow: inset 7px 0 0 #4E8A4F; }
+.iav { position:absolute; left:18px; top:18px; width:64px; height:64px; border-radius:32px; background:#D9E0D2; color:#1D3D1E; font:600 30px/64px "ZG Inter"; text-align:center; }
+.iname { position:absolute; left:100px; top:16px; font:700 32px/1 "ZG Inter"; color:#1B241A; display:flex; align-items:center; gap:10px; }
+.ich { width:32px; height:32px; border-radius:8px; }
+.itrack { position:absolute; left:101px; top:66px; display:flex; gap:9px; align-items:center; }
+.jd { display:block; width:42px; height:10px; border-radius:5px; background:#DCE3D5; }
+#empty { position:absolute; left:420px; top:370px; width:656px; text-align:center; font:500 30px/1 "ZG Inter"; color:#6B7468; }
 
-#thread { background:#F7F4EC; }
-#thead { position:absolute; left:0; top:96px; width:832px; height:138px; border-bottom:2px solid #E3DFD3; }
-#tback { position:absolute; left:44px; top:44px; }
-#tav { position:absolute; left:96px; top:22px; width:84px; height:84px; border-radius:42px; background:#D9E0D2; font:600 38px/84px "ZG Inter"; text-align:center; color:#1D3D1E; }
-#tname { position:absolute; left:200px; top:16px; font:700 44px/1.2 "ZG Inter"; color:#1B241A; }
-#tsub { position:absolute; left:200px; top:72px; font:500 38px/1.2 "ZG Inter"; color:#5F6E5F; display:flex; gap:10px; align-items:center; }
-#tsub img { width:40px; height:40px; border-radius:10px; }
+#thread { position:absolute; left:420px; top:0; width:656px; height:796px; background:#F7F4EC; }
+#thead { position:absolute; left:0; top:44px; width:656px; height:92px; border-bottom:2px solid #E3DFD3; }
+#tav { position:absolute; left:28px; top:12px; width:64px; height:64px; border-radius:32px; background:#D9E0D2; font:600 30px/64px "ZG Inter"; text-align:center; color:#1D3D1E; }
+#tname { position:absolute; left:110px; top:8px; font:700 32px/1.2 "ZG Inter"; color:#1B241A; }
+#tsub { position:absolute; left:110px; top:48px; font:500 28px/1.2 "ZG Inter"; color:#5F6E5F; display:flex; gap:8px; align-items:center; }
+#tsub img { width:30px; height:30px; border-radius:8px; }
 .msg { position:absolute; }
-.b { border-radius:36px; padding:22px 32px; font:400 40px/52px "ZG Inter"; max-width:700px; }
-.in { left:36px; background:#FFFFFF; color:#1B241A; border-bottom-left-radius:10px; box-shadow:0 2px 0 rgba(29,61,30,.06); }
-.out { right:36px; background:#1D3D1E; color:#F7F4EC; border-bottom-right-radius:10px; }
-.meta { position:absolute; right:44px; font:500 38px/1 "ZG Inter"; color:#6B7A6A; white-space:nowrap; }
-#typing { right:36px; width:132px; height:88px; border-radius:36px; border-bottom-right-radius:10px; background:#1D3D1E; }
-.tdot { position:absolute; top:37px; width:14px; height:14px; border-radius:7px; background:#F7F4EC; }
-#chip { left:0; width:832px; text-align:center; }
-#chip span { display:inline-block; font:600 38px/1 "ZG Inter"; letter-spacing:.04em; color:#1D3D1E; background:#DDE6D6; padding:18px 28px; border-radius:31px; }
-#believer { left:36px; width:760px; height:200px; border-radius:40px; background:#FFFFFF; box-shadow: inset 0 0 0 4px #1D3D1E; }
-#bav { position:absolute; left:30px; top:36px; width:128px; height:128px; border-radius:64px; background:#1D3D1E; display:flex; align-items:center; justify-content:center; }
-#bname { position:absolute; left:186px; top:44px; font:700 46px/1.1 "ZG Inter"; color:#1B241A; }
-#bsub { position:absolute; left:186px; top:104px; font:500 40px/1.2 "ZG Inter"; color:#4B5245; }
+.b { border-radius:28px; padding:16px 24px; font:400 30px/40px "ZG Inter"; max-width:560px; }
+.in { left:26px; background:#FFFFFF; color:#1B241A; border-bottom-left-radius:8px; box-shadow:0 2px 0 rgba(29,61,30,.06); }
+.out { right:26px; background:#1D3D1E; color:#F7F4EC; border-bottom-right-radius:8px; }
+.meta { position:absolute; right:32px; font:500 28px/1 "ZG Inter"; color:#6B7A6A; white-space:nowrap; }
+#typing { right:26px; width:110px; height:72px; border-radius:28px; border-bottom-right-radius:8px; background:#1D3D1E; }
+.tdot { position:absolute; top:30px; width:12px; height:12px; border-radius:6px; background:#F7F4EC; }
+#chip { left:0; width:656px; text-align:center; }
+#chip span { display:inline-block; font:600 28px/1 "ZG Inter"; letter-spacing:.03em; color:#1D3D1E; background:#DDE6D6; padding:14px 24px; border-radius:28px; }
+#believer { left:26px; width:604px; height:108px; border-radius:30px; background:#FFFFFF; box-shadow: inset 0 0 0 3px #1D3D1E; }
+#bav { position:absolute; left:20px; top:18px; width:72px; height:72px; border-radius:36px; background:#1D3D1E; display:flex; align-items:center; justify-content:center; }
+#bname { position:absolute; left:112px; top:18px; font:700 32px/1.1 "ZG Inter"; color:#1B241A; }
+#bsub { position:absolute; left:112px; top:58px; font:500 28px/1.2 "ZG Inter"; color:#4B5245; }
 
-/* fan */
-.fan { position:absolute; width:120px; height:120px; left:880px; top:420px; }
-#more { position:absolute; left:1060px; top:470px; width:760px; text-align:center; font:600 28px/1 "ZG Inter"; letter-spacing:.3em; color:#F3F0E8; }
+/* fan: from behind the iPad's bottom edge, under the empty left of the lock screen */
+.fan { position:absolute; width:116px; height:116px; left:902px; top:952px; }
+#more { position:absolute; left:760px; top:826px; width:400px; text-align:center; font:600 28px/1 "ZG Inter"; letter-spacing:.3em; color:#F3F0E8; }
 
 /* tools */
 #s4, #s5 { position:absolute; left:0; top:0; width:1920px; height:1080px; visibility:hidden; transform-origin:960px 480px; }
@@ -134,9 +135,9 @@ html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:
 #url { position:absolute; left:1060px; top:600px; width:760px; text-align:center; font:300 128px/1 "Cormorant Garamond"; color:#F3F0E8; }
 
 /* captions */
-#cap { position:absolute; left:1060px; top:580px; width:760px; height:300px; }
-.cap { position:absolute; left:0; top:0; width:760px; text-align:center; opacity:0; }
-.cap > span { display:inline-block; max-width:760px; font:600 46px/1.3 "ZG Inter"; color:#F3F0E8; background:rgba(11,26,12,.9); padding:16px 34px; border-radius:36px; }
+#cap { position:absolute; left:260px; top:924px; width:1400px; height:150px; }
+.cap { position:absolute; left:0; top:0; width:1400px; text-align:center; opacity:0; }
+.cap > span { display:inline-block; max-width:1400px; font:600 40px/1.3 "ZG Inter"; color:#F3F0E8; background:rgba(11,26,12,.9); padding:16px 34px; border-radius:36px; }
 .cw { opacity:.74; }
 </style>
 </head>
@@ -145,35 +146,36 @@ html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:
   <svg id="rings" viewBox="0 0 1920 1080"><g fill="none" stroke="#F3F0E8" stroke-opacity=".06" stroke-width="2"><circle cx="1440" cy="-80" r="380"/><circle cx="1440" cy="-80" r="560"/><circle cx="1440" cy="-80" r="740"/><circle cx="1440" cy="1160" r="420"/><circle cx="1440" cy="1160" r="600"/></g></svg>
   <div id="tag">ILLUSTRATIVE CONVERSATION</div>
 
-  <div id="phone">
+  <div id="tablet">
+    <div id="cam"></div>
     <div id="screen">
-      <div class="island"></div>
       <div class="layer" id="lock">
-        <div data-layout-ignore class="stime" style="color:#F3F0E8;opacity:0"></div>
         <div data-layout-ignore class="status">__SIGL__</div>
         <div id="clock">8:14</div><div id="date">Thursday</div>
         __NOTES__
       </div>
-      <div class="layer" id="inbox">
-        <div data-layout-ignore class="stime" style="color:#1B241A">8:14</div><div data-layout-ignore class="status">__SIGD__</div>
-        <div id="ititle">Inbox</div>
-        __ROWS__
-      </div>
-      <div class="layer" id="thread">
-        <div data-layout-ignore class="stime" style="color:#1B241A">8:15</div><div data-layout-ignore class="status">__SIGD__</div>
-        <div id="thead">
-          <svg id="tback" width="30" height="50" viewBox="0 0 30 50"><path d="M24 4 L6 25 L24 46" fill="none" stroke="#1D3D1E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div id="tav">A</div><div id="tname">Amir</div>
-          <div id="tsub"><img src="assets/logos/whatsapp.png">via WhatsApp</div>
+      <div class="layer" id="app">
+        <div id="pane">
+          <div data-layout-ignore class="stime" style="color:#1B241A">8:14</div>
+          <div id="ititle">Inbox</div>
+          __ROWS__
         </div>
-        <div class="msg b in" id="m1" style="top:290px">Does God really listen to people like me?</div>
-        <div class="msg" id="typing" style="top:470px"><i class="tdot" style="left:30px"></i><i class="tdot" style="left:59px"></i><i class="tdot" style="left:88px"></i></div>
-        <div class="msg b out" id="m2" style="top:470px">Yes. A lot of people ask that. Can I show you what the Bible says?</div>
-        <div class="meta" id="m2meta" style="top:700px">In your ministry&#8217;s voice</div>
-        <div class="msg b in" id="m3" style="top:768px">Yes, I&#8217;d like that.</div>
-        <div class="msg" id="chip" style="top:906px"><span>A missionary joined the conversation</span></div>
-        <div class="msg" id="believer" style="top:1000px"><div id="bav">__PERSONW__</div><div id="bname">Joseph</div><div id="bsub">Missionary</div></div>
-        <div class="msg b in" id="m4" style="top:1232px">Hi Amir, I&#8217;d love to keep talking.</div>
+        <div data-layout-ignore class="status">__SIGD__</div>
+        <div id="empty">Select a conversation</div>
+        <div id="thread">
+          <div id="thead">
+            <div id="tav">A</div><div id="tname">Amir</div>
+            <div id="tsub"><img src="assets/logos/whatsapp.png">via WhatsApp</div>
+          </div>
+          <div class="msg b in" id="m1" style="top:152px">Does God really listen to people like me?</div>
+          <div class="msg" id="typing" style="top:280px"><i class="tdot" style="left:25px"></i><i class="tdot" style="left:49px"></i><i class="tdot" style="left:73px"></i></div>
+          <div class="msg b out" id="m2" style="top:280px">Yes. A lot of people ask that. Can I show you what the Bible says?</div>
+          <div class="meta" id="m2meta" style="top:400px">In your ministry&#8217;s voice</div>
+          <div class="msg b in" id="m3" style="top:440px">Yes, I&#8217;d like that.</div>
+          <div class="msg" id="chip" style="top:524px"><span>A missionary joined the conversation</span></div>
+          <div class="msg" id="believer" style="top:596px"><div id="bav">__PERSONW__</div><div id="bname">Joseph</div><div id="bsub">Missionary</div></div>
+          <div class="msg b in" id="m4" style="top:716px">Hi Amir, I&#8217;d love to keep talking.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -218,77 +220,73 @@ const pop = (el, t, from=.86) => tl.fromTo(el, { scale:from, opacity:0, transfor
 const fadeUp = (el, t, y=20, d=.4) => tl.fromTo(el, { y, opacity:0 }, { y:0, opacity:1, duration:d, ease:OUT }, t);
 
 /* ---------- initial state ---------- */
-gsap.set(".ncard, .fan, #more, #inbox, #thread, #typing, #m1, #m2, #m2meta, #m3, #chip, #believer, #m4", { opacity:0 });
-gsap.set("#inbox", { x:832, opacity:1, visibility:"hidden" }); gsap.set("#thread", { x:832, opacity:1, visibility:"hidden" });
-gsap.set("#phone", { scale:.68 });
+gsap.set(".ncard, .fan, #more, #app, #thread, #typing, #m1, #m2, #m2meta, #m3, #chip, #believer, #m4", { opacity:0 });
+gsap.set("#app", { visibility:"hidden" }); gsap.set("#thread", { visibility:"hidden" });
+gsap.set("#tablet", { scale:.96 });
 const L1end = E(1,"use"), L3end = E(3,"missionary");
 
 /* ---------- Line 1: messages arrive on the lock screen ---------- */
-tl.fromTo("#phone", { y:40, opacity:0 }, { y:0, opacity:1, duration:.6, ease:OUT }, 0);
+tl.fromTo("#tablet", { y:30, opacity:0 }, { y:0, opacity:1, duration:.6, ease:OUT }, 0);
 tl.fromTo("#tag", { opacity:0 }, { opacity:.62, duration:.6 }, .2);
 const cards = ["#n-wa","#n-ig","#n-tg"], cueW = ["WhatsApp","Instagram","Telegram"];
 cards.forEach((c,i)=>{
   const t = S(1,cueW[i]) - .08;
-  for (let k=0; k<i; k++) tl.to(cards[k], { y:"+=" + (document.querySelector(c).offsetHeight + 18), duration:.38, ease:OUT }, t);  // older cards slide down
-  tl.fromTo(c, { y:-40, scale:.94, opacity:0 }, { y:0, scale:1, opacity:1, duration:.42, ease:POP }, t);
+  for (let k=0; k<i; k++) tl.to(cards[k], { y:"+=" + (document.querySelector(c).offsetHeight + 12), duration:.38, ease:OUT }, t);  // older cards slide down
+  tl.fromTo(c, { y:-30, scale:.95, opacity:0 }, { y:0, scale:1, opacity:1, duration:.42, ease:POP }, t);
 });
-/* "or another platform": the rest of the supplied icons fan out from behind the phone */
+/* "or another platform": the rest of the supplied icons fan out from behind the iPad's bottom edge */
 const FAN = __FANLIST__;
-const R = 300, CX = 1440, CY = 520, A = [-160,-125,-90,-55,-20];
+const R = 300, CX = 960, CY = 1010, A = [-150,-120,-90,-60,-30], BX = 902, BY = 952;
 FAN.forEach((k,i)=>{
-  const a = A[i]*Math.PI/180, x = CX + R*Math.cos(a) - 60, y = CY + R*Math.sin(a) - 60;
+  const a = A[i]*Math.PI/180, x = CX + R*Math.cos(a) - 58, y = CY + R*Math.sin(a) - 58;
   tl.fromTo("#f-"+k, { x:0, y:0, rotation:0, scale:.5, opacity:0 },
-    { x:x-880, y:y-420, rotation:(A[i]+90)*.28, scale:1, opacity:1, duration:.55, ease:"back.out(1.4)" }, S(1,"another") + i*.07);
+    { x:x-BX, y:y-BY, rotation:(A[i]+90)*.28, scale:1, opacity:1, duration:.55, ease:"back.out(1.4)" }, S(1,"another") + i*.07);
 });
 fadeUp("#more", S(1,"platform")+.1, 12);
-/* push in: into the inbox */
+/* push in: the inbox opens */
 tl.to(".fan, #more", { opacity:0, scale:.8, duration:.3, ease:"power2.in" }, L1end + .05);
-tl.to("#phone", { scale:.72, duration:.7, ease:INOUT }, L1end + .05);
-tl.set("#inbox", { visibility:"visible" }, L1end + .3);
-tl.to("#inbox", { x:0, duration:.45, ease:OUT }, L1end + .3);
-tl.set("#lock", { visibility:"hidden" }, L1end + .8);
+tl.to("#tablet", { scale:1, duration:.7, ease:INOUT }, L1end + .05);
+tl.set("#app", { visibility:"visible" }, L1end + .3);
+tl.to("#app", { opacity:1, duration:.4, ease:OUT }, L1end + .3);
+tl.set("#lock", { visibility:"hidden" }, L1end + .75);
 
 /* ---------- Line 2: the inbox learns where each person is, then re-sorts ---------- */
 const rows = Array.from(document.querySelectorAll(".irow"));
-let k = 0;
 rows.forEach((r,i)=> r.querySelectorAll('.jd[data-on="1"]').forEach((d,j)=>{
   tl.to(d, { backgroundColor:"#2F6034", duration:.18 }, S(2,"finds") + .1 + i*.12 + j*.07);
 }));
-tl.to("#phone", { scale:.73, duration:6, ease:"none" }, S(2,"our"));        // slow drift
+tl.to("#tablet", { scale:1.012, duration:12, ease:"none" }, S(2,"our"));        // slow drift through lines 2-3
 const order = rows.slice().sort((a,b)=> (+b.dataset.pos) - (+a.dataset.pos));  // stable sort keeps arrival order on ties
-order.forEach((r,i)=> tl.to(r, { y: (i - rows.indexOf(r))*200, duration:.6, ease:INOUT }, S(2,"people") + .02));
-tl.add(()=>{}, S(2,"people"));
+order.forEach((r,i)=> tl.to(r, { y: (i - rows.indexOf(r))*112, duration:.6, ease:INOUT }, S(2,"people") + .02));
 [[0,"most"],[1,"open"]].forEach(([i,w])=>{
   tl.set(order[i], { className:"irow hot" }, S(2,w));
   tl.fromTo(order[i], { scale:1 }, { scale:1.03, duration:.2, yoyo:true, repeat:1, ease:"sine.inOut" }, S(2,w));
 });
-tl.fromTo(order[0], { x:0 }, { x:10, duration:.16, yoyo:true, repeat:1, ease:"sine.inOut" }, S(2,"first"));
+tl.fromTo(order[0], { x:0 }, { x:8, duration:.16, yoyo:true, repeat:1, ease:"sine.inOut" }, S(2,"first"));
 
-/* ---------- Line 3: the conversation, then the handoff ---------- */
+/* ---------- Line 3: Amir's thread opens in the right pane, then the handoff ---------- */
 tl.to(order[0], { backgroundColor:"#D3E1CC", duration:.12 }, E(2,"first") + .1);
 tl.set("#thread", { visibility:"visible" }, E(2,"first") + .18);
-tl.to("#thread", { x:0, duration:.45, ease:OUT }, E(2,"first") + .18);
-tl.set("#inbox", { visibility:"hidden" }, E(2,"first") + .66);
-fadeUp("#m1", S(3,"it") - .05, 16, .35);
+tl.fromTo("#thread", { x:40, opacity:0 }, { x:0, opacity:1, duration:.4, ease:OUT }, E(2,"first") + .18);
+tl.set("#empty", { visibility:"hidden" }, E(2,"first") + .6);
+fadeUp("#m1", S(3,"it") - .05, 14, .35);
 tl.set("#typing", { opacity:1 }, S(3,"their"));
-tl.fromTo("#typing .tdot", { y:0 }, { y:-9, duration:.2, yoyo:true, repeat:1, stagger:.08, ease:"sine.inOut" }, S(3,"their"));
+tl.fromTo("#typing .tdot", { y:0 }, { y:-8, duration:.2, yoyo:true, repeat:1, stagger:.08, ease:"sine.inOut" }, S(3,"their"));
 tl.set("#typing", { opacity:0 }, E(3,"questions"));
-fadeUp("#m2", E(3,"questions"), 16, .35);
+fadeUp("#m2", E(3,"questions"), 14, .35);
 fadeUp("#m2meta", S(3,"voice") - .1, 8, .3);
-fadeUp("#m3", S(3,"time") - .1, 16, .35);
+fadeUp("#m3", S(3,"time") - .1, 14, .35);
 pop("#chip", S(3,"missionary") - .1, .9);
-fadeUp("#believer", S(3,"missionary") + .05, 24, .42);
-fadeUp("#m4", S(3,"missionary") + .4, 16, .35);
-/* pull back: the phone leaves, the tools arrive */
+fadeUp("#believer", S(3,"missionary") + .05, 18, .42);
+fadeUp("#m4", S(3,"missionary") + .4, 14, .35);
+/* pull back: the iPad leaves, the tools arrive */
 const L4 = S(4,"already");
-tl.to("#phone", { scale:.5, y:-60, opacity:0, duration:.5, ease:"power2.in" }, S(4,"using"));
+tl.to("#tablet", { scale:.8, y:-30, opacity:0, duration:.5, ease:"power2.in" }, S(4,"using"));
 tl.to("#tag", { opacity:0, duration:.4 }, S(4,"using"));
 
 /* ---------- Line 4: Chatwoot and Turumba ---------- */
 gsap.set(["#l-cw","#l-zg","#l-tb"], { opacity:0 }); gsap.set([".vline"], { scaleX:0 });
 tl.set("#s4", { visibility:"visible" }, L4 - .05);
-/* from line 4 on, captions move from the right column to the bottom centre */
-tl.set("#cap", { x:-480, y:300 }, L4 - .06);
 tl.fromTo("#s4", { scale:1 }, { scale:1.025, duration:6.6, ease:"none" }, L4 - .05);
 pop("#l-cw", S(4,"Chatwoot") - .05, .9);
 pop("#l-tb", S(4,"Turumba") - .05, .9);

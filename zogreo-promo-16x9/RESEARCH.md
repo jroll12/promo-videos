@@ -26,3 +26,4 @@ Narration: ElevenLabs "Jason - Friendly and Approachable" take, used unedited (3
 
 ## 16:9 sibling
 Same narration (narration-v4.mp3), word timings, sound effects, captions and content as zogreo-promo-9x16; scenes re-composed for 1920x1080 (phone close-up on the left, caption and icon column on the right; tools in a horizontal row; two-column end card). Audio is identical to the 9:16 render (correlation 1.0 at 0 ms).
+- v2 (iPad): lines 1-3 rebuilt on a landscape iPad drawn at 1:1 (lock screen, then a split-view inbox with Amir's thread in the right pane); the "and more" icons fan out from behind the iPad's bottom edge as in the 9:16. Lines 4-5 unchanged. Same audio as 9:16 (correlation 1.0 at 0 ms); output SAR 1:1, DAR 16:9.
