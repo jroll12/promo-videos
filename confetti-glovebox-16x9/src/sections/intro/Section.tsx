@@ -103,7 +103,7 @@ const CURSOR_PRE: K[] = [
 ];
 const CURSOR_POST: K[] = [
   {f: T.drop + 1, x: HOVER.x + GRIP.x, y: HOVER.y + GRIP.y},
-  {f: T.drop + 11, x: 1190, y: 800},
+  {f: T.drop + 11, x: 1310, y: 700},
 ];
 
 // rejection wiggle at a wrong spot: a quick "no" head-shake that dies out
@@ -325,10 +325,10 @@ const DragTip: React.FC<{frame: number; x: number; y: number}> = ({frame, x, y})
     <div
       style={{
         position: 'absolute',
-        left: x + 74,
-        top: y - 112,
+        left: x + 112,
+        top: y - 30,
         transform: `scale(${s})`,
-        transformOrigin: 'bottom left',
+        transformOrigin: 'center left',
         whiteSpace: 'nowrap',
         background: home ? C.mustard : C.paper,
         border: outline(3),
