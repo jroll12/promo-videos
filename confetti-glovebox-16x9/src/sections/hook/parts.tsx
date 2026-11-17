@@ -329,8 +329,8 @@ const KeysBody: React.FC<{t: number}> = ({t}) => (
 );
 
 const LunchBody: React.FC<{t: number; beat: number}> = ({t, beat}) => {
-  const min = 6 + ((t * 40) % 60) * 0; // minute hand sits just past twelve
-  const ma = ((min / 60) * 360 - 90) * (Math.PI / 180);
+  // minute hand ticks around just past twelve: it is lunch, and it is getting weird
+  const ma = (((4 + Math.floor(t * 2) % 4) / 60) * 360 - 90) * (Math.PI / 180);
   return (
     <svg width={GAG_W - 8} height={BODY_H} viewBox="0 0 292 164" style={{position: 'absolute', left: 0, top: 0}}>
       {/* clock at lunch */}
