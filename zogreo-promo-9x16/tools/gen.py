@@ -202,7 +202,7 @@ html, body { margin:0; width:1080px; height:1920px; overflow:hidden; background:
 
   <div id="cap"></div>
 
-  <audio id="vo" class="clip" src="assets/vo/narration-v3.mp3" data-start="0" data-duration="__AUD__" data-track-index="4" data-volume="1" data-audio-group="voiceover"></audio>
+  <audio id="vo" class="clip" src="assets/vo/narration-v4.mp3" data-start="0" data-duration="__AUD__" data-track-index="4" data-volume="1" data-audio-group="voiceover"></audio>
   __SFX__
 </div>
 <script>
