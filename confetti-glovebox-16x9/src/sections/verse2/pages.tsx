@@ -154,7 +154,7 @@ export const LibraryPage: React.FC<{frame: number}> = ({frame}) => {
       {passing && (
         <>
           {[0, 1, 2].map((k) => (
-            <div key={k} style={{position: 'absolute', left: sx - 520 + k * 40, top: 300 + k * 90, width: 380, height: 12, borderRadius: 6, background: C.ink, opacity: 0.8}} />
+            <div key={k} style={{position: 'absolute', left: sx - 520 + k * 40, top: 300 + k * 90, width: 380, height: 12, borderRadius: 6, background: C.ink}} />
           ))}
           <div style={{position: 'absolute', left: sx - 130, top: 300 + wobble(frame, 9, 14), transform: `rotate(${wobble(frame, 10, 8)}deg)`}}>
             <Glyph name="sneeze" size={260} />
