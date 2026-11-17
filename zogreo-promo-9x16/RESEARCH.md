@@ -17,3 +17,6 @@ Narration: ElevenLabs "Jason - Friendly and Approachable" take, used unedited (3
 ## v3: pronunciation fix
 - The word "Zogreo" (30.65 to 31.27 s of the original ElevenLabs narration) was replaced by the user's own reference recording (Zogreo_Correct_Pronunciation.m4a, 0.055 to 0.80 s, gain -0.9 dB, 12 ms equal-power crossfades). Words after it shifted +0.125 s. New audio: assets/vo/narration-zogreo.mp3 (32.16 s). The original assets/vo/narration.mp3 is unchanged.
 - Everything before the splice is unchanged (0.9999 correlation with the original at 0 offset).
+
+## v4: smoother splice
+- tools/splice_zogreo.py rebuilds narration-zogreo.mp3: the reference word is EQ-matched 90% toward the narration's speech spectrum, level-matched, faded out, followed by a 45 ms natural gap before "dot", and joined with a 25 ms equal-power crossfade. The words after it shifted +0.165 s in total (audio 32.17 s).
