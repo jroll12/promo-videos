@@ -1,350 +1,350 @@
 {
-  "provisional": true,
-  "total": 59.564,
-  "cut1": 7.144,
-  "cut2": 16.663,
-  "cut3": 33.874,
-  "cut4": 50.735,
+  "provisional": false,
+  "total": 57.78,
+  "cut1": 5.911,
+  "cut2": 15.181,
+  "cut3": 33.501,
+  "cut4": 48.867,
   "hook": {
-    "wrong": 5.039,
-    "bug": 6.759,
-    "exit": 6.824
+    "wrong": 3.891,
+    "bug": 5.251,
+    "exit": 5.591
   },
   "engine": {
-    "writes": 0.642,
-    "likely": 1.67,
-    "guess": 3.04,
-    "drift": 3.724,
-    "fix": 5.102,
-    "smarter": 6.129,
-    "settings": 7.499,
-    "method": 8.527,
-    "exit": 9.199,
-    "wordStep": 0.166
+    "writes": 0.62,
+    "likely": 1.58,
+    "guess": 3.26,
+    "drift": 3.82,
+    "fix": 5.02,
+    "smarter": 5.687,
+    "settings": 7.1,
+    "method": 8.02,
+    "exit": 8.95,
+    "wordStep": 0.152
   },
   "results": {
-    "five": 0.985,
-    "count": 2.667,
-    "ladder": 3.39,
+    "five": 0.39,
+    "count": 2.71,
+    "ladder": 3.67,
     "fills": [
-      3.69,
-      7.842,
-      9.212,
-      11.951,
-      13.671
+      3.97,
+      7.51,
+      9.51,
+      12.55,
+      14.79
     ],
-    "tag": 15.041,
-    "exit": 16.891
+    "tag": 16.23,
+    "exit": 18
   },
   "how": {
-    "placeholder": 3.382,
-    "software": 5.779,
-    "fills": 6.122,
-    "exact": 7.149,
-    "source": 9.204,
-    "fails": 10.581,
-    "noverse": 12.636,
-    "gap": 13.664,
-    "exit": 16.541
+    "placeholder": 2.98,
+    "software": 5.58,
+    "fills": 5.9,
+    "exact": 6.65,
+    "source": 8.22,
+    "fails": 9.58,
+    "noverse": 11.34,
+    "gap": 12.5,
+    "exit": 15.046
   },
   "end": {
-    "read": 2.492,
-    "url": 4.889,
-    "total": 8.829
+    "read": 2.953,
+    "url": 4.753,
+    "total": 8.913
   },
   "captions": [
     {
       "text": "Ask an AI",
-      "start": 0.39,
-      "end": 1.554
+      "start": 0.471,
+      "end": 1.271
     },
     {
       "text": "to quote the Bible,",
-      "start": 1.554,
-      "end": 2.924
+      "start": 1.271,
+      "end": 2.471
     },
     {
       "text": "and the words often",
-      "start": 2.924,
-      "end": 4.294
+      "start": 2.471,
+      "end": 3.351
     },
     {
       "text": "come back wrong.",
-      "start": 4.294,
-      "end": 5.672
+      "start": 3.351,
+      "end": 4.711
     },
     {
       "text": "It's not a bug.",
-      "start": 5.672,
-      "end": 7.041
+      "start": 4.711,
+      "end": 5.991
     },
     {
       "text": "A model writes",
-      "start": 7.041,
-      "end": 8.069
+      "start": 5.991,
+      "end": 6.831
     },
     {
       "text": "by guessing likely words,",
-      "start": 8.069,
-      "end": 9.439
+      "start": 6.831,
+      "end": 8.471
     },
     {
       "text": "and every guess can drift.",
-      "start": 9.439,
-      "end": 11.501
+      "start": 8.471,
+      "end": 10.498
     },
     {
       "text": "So the fix isn't",
-      "start": 11.501,
-      "end": 12.871
+      "start": 10.498,
+      "end": 11.431
     },
     {
       "text": "a smarter model",
-      "start": 12.871,
-      "end": 13.898
+      "start": 11.431,
+      "end": 12.311
     },
     {
       "text": "or new settings.",
-      "start": 13.898,
-      "end": 14.926
+      "start": 12.311,
+      "end": 13.351
     },
     {
       "text": "It's the method.",
-      "start": 14.926,
-      "end": 16.333
+      "start": 13.351,
+      "end": 14.721
     },
     {
       "text": "We tested five methods,",
-      "start": 16.903,
-      "end": 18.273
+      "start": 14.871,
+      "end": 16.631
     },
     {
       "text": "33,000 times.",
-      "start": 18.273,
-      "end": 19.993
+      "start": 16.631,
+      "end": 18.791
     },
     {
       "text": "Alone, the model",
-      "start": 19.993,
-      "end": 21.02
+      "start": 18.791,
+      "end": 19.911
     },
     {
       "text": "was exactly right",
-      "start": 21.02,
-      "end": 22.048
+      "start": 19.911,
+      "end": 20.871
     },
     {
       "text": "about a third of the time.",
-      "start": 22.048,
-      "end": 24.102
+      "start": 20.871,
+      "end": 22.471
     },
     {
       "text": "With web search,",
-      "start": 24.102,
-      "end": 25.13
+      "start": 22.471,
+      "end": 23.551
     },
     {
       "text": "under half.",
-      "start": 25.13,
-      "end": 25.815
+      "start": 23.551,
+      "end": 24.631
     },
     {
       "text": "Handed the passage,",
-      "start": 25.815,
-      "end": 26.842
+      "start": 24.631,
+      "end": 25.831
     },
     {
       "text": "93 percent.",
-      "start": 26.842,
-      "end": 27.869
+      "start": 25.831,
+      "end": 27.351
     },
     {
       "text": "Using a lookup tool, 96.",
-      "start": 27.869,
-      "end": 30.274
+      "start": 27.351,
+      "end": 29.911
     },
     {
       "text": "One method got",
-      "start": 30.274,
-      "end": 31.302
+      "start": 29.911,
+      "end": 30.871
     },
     {
       "text": "every English quote",
-      "start": 31.302,
-      "end": 32.329
+      "start": 30.871,
+      "end": 31.991
     },
     {
       "text": "exactly right.",
-      "start": 32.329,
-      "end": 33.394
+      "start": 31.991,
+      "end": 33.441
     },
     {
       "text": "The model never",
-      "start": 34.114,
-      "end": 35.141
+      "start": 33.741,
+      "end": 34.621
     },
     {
       "text": "writes the verse.",
-      "start": 35.141,
-      "end": 36.169
+      "start": 34.621,
+      "end": 35.741
     },
     {
       "text": "It leaves a placeholder,",
-      "start": 36.169,
-      "end": 37.539
+      "start": 35.741,
+      "end": 36.941
     },
     {
       "text": "like John 3:16,",
-      "start": 37.539,
-      "end": 38.908
+      "start": 36.941,
+      "end": 38.541
     },
     {
       "text": "and the software",
-      "start": 38.908,
-      "end": 39.936
+      "start": 38.541,
+      "end": 39.341
     },
     {
       "text": "fills in the exact text",
-      "start": 39.936,
-      "end": 41.648
+      "start": 39.341,
+      "end": 40.661
     },
     {
       "text": "from a licensed",
-      "start": 41.648,
-      "end": 42.676
+      "start": 40.661,
+      "end": 41.341
     },
     {
       "text": "Bible source.",
-      "start": 42.676,
-      "end": 43.711
+      "start": 41.341,
+      "end": 42.501
     },
     {
       "text": "If anything fails,",
-      "start": 43.711,
-      "end": 44.738
+      "start": 42.501,
+      "end": 43.661
     },
     {
       "text": "you see the reference",
-      "start": 44.738,
-      "end": 46.108
+      "start": 43.661,
+      "end": 44.581
     },
     {
       "text": "with no verse.",
-      "start": 46.108,
-      "end": 47.135
+      "start": 44.581,
+      "end": 45.768
     },
     {
       "text": "A gap you can spot,",
-      "start": 47.135,
-      "end": 48.848
+      "start": 45.768,
+      "end": 47.181
     },
     {
       "text": "never a misquote.",
-      "start": 48.848,
-      "end": 50.255
+      "start": 47.181,
+      "end": 48.631
     },
     {
       "text": "That's how Apologist AI",
-      "start": 50.975,
-      "end": 52.482
+      "start": 49.107,
+      "end": 50.6
     },
     {
       "text": "quotes Scripture.",
-      "start": 52.482,
-      "end": 53.167
+      "start": 50.6,
+      "end": 51.76
     },
     {
       "text": "Read the study,",
-      "start": 53.167,
-      "end": 54.194
+      "start": 51.76,
+      "end": 52.64
     },
     {
       "text": "and try it at apologist.ai.",
-      "start": 54.194,
-      "end": 57.314
+      "start": 52.64,
+      "end": 55.53
     }
   ],
   "sfx": [
     {
       "f": "whoosh-short",
-      "start": 7.017,
+      "start": 5.784,
       "dur": 0.575,
       "vol": 0.16,
       "track": 5
     },
     {
       "f": "whoosh",
-      "start": 16.536,
+      "start": 15.054,
       "dur": 0.575,
       "vol": 0.16,
       "track": 5
     },
     {
       "f": "whoosh-short",
-      "start": 33.747,
+      "start": 33.374,
       "dur": 0.575,
       "vol": 0.16,
       "track": 5
     },
     {
       "f": "whoosh",
-      "start": 50.608,
+      "start": 48.74,
       "dur": 0.575,
       "vol": 0.16,
       "track": 5
     },
     {
       "f": "pop-lo",
-      "start": 19.223,
+      "start": 17.784,
       "dur": 0.881,
       "vol": 0.15,
       "track": 6
     },
     {
       "f": "pop",
-      "start": 20.966,
+      "start": 19.764,
       "dur": 0.72,
       "vol": 0.13,
       "track": 6
     },
     {
       "f": "pop-lo",
-      "start": 25.098,
+      "start": 23.284,
       "dur": 0.881,
       "vol": 0.13,
       "track": 6
     },
     {
       "f": "pop-hi",
-      "start": 26.498,
+      "start": 25.314,
       "dur": 0.7,
       "vol": 0.13,
       "track": 6
     },
     {
       "f": "pop",
-      "start": 29.227,
+      "start": 28.344,
       "dur": 0.72,
       "vol": 0.13,
       "track": 6
     },
     {
       "f": "pop-hi",
-      "start": 31.157,
+      "start": 30.794,
       "dur": 0.7,
       "vol": 0.16,
       "track": 6
     },
     {
       "f": "click-soft",
-      "start": 37.289,
+      "start": 36.514,
       "dur": 0.366,
       "vol": 0.35,
       "track": 6
     },
     {
       "f": "click-soft",
-      "start": 44.558,
+      "start": 43.184,
       "dur": 0.366,
       "vol": 0.3,
       "track": 6

@@ -92,9 +92,9 @@
       tl.to("#en-arc", { strokeDashoffset: 50, duration: 0.7, ease: "power2.inOut" }, T.settings);
       tl.fromTo("#en-needle", { rotation: -80, svgOrigin: "130 170" }, { rotation: 0, svgOrigin: "130 170", duration: 0.7, ease: "power2.inOut" }, T.settings);
       // "It's the method": a frame draws around both; the method is what wraps the model
-      tl.to("#en-rect", { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, T.method - 0.15);
-      tl.to("#en-flab", { autoAlpha: 1, duration: 0.3 }, T.method + 0.2);
-      tl.to(["#en-node", "#en-dial"], { opacity: 0.55, duration: 0.4 }, T.method + 0.3);
+      tl.to("#en-rect", { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" }, T.method - 0.5);
+      tl.to("#en-flab", { autoAlpha: 1, duration: 0.25 }, T.method);
+      tl.to(["#en-node", "#en-dial"], { opacity: 0.55, duration: 0.4 }, T.method + 0.1);
       tl.fromTo("#en-cam", { scale: 1 }, { scale: 1.05, duration: T.exit, ease: "sine.inOut" }, 0);
       tl.to("#en-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
       tl.to("#en-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);

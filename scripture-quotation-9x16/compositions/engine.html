@@ -77,7 +77,7 @@
 
   <script>
     (function () {
-      const T = {"writes":0.642,"likely":1.67,"guess":3.04,"drift":3.724,"fix":5.102,"smarter":6.129,"settings":7.499,"method":8.527,"exit":9.199,"wordStep":0.166};
+      const T = {"writes":0.62,"likely":1.58,"guess":3.26,"drift":3.82,"fix":5.02,"smarter":5.687,"settings":7.1,"method":8.02,"exit":8.95,"wordStep":0.152};
       const tl = gsap.timeline({ paused: true });
       // entry: continues the leftward cut; the model node rides in with the stage
       tl.fromTo("#en-stage", { x: 230, opacity: 0.35, filter: "blur(8px)" }, { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.34, ease: "power4.out" }, 0);
@@ -111,9 +111,9 @@
       tl.to("#en-arc", { strokeDashoffset: 50, duration: 0.7, ease: "power2.inOut" }, T.settings);
       tl.fromTo("#en-needle", { rotation: -80, svgOrigin: "130 170" }, { rotation: 0, svgOrigin: "130 170", duration: 0.7, ease: "power2.inOut" }, T.settings);
       // "It's the method": a frame draws around both; the method is what wraps the model
-      tl.to("#en-rect", { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, T.method - 0.15);
-      tl.to("#en-flab", { autoAlpha: 1, duration: 0.3 }, T.method + 0.2);
-      tl.to(["#en-node", "#en-dial"], { opacity: 0.55, duration: 0.4 }, T.method + 0.3);
+      tl.to("#en-rect", { strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut" }, T.method - 0.5);
+      tl.to("#en-flab", { autoAlpha: 1, duration: 0.25 }, T.method);
+      tl.to(["#en-node", "#en-dial"], { opacity: 0.55, duration: 0.4 }, T.method + 0.1);
       tl.fromTo("#en-cam", { scale: 1 }, { scale: 1.05, duration: T.exit, ease: "sine.inOut" }, 0);
       tl.to("#en-stage", { x: -230, duration: 0.32, ease: "power4.in" }, T.exit);
       tl.to("#en-stage", { opacity: 0, filter: "blur(8px)", duration: 0.28, ease: "none" }, T.exit);

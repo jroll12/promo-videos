@@ -55,3 +55,12 @@ any product or model name, and the paper's model rankings.
 ## Approval
 Tier 1 under the Brand Quick Reference (AI ethics): goes to Jake as a draft. No new theological claims: the only Scripture
 on screen is John 3:16 quoted verbatim with its reference; L2 to L8 are claims about software, sourced above.
+
+## Checks on the generated voiceover (2026-11-17)
+- Take: ElevenLabs Jason, eleven_v4, 4 scene takes, 951 characters, 55.8 s; film 57.8 s with the end card.
+- Captions = script text = timed words (42 caption groups, none shorter than 0.25 s), built from the take's own character alignment.
+- Independent transcription (Whisper base.en over the whole take) matches the script except formatting ("93%", "John 3 16",
+  "apologist.ai") and one mishearing, "We did the passage", re-checked with Whisper medium.en on that clip: "Handed the passage, 93%".
+- The direction tag is not spoken (it takes 0.08 s of alignment at the start of each take).
+- Every on-screen figure re-matched against the PDF text (exec table p.2, method table p.29, non-English table p.33): 32.6, 48.5,
+  93.0, 96.2, 100, 99.4, 33,000, "10 non-English Bible translations".

@@ -30,7 +30,7 @@ function WE(id, word, occ = 1) {
 
 // ── scene boundaries ────────────────────────────────────────────────────────
 const cut1 = W("L2", "model") - 0.3; // hook → engine on "A model writes"
-const cut2 = L.L4.start - 0.3; // engine → results
+const cut2 = Math.max(L.L4.start - 0.3, W("L3", "method") + 1.25); // engine → results, after "the method" has landed
 const cut3 = L.L7.start - 0.3; // results → how
 const cut4 = L.L9.start - 0.3; // how → end
 const total = r3(L.L9.end + 2.6);
