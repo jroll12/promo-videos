@@ -65,14 +65,23 @@ const Section: React.FC<SectionProps> = ({id}) => {
   const P = lerp(4.5, 2.5, intensity); // bars per revolution
   const phi = (bars / P) * Math.PI * 2;
   const beat = beatPulse(frame, 0.5);
+  // Spotlight: while its own line is sung, a gag window grows and steps in toward the centre so it reads as THAT
+  // line's picture (blind validation round 1 found the newest window lost among the others). Others step back.
+  const spot = (n: number) => {
+    const l = L(n);
+    return ease.inOutCubic(clamp((frame - l.startFrame + 2) / 6)) * (1 - ease.inOutCubic(clamp((frame - l.endFrame - 2) / 8)));
+  };
+  const gagLine: Record<GagId, number> = {sauce: 1, fizz: 2, keys: 6, lunch: 7} as Record<GagId, number>;
+  const anySpot = Math.max(...[1, 2, 6, 7].map(spot));
   const loopGag = (gag: GagId, side: -1 | 1, off: number, at: number, k: number) => {
     const a = phi + off;
     const lx = LOOP.x + LOOP.rx * Math.cos(a);
     const y = LOOP.y + LOOP.ry * Math.sin(a);
     const x = side < 0 ? lx : 1920 - lx;
-    const depth = Math.sin(a);
-    const p = into({x, y});
-    const sc = popIn(frame, at, 9) * (1.04 + 0.1 * depth) * shrink;
+    const sp = spot(gagLine[gag]);
+    const depth = Math.sin(a) + sp * 4;
+    const p = into({x: lerp(x, 960 + side * 470, sp * 0.8), y: lerp(y, 590, sp * 0.8)});
+    const sc = popIn(frame, at, 9) * (1.04 + 0.1 * Math.sin(a)) * (1 + 0.75 * sp) * (1 - 0.3 * Math.max(0, anySpot - sp)) * shrink;
     return {gag, depth, el: <GagWindow key={gag} gag={gag} cx={p.x} cy={p.y} scale={sc} rot={side * wobble(frame, 40 + k, 3)} t={t} beat={beat} />};
   };
   const gags = [loopGag('sauce', -1, 0, L(1).startFrame, 1), loopGag('fizz', 1, 0, L(2).startFrame, 2)];
@@ -119,9 +128,9 @@ const Section: React.FC<SectionProps> = ({id}) => {
       ] as const).map(([gag, side, at]) => {
         const flyAt = at + MIN_HOLD_FRAMES + 14;
         const f = ease.inCubic(clamp((frame - flyAt) / 12));
-        const home = {x: side < 0 ? 380 : 1540, y: 760};
+        const home = {x: side < 0 ? 400 : 1520, y: 700};
         const p = toward(home, iconScreen, f);
-        const sc = popIn(frame, at, 9) * 1.1 * (1 - f);
+        const sc = popIn(frame, at, 9) * 1.9 * (1 - f);
         if (frame >= flyAt && frame < flyAt + 14) lid = Math.max(lid, 1);
         return <GagWindow key={gag} gag={gag} cx={p.x} cy={p.y} scale={sc} rot={side * wobble(frame, 60, 3)} t={t} beat={beat} />;
       })

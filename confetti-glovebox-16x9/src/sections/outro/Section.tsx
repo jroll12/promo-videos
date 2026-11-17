@@ -27,11 +27,13 @@ const L2 = line('out.02');
 const L3 = line('out.03');
 const W3 = wordsOf(L3);
 const LAND = W3[W3.length - 1].at; // the taco lands on "snacks"
-const FALL_FROM = LAND - 10;
+// The snack drops for the whole of "With snacks." and its card lands with the line (blind validation round 1: a
+// 10-frame fall read as the previous line).
+const FALL_FROM = L3.startFrame - 4;
 const LOAD_IN = L1.startFrame - 4; // spinner + route panel pop in just before "Still not lost."
 const FILL_END = frameOfBeat(beatAt(LOAD_IN) + 1.5); // bar creeps to 99% then sticks
 const PANEL_OUT = frameOfBeat(beatAt(LAND) + 0.75);
-const CARD_AT = [LAND, frameOfBeat(beatAt(LAND) + 1), frameOfBeat(beatAt(LAND) + 2)];
+const CARD_AT = [LAND, frameOfBeat(beatAt(LAND) + 1), L3.startFrame + 2];
 const PUSH = [LAND, frameOfBeat(beatAt(LAND) + 4)] as const; // gentle push, then still for the ring-out
 const XFADE_END = frameOfBeat(beatAt(S.startFrame) + 2); // hook's orbiting confetti hands over to a slow float
 
@@ -193,7 +195,7 @@ const Section: React.FC<SectionProps> = () => {
   const sinceLand = frame - LAND;
   const squash = sinceLand >= 0 ? 0.32 * Math.exp(-sinceLand / 5) * Math.cos(sinceLand * 0.85) : 0;
   const tacoY = frame < LAND ? -140 + (pin.y - 20 + 140) * ease.inQuad(fallT) : pin.y - 20;
-  const tacoSize = 210 * zoom;
+  const tacoSize = 300 * zoom;
 
   return (
     <AbsoluteFill>
