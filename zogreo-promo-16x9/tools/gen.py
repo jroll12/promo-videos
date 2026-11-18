@@ -123,8 +123,8 @@ html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:
 
 /* tools */
 #s4, #s5 { position:absolute; left:0; top:0; width:1920px; height:1080px; visibility:hidden; transform-origin:960px 480px; }
-.vline { position:absolute; top:458px; height:4px; background:rgba(243,240,232,.55); border-radius:2px; }
-.trav { position:absolute; left:0; top:451px; width:18px; height:18px; border-radius:9px; background:#F3F0E8; opacity:0; }
+.vline { position:absolute; top:498px; height:4px; background:rgba(243,240,232,.55); border-radius:2px; }
+.trav { position:absolute; left:0; top:491px; width:18px; height:18px; border-radius:9px; background:#F3F0E8; opacity:0; }
 
 /* end card */
 #elabel { position:absolute; left:150px; top:610px; width:900px; text-align:left; white-space:nowrap; font:600 28px/1 "ZG Inter"; letter-spacing:.22em; color:#B4C4AE; }
@@ -184,13 +184,13 @@ html, body { margin:0; width:1920px; height:1080px; overflow:hidden; background:
   <div id="more">AND MORE</div>
 
   <div id="s4">
-    <img class="abs" id="l-cw" src="assets/logos/chatwoot-white.svg" style="left:130px;top:405px;width:520px;height:110px">
-    <div class="vline" id="ln1" style="left:676px;width:120px"></div>
+    <img class="abs" id="l-cw" src="assets/logos/chatwoot-white.svg" style="left:129px;top:445px;width:520px;height:110px">
+    <div class="vline" id="ln1" style="left:677px;width:130px"></div>
     <div class="trav" id="t1"></div>
-    <img class="abs" id="l-zg" src="assets/logos/zogreo-wordmark.svg" style="left:810px;top:400px;width:300px;height:107px">
-    <div class="vline" id="ln2" style="left:1124px;width:170px"></div>
+    <img class="abs" id="l-zg" src="assets/logos/zogreo-wordmark.svg" style="left:835px;top:455px;width:300px;height:107px">
+    <div class="vline" id="ln2" style="left:1163px;width:130px"></div>
     <div class="trav" id="t2"></div>
-    <img class="abs" id="l-tb" src="assets/logos/turumba-white.svg" style="left:1320px;top:398px;width:470px;height:123px">
+    <img class="abs" id="l-tb" src="assets/logos/turumba-white.svg" style="left:1321px;top:459px;width:470px;height:123px">
   </div>
 
   <div id="s5">
@@ -294,7 +294,7 @@ pop("#l-zg", S(4,"platform") - .1, .9);
 tl.to("#ln1", { scaleX:1, transformOrigin:"100% 50%", duration:.45, ease:OUT }, S(4,"connects"));
 tl.to("#ln2", { scaleX:1, transformOrigin:"0% 50%", duration:.45, ease:OUT }, S(4,"connects"));
 const trav = (id, x0, x1, t) => { tl.fromTo(id, { x:x0, opacity:0 }, { x:x1, opacity:1, duration:.7, ease:"power1.inOut" }, t); tl.to(id, { opacity:0, duration:.15 }, t+.7); };
-[.45, 1.6].forEach(o=>{ trav("#t1", 790, 672, S(4,"connects")+o); trav("#t2", 1114, 1268, S(4,"connects")+o); });
+[.45, 1.6].forEach(o=>{ trav("#t1", 789, 677, S(4,"connects")+o); trav("#t2", 1163, 1275, S(4,"connects")+o); });
 tl.to("#s4", { opacity:0, duration:.3, ease:"power2.in" }, E(4,"know") + .05);
 tl.set("#s4", { visibility:"hidden" }, E(4,"know") + .36);
 
