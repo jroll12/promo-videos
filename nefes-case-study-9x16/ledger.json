@@ -3,7 +3,7 @@
   "seams": [
     {
       "id": "before→pilot",
-      "cut": 12.39,
+      "cut": 12.4,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#bf-stage",
@@ -18,7 +18,7 @@
     },
     {
       "id": "pilot→result",
-      "cut": 26.68,
+      "cut": 26.49,
       "technique": "cut-the-curve UP",
       "exit": {
         "selector": "#pl-stage",
@@ -33,7 +33,7 @@
     },
     {
       "id": "result→relief",
-      "cut": 37.01,
+      "cut": 36.82,
       "technique": "cut-the-curve LEFT",
       "exit": {
         "selector": "#rs-stage",
@@ -48,7 +48,7 @@
     },
     {
       "id": "relief→close",
-      "cut": 57.24,
+      "cut": 57.03,
       "technique": "cut-the-curve UP",
       "exit": {
         "selector": "#rf-stage",

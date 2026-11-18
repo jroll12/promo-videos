@@ -8,7 +8,7 @@ I used to have to handle every message myself. When messages came at night or wh
 
 That's a digital responder in Turkey. The field team: two people.
 
-So at Zogreo, we ran a pilot. Our AI leads each person through three Bible studies, answers their questions, and follows up.
+So we ran a pilot. Our AI leads each person through three Bible studies, answers their questions, and follows up.
 
 Those who finish, and obey in faith, are handed to the team on the ground.
 
@@ -18,7 +18,7 @@ One more thing. Many who answer these ads are hostile, and responders take the a
 
 In the responder's words: I don't have to deal with inappropriate or profane comments, and I get to spend more time on the people that are most interested.
 
-Our AI doesn't replace the team. It multiplies them. Book a call, or give, at zogreo.org.
+Our AI doesn't replace the team. It multiplies them. Book a call, or give, at Zogreo dot org.
 
 **168 words.** Narration 65.8 s; the film is 68.2 s with a 3.2 s end-card hold.
 
@@ -26,7 +26,7 @@ Our AI doesn't replace the team. It multiplies them. Book a call, or give, at zo
 
 | Written | Sent to ElevenLabs | Notes |
 | --- | --- | --- |
-| Zogreo | Zo-GRAY-oh (takes), then replaced | Jarret's own recording re-voiced as Jason, spliced in (`tools/splice_name.py`). Said twice: L3 and L12 |
+| Zogreo | Zo-GRAY-oh (takes), then replaced | Jarret's own recording re-voiced as Jason, spliced in (`tools/splice_name.py`). Said once now, at the end of L12 (L3 no longer says it) |
 | zogreo.org | Zo-GRAY-oh dot org | |
 | 3.73 | three point seven three | |
 | Turkey | (as written) | Jarret's spelling for the films |

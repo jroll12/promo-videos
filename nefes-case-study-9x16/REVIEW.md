@@ -44,3 +44,9 @@ Seams: cut-the-curve LEFT, UP, LEFT, UP. The team of two is the object carried f
   - **Recogniser:** it now hears "So, Zogreo" and "or give zogreo.org", dropping "at" in both lines. In the closing line the cut sits in 0.2 s of silence after "at", so this is the recogniser reacting to how the new word begins, not a clipped word. **Listen to both lines.**
   - A new roll of the pilot or close take moves the cut points; re-read the loudness contour before re-running the splice.
 - **The pill** ("FIELD TEAM OF 2") now first appears on "handed to the team on the ground" (about 0:23.6), not at 0:10 on "The field team: two people".
+
+## Round 3 to 6 (2026-11-18): the name, finally
+Spliced and re-voiced names sounded wrong three times before this worked. What failed and why:
+- A word cut out of the middle of a phrase ("at Zogreo,"): "at" was swallowed, and a word recorded alone never blends into a running sentence.
+- Re-voicing the phrase with the name region cut at the wrong place (2.05 to 3.12 s, which included "dot"): "dot" was removed before conversion. The recogniser's "zogreo.org" does not prove "dot" is there.
+What worked: the pilot line no longer says the name ("So we ran a pilot."); the closing is one speech-to-speech pass of L11 + "Book a call, or give, at" + Jarret's raw name, then Jason's own "dot org" (cut at 2.84 s of `el-scenes/opt-B/closing-roll0.mp3`) after a short pause; then smoothing (soft attack, name eased 2 dB, "dot org" matched). Builders: `tools/name_options.py` (+ `name_options_lib.py`), `tools/closing_whole.py`, `tools/closing_final.py`. The takes behind it are `el-scenes/opt-A/pilot.wav` and `el-scenes/opt-D/close.wav`. Known: the re-voiced closing sits a little lower in pitch than the rest of the narration (about 126 against 137 Hz).

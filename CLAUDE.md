@@ -1,6 +1,11 @@
 # promo-videos: how to work here (read this first, keep replies short)
 
-Skill: `.claude/skills/brochure-to-promo-video` (loads automatically). Zogreo is spoken as **"Zo-GRAY-oh"** (stress on GRAY, light "oh" at the end), set by Jarret's reference clip `zogreo-intro-9x16/assets/brand/pronunciation/`. Send exactly that respelling to ElevenLabs (`spoken_elevenlabs` in `tools/script.json`), every video, every scene that says the name. Text-to-speech still does not match his recording by ear: the NEFES films splice in his own recording re-voiced as Jason (ElevenLabs speech-to-speech, `assets/brand/pronunciation/zogreo-word-jason.mp3`) with `tools/splice_name.py`; do the same for new films.
+Skill: `.claude/skills/brochure-to-promo-video` (loads automatically). Zogreo is spoken as **"Zo-GRAY-oh"**, set by Jarret's recording `zogreo-intro-9x16/assets/brand/pronunciation/Zogreo_Correct_Pronunciation.m4a`. **Text-to-speech cannot match it by ear (many respellings, phoneme tags and rolls were tried), and pasting the recording into the text does nothing.** Method that worked (NEFES films):
+1. **Write the script so the name stands alone at the end of a phrase**, after a pause ("...or give, at Zogreo dot org."), or leave it out of the spoken lines and show it on screen. Never mid-phrase: a spliced word breaks the words around it ("at" was swallowed).
+2. Generate the narration as usual (`tools/el_scenes.py`, respelling `Zo-GRAY-oh` as a placeholder), then **replace the name with Jarret's recording re-voiced as Jason** (ElevenLabs speech-to-speech, `assets/brand/pronunciation/zogreo-word-jason.mp3`). For the best join, re-voice the whole phrase up to the name in one pass, with the name replaced by his raw recording (`tools/closing_final.py`), and join Jason's own "dot org" after a short pause. Every join in silence.
+3. **Check "dot":** the recogniser writes "zogreo.org" whether or not "dot" was spoken. Test the tail by itself, and listen. Level: name about 1 dB above the words around it, "dot org" 2 dB under; soft attack on the word before the name.
+4. **Send Jarret the full narration to approve before building any video** (voice gate).
+
 
 ## Layout
 - `zogreo-intro-9x16/`, `zogreo-intro-16x9/`: finished film, both shapes. Brand assets (logo, fonts, QR, palette) are in `zogreo-intro-9x16/assets/brand` and `assets/fonts`: reuse them, do not re-extract.
