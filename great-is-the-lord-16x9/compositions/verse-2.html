@@ -22,8 +22,14 @@
 .k-label { font-family: "GL Archivo"; font-weight: 700; font-stretch: 112.5%; letter-spacing: 0.3em; text-transform: uppercase; }
 </style>
   <style>
-    #verse-2-stage { position: absolute; inset: 0; color: var(--ink, #17142B); }
-    #verse-2-stage .k-hl { color: var(--hl, #FF48B0); }
+    #verse-2-stage { position: absolute; inset: 0; color: #F4EEDF; }
+    #verse-2-stage .v-art { position: absolute; inset: 0; pointer-events: none; }
+    #verse-2-stage .v-obj { position: absolute; }
+    #verse-2-stage .v-in { position: absolute; inset: 0; }
+    #verse-2-stage .v-in svg { position: absolute; overflow: visible; }
+    #verse-2-stage .v2-y { color: #FFE14D; text-shadow: 0.045em 0.04em 0 #17142B; }
+    #verse-2-stage .v2-t { color: #4FD1C5; text-shadow: 0.045em 0.04em 0 #17142B; }
+    #verse-2-stage .k-soft.v2-y, #verse-2-stage .k-soft.v2-t { text-shadow: 0.03em 0.03em 0 #17142B; }
   </style>
   <div id="root" data-composition-id="verse-2" data-width="1920" data-height="1080">
     <div id="verse-2-stage" class="k-stage" data-layout-allow-overlap></div>
@@ -295,12 +301,363 @@ function makeKit(S, stage) {
 
       const stage = document.getElementById(S.id + "-stage");
       const K = makeKit(S, stage);
-      const dark = ["intro", "pre-chorus", "verse-2", "verse-3", "bridge"].includes(S.id);
-      stage.style.setProperty("--ink", dark ? "#F4EEDF" : "#17142B");
+      const { W, H, tl, el, sv, layer } = K;
+      const C = S.C, P = K.portrait;
+      const u = Math.min(W, H) / 1080, M = 40 * u;
+      const rnd = K.rng(43);
+      const lerp = (a, b, p) => a + (b - a) * p;
+      const ease3 = (p) => 1 - Math.pow(1 - K.clamp(p, 0, 1), 3);
+      // riso on the forest flood: paper line, yellow/teal/orange fills, an ink misregistered copy
+      const MAIN = { main: true, line: C.paper, f1: C.yellow, f2: C.teal, f3: C.forest, f4: C.orange, f5: C.pink };
+      const MIS = { line: C.ink, f1: C.ink, f2: C.ink, f3: C.ink, f4: C.ink, f5: C.ink };
+
+      // ── scene helpers ──────────────────────────────────────────────
+      // riso object centred at (cx, cy), pw x ph px, drawn in a vb viewBox by build(svg, palette, px->units)
+      function riso(parent, cx, cy, pw, ph, vb, build, o = {}) {
+        const wrap = el("div", "v-obj", parent);
+        Object.assign(wrap.style, { left: cx - pw / 2 + "px", top: cy - ph / 2 + "px", width: pw + "px", height: ph + "px" });
+        if (o.origin) wrap.style.transformOrigin = o.origin;
+        const inner = el("div", "v-in", wrap);
+        if (o.origin) inner.style.transformOrigin = o.origin;
+        const k = pw / vb[0], px = (v) => v / k, off = (o.off ?? 7) * u;
+        const mk = (pal, dx, dy) => {
+          const s = K.svg(inner, pw, ph);
+          s.setAttribute("viewBox", `0 0 ${vb[0]} ${vb[1]}`);
+          s.style.left = dx + "px"; s.style.top = dy + "px";
+          return build(s, Object.assign({ sw: px(o.sw ?? 8) }, pal), px) || {};
+        };
+        const sh = o.noShadow ? null : mk(o.mis || MIS, off, off * 0.8);
+        const mn = mk(o.main || MAIN, 0, 0);
+        return { wrap, inner, m: mn, s: sh, both(fn) { fn(mn, false); if (sh) fn(sh, true); } };
+      }
+      const path = (g, d, P0, fill, extra) => sv(g, "path", Object.assign({ d, fill: fill || "none", stroke: P0.line, "stroke-width": P0.sw, "stroke-linejoin": "round", "stroke-linecap": "round" }, extra || {}));
+      function pop(e, t, o = {}) {
+        gsap.set(e, { autoAlpha: 0 });
+        tl.fromTo(e, { autoAlpha: 0, scale: o.s0 ?? 0.3, rotation: o.r0 ?? (rnd() - 0.5) * 30 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: o.d ?? 0.28, ease: o.ease || "back.out(2.6)" }, t);
+      }
+      const exitWith = (b, els) => tl.to(els, { autoAlpha: 0, y: -H * 0.05, filter: "blur(8px)", duration: 0.14, ease: "power3.in" }, b.tout);
+      const isTop = (wa) => wa.box.y <= wa.block.top + 1;
+      const isBot = (wa) => wa.box.y + wa.box.h >= wa.block.top + wa.block.h - 1;
+      // place a w x h box above or below a word, in the free space outside its block
+      function placeV(wa, w, h, where, o = {}) {
+        if (where === "auto") where = isTop(wa) ? "above" : isBot(wa) ? "below" : wa.box.cy < wa.block.top + wa.block.h / 2 ? "above" : "below";
+        const g = o.gap ?? 0.018 * H;
+        const top = isTop(wa) ? wa.box.y : wa.block.top, bot = isBot(wa) ? wa.box.y + wa.box.h : wa.block.top + wa.block.h;
+        const room = where === "above" ? top - g - M : H - M - bot - g;
+        const s = K.clamp(room / h, 0.3, 1);
+        w *= s; h *= s;
+        const cy = where === "above" ? top - g - h / 2 : bot + g + h / 2;
+        const cx = K.clamp(wa.box.cx + (o.dx || 0), w / 2 + M, W - w / 2 - M);
+        return { cx, cy, w, h, where, s };
+      }
+      const bandBelow = (b) => ({ y0: b.top + b.h + 0.02 * H, y1: H - M });
+      const bandAbove = (b) => ({ y0: M, y1: b.top - 0.02 * H });
+      const star5 = (cx, cy, r1, r2) => { let d = ""; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? r2 : r1; d += (i ? "L" : "M") + (cx + Math.cos(a) * r).toFixed(1) + " " + (cy + Math.sin(a) * r).toFixed(1); } return d + "Z"; };
+      const SPARK = "M50 4 Q56 44 96 50 Q56 56 50 96 Q44 56 4 50 Q44 44 50 4Z";
+      const sparkle = (parent, cx, cy, s, fill) => riso(parent, cx, cy, s, s, [100, 100], (g, p) => { path(g, SPARK, p, p[fill || "f2"]); }, { off: 5 });
+
+      const HEART = "M50 88 C20 66 6 48 6 32 C6 16 18 6 32 6 C42 6 48 12 50 18 C52 12 58 6 68 6 C82 6 94 16 94 32 C94 48 80 66 50 88Z";
+      const fruit = (parent, cx, cy, s, kind) => riso(parent, cx, cy, s, s, [100, 100], (g, p) => {
+        if (kind === 0) { sv(g, "circle", { cx: 50, cy: 56, r: 38, fill: p.f4, stroke: p.line, "stroke-width": p.sw }); path(g, "M50 20 Q58 6 72 8 Q66 22 50 20Z", p, p.f2, { "stroke-width": p.sw * 0.7 }); }
+        else if (kind === 1) { sv(g, "circle", { cx: 50, cy: 56, r: 34, fill: p.f1, stroke: p.line, "stroke-width": p.sw }); path(g, "M50 22 L50 8", p); }
+        else if (kind === 2) sv(g, "ellipse", { cx: 50, cy: 50, rx: 22, ry: 34, fill: p.f2, stroke: p.line, "stroke-width": p.sw, transform: "rotate(30 50 50)" });
+        else { sv(g, "circle", { cx: 34, cy: 60, r: 22, fill: p.f5, stroke: p.line, "stroke-width": p.sw * 0.8 }); sv(g, "circle", { cx: 66, cy: 60, r: 22, fill: p.f5, stroke: p.line, "stroke-width": p.sw * 0.8 }); path(g, "M34 38 Q50 6 66 38", p); }
+      }, { off: 5 });
+
+      // stroke draw-on that stays hidden until it starts (a round cap would otherwise show as a dot)
+      const drawOn = (e, t, d, ease) => { gsap.set(e, { autoAlpha: 0 }); tl.to(e, { autoAlpha: 1, duration: 0.01 }, t); K.draw(e, t, d, ease); };
+      // ── lyrics ─────────────────────────────────────────────────────
+      const ACC = {
+        0: { gracious: "k-soft v2-y" },
+        1: { kind: "k-soft v2-t" },
+        2: { compassionate: "k-soft v2-y" },
+        3: { good: "k-wide v2-y" },
+        4: { mercy: "k-soft v2-t", everything: "v2-y" },
+        5: { creation: "k-wide v2-y", sings: "k-soft v2-t" },
+        6: { food: "v2-y" },
+        7: { open: "k-wide v2-t", hand: "v2-y", good: "k-soft v2-y" },
+        8: { satisfy: "k-soft v2-y", living: "v2-t" },
+        9: { generous: "k-wide v2-y" },
+        10: { righteous: "k-wide v2-y", everything: "k-soft" },
+        11: { kind: "k-wide v2-t", everything: "k-soft" },
+        12: { near: "k-wide v2-y", name: "v2-t" },
+        13: { sincerely: "k-soft v2-y" },
+        14: { there: "v2-t" },
+        15: { desire: "k-soft v2-y" },
+        16: { hear: "k-wide v2-t", prayer: "k-wide v2-y" },
+      };
+
       K.ready.then(() => {
-        K.verse({});
-        K.pulser(K.pulse, {});
-        K.camera({});
+        const groups = [[0, 1, 2], [3, 4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14, 15, 16]];
+        const lines = S.lines.map((l) => Object.assign({}, l));
+        groups.forEach((g, gi) => { if (gi) lines[g[0]].t = +(lines[g[0]].t + 0.12).toFixed(3); });
+        const cys = P ? [0.52, 0.48, 0.36, 0.36, 0.6, 0.48, 0.58] : [0.52, 0.48, 0.34, 0.34, 0.62, 0.5, 0.6];
+        const back = el("div", "v-art", layer);
+        const blocks = K.verse({ lines, groups, acc: ACC, cyOf: (gi) => H * cys[gi], maxW: W * (P ? 0.88 : 0.8), min: P ? 84 : 92, max: P ? 140 : 150, spread: 1.25, gap: 0.12 });
+        const front = el("div", "v-art", layer);
+        const A = (li, w, occ) => K.wordAt(blocks, li, w, occ);
+        const L = (li) => S.lines[li];
+        const shakes = [];
+
+        // ── B0 "The LORD is gracious, / The LORD is kind, / Compassionate to every life." ──
+        {
+          const b = blocks[0], comp = A(2, "compassionate");
+          const ab = bandAbove(b), hs = Math.min(170 * u, (ab.y1 - ab.y0) * 0.8);
+          const heart = riso(front, W / 2, ab.y1 - hs / 2, hs, hs * 0.9, [100, 92], (g, p) => ({ f: path(g, HEART, Object.assign({}, p, { sw: 0 }), p.f5, { stroke: "none" }), l: path(g, HEART, p) }), { origin: "50% 60%" });
+          heart.both((r) => { drawOn(r.l, L(0).w[3].t, 0.6); gsap.set(r.f, { autoAlpha: 0 }); tl.to(r.f, { autoAlpha: 1, duration: 0.15 }, comp.w.t); });
+          K.drive((t) => { const d = K.lastBefore(S.beats, t); gsap.set(heart.inner, { scale: 1 + (d >= 0 && t > comp.w.t ? 0.12 * Math.exp(-(t - S.beats[d]) / 0.12) : 0) }); });
+          // small hearts rise off the big one on "every life"
+          [0, 1, 2, 3].forEach((i) => {
+            const o = riso(front, W / 2 + (i - 1.5) * hs * 0.45, ab.y1 - hs * 0.4, hs * 0.26, hs * 0.24, [100, 92], (g, p) => { path(g, HEART, p, i % 2 ? p.f1 : p.f2); }, { off: 4 });
+            const t0 = L(2).w[2].t + i * 0.1;
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            K.drive((t) => { const q = (t - t0) / 0.9; gsap.set(o.wrap, q < 0 || q > 1 || t > b.tout ? { autoAlpha: 0 } : { autoAlpha: Math.min(1, (1 - q) * 3), y: -q * hs * 0.9, x: Math.sin(q * 6 + i) * 14 * u }); });
+          });
+          exitWith(b, [heart.wrap]);
+        }
+
+        // ── B1 "Good to all, / Mercy over everything, / All of creation sings." : creation blooms at the edges ──
+        let bloomOut;
+        {
+          const b = blocks[1], cre = A(5, "creation"), sings = A(5, "sings"), all = L(5).w[0].t;
+          bloomOut = L(7).w[1].t - 0.05; // stays on as "Everything You made", leaves as the hand opens
+          const ab = bandAbove(b), bb = bandBelow(b);
+          const rs = Math.min(130 * u, (ab.y1 - ab.y0) * 0.5);
+          const sun = riso(back, M + rs * 1.2, M + rs * 1.1, rs * 2.2, rs * 2.2, [220, 220], (g, p) => {
+            const rays = sv(g, "g", {});
+            for (let i = 0; i < 12; i++) { const a = (i * Math.PI) / 6; path(rays, `M${110 + Math.cos(a) * 70} ${110 + Math.sin(a) * 70} L${110 + Math.cos(a) * 104} ${110 + Math.sin(a) * 104}`, p, null, { stroke: p.main ? C.yellow : p.line, "stroke-width": p.sw * 1.4 }); }
+            sv(g, "circle", { cx: 110, cy: 110, r: 56, fill: p.f1, stroke: p.line, "stroke-width": p.sw });
+            return { rays };
+          });
+          pop(sun.wrap, cre.w.t - 0.05, { s0: 0, r0: -90, d: 0.4 });
+          K.drive((t) => sun.both((r) => r.rays.setAttribute("transform", `rotate(${(t * 25).toFixed(2)} 110 110)`)));
+          // flowers grow up from the bottom edge
+          const fh = Math.min(260 * u, (bb.y1 - bb.y0 + M) * 0.85), xs = P ? [0.1, 0.3, 0.7, 0.9] : [0.06, 0.17, 0.83, 0.94];
+          const fl = xs.map((fx, i) => {
+            const h = fh * (0.75 + 0.25 * ((i + 1) % 2)), w = h * 0.5;
+            const o = riso(back, W * fx, H - h / 2 + 4 * u, w, h, [100, 200], (g, p) => {
+              path(g, "M50 200 L50 70", p, null, { stroke: p.main ? C.green : p.line, "stroke-width": p.sw * 1.2 });
+              path(g, "M50 140 Q80 110 96 128 Q78 150 50 140Z", p, p.main ? C.green : p.line, { "stroke-width": p.sw * 0.7 });
+              for (let k = 0; k < 6; k++) { const a = (k * Math.PI) / 3; sv(g, "circle", { cx: 50 + Math.cos(a) * 24, cy: 52 + Math.sin(a) * 24, r: 19, fill: i % 2 ? p.f5 : p.f2, stroke: p.line, "stroke-width": p.sw * 0.7 }); }
+              sv(g, "circle", { cx: 50, cy: 52, r: 15, fill: p.f1, stroke: p.line, "stroke-width": p.sw * 0.7 });
+            }, { origin: "50% 100%" });
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            tl.fromTo(o.wrap, { autoAlpha: 0, scaleY: 0.1, scaleX: 0.6 }, { autoAlpha: 1, scaleY: 1, scaleX: 1, duration: 0.35, ease: "back.out(2)" }, all + i * 0.1);
+            K.drive((t) => gsap.set(o.inner, { rotation: Math.sin(t * 3.66 + i) * 4 }));
+            return o.wrap;
+          });
+          // leaves on the side edges
+          const lv = [[0.02, 0.62, 30], [0.98, 0.3, -150], [0.98, 0.7, 200]].map(([fx, fy, rot], i) => {
+            const s = 150 * u;
+            const o = riso(back, W * fx, H * fy, s, s * 0.5, [120, 60], (g, p) => { path(g, "M4 30 Q60 -14 116 30 Q60 74 4 30Z M10 30 L106 30", p, i % 2 ? p.f2 : C.green); });
+            gsap.set(o.wrap, { rotation: rot });
+            pop(o.wrap, cre.w.t + 0.1 + i * 0.08, { s0: 0, r0: rot - 60 });
+            return o.wrap;
+          });
+          // birds fly across the top on "sings"
+          const birds = [0, 1, 2].map((i) => {
+            const s = (70 - i * 12) * u;
+            const o = riso(front, 0, 0, s, s * 0.5, [100, 50], (g, p) => ({ w: path(g, "M4 30 Q26 4 50 30 Q74 4 96 30", p, null, { "stroke-width": p.sw * 1.3 }) }), { off: 4 });
+            const t0 = sings.w.t - 0.1 + i * 0.12, y0 = Math.max(M + s, ab.y1 * (0.35 + 0.2 * i));
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            K.drive((t) => {
+              const q = (t - t0) / (L(6).t - 0.05 - t0);
+              if (q < 0 || q > 1) { gsap.set(o.wrap, { autoAlpha: 0 }); return; }
+              gsap.set(o.wrap, { autoAlpha: 1, x: lerp(W * 0.18, W * 1.08, q), y: y0 - q * 80 * u + Math.sin(q * 9) * 12 * u });
+              gsap.set(o.inner, { scaleY: 0.4 + 0.6 * Math.abs(Math.sin(t * 14 + i)) });
+            });
+            return o.wrap;
+          });
+          tl.to(sun.wrap, { autoAlpha: 0, scale: 0.5, duration: 0.18, ease: "power2.in" }, L(6).t - 0.1);
+          tl.to([...fl, ...lv], { autoAlpha: 0, scale: 0.5, duration: 0.2, ease: "power2.in" }, bloomOut);
+        }
+
+        // ── B2 "Everything You made looks to You for food, / You open up Your hand and You give what's good." ──
+        {
+          const b = blocks[2], l7 = L(7), open = A(7, "open");
+          const bd = bandBelow(b), hh = Math.min((bd.y1 - bd.y0) * 0.92, 380 * u), hw = hh, hcy = H - hh / 2 + 10 * u;
+          const FING = [[62, 34], [100, 14], [138, 18], [176, 40]];
+          const hand = riso(back, W / 2, hcy, hw, hh, [260, 260], (g, p) => {
+            sv(g, "rect", { x: 92, y: 210, width: 78, height: 60, fill: p.f2, stroke: p.line, "stroke-width": p.sw });
+            const th = sv(g, "rect", { x: 14, y: 120, width: 36, height: 96, rx: 18, fill: p.f2, stroke: p.line, "stroke-width": p.sw, transform: "rotate(-38 50 210)" });
+            const fg = FING.map(([x, y]) => sv(g, "rect", { x, y, width: 36, height: 150 - y, rx: 18, fill: p.f2, stroke: p.line, "stroke-width": p.sw }));
+            sv(g, "rect", { x: 52, y: 110, width: 168, height: 128, rx: 54, fill: p.f2, stroke: p.line, "stroke-width": p.sw });
+            path(g, "M86 176 Q130 196 182 170", p, null, { "stroke-width": p.sw * 0.6 });
+            return { fg, th };
+          }, { origin: "50% 100%" });
+          gsap.set(hand.wrap, { autoAlpha: 0 });
+          tl.fromTo(hand.wrap, { autoAlpha: 0, y: hh * 0.6 }, { autoAlpha: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, l7.w[0].t - 0.05);
+          // "open": the fingers stretch out of a fist
+          hand.both((r) => r.fg.forEach((f, i) => {
+            const y = FING[i][1];
+            gsap.set(f, { attr: { y: 96, height: 54 } });
+            tl.to(f, { attr: { y, height: 150 - y }, duration: 0.22, ease: "back.out(2.5)" }, open.w.t + i * 0.04);
+          }));
+          // seeds and fruit tumble out on each eighth note
+          const fr = [];
+          for (let t = open.w.t + 0.15, i = 0; t < b.tout - 0.5; t += 0.2143, i++) fr.push({ t, i, dir: i % 2 ? 1 : -1, v: 0.5 + rnd() * 0.5, k: i % 4 });
+          fr.forEach((f) => {
+            const s = (f.k === 2 ? 46 : 72) * u;
+            const o = fruit(front, W / 2, hcy - hh * 0.25, s, f.k);
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            K.drive((t) => {
+              const q = t - f.t;
+              if (q < 0 || q > 1.6 || t > b.tout) { gsap.set(o.wrap, { autoAlpha: 0 }); return; }
+              const vx = f.dir * (P ? 0.28 : 0.4) * W * f.v, vy = -hh * 1.5, g2 = hh * 4;
+              gsap.set(o.wrap, { autoAlpha: 1, x: vx * q, y: vy * q + 0.5 * g2 * q * q, rotation: f.dir * 300 * q, scale: Math.min(1, q * 6) });
+            });
+          });
+          exitWith(b, [hand.wrap]);
+        }
+
+        // ── B3 "You satisfy the living with what You provide, / And all of it comes from Your generous side." ──
+        {
+          const b = blocks[3], gen = A(9, "generous");
+          const bd = bandBelow(b), bh = Math.min((bd.y1 - bd.y0) * 0.38, 190 * u), bw = bh * 2.2, bcy = H - M - bh / 2;
+          const bowl = riso(front, W / 2, bcy, bw, bh, [220, 100], (g, p) => {
+            path(g, "M6 10 H214 C214 70 170 96 110 96 C50 96 6 70 6 10Z", p, p.f4);
+            path(g, "M40 40 H180", p, null, { stroke: p.main ? C.yellow : p.line, "stroke-dasharray": "2 22" });
+          });
+          pop(bowl.wrap, L(8).w[1].t, { r0: 0, s0: 0.5 });
+          // fruit falls in on the beats and piles up; on "generous" it overflows
+          const beats = S.beats.filter((x) => x > L(8).w[1].t + 0.1 && x < gen.w.t);
+          const fs = bw * 0.2;
+          const slots = [];
+          for (let r = 0; r < 4; r++) for (let c = 0; c < 4 - r; c++) slots.push({ x: W / 2 + (c - (3 - r) / 2) * fs * 0.95, y: bcy - bh / 2 - fs * 0.25 - r * fs * 0.78 });
+          beats.slice(0, slots.length).forEach((bt, i) => {
+            const sl = slots[i], o = fruit(back, sl.x, sl.y, fs, i % 4 === 2 ? 0 : i % 4);
+            const drop = sl.y - (b.top + b.h);
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            tl.fromTo(o.wrap, { autoAlpha: 0, y: -drop }, { keyframes: [{ autoAlpha: 1, duration: 0.01 }, { y: 0, duration: 0.3, ease: "power2.in" }, { scaleY: 0.8, duration: 0.05 }, { scaleY: 1, duration: 0.12 }] }, bt - 0.3);
+            exitWith(b, [o.wrap]);
+          });
+          [0, 1, 2, 3, 4, 5].forEach((i) => {
+            const dir = i % 2 ? 1 : -1, o = fruit(front, W / 2, bcy - bh, fs * 0.9, i % 4);
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            const t0 = gen.w.t + i * 0.07;
+            K.drive((t) => {
+              const q = t - t0;
+              if (q < 0 || t > b.tout) { gsap.set(o.wrap, { autoAlpha: 0 }); return; }
+              const x = dir * (bw * 0.3 + q * W * (0.18 + 0.05 * i)), y = -bh * 0.9 * Math.sin(Math.min(q * 4, Math.PI)) + Math.max(0, q - 0.78) * bh * 3;
+              gsap.set(o.wrap, { autoAlpha: 1, x, y: Math.min(y, bh * 0.9), rotation: dir * q * 360 });
+            });
+          });
+          shakes.push({ t: gen.w.t + 0.05, amp: 12, decay: 0.1 });
+          exitWith(b, [bowl.wrap]);
+        }
+
+        // ── B4 "Righteous in everything, / Kind in everything," : a balance levels out, a heart lands in a pan ──
+        {
+          const b = blocks[4], rig = A(10, "righteous"), ev = L(10).w[2].t, kind = A(11, "kind").w.t;
+          const ab = bandAbove(b), sh = Math.min((ab.y1 - ab.y0) * 0.92, 380 * u), sw2 = sh * 1.5;
+          const bal = riso(front, W / 2, ab.y1 - sh / 2, sw2, sh, [300, 200], (g, p) => {
+            path(g, "M150 40 L150 186 M110 192 H190", p, null, { "stroke-width": p.sw * 1.2 });
+            path(g, "M120 192 L150 160 L180 192Z", p, p.f1);
+            const beam = path(g, "M40 40 H260", p, null, { "stroke-width": p.sw * 1.3 });
+            sv(g, "circle", { cx: 150, cy: 40, r: 11, fill: p.f1, stroke: p.line, "stroke-width": p.sw * 0.7 });
+            const pan = (x, item) => {
+              const gg = sv(g, "g", {});
+              path(gg, `M${x} 0 L${x - 34} 60 M${x} 0 L${x + 34} 60`, p, null, { "stroke-width": p.sw * 0.6 });
+              path(gg, `M${x - 44} 60 H${x + 44} Q${x} 98 ${x - 44} 60Z`, p, p.f4);
+              const it = item(gg, x);
+              return { gg, it, x };
+            };
+            const l = pan(40, (gg, x) => path(sv(gg, "g", {}), HEART, p, p.f5, { transform: `translate(${x - 21} 18) scale(0.42)`, "stroke-width": p.sw / 0.42 * 0.8 }));
+            const r = pan(260, (gg, x) => path(gg, star5(x, 40, 22, 10), p, p.f1, { "stroke-width": p.sw * 0.8 }));
+            return { beam, l, r };
+          });
+          pop(bal.wrap, rig.w.t - 0.05, { r0: 0, s0: 0.4 });
+          bal.both((r) => { r.l.it = r.l.it.parentNode; gsap.set(r.l.it, { autoAlpha: 0 }); });
+          bal.both((r) => tl.fromTo(r.l.it, { autoAlpha: 0, y: -60 }, { autoAlpha: 1, y: 0, duration: 0.2, ease: "power2.in" }, kind - 0.15));
+          const ang = (t) => {
+            let a = t < ev ? -16 : -16 * Math.exp(-(t - ev) / 0.18) * Math.cos((t - ev) * 12);
+            if (t > kind + 0.05) a += 10 * Math.exp(-(t - kind - 0.05) / 0.25) * Math.cos((t - kind - 0.05) * 14);
+            return a;
+          };
+          K.drive((t) => {
+            const a = ang(t), rad = (a * Math.PI) / 180;
+            bal.both((r) => {
+              r.beam.setAttribute("transform", `rotate(${a.toFixed(2)} 150 40)`);
+              [r.l, r.r].forEach((pn) => { const dx = 150 + (pn.x - 150) * Math.cos(rad) - pn.x, dy = (pn.x - 150) * Math.sin(rad); pn.gg.setAttribute("transform", `translate(${dx.toFixed(2)} ${(40 + dy).toFixed(2)})`); });
+            });
+          });
+          // "everything": little things pop round the bottom of the frame
+          const bb = bandBelow(b);
+          const sets = [ev, L(11).w[2].t];
+          sets.forEach((t0, si) => [0, 1, 2, 3, 4].forEach((i) => {
+            const s = Math.min(80 * u, (bb.y1 - bb.y0) * 0.7), x = W * (0.12 + i * 0.19 + si * 0.09), y = bb.y0 + (bb.y1 - bb.y0) * (si ? 0.62 : 0.38);
+            if (x > W - M) return;
+            const o = i % 2 ? fruit(back, x, y, s, (i + si) % 4) : riso(back, x, y, s, s, [100, 100], (g, p) => { path(g, i ? star5(50, 54, 46, 20) : SPARK, p, si ? p.f2 : p.f1); }, { off: 4 });
+            pop(o.wrap, t0 + i * 0.05, { s0: 0, r0: -60 });
+            K.drive((t) => gsap.set(o.inner, { y: Math.sin(t * 7.33 + i) * 6 * u }));
+            exitWith(b, [o.wrap]);
+          }));
+          exitWith(b, [bal.wrap]);
+        }
+
+        // ── B5 "Near to everyone who calls Your name. / Those who call sincerely," : ripples from "name" ──
+        {
+          const b = blocks[5], name = A(12, "name"), every = L(12).w[2].t;
+          const ab = bandAbove(b), bb = bandBelow(b);
+          // everyone, drawing near
+          const heads = [];
+          [ab, bb].forEach((bd, k) => [0, 1, 2, 3].forEach((i) => {
+            const s = Math.min(110 * u, (bd.y1 - bd.y0) * 0.55), x = W * (0.14 + i * 0.24), y = k ? bd.y1 - s * 0.6 : bd.y0 + s * 0.6;
+            const o = riso(front, x, y, s * 0.8, s, [80, 100], (g, p) => {
+              sv(g, "circle", { cx: 40, cy: 26, r: 20, fill: [p.f1, p.f2, p.f4, p.f5][(i + k) % 4], stroke: p.line, "stroke-width": p.sw });
+              path(g, "M8 98 Q8 52 40 52 Q72 52 72 98Z", p, [p.f2, p.f4, p.f5, p.f1][(i + k) % 4]);
+            }, { off: 4 });
+            pop(o.wrap, every + (i + k * 4) * 0.04, { s0: 0, r0: 0 });
+            const toward = (k ? -1 : 1) * Math.max(0, (bd.y1 - bd.y0) - s * 1.3) * 0.5;
+            K.drive((t) => gsap.set(o.inner, { y: toward * ease3((t - every) / 1.4) }));
+            heads.push(o.wrap);
+          }));
+          const r0 = Math.max(name.box.w, name.box.h) * 0.62;
+          const starts = [name.w.t, ...S.beats.filter((x) => x > name.w.t + 0.15 && x < b.tout - 0.4)];
+          starts.forEach((t0, i) => {
+            const o = riso(back, name.box.cx, name.box.cy, r0 * 2, r0 * 2, [100, 100], (g, p) => { sv(g, "circle", { cx: 50, cy: 50, r: 48, fill: "none", stroke: i % 2 ? (p.main ? C.yellow : p.line) : p.f2, "stroke-width": p.sw }); }, { sw: 7, off: 5 });
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            tl.to(o.wrap, { keyframes: [{ autoAlpha: 0.9, scale: 1, duration: 0.01 }, { autoAlpha: 0, scale: 4.2, duration: 1.3, ease: "power1.out" }] }, t0);
+          });
+          shakes.push({ t: name.w.t + 0.05, amp: 9, decay: 0.1 });
+          exitWith(b, heads);
+        }
+
+        // ── B6 "You are right there, / You fulfill their desire / And You hear their prayer." ──
+        {
+          const b = blocks[6], there = A(14, "there"), ful = L(15).w[1].t, des = A(15, "desire"), hear = A(16, "hear"), pr = A(16, "prayer");
+          const bb = bandBelow(b), ab = bandAbove(b), ps = Math.min(200 * u, (bb.y1 - bb.y0) * 0.8);
+          // "right there": a pin drops
+          const pin = riso(front, W * (P ? 0.28 : 0.3), bb.y0 + ps / 2, ps * 0.72, ps, [72, 100], (g, p) => {
+            path(g, "M36 96 C16 66 6 52 6 36 C6 18 20 6 36 6 C52 6 66 18 66 36 C66 52 56 66 36 96Z", p, p.f4);
+            sv(g, "circle", { cx: 36, cy: 36, r: 12, fill: p.f3, stroke: p.line, "stroke-width": p.sw * 0.7 });
+          }, { origin: "50% 100%" });
+          gsap.set(pin.wrap, { autoAlpha: 0 });
+          tl.fromTo(pin.wrap, { autoAlpha: 0, y: -ps }, { keyframes: [{ autoAlpha: 1, duration: 0.01 }, { y: 0, duration: 0.2, ease: "power3.in" }, { scaleY: 0.8, duration: 0.06 }, { scaleY: 1, duration: 0.2, ease: "back.out(3)" }] }, there.w.t - 0.15);
+          // "fulfill their desire": a heart outline fills up
+          const hx = W * (P ? 0.72 : 0.7), hs2 = ps * 0.9;
+          const heart = riso(front, hx, bb.y0 + ps / 2, hs2, hs2 * 0.92, [100, 92], (g, p) => {
+            const id = S.id + "-hc" + (p.main ? "m" : "s");
+            const cp = sv(sv(g, "defs", {}), "clipPath", { id }); const rc = sv(cp, "rect", { x: 0, y: 92, width: 100, height: 92 });
+            sv(g, "path", { d: HEART, fill: p.f1, "clip-path": `url(#${id})` });
+            return { rc, l: path(g, HEART, p) };
+          });
+          heart.both((r) => { drawOn(r.l, ful, 0.45); tl.to(r.rc, { attr: { y: 0 }, duration: 0.5, ease: "power2.inOut" }, des.w.t - 0.1); });
+          // "hear their prayer": sound arcs rise from the words
+          const aw = Math.min(W * 0.5, 700 * u), ah = (ab.y1 - ab.y0);
+          const arcs = [];
+          const startsA = []; for (let x = hear.w.t; x < S.dur - 0.45; x += 0.2143) startsA.push(x);
+          startsA.forEach((t0, i) => {
+            const o = riso(back, W / 2, b.top - aw * 0.12, aw, aw * 0.3, [200, 60], (g, p) => { path(g, "M10 56 Q100 -20 190 56", p, null, { stroke: i % 2 ? (p.main ? C.yellow : p.line) : p.f2, "stroke-width": p.sw * 1.4 }); }, { origin: "50% 100%" });
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            tl.to(o.wrap, { keyframes: [{ autoAlpha: 1, scale: 0.6, duration: 0.01 }, { autoAlpha: 0, scale: 1.35, y: -ah * 0.8, duration: 1.1, ease: "power1.out" }] }, t0);
+            arcs.push(o.wrap);
+          });
+          shakes.push({ t: pr.w.t + 0.05, amp: 12, decay: 0.12 });
+        }
+
+        K.pulser(K.pulse, { shakes, down: 0.018, beat: 0.006 });
+        K.camera({ z0: 1, z1: 1.05, sway: 0.45 });
         window.__timelines[S.id] = K.done();
       });
     })();

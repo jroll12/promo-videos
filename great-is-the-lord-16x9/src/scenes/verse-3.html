@@ -1,0 +1,285 @@
+<template>
+  <!--KIT_CSS-->
+  <style>
+    #__ID__-stage { position: absolute; inset: 0; color: #F4EEDF; }
+    #__ID__-stage .v-art { position: absolute; inset: 0; pointer-events: none; }
+    #__ID__-stage .v-obj { position: absolute; }
+    #__ID__-stage .v-in { position: absolute; inset: 0; }
+    #__ID__-stage .v-in svg { position: absolute; overflow: visible; }
+    #__ID__-stage .v3-y { color: #FFE14D; text-shadow: 0.045em 0.04em 0 #FF48B0; }
+    #__ID__-stage .k-soft.v3-y { text-shadow: 0.03em 0.03em 0 #FF48B0; }
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="__W__" data-height="__H__">
+    <div id="__ID__-stage" class="k-stage" data-layout-allow-overlap></div>
+  </div>
+  <script>
+    (function () {
+      /*DATA*/
+      /*KIT_JS*/
+      const stage = document.getElementById(S.id + "-stage");
+      const K = makeKit(S, stage);
+      const { W, H, tl, el, sv, layer } = K;
+      const C = S.C, P = K.portrait;
+      const u = Math.min(W, H) / 1080, M = 40 * u;
+      const rnd = K.rng(47);
+      const lerp = (a, b, p) => a + (b - a) * p;
+      const ease3 = (p) => 1 - Math.pow(1 - K.clamp(p, 0, 1), 3);
+      // riso on the royal flood: paper line, yellow/teal/orange fills, a pink misregistered copy
+      const MAIN = { main: true, line: C.paper, f1: C.yellow, f2: C.teal, f3: C.royal, f4: C.orange, f5: C.pink };
+      const MIS = { line: C.pink, f1: C.pink, f2: C.pink, f3: C.pink, f4: C.pink, f5: C.pink };
+
+      // ── scene helpers ──────────────────────────────────────────────
+      // riso object centred at (cx, cy), pw x ph px, drawn in a vb viewBox by build(svg, palette, px->units)
+      function riso(parent, cx, cy, pw, ph, vb, build, o = {}) {
+        const wrap = el("div", "v-obj", parent);
+        Object.assign(wrap.style, { left: cx - pw / 2 + "px", top: cy - ph / 2 + "px", width: pw + "px", height: ph + "px" });
+        if (o.origin) wrap.style.transformOrigin = o.origin;
+        const inner = el("div", "v-in", wrap);
+        if (o.origin) inner.style.transformOrigin = o.origin;
+        const k = pw / vb[0], px = (v) => v / k, off = (o.off ?? 7) * u;
+        const mk = (pal, dx, dy) => {
+          const s = K.svg(inner, pw, ph);
+          s.setAttribute("viewBox", `0 0 ${vb[0]} ${vb[1]}`);
+          s.style.left = dx + "px"; s.style.top = dy + "px";
+          return build(s, Object.assign({ sw: px(o.sw ?? 8) }, pal), px) || {};
+        };
+        const sh = o.noShadow ? null : mk(o.mis || MIS, off, off * 0.8);
+        const mn = mk(o.main || MAIN, 0, 0);
+        return { wrap, inner, m: mn, s: sh, both(fn) { fn(mn, false); if (sh) fn(sh, true); } };
+      }
+      const path = (g, d, P0, fill, extra) => sv(g, "path", Object.assign({ d, fill: fill || "none", stroke: P0.line, "stroke-width": P0.sw, "stroke-linejoin": "round", "stroke-linecap": "round" }, extra || {}));
+      function pop(e, t, o = {}) {
+        gsap.set(e, { autoAlpha: 0 });
+        tl.fromTo(e, { autoAlpha: 0, scale: o.s0 ?? 0.3, rotation: o.r0 ?? (rnd() - 0.5) * 30 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: o.d ?? 0.28, ease: o.ease || "back.out(2.6)" }, t);
+      }
+      const exitWith = (b, els) => tl.to(els, { autoAlpha: 0, y: -H * 0.05, filter: "blur(8px)", duration: 0.14, ease: "power3.in" }, b.tout);
+      const isTop = (wa) => wa.box.y <= wa.block.top + 1;
+      const isBot = (wa) => wa.box.y + wa.box.h >= wa.block.top + wa.block.h - 1;
+      // place a w x h box above or below a word, in the free space outside its block
+      function placeV(wa, w, h, where, o = {}) {
+        if (where === "auto") where = isTop(wa) ? "above" : isBot(wa) ? "below" : wa.box.cy < wa.block.top + wa.block.h / 2 ? "above" : "below";
+        const g = o.gap ?? 0.018 * H;
+        const top = isTop(wa) ? wa.box.y : wa.block.top, bot = isBot(wa) ? wa.box.y + wa.box.h : wa.block.top + wa.block.h;
+        const room = where === "above" ? top - g - M : H - M - bot - g;
+        const s = K.clamp(room / h, 0.3, 1);
+        w *= s; h *= s;
+        const cy = where === "above" ? top - g - h / 2 : bot + g + h / 2;
+        const cx = K.clamp(wa.box.cx + (o.dx || 0), w / 2 + M, W - w / 2 - M);
+        return { cx, cy, w, h, where, s };
+      }
+      const bandBelow = (b) => ({ y0: b.top + b.h + 0.02 * H, y1: H - M });
+      const bandAbove = (b) => ({ y0: M, y1: b.top - 0.02 * H });
+      const star5 = (cx, cy, r1, r2) => { let d = ""; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? r2 : r1; d += (i ? "L" : "M") + (cx + Math.cos(a) * r).toFixed(1) + " " + (cy + Math.sin(a) * r).toFixed(1); } return d + "Z"; };
+      const SPARK = "M50 4 Q56 44 96 50 Q56 56 50 96 Q44 56 4 50 Q44 44 50 4Z";
+      const sparkle = (parent, cx, cy, s, fill) => riso(parent, cx, cy, s, s, [100, 100], (g, p) => { path(g, SPARK, p, p[fill || "f2"]); }, { off: 5 });
+
+      // stroke draw-on that stays hidden until it starts (a round cap would otherwise show as a dot)
+      const drawOn = (e, t, d, ease) => { gsap.set(e, { autoAlpha: 0 }); tl.to(e, { autoAlpha: 1, duration: 0.01 }, t); K.draw(e, t, d, ease); };
+      const CROWN = "M14 128 L14 46 L58 86 L100 14 L142 86 L186 46 L186 128 Z";
+      // ── lyrics ─────────────────────────────────────────────────────
+      const ACC = {
+        0: { kingdom: "v3-y", forever: "k-wide v3-y" },
+        1: { end: "k-wide" },
+        2: { generation: "k-wide v3-y" },
+        3: { faithfulness: "k-soft v3-y" },
+        4: { lift: "v3-y", fallen: "k-wide" },
+        5: { hold: "v3-y", bend: "k-soft v3-y" },
+        6: { eyes: "k-wide v3-y" },
+        7: { look: "k-soft v3-y" },
+        8: { righteous: "k-wide v3-y" },
+        9: { gracious: "k-wide v3-y" },
+        10: { near: "k-wide v3-y" },
+        11: { sustain: "v3-y", stumble: "k-soft" },
+        12: { uphold: "k-wide v3-y", fall: "k-soft" },
+        13: { rhythm: "k-wide v3-y" },
+        14: { rhyme: "k-wide v3-y" },
+        15: { moment: "k-soft v3-y" },
+        16: { generations: "k-wide v3-y", time: "k-soft" },
+      };
+
+      K.ready.then(() => {
+        const groups = [[0, 1], [2, 3], [4, 5], [6, 7], [8, 9, 10], [11, 12], [13, 14], [15, 16]];
+        const lines = S.lines.map((l) => Object.assign({}, l));
+        groups.forEach((g, gi) => { if (gi) lines[g[0]].t = +(lines[g[0]].t + 0.12).toFixed(3); });
+        const cys = P ? [0.5, 0.5, 0.42, 0.5, 0.5, 0.42, 0.34, 0.62] : [0.5, 0.5, 0.4, 0.5, 0.5, 0.42, 0.32, 0.64];
+        const back = el("div", "v-art", layer);
+        const blocks = K.verse({ lines, groups, acc: ACC, cyOf: (gi) => H * cys[gi], maxW: W * (P ? 0.88 : 0.78), min: P ? 86 : 96, max: P ? 140 : 150, spread: 1.2, gap: 0.12, style: "pop", accStyle: "slam" });
+        const front = el("div", "v-art", layer);
+        const A = (li, w, occ) => K.wordAt(blocks, li, w, occ);
+        const L = (li) => S.lines[li];
+        const shakes = [];
+
+        // ── B0+B1 "Your kingdom is forever, / Your reign has no end. / Every generation knows / Your faithfulness again." ──
+        // an endless tunnel of frames and crowns receding behind the words
+        {
+          const tEnd = blocks[1].tout, N = 9, fw = W * 0.9, fh = H * 0.9;
+          const fr = [];
+          for (let i = 0; i < N; i++) {
+            const crown = i % 3 === 1;
+            const o = crown
+              ? riso(back, W / 2, H / 2, Math.min(W, H) * 0.7, Math.min(W, H) * 0.49, [200, 140], (g, p) => { path(g, CROWN, p, null, { stroke: i % 2 ? (p.main ? C.yellow : p.line) : p.line, "stroke-width": p.sw }); }, { sw: 7 })
+              : riso(back, W / 2, H / 2, fw, fh, [fw, fh], (g, p) => { sv(g, "rect", { x: 0, y: 0, width: fw, height: fh, rx: 40 * u, fill: "none", stroke: i % 2 ? (p.main ? C.yellow : p.line) : (p.main ? C.teal : p.line), "stroke-width": 7 * u }); }, { sw: 7 });
+            fr.push(o);
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            K.drive((t) => {
+              if (t > tEnd + 0.15) { gsap.set(o.wrap, { autoAlpha: 0 }); return; }
+              const f = ((t * 0.55 + i / N) % 1 + 1) % 1, sc = 0.05 * Math.pow(40, f);
+              const out = K.clamp((tEnd + 0.15 - t) / 0.15, 0, 1), inn = K.clamp(t / 0.25, 0, 1);
+              gsap.set(o.wrap, { autoAlpha: K.clamp(f * 5, 0, 1) * K.clamp((1 - f) * 3, 0, 1) * out * inn * 0.6, scale: sc, rotation: (f - 0.5) * 14 });
+            });
+          }
+          shakes.push({ t: A(0, "forever").w.t + 0.05, amp: 14, decay: 0.1 }, { t: A(1, "end").w.t + 0.04, amp: 10, decay: 0.08 });
+        }
+
+        // ── B2 "You lift up the fallen. / You hold up those who bend." ──
+        {
+          const b = blocks[2], fal = A(4, "fallen"), bend = A(5, "bend"), hold = L(5).w[1].t;
+          const fs = fal.box.h;
+          gsap.set(fal.outer, { transformOrigin: "50% 100%" });
+          tl.to(fal.outer, { y: fs * 0.32, rotation: 9, duration: 0.12, ease: "power2.in" }, fal.w.t + 0.12);
+          tl.to(fal.outer, { y: 0, rotation: 0, duration: 0.28, ease: "back.out(2.6)" }, hold);
+          // chevrons push it back up
+          const q = placeV(fal, 120 * u, 160 * u, "below", { gap: 4 * u });
+          const ch = riso(front, q.cx, q.cy, q.w, q.h, [100, 130], (g, p) => {
+            [0, 40, 80].forEach((y, i) => path(g, `M12 ${y + 44} L50 ${y + 8} L88 ${y + 44}`, p, null, { stroke: i === 0 ? (p.main ? C.yellow : p.line) : p.line, "stroke-width": p.sw * 1.4 }));
+          });
+          gsap.set(ch.wrap, { autoAlpha: 0 });
+          tl.fromTo(ch.wrap, { autoAlpha: 0, y: q.h * 0.4 }, { autoAlpha: 1, y: 0, duration: 0.2, ease: "power3.out" }, hold - 0.04);
+          K.drive((t) => gsap.set(ch.inner, { y: -Math.abs(Math.sin((t - hold) * 7.33)) * 10 * u }));
+          gsap.set(bend.outer, { transformOrigin: "0% 100%" });
+          tl.to(bend.outer, { keyframes: [{ rotation: 12, duration: 0.07, ease: "power2.out" }, { rotation: 0, duration: 0.12, ease: "back.out(3)" }] }, bend.w.t + 0.03);
+          exitWith(b, [ch.wrap]);
+        }
+
+        // ── B3 "The eyes of every creature / Look to You again." : eyes open round the frame, then look to the centre ──
+        {
+          const b = blocks[3], eyes = A(6, "eyes"), look = L(7).w[0].t;
+          const ab = bandAbove(b), bb = bandBelow(b), cx0 = W / 2, cy0 = b.top + b.h / 2;
+          const spots = [];
+          [ab, bb].forEach((bd, k) => { const n = P ? 3 : 4; for (let i = 0; i < n; i++) spots.push({ x: W * ((i + 0.5) / n) + (k ? W * 0.06 : -W * 0.04), y: lerp(bd.y0, bd.y1, 0.5 + (i % 2 ? 0.18 : -0.18) * (k ? 1 : -1)), r: Math.min((bd.y1 - bd.y0) * 0.36, 85 * u) * (0.75 + 0.25 * ((i + k) % 2)) }); });
+          if (!P) [[0.06, 0.5], [0.94, 0.5]].forEach(([fx, fy]) => spots.push({ x: W * fx, y: H * fy, r: 55 * u }));
+          const ew = [];
+          spots.forEach((s, i) => {
+            const w = s.r * 2.2, h = s.r * 1.3;
+            const o = riso(front, s.x, s.y, w, h, [120, 70], (g, p) => {
+              path(g, "M6 35 Q60 -12 114 35 Q60 82 6 35Z", p, C.paper);
+              const ir = sv(g, "g", {});
+              sv(ir, "circle", { cx: 60, cy: 35, r: 19, fill: p.main ? [C.teal, C.orange, C.yellow, C.pink][i % 4] : p.line, stroke: p.main ? C.ink : p.line, "stroke-width": p.sw * 0.6 });
+              sv(ir, "circle", { cx: 60, cy: 35, r: 8, fill: p.main ? C.ink : p.line });
+              return { ir };
+            }, { sw: 6, off: 5 });
+            const t0 = eyes.w.t + (i % spots.length) * 0.06;
+            gsap.set(o.wrap, { autoAlpha: 0 });
+            tl.fromTo(o.wrap, { autoAlpha: 0, scaleY: 0.05 }, { autoAlpha: 1, scaleY: 1, duration: 0.16, ease: "back.out(2.5)" }, t0);
+            const ang = Math.atan2(cy0 - s.y, cx0 - s.x);
+            K.drive((t) => {
+              const p = ease3((t - look) / 0.15), wig = t < look ? Math.sin(t * 11 + i * 2) * 10 : 0;
+              const dx = Math.cos(ang) * 26 * p + wig * (1 - p), dy = Math.sin(ang) * 12 * p;
+              o.both((r) => r.ir.setAttribute("transform", `translate(${dx.toFixed(2)} ${dy.toFixed(2)})`));
+            });
+            ew.push(o.wrap);
+          });
+          exitWith(b, ew);
+        }
+
+        // ── B4 "You are righteous. / You are gracious. / You are near when we call." : rapid stamps ──
+        {
+          const b = blocks[4];
+          b.Ls.forEach((Ln, k) => {
+            const ws = Ln.words.filter(Boolean), x0 = Math.min(...ws.map((x) => x.box.x)), x1 = Math.max(...ws.map((x) => x.box.x + x.box.w));
+            const y0 = Math.min(...ws.map((x) => x.box.y)), y1 = Math.max(...ws.map((x) => x.box.y + x.box.h));
+            const pad = 18 * u, w = Math.min(x1 - x0 + pad * 2, W - 30 * u), h = (y1 - y0) * 0.94, rot = [-1.2, 1, -0.8][k];
+            const o = riso(back, (x0 + x1) / 2, (y0 + y1) / 2, w, h, [w, h], (g, p) => {
+              sv(g, "rect", { x: 0, y: 0, width: w, height: h, rx: 14 * u, fill: "none", stroke: p.main ? C.yellow : p.line, "stroke-width": 8 * u, "stroke-dasharray": `${60 * u} ${8 * u}` });
+            });
+            const acc = ws.find((x) => x.acc) || ws[ws.length - 1];
+            gsap.set(o.wrap, { autoAlpha: 0, rotation: rot });
+            tl.fromTo(o.wrap, { autoAlpha: 0, scale: 1.6 }, { autoAlpha: 1, scale: 1, duration: 0.09, ease: "power4.in" }, acc.w.t - 0.02);
+            shakes.push({ t: acc.w.t + 0.07, amp: 14, decay: 0.07, rot: 0.6 });
+            exitWith(b, [o.wrap]);
+          });
+        }
+
+        // ── B5 "You sustain those who stumble. / You uphold them when they fall." ──
+        {
+          const b = blocks[5], st = A(11, "stumble"), up = A(12, "uphold");
+          gsap.set(st.outer, { transformOrigin: "10% 100%" });
+          tl.to(st.outer, { keyframes: [{ rotation: 14, y: st.box.h * 0.1, duration: 0.1, ease: "power2.in" }, { rotation: -4, y: 0, duration: 0.12, ease: "power2.out" }, { rotation: 0, duration: 0.12 }] }, st.w.t + 0.08);
+          // a yellow bracket slides under the second line and holds it up
+          const Ln = b.Ls[1], ws = Ln.words.filter(Boolean);
+          const x0 = Math.max(M, Math.min(...ws.map((x) => x.box.x)) - 20 * u), x1 = Math.min(W - M, Math.max(...ws.map((x) => x.box.x + x.box.w)) + 20 * u), yb = Math.max(...ws.map((x) => x.box.y + x.box.h));
+          const bw = x1 - x0, bh = 46 * u;
+          const br = riso(front, (x0 + x1) / 2, yb + bh / 2 + 6 * u, bw, bh, [bw, bh], (g, p) => ({ d: path(g, `M4 4 L4 ${bh - 6} L${bw - 4} ${bh - 6} L${bw - 4} 4`, p, null, { stroke: p.main ? C.yellow : p.line, "stroke-width": 10 * u }) }), { sw: 10 });
+          br.both((r) => drawOn(r.d, up.w.t - 0.05, 0.22));
+          tl.fromTo(br.inner, { y: 30 * u }, { y: 0, duration: 0.25, ease: "back.out(3)" }, up.w.t - 0.05);
+          exitWith(b, [br.wrap]);
+        }
+
+        // ── B6 "So I'm putting it in the rhythm, / Putting it in the rhyme," : a step sequencer lights up on the eighths ──
+        {
+          const b = blocks[6], t0 = b.t0;
+          const bd = bandBelow(b), cols = 16, rows = 4;
+          const gw = Math.min(W * (P ? 0.9 : 0.8), 1500 * u), cell = gw / cols, gh = cell * rows;
+          const sc = Math.min(1, ((bd.y1 - bd.y0) * 0.85) / gh);
+          const gcy = bd.y0 + (bd.y1 - bd.y0) * 0.5;
+          const pat = [(c) => c % 4 === 0, (c) => c % 8 === 4, (c) => c % 2 === 0, (c) => [3, 6, 11, 14].includes(c)];
+          const ROWC = [C.pink, C.yellow, C.teal, C.orange];
+          const grid = riso(front, W / 2, gcy, gw, gh, [gw, gh], (g, p) => {
+            const lit = [];
+            for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+              const x = c * cell + cell * 0.1, y = r * cell + cell * 0.1, s = cell * 0.8;
+              sv(g, "rect", { x, y, width: s, height: s, rx: s * 0.18, fill: "none", stroke: p.line, "stroke-width": 4 * u, opacity: c % 4 === 0 ? 1 : 0.6 });
+              if (pat[r](c)) lit.push({ c, e: sv(g, "rect", { x: x + 5 * u, y: y + 5 * u, width: s - 10 * u, height: s - 10 * u, rx: s * 0.14, fill: p.main ? ROWC[r] : p.line, opacity: 0 }) });
+            }
+            const head = sv(g, "rect", { x: 0, y: -cell * 0.12, width: cell, height: gh + cell * 0.24, rx: 10 * u, fill: "none", stroke: p.main ? C.yellow : p.line, "stroke-width": 7 * u });
+            return { lit, head };
+          });
+          gsap.set(grid.wrap, { scale: sc });
+          gsap.set(grid.wrap, { autoAlpha: 0 });
+          tl.fromTo(grid.wrap, { autoAlpha: 0, y: 40 * u }, { autoAlpha: 1, y: 0, duration: 0.2, ease: "back.out(2)" }, t0 - 0.12);
+          const step = 0.42857 / 2, beat0 = S.beats.find((x) => x >= t0 - 0.12) ?? t0;
+          K.drive((t) => {
+            const k = Math.floor((t - beat0) / step), c = ((k % cols) + cols) % cols, dt = t - beat0 - k * step;
+            grid.both((r) => {
+              r.head.setAttribute("transform", `translate(${(c * cell).toFixed(1)} 0)`);
+              r.lit.forEach((x) => { const age = ((c - x.c + cols) % cols) * step + dt; x.e.setAttribute("opacity", (t < beat0 || k < x.c ? 0 : Math.max(0.25, Math.exp(-age / 0.35))).toFixed(3)); });
+            });
+          });
+          shakes.push({ t: A(13, "rhythm").w.t + 0.05, amp: 12, decay: 0.08 }, { t: A(14, "rhyme").w.t + 0.05, amp: 12, decay: 0.08 });
+          exitWith(b, [grid.wrap]);
+        }
+
+        // ── B7 "Not just for this moment, / For all generations in time." : a clock spins faster and faster into the bridge ──
+        {
+          const b = blocks[7], mom = A(15, "moment"), gen = L(16).t;
+          const ab = bandAbove(b), cs = Math.min((ab.y1 - ab.y0) * 0.92, 420 * u);
+          const clk = riso(back, W / 2, ab.y0 + (ab.y1 - ab.y0) / 2, cs, cs, [200, 200], (g, p) => {
+            sv(g, "circle", { cx: 100, cy: 100, r: 92, fill: p.main ? C.royal : p.line, stroke: p.line, "stroke-width": p.sw });
+            const ticks = [];
+            for (let i = 0; i < 12; i++) { const a = (i * Math.PI) / 6; ticks.push(path(g, `M${100 + Math.cos(a) * 70} ${100 + Math.sin(a) * 70} L${100 + Math.cos(a) * 82} ${100 + Math.sin(a) * 82}`, p, null, { "stroke-width": p.sw * (i % 3 ? 0.6 : 1) })); }
+            const hr = path(g, "M100 100 L100 56", p, null, { "stroke-width": p.sw * 1.3 });
+            const mn = path(g, "M100 100 L100 28", p, null, { stroke: p.main ? C.yellow : p.line, "stroke-width": p.sw });
+            sv(g, "circle", { cx: 100, cy: 100, r: 8, fill: p.main ? C.pink : p.line });
+            return { ticks, hr, mn };
+          }, { sw: 8 });
+          pop(clk.wrap, b.t0 - 0.12, { r0: -30 });
+          // "this moment": one tick lights
+          clk.both((r, sh) => { if (!sh) tl.to(r.ticks[9], { attr: { stroke: C.yellow, "stroke-width": 16 }, duration: 0.05 }, mom.w.t); });
+          K.drive((t) => {
+            const bi = K.lastBefore(S.beats, t), tick = Math.max(0, bi) * 30;
+            const sp = t > gen ? 360 * 2.2 * Math.pow(t - gen, 2) : 0;
+            clk.both((r) => { r.mn.setAttribute("transform", `rotate(${(tick + sp).toFixed(1)} 100 100)`); r.hr.setAttribute("transform", `rotate(${(tick / 12 + sp / 12).toFixed(1)} 100 100)`); });
+          });
+          // into the bridge: the clock rushes at the camera on the last word
+          const tz = A(16, "time").w.t + 0.1;
+          tl.to(clk.inner, { scale: 5, autoAlpha: 0, duration: Math.max(0.2, S.dur - tz - 0.02), ease: "power3.in" }, tz);
+          shakes.push({ t: A(16, "generations").w.t + 0.05, amp: 14, decay: 0.12, rot: 0.8 });
+        }
+
+        K.pulser(K.pulse, { shakes, down: 0.022, beat: 0.008 });
+        K.camera({ z0: 1, z1: 1.07, sway: 0.5 });
+        window.__timelines[S.id] = K.done();
+      });
+    })();
+  </script>
+</template>

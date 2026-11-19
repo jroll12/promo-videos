@@ -357,6 +357,8 @@ function makeKit(S, stage) {
       const SPARK = "M50 4 Q56 44 96 50 Q56 56 50 96 Q44 56 4 50 Q44 44 50 4Z";
       const sparkle = (parent, cx, cy, s, fill) => riso(parent, cx, cy, s, s, [100, 100], (g, p) => { path(g, SPARK, p, p[fill || "f2"]); }, { off: 5 });
 
+      // stroke draw-on that stays hidden until it starts (a round cap would otherwise show as a dot)
+      const drawOn = (e, t, d, ease) => { gsap.set(e, { autoAlpha: 0 }); tl.to(e, { autoAlpha: 1, duration: 0.01 }, t); K.draw(e, t, d, ease); };
       // ── lyrics ─────────────────────────────────────────────────────
       const ACC = {
         0: { king: "k-wide v1-a" },
@@ -410,7 +412,7 @@ function makeKit(S, stage) {
             gems: [[14, 42], [100, 12], [186, 42], [100, 116]].map(([x, y]) => sv(g, "circle", { cx: x, cy: y, r: 11, fill: p.f1, stroke: p.line, "stroke-width": p.sw * 0.8 })),
           }), { origin: "50% 100%" });
           crown.both((r) => {
-            K.draw(r.line, L(0).w[7].t - 0.1, 0.45);
+            drawOn(r.line, L(0).w[7].t - 0.1, 0.45);
             gsap.set([r.fill, ...r.gems], { autoAlpha: 0 });
             tl.to(r.fill, { autoAlpha: 1, duration: 0.12 }, king.w.t);
             r.gems.forEach((gm, i) => tl.fromTo(gm, { autoAlpha: 0, attr: { r: 0 } }, { autoAlpha: 1, attr: { r: 11 }, duration: 0.2, ease: "back.out(3)" }, king.w.t + 0.05 + i * 0.06));
@@ -489,7 +491,7 @@ function makeKit(S, stage) {
             return { ln: [40, 60, 80].map((y, i) => path(g, `M38 ${y} H${[162, 140, 120][i]}`, Object.assign({}, p, { sw: p.sw * 0.8 }), null, { stroke: p.main ? C.pink : p.line })) };
           });
           pop(bub.wrap, l4.w[2].t - 0.05, { r0: 10 });
-          bub.both((r) => r.ln.forEach((x, i) => K.draw(x, l4.w[2].t + 0.08 + i * 0.08, 0.15)));
+          bub.both((r) => r.ln.forEach((x, i) => drawOn(x, l4.w[2].t + 0.08 + i * 0.08, 0.15)));
           tl.to(bub.wrap, { autoAlpha: 0, scale: 0.4, duration: 0.15, ease: "power2.in" }, l5.w[0].t);
           // "Passing down the story": a scroll travels from the big hand to the small hand
           const hbx = xb - bw / 2 + (118 / 120) * bw, hby = foot - hb + (150 / 220) * hb;
@@ -512,7 +514,7 @@ function makeKit(S, stage) {
           const thr = riso(back, W / 2, H / 2, W, H, [W, H], (g, p) => ({
             d: path(g, `M${hbx} ${hby} C${lerp(hbx, hsx, 0.3)} ${hby + sag * 2.2} ${lerp(hbx, hsx, 0.55)} ${hsy - sag} ${lerp(hbx, hsx, 0.75)} ${hsy + sag} S${hsx - 10 * u} ${hsy + sag * 0.6} ${hsx} ${hsy}`, p, null, { stroke: p.main ? C.blue : C.pink, "stroke-width": p.sw * 0.8 }),
           }), { off: 5 });
-          thr.both((r) => K.draw(r.d, l5.w[4].t, 0.9, "power1.inOut"));
+          thr.both((r) => drawOn(r.d, l5.w[4].t, 0.9, "power1.inOut"));
           exitWith(b, [big.wrap, small.wrap, scroll.wrap, thr.wrap]);
         }
 
@@ -530,7 +532,7 @@ function makeKit(S, stage) {
             }
             return { out };
           }, { origin: up ? "50% 100%" : "50% 0%" });
-          rays.both((r) => r.out.forEach((x, i) => K.draw(x, glory.w.t + Math.abs(i - 4) * 0.03, 0.3)));
+          rays.both((r) => r.out.forEach((x, i) => drawOn(x, glory.w.t + Math.abs(i - 4) * 0.03, 0.3)));
           K.drive((t) => gsap.set(rays.inner, { scale: 1 + 0.06 * Math.max(0, Math.sin((t - glory.w.t) * Math.PI / 0.4286)) }));
           // the bolt strikes beside the rays (same band), on whichever side has room
           let bq = placeV(power, 150 * u, 250 * u, "auto", { gap: 6 * u });
