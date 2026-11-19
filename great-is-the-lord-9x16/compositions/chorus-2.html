@@ -26,6 +26,7 @@
     #chorus-2-stage .ch-great { position: absolute; left: 0; width: 100%; text-align: center; }
     #chorus-2-stage .ch-row { display: block; white-space: nowrap; line-height: 0.86; }
     #chorus-2-stage .ch-big { font-family: "GL Archivo"; font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.035em; text-shadow: 0.03em 0.03em 0 var(--mis); }
+    #chorus-2-stage.ch-p .ch-big { font-stretch: 100%; }
     #chorus-2-stage .ch-small { font-family: "GL Archivo"; font-weight: 800; font-stretch: 100%; text-transform: uppercase; letter-spacing: 0.16em; line-height: 1.25; }
     #chorus-2-stage .ch-echo { position: absolute; left: 0; width: 100%; text-align: center; color: transparent; -webkit-text-stroke: 3px #17142B; pointer-events: none; }
     #chorus-2-stage .ch-echo .ch-big { text-shadow: none; }
@@ -308,7 +309,8 @@ function makeKit(S, stage) {
       const stage = document.getElementById(S.id + "-stage");
       const K = makeKit(S, stage);
       const { W, H, tl, el, measure, layer } = K;
-      K.font("ch-big", { fam: "GL Archivo", w: 900, st: "expanded", ls: -0.035, up: true });
+      K.font("ch-big", { fam: "GL Archivo", w: 900, st: K.portrait ? "normal" : "expanded", ls: -0.035, up: true });
+      if (K.portrait) stage.classList.add("ch-p");
       K.font("ch-small", { fam: "GL Archivo", w: 800, st: "normal", ls: 0.16, up: true });
       K.font("ch-sa", { fam: "GL Archivo", w: 800, st: "semi-condensed", ls: 0.04, up: true });
       if (S.variant === 3) stage.style.setProperty("--mis", "#765BA7");
@@ -328,7 +330,7 @@ function makeKit(S, stage) {
           const rowsTxt = [[w[0]], [w[1], w[2]], [w[3]]];
           const wide = (txt) => measure(txt, "ch-big", 100);
           let big = Math.min((100 * maxW) / wide("GREAT"), (100 * maxW) / wide("LORD!"));
-          big = Math.min(big, H * (K.portrait ? 0.2 : 0.34));
+          big = Math.min(big, H * (K.portrait ? 0.19 : 0.34));
           const small = big * 0.3;
           const spans = [];
           rowsTxt.forEach((r, ri) => {

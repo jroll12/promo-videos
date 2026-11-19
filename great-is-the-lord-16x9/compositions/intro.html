@@ -22,8 +22,23 @@
 .k-label { font-family: "GL Archivo"; font-weight: 700; font-stretch: 112.5%; letter-spacing: 0.3em; text-transform: uppercase; }
 </style>
   <style>
-    #intro-stage { position: absolute; inset: 0; color: var(--ink, #17142B); }
-    #intro-stage .k-hl { color: var(--hl, #FF48B0); }
+    #intro-stage { position: absolute; inset: 0; color: #F4EEDF; }
+    #intro-stage .in-fill { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #intro-stage .in-full { position: absolute; left: 0; width: 100%; text-align: center; }
+    #intro-stage .in-row { display: block; white-space: nowrap; line-height: 0.86; }
+    #intro-stage .in-big { font-family: "GL Archivo"; font-weight: 900; font-stretch: 125%; letter-spacing: -0.035em; text-transform: uppercase; }
+    #intro-stage .in-mis { text-shadow: 0.035em 0.03em 0 #FF48B0, -0.018em -0.014em 0 rgba(0, 120, 191, 0.9); }
+    #intro-stage .in-mid { font-family: "GL Archivo"; font-weight: 800; font-stretch: 100%; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1.25; }
+    #intro-stage .in-lab { font-family: "GL Archivo"; font-weight: 800; font-stretch: 112.5%; letter-spacing: 0.32em; text-transform: uppercase; }
+    #intro-stage .in-pill { display: inline-block; background: #FFE14D; color: #17142B; padding: 0.3em 0.5em 0.3em 0.82em; border-radius: 999px; box-shadow: 0.14em 0.14em 0 #FF48B0; line-height: 1; white-space: nowrap; }
+    #intro-stage .in-echo { position: absolute; left: 0; width: 100%; text-align: center; color: transparent; -webkit-text-stroke: 3px #FF48B0; text-shadow: none; }
+    #intro-stage .in-echo.b { -webkit-text-stroke-color: #4FD1C5; }
+    #intro-stage .in-word { position: absolute; white-space: nowrap; line-height: 0.86; }
+    #intro-stage .in-word .k-wi { transform-origin: 50% 60%; }
+    #intro-stage .in-pink .k-wi { color: #FF48B0; text-shadow: 0.035em 0.03em 0 #0078BF; }
+    #intro-stage .in-soft { font-family: "GL Serif"; font-style: italic; font-weight: 400; line-height: 1; color: #FFE14D; }
+    #intro-stage .in-badge { position: absolute; transform-origin: 50% 50%; }
+    #intro-stage .in-badge > div { position: absolute; inset: 0; transform-origin: 50% 50%; }
   </style>
   <div id="root" data-composition-id="intro" data-width="1920" data-height="1080">
     <div id="intro-stage" class="k-stage" data-layout-allow-overlap></div>
@@ -295,12 +310,243 @@ function makeKit(S, stage) {
 
       const stage = document.getElementById(S.id + "-stage");
       const K = makeKit(S, stage);
-      const dark = ["intro", "pre-chorus", "verse-2", "verse-3", "bridge"].includes(S.id);
-      stage.style.setProperty("--ink", dark ? "#F4EEDF" : "#17142B");
+      const { W, H, tl, el, measure, layer, portrait, sv } = K;
+      K.font("in-big", { fam: "GL Archivo", w: 900, st: "expanded", ls: -0.035, up: true });
+      K.font("in-mid", { fam: "GL Archivo", w: 800, st: "normal", ls: 0.16, up: true });
+      K.font("in-lab", { fam: "GL Archivo", w: 800, st: "semi-expanded", ls: 0.32, up: true });
+      K.font("in-soft", { fam: "GL Serif", w: 400, st: "normal", ls: 0, it: true, up: false });
+      const C = S.C, MIN = Math.min(W, H);
+
       K.ready.then(() => {
-        K.verse({});
-        K.pulser(K.pulse, {});
-        K.camera({});
+        const L = S.lines;
+        const shakes = [];
+        const fitBig = (txts, maxW, cap) => Math.min(...txts.map((x) => (100 * maxW) / measure(x, "in-big", 100)), cap);
+        const fill = (parent) => el("div", "in-fill", parent || layer);
+
+        // GREAT / is the / LORD stack (rows centred), returns spans + geometry
+        function stack(parent, ws, big, cy) {
+          const box = el("div", "in-full", parent);
+          const small = big * 0.3, spans = [];
+          let rowW = 0;
+          [[0], [1, 2], [3]].forEach((r, ri) => {
+            const isBig = ri !== 1;
+            const row = el("div", "in-row " + (isBig ? "in-big in-mis" : "in-mid"), box);
+            row.style.fontSize = (isBig ? big : small) + "px";
+            row.style.height = (isBig ? big * 0.86 : small * 1.25) + "px";
+            r.forEach((i, j) => {
+              if (j) el("span", "k-sp", row);
+              const o = el("span", "k-w", row);
+              spans.push({ e: el("span", "k-wi", o, ws[i].w), w: ws[i], big: isBig });
+            });
+            rowW = Math.max(rowW, measure(r.map((i) => ws[i].w).join(" "), isBig ? "in-big" : "in-mid", isBig ? big : small));
+          });
+          const h = big * 0.86 * 2 + small * 1.25, top = cy - h / 2;
+          box.style.top = top + "px";
+          return { box, spans, h, top, rowW, big };
+        }
+        function pill(parent, y, px) {
+          const wr = el("div", "in-full", parent);
+          wr.style.top = y + "px";
+          const p = el("span", "in-pill in-lab", wr, "PSALM 145");
+          p.style.fontSize = px + "px";
+          return { wr, p, h: px * 1.6 };
+        }
+        // riso stamp: yellow starburst, misregistered pink plate, ink crown
+        function badge(parent, cx, cy, r) {
+          const b = el("div", "in-badge", parent);
+          Object.assign(b.style, { left: cx - r + "px", top: cy - r + "px", width: 2 * r + "px", height: 2 * r + "px" });
+          const spin = el("div", "", b);
+          const s = K.svg(spin, 200, 200);
+          s.setAttribute("width", 2 * r); s.setAttribute("height", 2 * r);
+          const pts = (dx, dy) => { const a = []; for (let i = 0; i < 40; i++) { const rr = i % 2 ? 80 : 98, an = (i / 40) * Math.PI * 2; a.push((100 + dx + rr * Math.cos(an)).toFixed(1) + "," + (100 + dy + rr * Math.sin(an)).toFixed(1)); } return a.join(" "); };
+          sv(s, "polygon", { points: pts(7, 6), fill: C.pink });
+          sv(s, "polygon", { points: pts(0, 0), fill: C.yellow });
+          sv(s, "circle", { cx: 100, cy: 100, r: 64, fill: "none", stroke: C.ink, "stroke-width": 4, "stroke-dasharray": "3 7" });
+          sv(s, "path", { d: "M52 128 L44 70 L74 96 L100 58 L126 96 L156 70 L148 128 Z", fill: C.ink });
+          sv(s, "rect", { x: 52, y: 136, width: 96, height: 12, rx: 3, fill: C.ink });
+          [[44, 66], [100, 52], [156, 66]].forEach(([x, y]) => sv(s, "circle", { cx: x, cy: y, r: 7, fill: C.ink }));
+          return { b, spin };
+        }
+
+        // ── 0. title lockup (frame 0 = thumbnail) ────────────────────────────
+        const lw = L[3].w;
+        const lock = fill();
+        const lbig = fitBig(["GREAT", "LORD"], W * (portrait ? 0.8 : 0.58), H * (portrait ? 0.14 : 0.27));
+        const lst = stack(lock, lw, lbig, H * (portrait ? 0.48 : 0.45));
+        const lpx = lbig * 0.2;
+        pill(lock, lst.top + lst.h + lbig * 0.16, lpx);
+        const lr = portrait ? W * 0.17 : H * 0.15;
+        const lb = portrait ? badge(lock, W * 0.74, lst.top - lr * 1.05, lr) : badge(lock, Math.min(W / 2 + lst.rowW / 2 + lr * 1.0, W - lr - 40), lst.top + lr * 0.25, lr);
+        gsap.set(lb.b, { rotation: -12 });
+        const t0 = L[0].t;
+        tl.to(lock, { scale: 1.45, autoAlpha: 0, filter: "blur(12px)", duration: 0.16, ease: "power2.in" }, Math.max(0.02, t0 - 0.1));
+
+        // ── 1. "Yeah" pops big, echo rings ride the beat through the gap ─────
+        const yw = L[0].w[0];
+        const ysz = fitBig(["YEAH"], W * (portrait ? 0.72 : 0.6), H * (portrait ? 0.2 : 0.42));
+        const yWrap = fill();
+        const ybox = el("div", "in-full", yWrap);
+        const yrow = el("div", "in-row in-big in-mis", ybox);
+        yrow.style.fontSize = ysz + "px"; yrow.style.height = ysz * 0.86 + "px";
+        ybox.style.top = H * 0.5 - ysz * 0.43 + "px";
+        const ye = el("span", "k-wi", el("span", "k-w", yrow), yw.w);
+        gsap.set(ye, { autoAlpha: 0 });
+        K.POPS.big(ye, yw.t);
+        shakes.push({ t: yw.t + 0.05, amp: 22, decay: 0.12, rot: 1 });
+        const yOut = L[1].t - 0.14;
+        S.beats.filter((b) => b > yw.t + 0.3 && b < yOut - 0.3).forEach((b, k) => {
+          const ec = el("div", "in-echo in-big" + (k % 2 ? " b" : ""), yWrap);
+          ec.style.top = ybox.style.top; ec.style.fontSize = ysz + "px"; ec.style.lineHeight = 0.86;
+          ec.textContent = yw.w;
+          yWrap.insertBefore(ec, ybox);
+          gsap.set(ec, { autoAlpha: 0 });
+          tl.to(ec, { keyframes: [{ autoAlpha: 0.9, scale: 1, duration: 0.01 }, { autoAlpha: 0, scale: 1.55, duration: 0.85, ease: "power2.out" }] }, b);
+        });
+        tl.fromTo(ybox, { scale: 1 }, { scale: 1.1, duration: yOut - yw.t - 0.3, ease: "sine.inOut" }, yw.t + 0.3);
+        tl.to(yWrap, { autoAlpha: 0, scale: 0.6, y: H * 0.04, filter: "blur(8px)", duration: 0.14, ease: "power3.in" }, yOut);
+
+        // ── 2. "Generation to generation": the word is handed down a row ──────
+        const gl = L[1], [g1, gto, g2] = gl.w;
+        const gsz = fitBig(["GENERATION"], W * (portrait ? 0.86 : 0.58), H * (portrait ? 0.09 : 0.19));
+        const gWrap = fill();
+        const gw = measure("GENERATION", "in-big", gsz);
+        const P1 = portrait ? [W * 0.47, H * 0.38] : [W * 0.41, H * 0.31];
+        const P2 = portrait ? [W * 0.53, H * 0.62] : [W * 0.59, H * 0.71];
+        function word(parent, w, cx, cy, sz, cls) {
+          const d = el("div", "in-word in-big in-mis " + (cls || ""), parent);
+          Object.assign(d.style, { left: cx - gw / 2 + "px", top: cy - sz * 0.43 + "px", fontSize: sz + "px", width: gw + "px", textAlign: "center" });
+          const o = el("span", "k-w", d);
+          return { d, e: el("span", "k-wi", o, w.w) };
+        }
+        const r1 = word(gWrap, g1, P1[0], P1[1], gsz);
+        gsap.set(r1.e, { autoAlpha: 0 });
+        K.POPS.slam(r1.e, g1.t);
+        shakes.push({ t: g1.t + 0.04, amp: 14, decay: 0.1 });
+        // the hand-off arrow, with a baton dot travelling down it
+        const ga = K.svg(gWrap, W, H); ga.style.left = "0px"; ga.style.top = "0px";
+        const ay0 = P1[1] + gsz * 0.5 + MIN * 0.03, ay1 = P2[1] - gsz * 0.5 - MIN * 0.035;
+        const ax0 = portrait ? W * 0.22 : W * 0.2, ax1 = portrait ? W * 0.3 : W * 0.33, cxA = portrait ? W * 0.06 : W * 0.12, cyA = (ay0 + ay1) / 2 + MIN * 0.02;
+        const arrow = sv(ga, "path", { d: `M${ax0} ${ay0} Q${cxA} ${cyA} ${ax1} ${ay1}`, fill: "none", stroke: C.yellow, "stroke-width": MIN * 0.012, "stroke-linecap": "round" });
+        const ang = Math.atan2(ay1 - cyA, ax1 - cxA), hl = MIN * 0.04;
+        const head = sv(ga, "path", { d: `M${ax1 - hl * Math.cos(ang - 0.5)} ${ay1 - hl * Math.sin(ang - 0.5)} L${ax1} ${ay1} L${ax1 - hl * Math.cos(ang + 0.5)} ${ay1 - hl * Math.sin(ang + 0.5)}`, fill: "none", stroke: C.yellow, "stroke-width": MIN * 0.012, "stroke-linecap": "round", "stroke-linejoin": "round" });
+        K.draw(arrow, gto.t - 0.02, 0.24, "power2.inOut");
+        gsap.set(head, { autoAlpha: 0 });
+        tl.to(head, { autoAlpha: 1, duration: 0.04 }, gto.t + 0.2);
+        const dot = sv(ga, "circle", { cx: 0, cy: 0, r: MIN * 0.022, fill: C.pink });
+        gsap.set(dot, { autoAlpha: 0 });
+        K.drive((t) => {
+          const p = K.clamp((t - gto.t) / 0.26, 0, 1), q = 1 - p;
+          const x = q * q * ax0 + 2 * q * p * cxA + p * p * ax1, y = q * q * ay0 + 2 * q * p * cyA + p * p * ay1;
+          gsap.set(dot, { attr: { cx: x, cy: y }, autoAlpha: t > gto.t && t < g2.t + 0.12 ? 1 : 0 });
+        });
+        // "to" in the serif beside the arrow
+        const tsz = gsz * (portrait ? 0.95 : 0.9);
+        const tod = el("div", "in-word in-soft", gWrap);
+        Object.assign(tod.style, { left: (portrait ? W * 0.5 : W * 0.5) - tsz * 0.5 + "px", top: (ay0 + ay1) / 2 - tsz * 0.55 + "px", fontSize: tsz + "px", width: tsz + "px", textAlign: "center", lineHeight: 1 });
+        const toe = el("span", "k-wi", el("span", "k-w", tod), gto.w);
+        gsap.set(toe, { autoAlpha: 0 });
+        K.POPS.pop(toe, gto.t);
+        // second "generation": a pink riso copy peels off the first row and drops into place
+        const r2 = word(gWrap, g2, P2[0], P2[1], gsz, "in-pink");
+        gsap.set(r2.d, { autoAlpha: 0, x: P1[0] - P2[0], y: P1[1] - P2[1] });
+        tl.to(r2.d, { keyframes: [{ autoAlpha: 1, duration: 0.01 }, { x: 0, y: 0, duration: 0.3, ease: "power3.out" }] }, g2.t - 0.04);
+        tl.to(r2.e, { color: C.paper, textShadow: "0.035em 0.03em 0 #FF48B0", duration: 0.25, ease: "power1.out" }, g2.t + 0.3);
+        tl.to(r1.d, { opacity: 0.55, duration: 0.2 }, g2.t + 0.1);
+        shakes.push({ t: g2.t + 0.26, amp: 16, decay: 0.1, rot: 0.6 });
+        tl.to(gWrap, { autoAlpha: 0, y: -H * 0.05, filter: "blur(8px)", duration: 0.14, ease: "power3.in" }, L[2].t - 0.14);
+
+        // ── 3. "Tell 'em": megaphone + shout burst lines ─────────────────────
+        const [tw1, tw2] = L[2].w;
+        const tTxt = tw1.w + " " + tw2.w;
+        const tsz2 = fitBig([tTxt], W * (portrait ? 0.74 : 0.56), H * (portrait ? 0.14 : 0.3));
+        const tWidth = measure(tTxt, "in-big", tsz2), tH = tsz2 * 0.86;
+        const TC = portrait ? [W * 0.5, H * 0.58] : [W * 0.58, H * 0.5];
+        const tWrap = fill();
+        const trow = el("div", "in-word in-big in-mis", tWrap);
+        Object.assign(trow.style, { left: TC[0] - tWidth / 2 + "px", top: TC[1] - tH / 2 + "px", fontSize: tsz2 + "px" });
+        const te1 = el("span", "k-wi", el("span", "k-w", trow), tw1.w);
+        el("span", "k-sp", trow);
+        const te2 = el("span", "k-wi", el("span", "k-w", trow), tw2.w);
+        [te1, te2].forEach((e) => gsap.set(e, { autoAlpha: 0 }));
+        K.POPS.slam(te1, tw1.t);
+        K.POPS.slam(te2, tw2.t);
+        shakes.push({ t: tw1.t + 0.04, amp: 18, decay: 0.1, rot: 0.8 }, { t: tw2.t + 0.04, amp: 26, decay: 0.12, rot: 1.2 });
+        // megaphone (points at the words)
+        const mS = portrait ? W * 0.36 : H * 0.36;
+        const MC = portrait ? [W * 0.3, TC[1] - tH / 2 - mS * 0.5] : [TC[0] - tWidth / 2 - mS * 0.62, H * 0.5];
+        const mg = el("div", "in-badge", tWrap);
+        Object.assign(mg.style, { left: MC[0] - mS / 2 + "px", top: MC[1] - mS / 2 + "px", width: mS + "px", height: mS + "px" });
+        const mgi = el("div", "", mg);
+        const ms = K.svg(mgi, 100, 100); ms.setAttribute("width", mS); ms.setAttribute("height", mS);
+        const mega = (dx, dy, c) => { sv(ms, "path", { d: `M${10 + dx} ${40 + dy} L${10 + dx} ${60 + dy} L${26 + dx} ${60 + dy} L${74 + dx} ${86 + dy} L${74 + dx} ${14 + dy} L${26 + dx} ${40 + dy} Z`, fill: c }); sv(ms, "path", { d: `M${30 + dx} ${60 + dy} L${36 + dx} ${80 + dy} L${46 + dx} ${80 + dy} L${42 + dx} ${62 + dy} Z`, fill: c }); };
+        mega(3, 3, C.pink); mega(0, 0, C.yellow);
+        sv(ms, "rect", { x: 70, y: 12, width: 8, height: 76, rx: 2, fill: C.paper });
+        const arcs = [0, 1, 2].map((k) => sv(ms, "path", { d: `M${84 + k * 8} ${36 - k * 6} Q${92 + k * 10} 50 ${84 + k * 8} ${64 + k * 6}`, fill: "none", stroke: C.yellow, "stroke-width": 4, "stroke-linecap": "round" }));
+        gsap.set(mg, { rotation: portrait ? 50 : 0 });
+        gsap.set(mgi, { autoAlpha: 0 });
+        tl.fromTo(mgi, { autoAlpha: 0, scale: 0.3, rotation: -30 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.2, ease: "back.out(2.6)" }, tw1.t - 0.06);
+        arcs.forEach((a, k) => { K.draw(a, tw1.t + 0.04 * k, 0.12); });
+        K.drive((t) => { const k = K.lastBefore([tw1.t, tw2.t], t); const dt = k < 0 ? 9 : t - [tw1.t, tw2.t][k]; gsap.set(ms, { scale: 1 + 0.12 * Math.exp(-dt / 0.09) }); });
+        // burst lines around the words, skipping the megaphone side
+        const bs = K.svg(tWrap, W, H); bs.style.left = "0px"; bs.style.top = "0px";
+        const erx = tWidth / 2 + MIN * 0.06, ery = tH / 2 + MIN * 0.07;
+        [[tw1.t, 14, 0.07, C.yellow, 0], [tw2.t, 14, 0.12, C.pink, 0.5]].forEach(([t, n, len, col, off]) => {
+          const grp = sv(bs, "g", {});
+          for (let i = 0; i < n; i++) {
+            const a = ((i + off) / n) * Math.PI * 2;
+            const dirMega = portrait ? -Math.PI * 0.62 : Math.PI;
+            if (Math.abs(Math.atan2(Math.sin(a - dirMega), Math.cos(a - dirMega))) < 0.55) continue;
+            const ca = Math.cos(a), sa = Math.sin(a);
+            const x0 = TC[0] + ca * erx, y0 = TC[1] + sa * ery;
+            const L1 = MIN * (len + 0.03 * ((i * 7) % 3));
+            const ln = sv(grp, "line", { x1: x0, y1: y0, x2: x0 + ca * L1, y2: y0 + sa * L1, stroke: col, "stroke-width": MIN * 0.011, "stroke-linecap": "round" });
+            K.draw(ln, t, 0.14, "power3.out");
+          }
+          tl.to(grp, { autoAlpha: 0.35, duration: 0.4, ease: "power1.out" }, t + 0.35);
+        });
+        tl.to(tWrap, { autoAlpha: 0, scale: 1.25, filter: "blur(10px)", duration: 0.12, ease: "power3.in" }, L[3].t - 0.12);
+
+        // ── 4. "Great is the LORD": title slam, label, badge, push-in into verse 1 ──
+        const fl = L[3];
+        const fbig = fitBig(["GREAT", "LORD"], W * (portrait ? 0.86 : 0.6), H * (portrait ? 0.15 : 0.28));
+        const fWrap = fill();
+        const fst = stack(fWrap, fl.w, fbig, H * (portrait ? 0.47 : 0.44));
+        fst.spans.forEach((s) => {
+          gsap.set(s.e, { autoAlpha: 0 });
+          if (s.big) { K.POPS.slam(s.e, s.w.t); shakes.push({ t: s.w.t + 0.05, amp: 22, decay: 0.1, rot: 0.9 }); }
+          else K.POPS.pop(s.e, s.w.t);
+        });
+        const tLab = fl.w[3].t + 0.24;
+        const fp = pill(fWrap, fst.top + fst.h + fbig * 0.16, fbig * 0.19);
+        gsap.set(fp.p, { autoAlpha: 0 });
+        K.POPS.rise(fp.p, tLab);
+        const fr = portrait ? W * 0.16 : H * 0.14;
+        const fb = portrait ? badge(fWrap, W * 0.76, fst.top - fr * 1.1, fr) : badge(fWrap, Math.min(W / 2 + fst.rowW / 2 + fr * 1.05, W - fr - 30), fst.top + fr * 0.3, fr);
+        gsap.set(fb.b, { autoAlpha: 0, rotation: 10 });
+        tl.to(fb.b, { keyframes: [{ autoAlpha: 1, scale: 1.8, duration: 0.01 }, { scale: 1, duration: 0.12, ease: "power4.in" }] }, tLab + 0.06);
+        shakes.push({ t: tLab + 0.18, amp: 10, decay: 0.08 });
+        // stacked-vocal echo rings on the beats inside the hold
+        S.beats.filter((b) => b > fl.w[3].t + 0.15 && b < S.dur - 0.25).forEach((b, k) => {
+          const ec = fst.box.cloneNode(true);
+          ec.className = "in-full in-echo" + (k % 2 ? " b" : "");
+          ec.querySelectorAll(".k-wi").forEach((x) => (x.style.cssText = ""));
+          ec.querySelectorAll(".in-mis").forEach((x) => x.classList.remove("in-mis"));
+          fWrap.insertBefore(ec, fst.box);
+          gsap.set(ec, { autoAlpha: 0 });
+          tl.to(ec, { keyframes: [{ autoAlpha: 0.8, scale: 1, duration: 0.01 }, { autoAlpha: 0, scale: 1.35, duration: 0.6, ease: "power2.out" }] }, b);
+        });
+
+        // badges spin slowly
+        K.drive((t) => { gsap.set(lb.spin, { rotation: t * 20 }); gsap.set(fb.spin, { rotation: (t - 6) * 26 }); });
+
+        // camera: gentle sway, then a push-in that accelerates through the hold and cuts into verse 1
+        const pushT = tLab + 0.08;
+        K.drive((t) => {
+          const p = K.clamp((t - pushT) / (S.dur - pushT), 0, 1);
+          const s = (1 + 0.012 * Math.sin(t * 0.9)) * (1 + 0.85 * Math.pow(p, 2.2));
+          gsap.set(K.cam, { scale: s, rotation: Math.sin(t * 0.45) * 0.4 - 1.5 * p * p, x: Math.sin(t * 0.3) * W * 0.003, y: Math.cos(t * 0.27) * H * 0.003 });
+        });
+        K.pulser(K.pulse, { shakes, down: 0.03, beat: 0.01 });
         window.__timelines[S.id] = K.done();
       });
     })();

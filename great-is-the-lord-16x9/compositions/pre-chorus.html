@@ -22,8 +22,18 @@
 .k-label { font-family: "GL Archivo"; font-weight: 700; font-stretch: 112.5%; letter-spacing: 0.3em; text-transform: uppercase; }
 </style>
   <style>
-    #pre-chorus-stage { position: absolute; inset: 0; color: var(--ink, #17142B); }
-    #pre-chorus-stage .k-hl { color: var(--hl, #FF48B0); }
+    #pre-chorus-stage { position: absolute; inset: 0; color: #F4EEDF; }
+    #pre-chorus-stage .pr-line { position: absolute; left: 0; top: 0; text-align: center; transform-origin: 50% 50%; }
+    #pre-chorus-stage .pr-line .k-line { position: relative; text-shadow: 0.03em 0.035em 0 #17142B; }
+    #pre-chorus-stage .pr-y { color: #FFE14D; }
+    #pre-chorus-stage .pr-line .k-wide.pr-y { text-shadow: 0.04em 0.04em 0 #FF48B0; }
+    #pre-chorus-stage .pr-line .k-soft { text-shadow: 0.03em 0.03em 0 #FF48B0; }
+    #pre-chorus-stage .pr-echo { position: absolute; white-space: nowrap; color: transparent; -webkit-text-stroke: 3px #FFE14D; text-shadow: none; line-height: 1.02; }
+    #pre-chorus-stage .pr-echo.p { -webkit-text-stroke-color: #FF48B0; }
+    #pre-chorus-stage .pr-ico { position: absolute; transform-origin: 50% 50%; }
+    #pre-chorus-stage .pr-ico > div { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #pre-chorus-stage .pr-streaks { position: absolute; inset: 0; }
+    #pre-chorus-stage .pr-iris { position: absolute; border-radius: 50%; background: #FFE14D; }
   </style>
   <div id="root" data-composition-id="pre-chorus" data-width="1920" data-height="1080">
     <div id="pre-chorus-stage" class="k-stage" data-layout-allow-overlap></div>
@@ -295,12 +305,122 @@ function makeKit(S, stage) {
 
       const stage = document.getElementById(S.id + "-stage");
       const K = makeKit(S, stage);
-      const dark = ["intro", "pre-chorus", "verse-2", "verse-3", "bridge"].includes(S.id);
-      stage.style.setProperty("--ink", dark ? "#F4EEDF" : "#17142B");
+      const { W, H, tl, el, layer, portrait, sv } = K;
+      const C = S.C, MIN = Math.min(W, H), RMAX = Math.hypot(W, H) / 2;
+
       K.ready.then(() => {
-        K.verse({});
-        K.pulser(K.pulse, {});
-        K.camera({});
+        const L = S.lines;
+        const shakes = [];
+        const acc = { 0: { power: "k-wide pr-y" }, 1: { glory: "k-soft pr-y" }, 2: { generation: "k-wide" }, 3: { story: "k-soft pr-y" } };
+        const riser = S.downs.filter((d) => d < S.dur - 1).pop() ?? S.dur - 1.77; // last bar
+        const cyN = H * (portrait ? 0.6 : 0.6);
+        const SC = [1, 0.56, 0.4, 0.3], OP = [1, 0.62, 0.4, 0.24], GAP = H * 0.03;
+
+        // build every line once at full size (rows + size from the text model)
+        const Ls = L.map((line, li) => {
+          const o = { cls: "k-type", acc, maxRows: 2, min: portrait ? 86 : 100, max: portrait ? 150 : 170, maxW: W * (li === 3 ? (portrait ? 0.72 : 0.58) : portrait ? 0.88 : 0.84) };
+          const fit = K.fitLine(line, o, li);
+          const wrap = el("div", "pr-line", layer);
+          wrap.style.width = W + "px";
+          const echoes = el("div", "", wrap);
+          const B = K.buildLine(wrap, line, li, fit.rows, fit.size, o);
+          wrap.style.height = B.h + "px";
+          K.popWords(B, "pop", "slam");
+          return Object.assign(B, { wrap, echoes, li, line, o });
+        });
+
+        // the stack: each new line lands at the bottom slot and pushes the older ones up, smaller and dimmer
+        Ls.forEach((B, n) => {
+          gsap.set(B.wrap, { y: cyN - B.h / 2 + H * 0.06 });
+          const tn = B.line.t - 0.02;
+          tl.to(B.wrap, { y: cyN - B.h / 2, duration: 0.3, ease: "back.out(1.6)" }, tn);
+          let c = cyN;
+          for (let i = n - 1; i >= 0; i--) {
+            const d = n - i, dn = d - 1, P = Ls[i], Q = Ls[i + 1];
+            c = c - (Q.h * SC[dn]) / 2 - GAP - (P.h * SC[d]) / 2;
+            tl.to(P.wrap, { y: c - P.h / 2, scale: SC[d], opacity: OP[d], duration: 0.3, ease: "back.out(1.4)" }, tn);
+          }
+        });
+        const wb = (li, w, occ) => Ls[li].words.filter((x) => x && K.norm(x.w.w) === w)[(occ || 1) - 1];
+
+        // icons hang off a word's model box, inside the line wrapper so they ride the stack
+        function icon(B, x, y, s, rot, drawFn) {
+          const d = el("div", "pr-ico", B.wrap);
+          Object.assign(d.style, { left: x - s / 2 + "px", top: y - s / 2 + "px", width: s + "px", height: s + "px" });
+          const inner = el("div", "", d);
+          const g = K.svg(inner, 100, 100); g.setAttribute("width", s); g.setAttribute("height", s);
+          drawFn(g);
+          gsap.set(d, { rotation: rot });
+          return { d, inner };
+        }
+        // "power": lightning bolts
+        const pw = wb(0, "power"), ps = Ls[0].size;
+        const bolt = (g) => { sv(g, "path", { d: "M62 2 L22 56 L48 56 L36 98 L82 38 L56 38 L70 2 Z", fill: C.pink, transform: "translate(5 4)" }); sv(g, "path", { d: "M62 2 L22 56 L48 56 L36 98 L82 38 L56 38 L70 2 Z", fill: C.yellow }); };
+        const b1 = icon(Ls[0], pw.box.x + pw.box.w + ps * 0.32, pw.box.y + ps * 0.3, ps * 0.62, 12, bolt);
+        const b2 = icon(Ls[0], pw.box.x + pw.box.w + ps * 0.62, pw.box.y + ps * 0.78, ps * 0.4, -18, bolt);
+        [b1, b2].forEach((b, k) => { gsap.set(b.inner, { autoAlpha: 0 }); K.POPS.big(b.inner, pw.w.t + 0.06 + k * 0.1); });
+        shakes.push({ t: pw.w.t + 0.05, amp: 22, decay: 0.12, rot: 1 });
+        K.drive((t) => { const f = t > pw.w.t ? 1 + 0.08 * Math.sin((t - pw.w.t) * 14.66) : 1; gsap.set(b1.inner.firstChild, { scale: f }); gsap.set(b2.inner.firstChild, { scale: 2 - f }); });
+        // "glory": twinkling four-point stars
+        const gw = wb(1, "glory"), gs = Ls[1].size;
+        const star = (c) => (g) => { sv(g, "path", { d: "M50 0 C55 40 60 45 100 50 C60 55 55 60 50 100 C45 60 40 55 0 50 C40 45 45 40 50 0Z", fill: c }); };
+        const stars = [[0.34, 0.22, 0.5, C.yellow], [0.66, 0.66, 0.34, C.paper], [0.2, 0.92, 0.26, C.pink]].map(([dx, dy, s, c], k) => {
+          const st = icon(Ls[1], gw.box.x + gw.box.w + gs * dx, gw.box.y + gs * dy, gs * s, 0, star(c));
+          gsap.set(st.inner, { autoAlpha: 0 });
+          K.POPS.big(st.inner, gw.w.t + 0.08 + k * 0.09);
+          return st;
+        });
+        K.drive((t) => stars.forEach((st, k) => gsap.set(st.inner.firstChild, { scale: 0.8 + 0.25 * Math.sin(t * 9 + k * 2.1), rotation: t * 40 * (k % 2 ? -1 : 1) })));
+        shakes.push({ t: gw.w.t + 0.05, amp: 16, decay: 0.12, rot: 0.8 });
+        // "generation ... generation": outline riso echoes stepping off each word on the eighths
+        [[1, 2, -1, "p"], [2, 3, 1, ""]].forEach(([occ, n, dir, cl]) => {
+          const x = wb(2, "generation", occ), B = Ls[2];
+          shakes.push({ t: x.w.t + 0.04, amp: 14 + 4 * occ, decay: 0.1, rot: 0.6 });
+          for (let k = 0; k < n; k++) {
+            const e = el("div", "pr-echo k-wide " + cl, B.echoes, x.w.w);
+            Object.assign(e.style, { left: x.box.x + "px", top: x.box.y + "px", fontSize: B.size + "px" });
+            gsap.set(e, { autoAlpha: 0 });
+            const t = x.w.t + 0.2 + k * 0.214;
+            tl.to(e, { keyframes: [{ autoAlpha: 0.95 - k * 0.2, duration: 0.01 }, { x: dir * (k + 1) * B.size * 0.07, y: (k + 1) * B.size * 0.09, duration: 0.16, ease: "power3.out" }] }, t);
+            tl.to(e, { autoAlpha: 0, duration: 0.2 }, L[3].t + 0.05 * k);
+          }
+        });
+
+        // riser over the last bar: speed streaks flow out from the centre, behind the type
+        const sw = el("div", "pr-streaks", null);
+        stage.insertBefore(sw, K.cam);
+        const ss = K.svg(sw, W, H); ss.style.left = "0px"; ss.style.top = "0px";
+        const rr = K.rng(77), streaks = [];
+        for (let i = 0; streaks.length < 34 && i < 200; i++) {
+          const a = rr() * Math.PI * 2;
+          if (Math.abs(Math.sin(a)) < (portrait ? 0.35 : 0.5)) continue;
+          streaks.push({ a, ph: rr(), sp: 0.8 + rr() * 0.9, e: sv(ss, "line", { x1: 0, y1: 0, x2: 0, y2: 0, stroke: i % 3 ? C.paper : C.yellow, "stroke-width": MIN * (0.005 + rr() * 0.006), "stroke-linecap": "round" }) });
+        }
+        const R0 = Math.max(W, H) * 0.27;
+        K.drive((t) => {
+          const p = K.clamp((t - riser) / (S.dur - riser), 0, 1);
+          streaks.forEach((s) => {
+            if (p <= 0) { gsap.set(s.e, { autoAlpha: 0 }); return; }
+            const u = (s.ph + (t - riser) * s.sp * (1 + 1.6 * p)) % 1;
+            const r0 = R0 + u * (RMAX - R0), len = RMAX * (0.04 + 0.3 * p * p);
+            const ca = Math.cos(s.a), sa = Math.sin(s.a);
+            gsap.set(s.e, { autoAlpha: 0.35 + 0.55 * p, attr: { x1: W / 2 + ca * r0, y1: H / 2 + sa * r0, x2: W / 2 + ca * (r0 + len), y2: H / 2 + sa * (r0 + len) } });
+          });
+        });
+        // the riser ends in a yellow iris: the chorus opens on a yellow flood
+        const ir = RMAX + 20, iris = el("div", "pr-iris", stage);
+        Object.assign(iris.style, { left: W / 2 - ir + "px", top: H / 2 - ir + "px", width: 2 * ir + "px", height: 2 * ir + "px" });
+        gsap.set(iris, { autoAlpha: 0, scale: 0 });
+        tl.to(iris, { keyframes: [{ autoAlpha: 1, duration: 0.01 }, { scale: 1, duration: 0.13, ease: "power3.in" }] }, S.dur - 0.15);
+
+        // camera: slow creep, then the riser zoom accelerates into the chorus
+        K.drive((t) => {
+          const p = K.clamp((t - riser) / (S.dur - riser), 0, 1);
+          const s = (1 + 0.03 * (t / S.dur)) * (1 + 0.62 * Math.pow(p, 2.6));
+          gsap.set(K.cam, { scale: s, rotation: Math.sin(t * 0.5) * 0.5 + 1.2 * p * p, x: Math.sin(t * 0.21) * W * 0.003, y: Math.cos(t * 0.17) * H * 0.003 });
+        });
+        // the build: pulse gets stronger bar by bar
+        K.pulser(K.pulse, { shakes, down: 0.028, beat: 0.012 });
         window.__timelines[S.id] = K.done();
       });
     })();

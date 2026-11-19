@@ -22,8 +22,21 @@
 .k-label { font-family: "GL Archivo"; font-weight: 700; font-stretch: 112.5%; letter-spacing: 0.3em; text-transform: uppercase; }
 </style>
   <style>
-    #outro-stage { position: absolute; inset: 0; color: var(--ink, #17142B); }
-    #outro-stage .k-hl { color: var(--hl, #FF48B0); }
+    #outro-stage { position: absolute; inset: 0; color: #17142B; }
+    #outro-stage .ou-fill { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #outro-stage .ou-pw { position: absolute; transform-origin: 50% 50%; }
+    #outro-stage .ou-pw > div, #outro-stage .ou-pd { position: absolute; inset: 0; transform-origin: 50% 50%; }
+    #outro-stage .ou-card { position: absolute; inset: 0; background: var(--card); border: var(--bw) solid #17142B; box-shadow: var(--sh) var(--sh) 0 #17142B; overflow: hidden; }
+    #outro-stage .ou-card::after { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(23, 20, 43, 0.13) 24%, transparent 27%); background-size: 16px 16px; }
+    #outro-stage .ou-full { position: absolute; left: 0; width: 100%; text-align: center; }
+    #outro-stage .ou-row { display: block; white-space: nowrap; line-height: 0.86; }
+    #outro-stage .ou-big { font-family: "GL Archivo"; font-weight: 900; font-stretch: 125%; letter-spacing: -0.035em; text-transform: uppercase; text-shadow: 0.035em 0.03em 0 var(--mis); }
+    #outro-stage .ou-mid { font-family: "GL Archivo"; font-weight: 800; font-stretch: 100%; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1.25; }
+    #outro-stage .ou-end .ou-big { text-shadow: 0.035em 0.03em 0 #FF48B0, -0.02em -0.016em 0 rgba(0, 120, 191, 0.85); }
+    #outro-stage .ou-lab { font-family: "GL Archivo"; font-weight: 800; font-stretch: 112.5%; letter-spacing: 0.32em; text-transform: uppercase; }
+    #outro-stage .ou-pill { display: inline-block; background: #17142B; color: #F4EEDF; padding: 0.3em 0.5em 0.3em 0.82em; border-radius: 999px; box-shadow: 0.14em 0.14em 0 #FF48B0; line-height: 1; white-space: nowrap; }
+    #outro-stage .ou-badge { position: absolute; transform-origin: 50% 50%; }
+    #outro-stage .ou-badge > div { position: absolute; inset: 0; transform-origin: 50% 50%; }
   </style>
   <div id="root" data-composition-id="outro" data-width="1080" data-height="1920">
     <div id="outro-stage" class="k-stage" data-layout-allow-overlap></div>
@@ -295,12 +308,129 @@ function makeKit(S, stage) {
 
       const stage = document.getElementById(S.id + "-stage");
       const K = makeKit(S, stage);
-      const dark = ["intro", "pre-chorus", "verse-2", "verse-3", "bridge"].includes(S.id);
-      stage.style.setProperty("--ink", dark ? "#F4EEDF" : "#17142B");
+      const { W, H, tl, el, measure, layer, portrait, sv } = K;
+      K.font("ou-big", { fam: "GL Archivo", w: 900, st: "expanded", ls: -0.035, up: true });
+      K.font("ou-mid", { fam: "GL Archivo", w: 800, st: "normal", ls: 0.16, up: true });
+      const C = S.C, MIN = Math.min(W, H);
+      const END = S.dur + 0.42; // the last host runs past the section end to the end of the film
+
       K.ready.then(() => {
-        K.verse({});
-        K.pulser(K.pulse, {});
-        K.camera({});
+        const L = S.lines;
+        const shakes = [];
+        const fitBig = (ws, maxW) => (100 * maxW) / Math.max(measure(ws[0].w, "ou-big", 100), measure(ws[3].w, "ou-big", 100));
+
+        // GREAT / IS THE / LORD! rows, centred in `parent` (width = parent width), returns spans and height
+        function rows(parent, ws, big) {
+          const small = big * 0.3, spans = [];
+          [[0], [1, 2], [3]].forEach((r, ri) => {
+            const isBig = ri !== 1;
+            const row = el("div", "ou-row " + (isBig ? "ou-big" : "ou-mid"), parent);
+            row.style.fontSize = (isBig ? big : small) + "px";
+            row.style.height = (isBig ? big * 0.86 : small * 1.25) + "px";
+            r.forEach((i, j) => {
+              if (j) el("span", "k-sp", row);
+              spans.push({ e: el("span", "k-wi", el("span", "k-w", row), ws[i].w), w: ws[i], big: isBig });
+            });
+          });
+          return { spans, h: big * 0.86 * 2 + small * 1.25 };
+        }
+        function popSpans(spans, stampT) {
+          spans.forEach((s) => {
+            gsap.set(s.e, { autoAlpha: 0 });
+            if (s.big) { K.POPS.slam(s.e, Math.max(stampT + 0.02, s.w.t)); shakes.push({ t: s.w.t + 0.05, amp: 9, decay: 0.08 }); }
+            else K.POPS.pop(s.e, s.w.t);
+          });
+        }
+
+        // ── chants 1-3: stamped riso posters piling up, each at a new size, angle and place ──
+        const SLOTS = portrait
+          ? [{ w: 0.62, x: 0.4, y: 0.29, r: -7, card: C.paper, mis: C.pink }, { w: 0.7, x: 0.58, y: 0.57, r: 6, card: C.yellow, mis: C.blue }, { w: 0.82, x: 0.5, y: 0.44, r: -3, card: C.pink, mis: C.yellow }]
+          : [{ w: 0.34, x: 0.27, y: 0.42, r: -7, card: C.paper, mis: C.pink }, { w: 0.4, x: 0.69, y: 0.5, r: 6, card: C.yellow, mis: C.blue }, { w: 0.47, x: 0.47, y: 0.52, r: -3, card: C.pink, mis: C.yellow }];
+        const posters = [];
+        L.slice(0, -1).forEach((l, k) => {
+          const sl = SLOTS[k % SLOTS.length];
+          const cw = W * sl.w, pad = cw * 0.085;
+          const big = fitBig(l.w, cw - pad * 2) * 0.94;
+          const pw = el("div", "ou-pw", layer);
+          const ps = el("div", "", pw), pd = el("div", "ou-pd", ps);
+          const card = el("div", "ou-card", pd);
+          const bw = Math.max(4, cw * 0.009), sh = Math.max(10, cw * 0.024);
+          card.style.setProperty("--card", sl.card); card.style.setProperty("--bw", bw + "px"); card.style.setProperty("--sh", sh + "px");
+          const txt = el("div", "ou-full", pd);
+          txt.style.setProperty("--mis", sl.mis);
+          const R = rows(txt, l.w, big);
+          const ch = R.h + pad * 2;
+          txt.style.top = pad + "px";
+          const cx = K.clamp(W * sl.x, cw * 0.55 + 20, W - cw * 0.55 - sh - 20), cy = K.clamp(H * sl.y, ch * 0.58 + 20, H - ch * 0.58 - sh - 20);
+          Object.assign(pw.style, { left: cx - cw / 2 + "px", top: cy - ch / 2 + "px", width: cw + "px", height: ch + "px" });
+          gsap.set(pw, { rotation: sl.r });
+          // stamp: drops from above the paper and lands with the first word
+          const st = Math.max(0, l.t - 0.1);
+          gsap.set(ps, { autoAlpha: 0, scale: 1.5, rotation: 8 });
+          tl.to(ps, { keyframes: [{ autoAlpha: 1, duration: 0.01 }, { scale: 1, rotation: 0, duration: 0.11, ease: "power4.in" }] }, st);
+          shakes.push({ t: st + 0.12, amp: 16 + 6 * k, decay: 0.1, rot: 0.8 });
+          popSpans(R.spans, st + 0.08);
+          posters.push({ pw, pd, k, cx, cy });
+        });
+        // older posters sink back a little as each new one lands
+        posters.forEach((p, i) => posters.slice(i + 1).forEach((q, j) => tl.to(p.pw, { scale: 1 - 0.05 * (j + 1), duration: 0.2, ease: "power2.out" }, Math.max(0, L[q.k].t))));
+        K.drive((t) => posters.forEach((p) => gsap.set(p.pd, { rotation: Math.sin(t * 1.4 + p.k * 2) * 0.8, y: Math.sin(t * 1.1 + p.k) * MIN * 0.004 })));
+
+        // ── chant 4: posters are knocked away, the clean end card slams in ──
+        const fl = L[L.length - 1];
+        const tKnock = fl.t - 0.02;
+        posters.forEach((p) => {
+          const dx = p.cx - W / 2 || 1, dy = p.cy - H / 2;
+          const m = Math.hypot(dx, dy) || 1;
+          tl.to(p.pw, { x: (dx / m) * W * 0.75, y: (dy / m) * H * 0.6 - H * 0.12, rotation: "+=" + (dx > 0 ? 38 : -38), autoAlpha: 0, duration: 0.34, ease: "power3.out" }, tKnock);
+        });
+        const endW = el("div", "ou-fill ou-end", layer);
+        const ebig = Math.min(fitBig(fl.w, W * (portrait ? 0.86 : 0.62)), H * (portrait ? 0.15 : 0.27));
+        const ebox = el("div", "ou-full", endW);
+        const ER = rows(ebox, fl.w, ebig);
+        const etop = H * (portrait ? 0.46 : 0.44) - ER.h / 2;
+        ebox.style.top = etop + "px";
+        ER.spans.forEach((s) => {
+          gsap.set(s.e, { autoAlpha: 0 });
+          if (s.big) { K.POPS.slam(s.e, s.w.t); shakes.push({ t: s.w.t + 0.05, amp: 24, decay: 0.12, rot: 1 }); }
+          else K.POPS.pop(s.e, s.w.t);
+        });
+        // label + stamp
+        const tLab = fl.w[3].t + 0.3;
+        const lpx = ebig * 0.19;
+        const lw = el("div", "ou-full", endW);
+        lw.style.top = etop + ER.h + ebig * 0.18 + "px";
+        const pill = el("span", "ou-pill ou-lab", lw, "PSALM 145");
+        pill.style.fontSize = lpx + "px";
+        gsap.set(pill, { autoAlpha: 0 });
+        K.POPS.rise(pill, tLab);
+        const rowW = Math.max(measure(fl.w[0].w, "ou-big", ebig), measure(fl.w[3].w, "ou-big", ebig));
+        const br = portrait ? W * 0.16 : H * 0.14;
+        const bcx = portrait ? W * 0.76 : Math.min(W / 2 + rowW / 2 + br * 1.05, W - br - 30), bcy = portrait ? etop - br * 1.1 : etop + br * 0.3;
+        const bd = el("div", "ou-badge", endW);
+        Object.assign(bd.style, { left: bcx - br + "px", top: bcy - br + "px", width: 2 * br + "px", height: 2 * br + "px" });
+        const spin = el("div", "", bd);
+        const bs = K.svg(spin, 200, 200); bs.setAttribute("width", 2 * br); bs.setAttribute("height", 2 * br);
+        const pts = (dx, dy) => { const a = []; for (let i = 0; i < 40; i++) { const rr = i % 2 ? 80 : 98, an = (i / 40) * Math.PI * 2; a.push((100 + dx + rr * Math.cos(an)).toFixed(1) + "," + (100 + dy + rr * Math.sin(an)).toFixed(1)); } return a.join(" "); };
+        sv(bs, "polygon", { points: pts(8, 7), fill: C.ink });
+        sv(bs, "polygon", { points: pts(0, 0), fill: C.yellow });
+        sv(bs, "circle", { cx: 100, cy: 100, r: 64, fill: "none", stroke: C.ink, "stroke-width": 4, "stroke-dasharray": "3 7" });
+        sv(bs, "path", { d: "M52 128 L44 70 L74 96 L100 58 L126 96 L156 70 L148 128 Z", fill: C.pink });
+        sv(bs, "rect", { x: 52, y: 136, width: 96, height: 12, rx: 3, fill: C.ink });
+        [[44, 66], [100, 52], [156, 66]].forEach(([x, y]) => sv(bs, "circle", { cx: x, cy: y, r: 7, fill: C.ink }));
+        gsap.set(bd, { autoAlpha: 0, rotation: 10 });
+        tl.to(bd, { keyframes: [{ autoAlpha: 1, scale: 1.9, duration: 0.01 }, { scale: 1, duration: 0.12, ease: "power4.in" }] }, tLab + 0.12);
+        shakes.push({ t: tLab + 0.24, amp: 12, decay: 0.08 });
+        K.drive((t) => gsap.set(spin, { rotation: (t - tLab) * 14 }));
+        // the hold: a slow, gentle settle (readable), running to the very end of the film
+        tl.fromTo(endW, { scale: 1 }, { scale: 1.04, duration: END - (tLab + 0.3), ease: "sine.inOut" }, tLab + 0.3);
+
+        // camera: drift that calms down for the end card; no beat pulse (the beat has cut out)
+        K.drive((t) => {
+          const calm = 1 - 0.75 * K.clamp((t - fl.t) / 1.2, 0, 1);
+          gsap.set(K.cam, { scale: 1 + 0.01 * Math.sin(t * 0.8), rotation: Math.sin(t * 0.9) * 0.9 * calm, x: Math.sin(t * 0.6) * W * 0.004 * calm, y: Math.cos(t * 0.5) * H * 0.004 * calm });
+        });
+        K.pulser(K.pulse, { shakes, down: 0, beat: 0 });
         window.__timelines[S.id] = K.done();
       });
     })();

@@ -1,0 +1,306 @@
+<template>
+  <!--KIT_CSS-->
+  <style>
+    #__ID__-stage { position: absolute; inset: 0; color: #F4EEDF; }
+    #__ID__-stage .k-hl { color: #FF6C2F; }
+    #__ID__-stage .br-abs { position: absolute; left: 0; top: 0; }
+    #__ID__-stage .br-fill { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+    #__ID__-stage .br-crit { position: absolute; left: 0; top: 0; filter: drop-shadow(7px 7px 0 #765BA7); }
+    #__ID__-stage .br-idle { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+    #__ID__-stage .fv-copy { position: absolute; width: 0; height: 0; transform-origin: 0 0; }
+    #__ID__-stage .fv-word { position: absolute; left: 0; top: 0; width: 0; height: 0; transform-origin: 0 0; }
+    #__ID__-stage .fv-arm { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+    #__ID__-stage .fv-ch { position: absolute; display: block; line-height: 1; white-space: pre; font-family: "GL Archivo"; font-weight: 850; font-stretch: 75%; letter-spacing: 0; text-transform: uppercase; }
+    #__ID__-stage .fv-c1 .fv-ch { text-shadow: 0.045em 0.045em 0 #FF6C2F; }
+    #__ID__-stage .fv-c2 .fv-ch { color: #FF6C2F; text-shadow: 0.045em 0.045em 0 #765BA7; }
+    #__ID__-stage .fv-c3 .fv-ch { color: #FF6C2F; text-shadow: 0.05em 0.05em 0 #F4EEDF; font-weight: 900; }
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="__W__" data-height="__H__">
+    <div id="__ID__-stage" class="k-stage" data-layout-allow-overlap></div>
+  </div>
+  <script>
+    (function () {
+      /*DATA*/
+      /*KIT_JS*/
+      const stage = document.getElementById(S.id + "-stage");
+      const K = makeKit(S, stage);
+      const { W, H, tl, el, sv, layer, portrait, clamp } = K;
+      const C = S.C, ACC = C.orange;
+      K.font("fv", { fam: "GL Archivo", w: 850, st: "condensed", ls: 0, up: true });
+      K.font("fv3", { fam: "GL Archivo", w: 900, st: "condensed", ls: 0, up: true });
+      const ez3 = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : 1 - Math.pow(1 - x, 3));
+      const ezs = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : 0.5 - 0.5 * Math.cos(Math.PI * x));
+      const back = (x) => { if (x <= 0) return 0; if (x >= 1) return 1; const c = 2.2, y = x - 1; return 1 + (c + 1) * y * y * y + c * y * y; };
+      const lastBefore = K.lastBefore;
+
+      K.ready.then(() => {
+        const L = S.lines;
+        const base = Math.min(W, H);
+        const fT = [2, 3, 4, 5].map((i) => L[i].t);       // Forever and ever x4
+        const tG = [6, 7, 8, 9, 10, 11].map((i) => L[i].t); // Generation to generation x6
+        const tHold = Math.max(tG[5] + 1.2, 129.45 - S.start - 0.05);
+
+        // ── layers (back to front) ──
+        const ringSvg = K.svg(layer, W, H, "br-abs");
+        const tunnel = el("div", "br-fill", layer);
+        const treeWrap = el("div", "br-fill", layer);
+        const bandLayer = el("div", "br-fill", layer);
+        const openLayer = el("div", "br-fill", layer);
+
+        // ── bass pulse rings on every downbeat, warming toward the orange chorus ──
+        const RINGS = [0, 1, 2].map(() => sv(ringSvg, "circle", { cx: W / 2, cy: H / 2, r: 10, fill: "none", stroke: ACC, "stroke-width": 4, opacity: 0 }));
+        let treeC = { x: W / 2, y: H / 2 };
+        K.drive((t) => {
+          const d = lastBefore(S.downs, t);
+          const warm = clamp(t / S.dur, 0, 1), hold = t >= tHold;
+          const cx = t < tG[0] - 0.3 ? W / 2 : treeC.x, cy = t < tG[0] - 0.3 ? H / 2 : treeC.y;
+          RINGS.forEach((r, k) => {
+            let idx = d; while (idx >= 0 && idx % 3 !== k) idx--;
+            const dt = idx >= 0 ? t - S.downs[idx] : 99;
+            if (dt > 1.7) { r.setAttribute("opacity", 0); return; }
+            const rad = base * 0.06 + Math.hypot(W, H) * 0.62 * (1 - Math.exp(-dt * 2.0));
+            r.setAttribute("cx", cx); r.setAttribute("cy", cy); r.setAttribute("r", rad);
+            r.setAttribute("stroke", warm < 0.18 ? C.purple : ACC);
+            r.setAttribute("stroke-width", (hold ? 14 : 3 + 8 * warm) * (1 - dt / 2));
+            r.setAttribute("opacity", ((hold ? 0.75 : 0.22 + 0.4 * warm) * (1 - dt / 1.7)).toFixed(3));
+          });
+        });
+
+        // ═══ A. "My mouth will speak Your praise." / "Let every creature bless Your name." ═══
+        const openBlocks = K.verse({ groups: [[0], [1]], parent: openLayer, style: "rise", accStyle: "rise", cy: H * 0.5,
+          acc: { 0: { speak: "k-hl", praise: "k-hl" }, 1: { creature: "k-hl", name: "k-hl" } },
+          min: portrait ? 90 : 100, max: portrait ? 140 : 150, lastOut: fT[0] - 0.08 });
+        const b0 = openBlocks[0], b1 = openBlocks[1];
+
+        // the mouth: lips open on every sung word, sound arcs pour out from "speak"
+        const MW = base * 0.2, MH = MW * 0.64;
+        const mouthC = { x: W / 2, y: b0.top - base * 0.045 - MH / 2 };
+        const mouth = el("div", "br-abs", openLayer);
+        mouth.style.left = mouthC.x - MW / 2 + "px"; mouth.style.top = mouthC.y - MH / 2 + "px";
+        const ms = K.svg(mouth, MW, MH); ms.setAttribute("viewBox", "0 0 220 140");
+        const gap = sv(ms, "ellipse", { cx: 110, cy: 62, rx: 78, ry: 4, fill: C.royal });
+        const teeth = sv(ms, "rect", { x: 62, y: 56, width: 96, height: 0, rx: 4, fill: C.paper });
+        sv(ms, "path", { d: "M8 62 Q 55 14 88 34 Q 110 24 132 34 Q 165 14 212 62 Q 110 50 8 62 Z", fill: ACC });
+        const lower = sv(ms, "path", { d: "M8 62 Q 110 74 212 62 Q 172 120 110 124 Q 48 120 8 62 Z", fill: ACC });
+        const w0 = L[0].w.map((x) => x.t);
+        K.drive((t) => {
+          let open = 0;
+          w0.forEach((wt) => { const dt = t - wt; if (dt >= 0) open = Math.max(open, dt < 0.06 ? dt / 0.06 : Math.exp(-(dt - 0.06) / 0.16)); });
+          if (t > L[0].se + 0.3) open = 0;
+          gap.setAttribute("ry", 4 + 34 * open);
+          teeth.setAttribute("height", 12 * open);
+          lower.setAttribute("transform", `translate(0 ${(30 * open).toFixed(2)})`);
+        });
+        gsap.set(mouth, { autoAlpha: 0 });
+        tl.fromTo(mouth, { autoAlpha: 0, scale: 0.3 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, L[0].w[1].t - 0.08);
+        tl.to(mouth, { autoAlpha: 0, y: -H * 0.04, duration: 0.14, ease: "power3.in" }, b0.tout);
+
+        const arcSvg = K.svg(openLayer, W, H, "br-abs");
+        const ARCS = [0, 1, 2].map((k) => sv(arcSvg, "path", { d: "", fill: "none", stroke: k % 2 ? C.paper : ACC, "stroke-width": base * 0.012, "stroke-linecap": "round", opacity: 0 }));
+        const tSpeak = K.wordAt(openBlocks, 0, "speak").w.t;
+        const emits = [tSpeak, ...S.beats.filter((b) => b > tSpeak + 0.2 && b < b0.tout - 0.4)];
+        const arcR0 = MW * 0.62, arcR1 = Math.min(mouthC.y - 20, base * 0.36);
+        K.drive((t) => {
+          ARCS.forEach((a, k) => {
+            let idx = lastBefore(emits, t); while (idx >= 0 && idx % 3 !== k) idx--;
+            const dt = idx >= 0 ? t - emits[idx] : 99;
+            if (dt > 1.15 || t > b0.tout) { a.setAttribute("opacity", 0); return; }
+            const p = ez3(dt / 1.15), r = arcR0 + (arcR1 - arcR0) * p;
+            const a1 = (-152 * Math.PI) / 180, a2 = (-28 * Math.PI) / 180;
+            a.setAttribute("d", `M ${mouthC.x + r * Math.cos(a1)} ${mouthC.y + r * Math.sin(a1)} A ${r} ${r} 0 0 1 ${mouthC.x + r * Math.cos(a2)} ${mouthC.y + r * Math.sin(a2)}`);
+            a.setAttribute("opacity", (1 - p).toFixed(3));
+          });
+        });
+
+        // every creature: bird, fish, deer, lion in flat riso shapes, answering the words
+        const P = C.paper, N = C.night, CR = base * 0.18;
+        const CRE = {
+          bird: (s) => {
+            sv(s, "polygon", { points: "52,100 12,80 22,122 52,120", fill: P });
+            sv(s, "ellipse", { cx: 100, cy: 108, rx: 56, ry: 32, fill: P });
+            sv(s, "circle", { cx: 150, cy: 86, r: 23, fill: P });
+            sv(s, "polygon", { points: "168,78 198,88 168,98", fill: ACC });
+            sv(s, "circle", { cx: 156, cy: 82, r: 5, fill: N });
+            const wing = sv(s, "path", { d: "M78 104 Q 88 36 142 22 Q 124 78 118 106 Z", fill: ACC });
+            return (t) => { wing.setAttribute("transform", `rotate(${(Math.sin(t * 13) * 24).toFixed(2)} 100 104)`); return { y: Math.sin(t * 6.5) * CR * 0.05 }; };
+          },
+          fish: (s) => {
+            sv(s, "polygon", { points: "160,100 198,66 194,134", fill: ACC });
+            sv(s, "polygon", { points: "88,70 122,40 132,74", fill: ACC });
+            sv(s, "ellipse", { cx: 102, cy: 102, rx: 68, ry: 40, fill: P });
+            sv(s, "circle", { cx: 64, cy: 92, r: 7, fill: N });
+            sv(s, "path", { d: "M88 78 Q 100 102 88 126", fill: "none", stroke: N, "stroke-width": 5, "stroke-linecap": "round" });
+            return (t) => ({ rotation: Math.sin(t * 4.2) * 7, x: Math.sin(t * 2.1) * CR * 0.05 });
+          },
+          deer: (s) => {
+            [46, 64, 112, 130].forEach((x) => sv(s, "rect", { x, y: 120, width: 11, height: 66, rx: 4, fill: P }));
+            sv(s, "ellipse", { cx: 92, cy: 116, rx: 58, ry: 28, fill: P });
+            sv(s, "circle", { cx: 38, cy: 104, r: 9, fill: ACC });
+            const head = sv(s, "g", {});
+            sv(head, "polygon", { points: "124,108 146,58 162,64 146,118", fill: P });
+            sv(head, "path", { d: "M150 50 L142 18 M145 32 L130 22 M160 48 L170 16 M167 30 L182 22", fill: "none", stroke: ACC, "stroke-width": 7, "stroke-linecap": "round" });
+            sv(head, "ellipse", { cx: 162, cy: 58, rx: 22, ry: 13, fill: P });
+            sv(head, "circle", { cx: 166, cy: 54, r: 3.5, fill: N });
+            return (t) => { head.setAttribute("transform", `rotate(${(Math.sin(t * 3) * 7).toFixed(2)} 138 112)`); return {}; };
+          },
+          lion: (s) => {
+            const pts = []; for (let k = 0; k < 28; k++) { const a = (k / 28) * Math.PI * 2, r = k % 2 ? 72 : 96; pts.push((100 + r * Math.cos(a)).toFixed(1) + "," + (100 + r * Math.sin(a)).toFixed(1)); }
+            sv(s, "polygon", { points: pts.join(" "), fill: ACC });
+            sv(s, "circle", { cx: 62, cy: 58, r: 16, fill: P }); sv(s, "circle", { cx: 138, cy: 58, r: 16, fill: P });
+            sv(s, "circle", { cx: 100, cy: 104, r: 56, fill: P });
+            sv(s, "circle", { cx: 80, cy: 92, r: 6, fill: N }); sv(s, "circle", { cx: 120, cy: 92, r: 6, fill: N });
+            sv(s, "polygon", { points: "88,112 112,112 100,126", fill: N });
+            sv(s, "path", { d: "M100 126 L100 136 M86 140 Q 100 132 114 140", fill: "none", stroke: N, "stroke-width": 5, "stroke-linecap": "round" });
+            return (t) => { const d = lastBefore(S.downs, t); return { scale: 1 + (d >= 0 ? 0.1 * Math.exp(-(t - S.downs[d]) / 0.15) : 0) }; };
+          },
+        };
+        const top1 = b1.top, bot1 = b1.top + b1.h, gy = base * 0.05;
+        const spots = [
+          ["bird", 0.26, top1 - gy - CR / 2, L[1].w[1].t],
+          ["fish", 0.3, bot1 + gy + CR / 2, L[1].w[2].t],
+          ["deer", 0.7, bot1 + gy + CR / 2, L[1].w[3].t],
+          ["lion", 0.74, top1 - gy - CR / 2, L[1].w[4].t],
+        ];
+        spots.forEach(([kind, fx, cy, tin]) => {
+          const wrap = el("div", "br-crit", openLayer);
+          wrap.style.left = fx * W - CR / 2 + "px"; wrap.style.top = cy - CR / 2 + "px";
+          wrap.style.width = CR + "px"; wrap.style.height = CR + "px";
+          const idle = el("div", "br-idle", wrap);
+          const s = K.svg(idle, CR, CR); s.setAttribute("viewBox", "0 0 200 200");
+          if (kind === "fish") s.style.transform = "scaleX(-1)";
+          const f = CRE[kind](s);
+          K.drive((t) => gsap.set(idle, Object.assign({ x: 0, y: 0, rotation: 0, scale: 1 }, f(t))));
+          gsap.set(wrap, { autoAlpha: 0 });
+          tl.fromTo(wrap, { autoAlpha: 0, scale: 0.2, rotation: -24 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, tin - 0.04);
+          tl.to(wrap, { autoAlpha: 0, scale: 0.6, duration: 0.12, ease: "power2.in" }, Math.max(b1.tout, tin + 0.28));
+        });
+
+        // ═══ B. "Forever and ever." x4: an endless tunnel of nested rings, each repeat zooms one ring outward ═══
+        const ro = base * (portrait ? 0.41 : 0.435), maxArc = portrait ? 2.4 : 2.75;
+        let fF = base * 0.104;
+        const arcW = (li, cls, f) => L[li].w.reduce((s, x, k) => s + [...x.w].reduce((a, ch) => a + K.textW(ch, cls, f) + f * 0.035, 0) + (k ? f * 0.3 : 0), 0);
+        for (let k = 0; k < 30; k++) { const rm = ro - 0.95 * fF + 0.36 * fF; if (arcW(2, "fv3", fF) / rm <= maxArc) break; fF *= 0.96; }
+        const rb = ro - 0.95 * fF, rm = rb + 0.36 * fF, rIn = rb - 0.16 * fF, rr = (rIn - 0.08 * fF) / ro;
+        const NCOPY = 10;
+        const copies = [];
+        for (let j = 0; j < NCOPY; j++) {
+          const cp = el("div", "fv-copy fv-c" + Math.min(j, 3), tunnel);
+          cp.style.left = W / 2 + "px"; cp.style.top = H / 2 + "px";
+          const rs = K.svg(cp, 2 * ro + 40, 2 * ro + 40);
+          rs.style.left = -ro - 20 + "px"; rs.style.top = -ro - 20 + "px";
+          const o = ro + 20, hot = j >= 2 && j <= 3;
+          sv(rs, "circle", { cx: o, cy: o, r: ro, fill: "none", stroke: hot ? ACC : C.paper, "stroke-width": j === 3 ? 9 : 5, opacity: j < 4 ? 0.9 : 0.45 });
+          const spin = sv(rs, "g", {});
+          sv(spin, "circle", { cx: o, cy: o, r: rIn, fill: "none", stroke: C.paper, "stroke-width": 4, "stroke-dasharray": "3 22", "stroke-linecap": "round", opacity: 0.6 });
+          sv(spin, "circle", { cx: o, cy: o - rIn, r: fF * 0.12, fill: ACC });
+          const words = [];
+          if (j < 4) {
+            const li = 2 + j, cls = j === 3 ? "fv3" : "fv";
+            const tot = arcW(li, cls, fF);
+            let x = -tot / 2;
+            L[li].w.forEach((w, k) => {
+              if (k) x += fF * 0.3;
+              const we = el("div", "fv-word", cp);
+              [...w.w].forEach((ch) => {
+                const cw = K.textW(ch, cls, fF);
+                const ang = ((x + cw / 2) / rm) * (180 / Math.PI);
+                const arm = el("div", "fv-arm", we);
+                arm.style.transform = `rotate(${ang.toFixed(3)}deg)`;
+                const sp = el("span", "fv-ch", arm, ch);
+                sp.style.fontSize = fF + "px"; sp.style.left = -cw / 2 + "px"; sp.style.top = -(rb + 0.86 * fF) + "px";
+                x += cw + fF * 0.035;
+              });
+              gsap.set(we, { autoAlpha: 0 });
+              tl.fromTo(we, { autoAlpha: 0, scale: 0.84 }, { autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2.2)" }, w.t);
+              words.push(we);
+            });
+          }
+          copies.push({ el: cp, spin, o, j });
+        }
+        const tIn = fT[0] - 0.4, tOut = tG[0] - 0.32;
+        const Zof = (t) => { let z = -1; fT.forEach((ft) => (z += ez3((t - (ft - 0.18)) / 0.45))); return z + 0.03 * Math.max(0, t - fT[0]) + 2.4 * ez3((t - tOut) / 0.5); };
+        K.drive((t) => {
+          const A = clamp((t - tIn) / 0.25, 0, 1) * (1 - clamp((t - tOut - 0.1) / 0.3, 0, 1));
+          if (A <= 0) { gsap.set(tunnel, { autoAlpha: 0 }); return; }
+          gsap.set(tunnel, { autoAlpha: A });
+          const Z = Zof(t);
+          copies.forEach((c) => {
+            const s = Math.pow(rr, c.j - Z);
+            const a = s > 1.1 ? clamp(1 - (s - 1.1) / 0.2, 0, 1) : clamp((s - 0.1) / 0.14, 0, 1);
+            gsap.set(c.el, { scale: s, rotation: Math.sin(t * 0.55 + c.j * 1.3) * 3, autoAlpha: a });
+            c.spin.setAttribute("transform", `rotate(${(((c.j % 2 ? -1 : 1) * t * 40) % 360).toFixed(2)} ${c.o} ${c.o})`);
+          });
+        });
+
+        // ═══ C. "Generation to generation." x6: a family tree, one generation per repeat (1, 2, 4, 8, 16, 32) ═══
+        const genBlocks = K.verse({ groups: [[6], [7], [8], [9], [10], [11]], parent: bandLayer, style: "rise", accStyle: "rise",
+          cy: portrait ? H * 0.115 : H * 0.1, min: portrait ? 86 : 84, max: portrait ? 132 : 104, maxW: W * (portrait ? 0.86 : 0.8), spread: 1 });
+        [6, 7, 8, 9, 10, 11].forEach((li) => K.wordAt(genBlocks, li, "generation", 2).outer.classList.add("k-hl"));
+        const bandBot = Math.max(...genBlocks.map((b) => b.top + b.h));
+        const LEAF = portrait ? 46 : 44;
+        const fsz = (g) => LEAF * (1 + 0.12 * (5 - g));
+        const mY = base * 0.06, mX = base * 0.07;
+        const areaT = bandBot + base * 0.05, areaB = H - mY;
+        const TC = { x: W / 2, y: (areaT + areaB) / 2 };
+        const ay = (areaB - areaT) / 2 - LEAF * 0.45, ax = W / 2 - mX - LEAF * 0.35;
+        treeC = TC;
+        treeWrap.style.transformOrigin = `${TC.x}px ${TC.y}px`;
+        const ts = K.svg(treeWrap, W, H, "br-abs");
+        const brG = sv(ts, "g", {}), fgG = sv(ts, "g", {});
+        const nodes = [];
+        for (let g = 0; g < 6; g++) for (let i = 0; i < 1 << g; i++) {
+          const s = fsz(g);
+          const n = { g, i, rho: g / 5, frac: (i + 0.5) / (1 << g), parent: g ? nodes.find((p) => p.g === g - 1 && p.i === i >> 1) : null };
+          n.tPop = tG[g] + (g ? 0.22 + 0.55 * (i / (1 << g)) : 0);
+          n.el = sv(fgG, "g", { opacity: 0 });
+          sv(n.el, "path", { d: `M ${-0.33 * s} ${0.42 * s} C ${-0.33 * s} ${-0.12 * s} ${0.33 * s} ${-0.12 * s} ${0.33 * s} ${0.42 * s} Z` });
+          sv(n.el, "circle", { cx: 0, cy: -0.2 * s, r: 0.17 * s });
+          if (g) n.br = sv(brG, "path", { d: "", fill: "none", stroke: C.paper, "stroke-linecap": "round", pathLength: 1, "stroke-dasharray": 1, "stroke-dashoffset": 1, opacity: 0 });
+          nodes.push(n);
+        }
+        const camS = [3.2, 2.8, 1.84, 1.31, 1.05, 1];
+        const LIT = [C.pink, C.yellow, C.teal, C.orange, C.green, C.blue, C.purple, C.paper];
+        const holdBeats = S.beats.filter((b) => b >= tHold - 0.02);
+        const pos = (n, th0) => { if (!n.g) return [TC.x, TC.y]; const th = th0 + n.frac * Math.PI * 2; return [TC.x + n.rho * ax * Math.cos(th), TC.y + n.rho * ay * Math.sin(th)]; };
+        K.drive((t) => {
+          if (t < tG[0] - 0.05) { gsap.set(treeWrap, { autoAlpha: 0 }); return; }
+          gsap.set(treeWrap, { autoAlpha: 1 });
+          let ls = Math.log(camS[0]);
+          for (let g = 1; g < 6; g++) ls += (Math.log(camS[g]) - Math.log(camS[g - 1])) * ezs((t - (tG[g] - 0.1)) / 1.3);
+          const sc = Math.exp(ls) * (1 + 0.05 * ezs((t - tHold) / (S.dur - tHold)));
+          gsap.set(treeWrap, { scale: sc });
+          const th0 = -Math.PI / 2 + 0.035 * (t - tG[0]);
+          const newest = lastBefore(tG, t);
+          const nb = lastBefore(holdBeats, t), nLit = nb + 1, beatK = nb >= 0 ? Math.exp(-(t - holdBeats[nb]) / 0.13) : 0;
+          const finale = t >= S.dur - 0.32;
+          nodes.forEach((n) => {
+            const p = clamp((t - n.tPop) / 0.36, 0, 1);
+            if (p <= 0) { n.el.setAttribute("opacity", 0); if (n.br) n.br.setAttribute("opacity", 0); return; }
+            const [x1, y1] = pos(n, th0);
+            let x = x1, y = y1;
+            if (n.parent) { const [x0, y0] = pos(n.parent, th0), e = ez3(p); x = x0 + (x1 - x0) * e; y = y0 + (y1 - y0) * e; }
+            let s = back(p), fill = n.g === newest ? ACC : C.paper;
+            if (nLit > 0 && n.g < nLit) { fill = LIT[(n.g + n.i + nb) % LIT.length]; s *= 1 + 0.22 * beatK; }
+            if (finale) { fill = ACC; s *= 1.15; }
+            n.el.setAttribute("opacity", 1);
+            n.el.setAttribute("fill", fill);
+            n.el.setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${s.toFixed(3)})`);
+            if (n.br) {
+              const bp = clamp((t - (n.tPop - 0.22)) / 0.45, 0, 1);
+              const [px, py] = pos(n.parent, th0);
+              n.br.setAttribute("d", `M ${px.toFixed(1)} ${py.toFixed(1)} L ${x1.toFixed(1)} ${y1.toFixed(1)}`);
+              n.br.setAttribute("stroke-dashoffset", (1 - ez3(bp)).toFixed(3));
+              n.br.setAttribute("stroke", n.g === newest && !finale ? ACC : nLit > 0 && n.g < nLit ? LIT[(n.g + nb) % LIT.length] : C.paper);
+              n.br.setAttribute("stroke-width", ((n.g === newest ? 4.5 : 3) / sc).toFixed(2));
+              n.br.setAttribute("opacity", n.g === newest ? 0.95 : 0.6);
+            }
+          });
+        });
+
+        K.pulser(K.pulse, { down: 0.012, beat: 0.004 });
+        K.camera({ z0: 1, z1: 1.03, sway: 0.25 });
+        window.__timelines[S.id] = K.done();
+      });
+    })();
+  </script>
+</template>
