@@ -1,0 +1,3871 @@
+{
+ "duration": 161.614,
+ "bpm": 140.001,
+ "period": 0.42856799564343157,
+ "t0": 0.3840590311699073,
+ "sections": [
+  {
+   "id": "intro",
+   "name": "Intro",
+   "desc": "bright bouncy synth stabs, rubbery bass, crisp drums",
+   "marker": 0.239,
+   "lines": [
+    {
+     "i": 1,
+     "text": "Yeah",
+     "suno": [
+      0.239,
+      2.314
+     ],
+     "start": 0.239,
+     "end": 2.314,
+     "singEnd": 0.909,
+     "words": [
+      {
+       "w": "Yeah",
+       "start": 0.239,
+       "end": 0.909
+      }
+     ],
+     "id": "L000"
+    },
+    {
+     "i": 2,
+     "text": "Generation to generation",
+     "suno": [
+      2.314,
+      4.229
+     ],
+     "start": 2.314,
+     "end": 4.229,
+     "singEnd": 4.229,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 2.314,
+       "end": 3.204
+      },
+      {
+       "w": "to",
+       "start": 3.204,
+       "end": 3.378
+      },
+      {
+       "w": "generation",
+       "start": 3.378,
+       "end": 4.229
+      }
+     ],
+     "id": "L001"
+    },
+    {
+     "i": 3,
+     "text": "Tell 'em",
+     "suno": [
+      4.229,
+      5.505
+     ],
+     "start": 4.229,
+     "end": 5.505,
+     "singEnd": 5.219,
+     "words": [
+      {
+       "w": "Tell",
+       "start": 4.229,
+       "end": 4.702
+      },
+      {
+       "w": "'em",
+       "start": 4.702,
+       "end": 5.219
+      }
+     ],
+     "id": "L002"
+    },
+    {
+     "i": 4,
+     "text": "Great is the LORD",
+     "suno": [
+      5.505,
+      7.58
+     ],
+     "start": 5.505,
+     "end": 7.58,
+     "singEnd": 7.135,
+     "words": [
+      {
+       "w": "Great",
+       "start": 5.505,
+       "end": 5.912
+      },
+      {
+       "w": "is",
+       "start": 5.912,
+       "end": 6.32
+      },
+      {
+       "w": "the",
+       "start": 6.32,
+       "end": 6.728
+      },
+      {
+       "w": "LORD",
+       "start": 6.728,
+       "end": 7.135
+      }
+     ],
+     "id": "L003"
+    }
+   ],
+   "start": 0.0,
+   "end": 7.58
+  },
+  {
+   "id": "verse-1",
+   "name": "Verse 1",
+   "desc": "fast staccato rap, playful confidence",
+   "marker": 7.58,
+   "lines": [
+    {
+     "i": 6,
+     "text": "I will lift You up, my God and King,",
+     "suno": [
+      7.58,
+      8.936
+     ],
+     "start": 7.58,
+     "end": 8.936,
+     "singEnd": 8.936,
+     "words": [
+      {
+       "w": "I",
+       "start": 7.58,
+       "end": 7.731
+      },
+      {
+       "w": "will",
+       "start": 7.731,
+       "end": 7.881
+      },
+      {
+       "w": "lift",
+       "start": 7.881,
+       "end": 8.011
+      },
+      {
+       "w": "You",
+       "start": 8.011,
+       "end": 8.183
+      },
+      {
+       "w": "up,",
+       "start": 8.183,
+       "end": 8.333
+      },
+      {
+       "w": "my",
+       "start": 8.333,
+       "end": 8.484
+      },
+      {
+       "w": "God",
+       "start": 8.484,
+       "end": 8.635
+      },
+      {
+       "w": "and",
+       "start": 8.635,
+       "end": 8.785
+      },
+      {
+       "w": "King,",
+       "start": 8.785,
+       "end": 8.936
+      }
+     ],
+     "id": "L004"
+    },
+    {
+     "i": 7,
+     "text": "Every single day I'm gonna bless Your name.",
+     "suno": [
+      8.936,
+      10.612
+     ],
+     "start": 8.936,
+     "end": 10.612,
+     "singEnd": 10.612,
+     "words": [
+      {
+       "w": "Every",
+       "start": 8.936,
+       "end": 9.355
+      },
+      {
+       "w": "single",
+       "start": 9.355,
+       "end": 9.634
+      },
+      {
+       "w": "day",
+       "start": 9.634,
+       "end": 9.81
+      },
+      {
+       "w": "I'm",
+       "start": 9.81,
+       "end": 9.914
+      },
+      {
+       "w": "gonna",
+       "start": 9.914,
+       "end": 10.193
+      },
+      {
+       "w": "bless",
+       "start": 10.193,
+       "end": 10.333
+      },
+      {
+       "w": "Your",
+       "start": 10.333,
+       "end": 10.472
+      },
+      {
+       "w": "name.",
+       "start": 10.472,
+       "end": 10.612
+      }
+     ],
+     "id": "L005"
+    },
+    {
+     "i": 8,
+     "text": "Great is the LORD, no limit to His greatness,",
+     "suno": [
+      10.612,
+      12.447
+     ],
+     "start": 10.612,
+     "end": 12.447,
+     "singEnd": 12.447,
+     "words": [
+      {
+       "w": "Great",
+       "start": 10.612,
+       "end": 10.779
+      },
+      {
+       "w": "is",
+       "start": 10.779,
+       "end": 11.006
+      },
+      {
+       "w": "the",
+       "start": 11.006,
+       "end": 11.112
+      },
+      {
+       "w": "LORD,",
+       "start": 11.112,
+       "end": 11.343
+      },
+      {
+       "w": "no",
+       "start": 11.343,
+       "end": 11.446
+      },
+      {
+       "w": "limit",
+       "start": 11.446,
+       "end": 11.78
+      },
+      {
+       "w": "to",
+       "start": 11.78,
+       "end": 11.97
+      },
+      {
+       "w": "His",
+       "start": 11.97,
+       "end": 12.167
+      },
+      {
+       "w": "greatness,",
+       "start": 12.167,
+       "end": 12.447
+      }
+     ],
+     "id": "L006"
+    },
+    {
+     "i": 9,
+     "text": "Nobody can measure all the ways He's amazing.",
+     "suno": [
+      12.447,
+      14.122
+     ],
+     "start": 12.504,
+     "end": 14.122,
+     "singEnd": 14.122,
+     "words": [
+      {
+       "w": "Nobody",
+       "start": 12.504,
+       "end": 12.877
+      },
+      {
+       "w": "can",
+       "start": 12.877,
+       "end": 13.038
+      },
+      {
+       "w": "measure",
+       "start": 13.038,
+       "end": 13.247
+      },
+      {
+       "w": "all",
+       "start": 13.247,
+       "end": 13.375
+      },
+      {
+       "w": "the",
+       "start": 13.375,
+       "end": 13.5
+      },
+      {
+       "w": "ways",
+       "start": 13.5,
+       "end": 13.624
+      },
+      {
+       "w": "He's",
+       "start": 13.624,
+       "end": 13.749
+      },
+      {
+       "w": "amazing.",
+       "start": 13.749,
+       "end": 14.122
+      }
+     ],
+     "id": "L007"
+    },
+    {
+     "i": 10,
+     "text": "One generation tells the next,",
+     "suno": [
+      14.122,
+      15.319
+     ],
+     "start": 14.122,
+     "end": 15.319,
+     "singEnd": 15.319,
+     "words": [
+      {
+       "w": "One",
+       "start": 14.122,
+       "end": 14.272
+      },
+      {
+       "w": "generation",
+       "start": 14.272,
+       "end": 14.87
+      },
+      {
+       "w": "tells",
+       "start": 14.87,
+       "end": 15.02
+      },
+      {
+       "w": "the",
+       "start": 15.02,
+       "end": 15.209
+      },
+      {
+       "w": "next,",
+       "start": 15.209,
+       "end": 15.319
+      }
+     ],
+     "id": "L008"
+    },
+    {
+     "i": 11,
+     "text": "Passing down the story, never losing the thread.",
+     "suno": [
+      15.319,
+      17.074
+     ],
+     "start": 15.319,
+     "end": 17.074,
+     "singEnd": 17.074,
+     "words": [
+      {
+       "w": "Passing",
+       "start": 15.319,
+       "end": 15.615
+      },
+      {
+       "w": "down",
+       "start": 15.615,
+       "end": 15.824
+      },
+      {
+       "w": "the",
+       "start": 15.824,
+       "end": 15.904
+      },
+      {
+       "w": "story,",
+       "start": 15.904,
+       "end": 16.149
+      },
+      {
+       "w": "never",
+       "start": 16.149,
+       "end": 16.489
+      },
+      {
+       "w": "losing",
+       "start": 16.489,
+       "end": 16.782
+      },
+      {
+       "w": "the",
+       "start": 16.782,
+       "end": 16.928
+      },
+      {
+       "w": "thread.",
+       "start": 16.928,
+       "end": 17.074
+      }
+     ],
+     "id": "L009"
+    },
+    {
+     "i": 12,
+     "text": "Talk about Your glory, talk about Your power,",
+     "suno": [
+      17.074,
+      18.431
+     ],
+     "start": 17.125,
+     "end": 18.39,
+     "singEnd": 18.39,
+     "words": [
+      {
+       "w": "Talk",
+       "start": 17.125,
+       "end": 17.229
+      },
+      {
+       "w": "about",
+       "start": 17.229,
+       "end": 17.427
+      },
+      {
+       "w": "Your",
+       "start": 17.427,
+       "end": 17.547
+      },
+      {
+       "w": "glory,",
+       "start": 17.547,
+       "end": 17.758
+      },
+      {
+       "w": "talk",
+       "start": 17.758,
+       "end": 17.863
+      },
+      {
+       "w": "about",
+       "start": 17.863,
+       "end": 18.077
+      },
+      {
+       "w": "Your",
+       "start": 18.077,
+       "end": 18.179
+      },
+      {
+       "w": "power,",
+       "start": 18.179,
+       "end": 18.39
+      }
+     ],
+     "id": "L010"
+    },
+    {
+     "i": 13,
+     "text": "Tell 'em what You did, let it echo louder.",
+     "suno": [
+      18.431,
+      20.824
+     ],
+     "start": 18.39,
+     "end": 20.759,
+     "singEnd": 20.759,
+     "words": [
+      {
+       "w": "Tell",
+       "start": 18.39,
+       "end": 18.605
+      },
+      {
+       "w": "'em",
+       "start": 18.605,
+       "end": 18.808
+      },
+      {
+       "w": "what",
+       "start": 18.808,
+       "end": 19.036
+      },
+      {
+       "w": "You",
+       "start": 19.036,
+       "end": 19.251
+      },
+      {
+       "w": "did,",
+       "start": 19.251,
+       "end": 19.458
+      },
+      {
+       "w": "let",
+       "start": 19.458,
+       "end": 19.682
+      },
+      {
+       "w": "it",
+       "start": 19.682,
+       "end": 19.898
+      },
+      {
+       "w": "echo",
+       "start": 19.898,
+       "end": 20.328
+      },
+      {
+       "w": "louder.",
+       "start": 20.328,
+       "end": 20.759
+      }
+     ],
+     "id": "L011"
+    },
+    {
+     "i": 14,
+     "text": "Majestic, mighty, beyond what we can say,",
+     "suno": [
+      20.824,
+      24.176
+     ],
+     "start": 20.759,
+     "end": 24.176,
+     "singEnd": 24.176,
+     "words": [
+      {
+       "w": "Majestic,",
+       "start": 20.759,
+       "end": 21.815
+      },
+      {
+       "w": "mighty,",
+       "start": 21.815,
+       "end": 22.468
+      },
+      {
+       "w": "beyond",
+       "start": 22.468,
+       "end": 22.809
+      },
+      {
+       "w": "what",
+       "start": 22.809,
+       "end": 23.104
+      },
+      {
+       "w": "we",
+       "start": 23.104,
+       "end": 23.533
+      },
+      {
+       "w": "can",
+       "start": 23.533,
+       "end": 23.834
+      },
+      {
+       "w": "say,",
+       "start": 23.834,
+       "end": 24.176
+      }
+     ],
+     "id": "L012"
+    },
+    {
+     "i": 15,
+     "text": "Your works keep giving us a reason every day.",
+     "suno": [
+      24.176,
+      27.367
+     ],
+     "start": 24.176,
+     "end": 27.367,
+     "singEnd": 27.367,
+     "words": [
+      {
+       "w": "Your",
+       "start": 24.176,
+       "end": 24.421
+      },
+      {
+       "w": "works",
+       "start": 24.421,
+       "end": 24.667
+      },
+      {
+       "w": "keep",
+       "start": 24.667,
+       "end": 24.912
+      },
+      {
+       "w": "giving",
+       "start": 24.912,
+       "end": 25.403
+      },
+      {
+       "w": "us",
+       "start": 25.403,
+       "end": 25.693
+      },
+      {
+       "w": "a",
+       "start": 25.693,
+       "end": 25.894
+      },
+      {
+       "w": "reason",
+       "start": 25.894,
+       "end": 26.385
+      },
+      {
+       "w": "every",
+       "start": 26.385,
+       "end": 27.122
+      },
+      {
+       "w": "day.",
+       "start": 27.122,
+       "end": 27.367
+      }
+     ],
+     "id": "L013"
+    },
+    {
+     "i": 16,
+     "text": "I will think about the splendor of Your reign,",
+     "suno": [
+      27.367,
+      29.92
+     ],
+     "start": 27.367,
+     "end": 29.92,
+     "singEnd": 29.92,
+     "words": [
+      {
+       "w": "I",
+       "start": 27.367,
+       "end": 27.599
+      },
+      {
+       "w": "will",
+       "start": 27.599,
+       "end": 27.817
+      },
+      {
+       "w": "think",
+       "start": 27.817,
+       "end": 28.063
+      },
+      {
+       "w": "about",
+       "start": 28.063,
+       "end": 28.468
+      },
+      {
+       "w": "the",
+       "start": 28.468,
+       "end": 28.76
+      },
+      {
+       "w": "splendor",
+       "start": 28.76,
+       "end": 29.224
+      },
+      {
+       "w": "of",
+       "start": 29.224,
+       "end": 29.456
+      },
+      {
+       "w": "Your",
+       "start": 29.456,
+       "end": 29.688
+      },
+      {
+       "w": "reign,",
+       "start": 29.688,
+       "end": 29.92
+      }
+     ],
+     "id": "L014"
+    },
+    {
+     "i": 17,
+     "text": "And tell the next generation what Your hands have made.",
+     "suno": [
+      29.92,
+      33.59
+     ],
+     "start": 29.92,
+     "end": 33.59,
+     "singEnd": 33.59,
+     "words": [
+      {
+       "w": "And",
+       "start": 29.92,
+       "end": 30.174
+      },
+      {
+       "w": "tell",
+       "start": 30.174,
+       "end": 30.485
+      },
+      {
+       "w": "the",
+       "start": 30.485,
+       "end": 30.825
+      },
+      {
+       "w": "next",
+       "start": 30.825,
+       "end": 31.049
+      },
+      {
+       "w": "generation",
+       "start": 31.049,
+       "end": 32.178
+      },
+      {
+       "w": "what",
+       "start": 32.178,
+       "end": 32.461
+      },
+      {
+       "w": "Your",
+       "start": 32.461,
+       "end": 32.743
+      },
+      {
+       "w": "hands",
+       "start": 32.743,
+       "end": 33.025
+      },
+      {
+       "w": "have",
+       "start": 33.025,
+       "end": 33.308
+      },
+      {
+       "w": "made.",
+       "start": 33.308,
+       "end": 33.59
+      }
+     ],
+     "id": "L015"
+    }
+   ],
+   "start": 7.58,
+   "end": 33.59
+  },
+  {
+   "id": "pre-chorus",
+   "name": "Pre-Chorus",
+   "desc": "rhythmic vocal build, backing chants",
+   "marker": 33.59,
+   "lines": [
+    {
+     "i": 19,
+     "text": "We talk about Your power.",
+     "suno": [
+      33.59,
+      35.266
+     ],
+     "start": 33.599,
+     "end": 35.266,
+     "singEnd": 35.266,
+     "words": [
+      {
+       "w": "We",
+       "start": 33.599,
+       "end": 33.808
+      },
+      {
+       "w": "talk",
+       "start": 33.808,
+       "end": 34.075
+      },
+      {
+       "w": "about",
+       "start": 34.075,
+       "end": 34.552
+      },
+      {
+       "w": "Your",
+       "start": 34.552,
+       "end": 34.79
+      },
+      {
+       "w": "power.",
+       "start": 34.79,
+       "end": 35.266
+      }
+     ],
+     "id": "L016"
+    },
+    {
+     "i": 20,
+     "text": "We talk about Your glory.",
+     "suno": [
+      35.266,
+      36.941
+     ],
+     "start": 35.266,
+     "end": 36.941,
+     "singEnd": 36.941,
+     "words": [
+      {
+       "w": "We",
+       "start": 35.266,
+       "end": 35.538
+      },
+      {
+       "w": "talk",
+       "start": 35.538,
+       "end": 35.77
+      },
+      {
+       "w": "about",
+       "start": 35.77,
+       "end": 36.223
+      },
+      {
+       "w": "Your",
+       "start": 36.223,
+       "end": 36.462
+      },
+      {
+       "w": "glory.",
+       "start": 36.462,
+       "end": 36.941
+      }
+     ],
+     "id": "L017"
+    },
+    {
+     "i": 21,
+     "text": "Generation after generation,",
+     "suno": [
+      36.941,
+      38.936
+     ],
+     "start": 37.036,
+     "end": 38.936,
+     "singEnd": 38.936,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 37.036,
+       "end": 37.796
+      },
+      {
+       "w": "after",
+       "start": 37.796,
+       "end": 38.176
+      },
+      {
+       "w": "generation,",
+       "start": 38.176,
+       "end": 38.936
+      }
+     ],
+     "id": "L018"
+    },
+    {
+     "i": 22,
+     "text": "We're telling the story.",
+     "suno": [
+      38.936,
+      39.973
+     ],
+     "start": 38.936,
+     "end": 39.973,
+     "singEnd": 39.973,
+     "words": [
+      {
+       "w": "We're",
+       "start": 38.936,
+       "end": 39.109
+      },
+      {
+       "w": "telling",
+       "start": 39.109,
+       "end": 39.416
+      },
+      {
+       "w": "the",
+       "start": 39.416,
+       "end": 39.613
+      },
+      {
+       "w": "story.",
+       "start": 39.613,
+       "end": 39.973
+      }
+     ],
+     "id": "L019"
+    }
+   ],
+   "start": 33.59,
+   "end": 39.973
+  },
+  {
+   "id": "chorus",
+   "name": "Chorus",
+   "desc": "short explosive melodic hook, layered vocals",
+   "marker": 39.973,
+   "lines": [
+    {
+     "i": 24,
+     "text": "Great is the LORD!",
+     "suno": [
+      39.973,
+      40.691
+     ],
+     "start": 39.973,
+     "end": 40.658,
+     "singEnd": 40.658,
+     "words": [
+      {
+       "w": "Great",
+       "start": 39.973,
+       "end": 40.144
+      },
+      {
+       "w": "is",
+       "start": 40.144,
+       "end": 40.316
+      },
+      {
+       "w": "the",
+       "start": 40.316,
+       "end": 40.487
+      },
+      {
+       "w": "LORD!",
+       "start": 40.487,
+       "end": 40.658
+      }
+     ],
+     "id": "L020"
+    },
+    {
+     "i": 25,
+     "text": "Great is the LORD!",
+     "suno": [
+      40.691,
+      43.245
+     ],
+     "start": 40.658,
+     "end": 43.245,
+     "singEnd": 42.288,
+     "words": [
+      {
+       "w": "Great",
+       "start": 40.658,
+       "end": 41.111
+      },
+      {
+       "w": "is",
+       "start": 41.111,
+       "end": 41.473
+      },
+      {
+       "w": "the",
+       "start": 41.473,
+       "end": 41.88
+      },
+      {
+       "w": "LORD!",
+       "start": 41.88,
+       "end": 42.288
+      }
+     ],
+     "id": "L021"
+    },
+    {
+     "i": 26,
+     "text": "Mighty in power,",
+     "suno": [
+      43.245,
+      44.202
+     ],
+     "start": 43.245,
+     "end": 44.095,
+     "singEnd": 44.095,
+     "words": [
+      {
+       "w": "Mighty",
+       "start": 43.245,
+       "end": 43.585
+      },
+      {
+       "w": "in",
+       "start": 43.585,
+       "end": 43.755
+      },
+      {
+       "w": "power,",
+       "start": 43.755,
+       "end": 44.095
+      }
+     ],
+     "id": "L022"
+    },
+    {
+     "i": 27,
+     "text": "Great is the LORD!",
+     "suno": [
+      44.202,
+      45.399
+     ],
+     "start": 44.095,
+     "end": 45.399,
+     "singEnd": 45.399,
+     "words": [
+      {
+       "w": "Great",
+       "start": 44.095,
+       "end": 44.421
+      },
+      {
+       "w": "is",
+       "start": 44.421,
+       "end": 44.747
+      },
+      {
+       "w": "the",
+       "start": 44.747,
+       "end": 45.073
+      },
+      {
+       "w": "LORD!",
+       "start": 45.073,
+       "end": 45.399
+      }
+     ],
+     "id": "L023"
+    },
+    {
+     "i": 28,
+     "text": "Full of compassion,",
+     "suno": [
+      45.399,
+      46.277
+     ],
+     "start": 45.399,
+     "end": 46.277,
+     "singEnd": 46.277,
+     "words": [
+      {
+       "w": "Full",
+       "start": 45.399,
+       "end": 45.616
+      },
+      {
+       "w": "of",
+       "start": 45.616,
+       "end": 45.813
+      },
+      {
+       "w": "compassion,",
+       "start": 45.813,
+       "end": 46.277
+      }
+     ],
+     "id": "L024"
+    },
+    {
+     "i": 29,
+     "text": "Slow to anger,",
+     "suno": [
+      46.277,
+      47.154
+     ],
+     "start": 46.277,
+     "end": 47.154,
+     "singEnd": 47.154,
+     "words": [
+      {
+       "w": "Slow",
+       "start": 46.277,
+       "end": 46.496
+      },
+      {
+       "w": "to",
+       "start": 46.496,
+       "end": 46.716
+      },
+      {
+       "w": "anger,",
+       "start": 46.716,
+       "end": 47.154
+      }
+     ],
+     "id": "L025"
+    },
+    {
+     "i": 30,
+     "text": "Rich in mercy,",
+     "suno": [
+      47.154,
+      47.952
+     ],
+     "start": 47.154,
+     "end": 47.952,
+     "singEnd": 47.952,
+     "words": [
+      {
+       "w": "Rich",
+       "start": 47.154,
+       "end": 47.334
+      },
+      {
+       "w": "in",
+       "start": 47.334,
+       "end": 47.531
+      },
+      {
+       "w": "mercy,",
+       "start": 47.531,
+       "end": 47.952
+      }
+     ],
+     "id": "L026"
+    },
+    {
+     "i": 31,
+     "text": "Great is the LORD!",
+     "suno": [
+      47.952,
+      54.654
+     ],
+     "start": 47.952,
+     "end": 54.654,
+     "singEnd": 49.582,
+     "words": [
+      {
+       "w": "Great",
+       "start": 47.952,
+       "end": 48.359
+      },
+      {
+       "w": "is",
+       "start": 48.359,
+       "end": 48.832
+      },
+      {
+       "w": "the",
+       "start": 48.832,
+       "end": 49.238
+      },
+      {
+       "w": "LORD!",
+       "start": 49.238,
+       "end": 49.582
+      }
+     ],
+     "id": "L027"
+    }
+   ],
+   "start": 39.973,
+   "end": 54.654
+  },
+  {
+   "id": "verse-2",
+   "name": "Verse 2",
+   "desc": "faster double-time pockets, dense internal rhymes",
+   "marker": 54.654,
+   "lines": [
+    {
+     "i": 33,
+     "text": "The LORD is gracious,",
+     "suno": [
+      54.654,
+      55.612
+     ],
+     "start": 54.706,
+     "end": 55.612,
+     "singEnd": 55.612,
+     "words": [
+      {
+       "w": "The",
+       "start": 54.706,
+       "end": 54.887
+      },
+      {
+       "w": "LORD",
+       "start": 54.887,
+       "end": 55.068
+      },
+      {
+       "w": "is",
+       "start": 55.068,
+       "end": 55.229
+      },
+      {
+       "w": "gracious,",
+       "start": 55.229,
+       "end": 55.612
+      }
+     ],
+     "id": "L028"
+    },
+    {
+     "i": 34,
+     "text": "The LORD is kind,",
+     "suno": [
+      55.612,
+      56.41
+     ],
+     "start": 55.612,
+     "end": 56.41,
+     "singEnd": 56.41,
+     "words": [
+      {
+       "w": "The",
+       "start": 55.612,
+       "end": 55.812
+      },
+      {
+       "w": "LORD",
+       "start": 55.812,
+       "end": 56.011
+      },
+      {
+       "w": "is",
+       "start": 56.011,
+       "end": 56.21
+      },
+      {
+       "w": "kind,",
+       "start": 56.21,
+       "end": 56.41
+      }
+     ],
+     "id": "L029"
+    },
+    {
+     "i": 35,
+     "text": "Compassionate to every life.",
+     "suno": [
+      56.41,
+      57.846
+     ],
+     "start": 56.41,
+     "end": 57.846,
+     "singEnd": 57.846,
+     "words": [
+      {
+       "w": "Compassionate",
+       "start": 56.41,
+       "end": 57.048
+      },
+      {
+       "w": "to",
+       "start": 57.048,
+       "end": 57.191
+      },
+      {
+       "w": "every",
+       "start": 57.191,
+       "end": 57.686
+      },
+      {
+       "w": "life.",
+       "start": 57.686,
+       "end": 57.846
+      }
+     ],
+     "id": "L030"
+    },
+    {
+     "i": 36,
+     "text": "Good to all,",
+     "suno": [
+      57.846,
+      58.564
+     ],
+     "start": 57.846,
+     "end": 58.564,
+     "singEnd": 58.564,
+     "words": [
+      {
+       "w": "Good",
+       "start": 57.846,
+       "end": 58.038
+      },
+      {
+       "w": "to",
+       "start": 58.038,
+       "end": 58.325
+      },
+      {
+       "w": "all,",
+       "start": 58.325,
+       "end": 58.564
+      }
+     ],
+     "id": "L031"
+    },
+    {
+     "i": 37,
+     "text": "Mercy over everything,",
+     "suno": [
+      58.564,
+      59.441
+     ],
+     "start": 58.564,
+     "end": 59.327,
+     "singEnd": 59.327,
+     "words": [
+      {
+       "w": "Mercy",
+       "start": 58.564,
+       "end": 58.755
+      },
+      {
+       "w": "over",
+       "start": 58.755,
+       "end": 58.945
+      },
+      {
+       "w": "everything,",
+       "start": 58.945,
+       "end": 59.327
+      }
+     ],
+     "id": "L032"
+    },
+    {
+     "i": 38,
+     "text": "All of creation sings.",
+     "suno": [
+      59.441,
+      60.399
+     ],
+     "start": 59.327,
+     "end": 60.399,
+     "singEnd": 60.399,
+     "words": [
+      {
+       "w": "All",
+       "start": 59.327,
+       "end": 59.524
+      },
+      {
+       "w": "of",
+       "start": 59.524,
+       "end": 59.756
+      },
+      {
+       "w": "creation",
+       "start": 59.756,
+       "end": 60.186
+      },
+      {
+       "w": "sings.",
+       "start": 60.186,
+       "end": 60.399
+      }
+     ],
+     "id": "L033"
+    },
+    {
+     "i": 39,
+     "text": "Everything You made looks to You for food,",
+     "suno": [
+      60.399,
+      61.915
+     ],
+     "start": 60.407,
+     "end": 61.915,
+     "singEnd": 61.915,
+     "words": [
+      {
+       "w": "Everything",
+       "start": 60.407,
+       "end": 60.955
+      },
+      {
+       "w": "You",
+       "start": 60.955,
+       "end": 61.092
+      },
+      {
+       "w": "made",
+       "start": 61.092,
+       "end": 61.243
+      },
+      {
+       "w": "looks",
+       "start": 61.243,
+       "end": 61.367
+      },
+      {
+       "w": "to",
+       "start": 61.367,
+       "end": 61.463
+      },
+      {
+       "w": "You",
+       "start": 61.463,
+       "end": 61.684
+      },
+      {
+       "w": "for",
+       "start": 61.684,
+       "end": 61.778
+      },
+      {
+       "w": "food,",
+       "start": 61.778,
+       "end": 61.915
+      }
+     ],
+     "id": "L034"
+    },
+    {
+     "i": 40,
+     "text": "You open up Your hand and You give what's good.",
+     "suno": [
+      61.915,
+      63.59
+     ],
+     "start": 61.915,
+     "end": 63.59,
+     "singEnd": 63.59,
+     "words": [
+      {
+       "w": "You",
+       "start": 61.915,
+       "end": 62.113
+      },
+      {
+       "w": "open",
+       "start": 62.113,
+       "end": 62.372
+      },
+      {
+       "w": "up",
+       "start": 62.372,
+       "end": 62.524
+      },
+      {
+       "w": "Your",
+       "start": 62.524,
+       "end": 62.676
+      },
+      {
+       "w": "hand",
+       "start": 62.676,
+       "end": 62.829
+      },
+      {
+       "w": "and",
+       "start": 62.829,
+       "end": 62.961
+      },
+      {
+       "w": "You",
+       "start": 62.961,
+       "end": 63.17
+      },
+      {
+       "w": "give",
+       "start": 63.17,
+       "end": 63.285
+      },
+      {
+       "w": "what's",
+       "start": 63.285,
+       "end": 63.391
+      },
+      {
+       "w": "good.",
+       "start": 63.391,
+       "end": 63.59
+      }
+     ],
+     "id": "L035"
+    },
+    {
+     "i": 41,
+     "text": "You satisfy the living with what You provide,",
+     "suno": [
+      63.59,
+      65.346
+     ],
+     "start": 63.59,
+     "end": 65.346,
+     "singEnd": 65.346,
+     "words": [
+      {
+       "w": "You",
+       "start": 63.59,
+       "end": 63.736
+      },
+      {
+       "w": "satisfy",
+       "start": 63.736,
+       "end": 64.175
+      },
+      {
+       "w": "the",
+       "start": 64.175,
+       "end": 64.322
+      },
+      {
+       "w": "living",
+       "start": 64.322,
+       "end": 64.575
+      },
+      {
+       "w": "with",
+       "start": 64.575,
+       "end": 64.761
+      },
+      {
+       "w": "what",
+       "start": 64.761,
+       "end": 64.888
+      },
+      {
+       "w": "You",
+       "start": 64.888,
+       "end": 65.109
+      },
+      {
+       "w": "provide,",
+       "start": 65.109,
+       "end": 65.346
+      }
+     ],
+     "id": "L036"
+    },
+    {
+     "i": 42,
+     "text": "And all of it comes from Your generous side.",
+     "suno": [
+      65.346,
+      66.941
+     ],
+     "start": 65.346,
+     "end": 66.941,
+     "singEnd": 66.941,
+     "words": [
+      {
+       "w": "And",
+       "start": 65.346,
+       "end": 65.479
+      },
+      {
+       "w": "all",
+       "start": 65.479,
+       "end": 65.612
+      },
+      {
+       "w": "of",
+       "start": 65.612,
+       "end": 65.745
+      },
+      {
+       "w": "it",
+       "start": 65.745,
+       "end": 65.945
+      },
+      {
+       "w": "comes",
+       "start": 65.945,
+       "end": 66.144
+      },
+      {
+       "w": "from",
+       "start": 66.144,
+       "end": 66.276
+      },
+      {
+       "w": "Your",
+       "start": 66.276,
+       "end": 66.386
+      },
+      {
+       "w": "generous",
+       "start": 66.386,
+       "end": 66.815
+      },
+      {
+       "w": "side.",
+       "start": 66.815,
+       "end": 66.941
+      }
+     ],
+     "id": "L037"
+    },
+    {
+     "i": 43,
+     "text": "Righteous in everything,",
+     "suno": [
+      66.941,
+      69.335
+     ],
+     "start": 66.941,
+     "end": 69.335,
+     "singEnd": 69.335,
+     "words": [
+      {
+       "w": "Righteous",
+       "start": 66.941,
+       "end": 67.625
+      },
+      {
+       "w": "in",
+       "start": 67.625,
+       "end": 67.967
+      },
+      {
+       "w": "everything,",
+       "start": 67.967,
+       "end": 69.335
+      }
+     ],
+     "id": "L038"
+    },
+    {
+     "i": 44,
+     "text": "Kind in everything,",
+     "suno": [
+      69.335,
+      70.213
+     ],
+     "start": 69.335,
+     "end": 70.213,
+     "singEnd": 70.213,
+     "words": [
+      {
+       "w": "Kind",
+       "start": 69.335,
+       "end": 69.481
+      },
+      {
+       "w": "in",
+       "start": 69.481,
+       "end": 69.628
+      },
+      {
+       "w": "everything,",
+       "start": 69.628,
+       "end": 70.213
+      }
+     ],
+     "id": "L039"
+    },
+    {
+     "i": 45,
+     "text": "Near to everyone who calls Your name.",
+     "suno": [
+      70.213,
+      72.048
+     ],
+     "start": 70.213,
+     "end": 72.048,
+     "singEnd": 72.048,
+     "words": [
+      {
+       "w": "Near",
+       "start": 70.213,
+       "end": 70.417
+      },
+      {
+       "w": "to",
+       "start": 70.417,
+       "end": 70.681
+      },
+      {
+       "w": "everyone",
+       "start": 70.681,
+       "end": 71.232
+      },
+      {
+       "w": "who",
+       "start": 71.232,
+       "end": 71.436
+      },
+      {
+       "w": "calls",
+       "start": 71.436,
+       "end": 71.64
+      },
+      {
+       "w": "Your",
+       "start": 71.64,
+       "end": 71.844
+      },
+      {
+       "w": "name.",
+       "start": 71.844,
+       "end": 72.048
+      }
+     ],
+     "id": "L040"
+    },
+    {
+     "i": 46,
+     "text": "Those who call sincerely,",
+     "suno": [
+      72.048,
+      73.245
+     ],
+     "start": 72.048,
+     "end": 73.245,
+     "singEnd": 73.245,
+     "words": [
+      {
+       "w": "Those",
+       "start": 72.048,
+       "end": 72.219
+      },
+      {
+       "w": "who",
+       "start": 72.219,
+       "end": 72.388
+      },
+      {
+       "w": "call",
+       "start": 72.388,
+       "end": 72.561
+      },
+      {
+       "w": "sincerely,",
+       "start": 72.561,
+       "end": 73.245
+      }
+     ],
+     "id": "L041"
+    },
+    {
+     "i": 47,
+     "text": "You are right there,",
+     "suno": [
+      73.245,
+      73.883
+     ],
+     "start": 73.247,
+     "end": 73.883,
+     "singEnd": 73.883,
+     "words": [
+      {
+       "w": "You",
+       "start": 73.247,
+       "end": 73.468
+      },
+      {
+       "w": "are",
+       "start": 73.468,
+       "end": 73.565
+      },
+      {
+       "w": "right",
+       "start": 73.565,
+       "end": 73.724
+      },
+      {
+       "w": "there,",
+       "start": 73.724,
+       "end": 73.883
+      }
+     ],
+     "id": "L042"
+    },
+    {
+     "i": 48,
+     "text": "You fulfill their desire",
+     "suno": [
+      73.883,
+      74.761
+     ],
+     "start": 73.883,
+     "end": 74.761,
+     "singEnd": 74.761,
+     "words": [
+      {
+       "w": "You",
+       "start": 73.883,
+       "end": 74.029
+      },
+      {
+       "w": "fulfill",
+       "start": 74.029,
+       "end": 74.322
+      },
+      {
+       "w": "their",
+       "start": 74.322,
+       "end": 74.536
+      },
+      {
+       "w": "desire",
+       "start": 74.536,
+       "end": 74.761
+      }
+     ],
+     "id": "L043"
+    },
+    {
+     "i": 49,
+     "text": "And You hear their prayer.",
+     "suno": [
+      74.761,
+      76.755
+     ],
+     "start": 74.761,
+     "end": 76.755,
+     "singEnd": 76.711,
+     "words": [
+      {
+       "w": "And",
+       "start": 74.761,
+       "end": 75.151
+      },
+      {
+       "w": "You",
+       "start": 75.151,
+       "end": 75.541
+      },
+      {
+       "w": "hear",
+       "start": 75.541,
+       "end": 75.931
+      },
+      {
+       "w": "their",
+       "start": 75.931,
+       "end": 76.254
+      },
+      {
+       "w": "prayer.",
+       "start": 76.254,
+       "end": 76.711
+      }
+     ],
+     "id": "L044"
+    }
+   ],
+   "start": 54.654,
+   "end": 76.755
+  },
+  {
+   "id": "chorus-2",
+   "name": "Chorus",
+   "desc": "bigger drums, chant responses",
+   "marker": 76.755,
+   "lines": [
+    {
+     "i": 51,
+     "text": "Great is the LORD!",
+     "suno": [
+      76.755,
+      77.952
+     ],
+     "start": 76.755,
+     "end": 77.952,
+     "singEnd": 77.952,
+     "words": [
+      {
+       "w": "Great",
+       "start": 76.755,
+       "end": 77.054
+      },
+      {
+       "w": "is",
+       "start": 77.054,
+       "end": 77.334
+      },
+      {
+       "w": "the",
+       "start": 77.334,
+       "end": 77.653
+      },
+      {
+       "w": "LORD!",
+       "start": 77.653,
+       "end": 77.952
+      }
+     ],
+     "id": "L045"
+    },
+    {
+     "i": 52,
+     "text": "Great is the LORD!",
+     "suno": [
+      77.952,
+      79.229
+     ],
+     "start": 77.952,
+     "end": 79.229,
+     "singEnd": 79.229,
+     "words": [
+      {
+       "w": "Great",
+       "start": 77.952,
+       "end": 78.271
+      },
+      {
+       "w": "is",
+       "start": 78.271,
+       "end": 78.611
+      },
+      {
+       "w": "the",
+       "start": 78.611,
+       "end": 78.91
+      },
+      {
+       "w": "LORD!",
+       "start": 78.91,
+       "end": 79.229
+      }
+     ],
+     "id": "L046"
+    },
+    {
+     "i": 53,
+     "text": "Mighty in power,",
+     "suno": [
+      79.229,
+      80.186
+     ],
+     "start": 79.229,
+     "end": 80.097,
+     "singEnd": 80.097,
+     "words": [
+      {
+       "w": "Mighty",
+       "start": 79.229,
+       "end": 79.576
+      },
+      {
+       "w": "in",
+       "start": 79.576,
+       "end": 79.75
+      },
+      {
+       "w": "power,",
+       "start": 79.75,
+       "end": 80.097
+      }
+     ],
+     "id": "L047"
+    },
+    {
+     "i": 54,
+     "text": "Great is the LORD!",
+     "suno": [
+      80.186,
+      81.383
+     ],
+     "start": 80.097,
+     "end": 81.383,
+     "singEnd": 81.383,
+     "words": [
+      {
+       "w": "Great",
+       "start": 80.097,
+       "end": 80.418
+      },
+      {
+       "w": "is",
+       "start": 80.418,
+       "end": 80.74
+      },
+      {
+       "w": "the",
+       "start": 80.74,
+       "end": 81.061
+      },
+      {
+       "w": "LORD!",
+       "start": 81.061,
+       "end": 81.383
+      }
+     ],
+     "id": "L048"
+    },
+    {
+     "i": 55,
+     "text": "Full of compassion,",
+     "suno": [
+      81.383,
+      82.261
+     ],
+     "start": 81.383,
+     "end": 82.261,
+     "singEnd": 82.261,
+     "words": [
+      {
+       "w": "Full",
+       "start": 81.383,
+       "end": 81.618
+      },
+      {
+       "w": "of",
+       "start": 81.618,
+       "end": 81.734
+      },
+      {
+       "w": "compassion,",
+       "start": 81.734,
+       "end": 82.261
+      }
+     ],
+     "id": "L049"
+    },
+    {
+     "i": 56,
+     "text": "Slow to anger,",
+     "suno": [
+      82.261,
+      83.138
+     ],
+     "start": 82.261,
+     "end": 83.138,
+     "singEnd": 83.138,
+     "words": [
+      {
+       "w": "Slow",
+       "start": 82.261,
+       "end": 82.48
+      },
+      {
+       "w": "to",
+       "start": 82.48,
+       "end": 82.7
+      },
+      {
+       "w": "anger,",
+       "start": 82.7,
+       "end": 83.138
+      }
+     ],
+     "id": "L050"
+    },
+    {
+     "i": 57,
+     "text": "Rich in mercy,",
+     "suno": [
+      83.138,
+      83.936
+     ],
+     "start": 83.138,
+     "end": 83.936,
+     "singEnd": 83.936,
+     "words": [
+      {
+       "w": "Rich",
+       "start": 83.138,
+       "end": 83.338
+      },
+      {
+       "w": "in",
+       "start": 83.338,
+       "end": 83.534
+      },
+      {
+       "w": "mercy,",
+       "start": 83.534,
+       "end": 83.936
+      }
+     ],
+     "id": "L051"
+    },
+    {
+     "i": 58,
+     "text": "Great is the LORD!",
+     "suno": [
+      83.936,
+      90.638
+     ],
+     "start": 83.936,
+     "end": 90.638,
+     "singEnd": 85.566,
+     "words": [
+      {
+       "w": "Great",
+       "start": 83.936,
+       "end": 84.344
+      },
+      {
+       "w": "is",
+       "start": 84.344,
+       "end": 84.751
+      },
+      {
+       "w": "the",
+       "start": 84.751,
+       "end": 85.159
+      },
+      {
+       "w": "LORD!",
+       "start": 85.159,
+       "end": 85.566
+      }
+     ],
+     "id": "L052"
+    }
+   ],
+   "start": 76.755,
+   "end": 90.638
+  },
+  {
+   "id": "verse-3",
+   "name": "Verse 3",
+   "desc": "rapid rhythmic delivery, bouncy synths",
+   "marker": 90.638,
+   "lines": [
+    {
+     "i": 60,
+     "text": "Your kingdom is forever,",
+     "suno": [
+      90.638,
+      91.995
+     ],
+     "start": 90.638,
+     "end": 91.995,
+     "singEnd": 91.995,
+     "words": [
+      {
+       "w": "Your",
+       "start": 90.638,
+       "end": 90.837
+      },
+      {
+       "w": "kingdom",
+       "start": 90.837,
+       "end": 91.22
+      },
+      {
+       "w": "is",
+       "start": 91.22,
+       "end": 91.413
+      },
+      {
+       "w": "forever,",
+       "start": 91.413,
+       "end": 91.995
+      }
+     ],
+     "id": "L053"
+    },
+    {
+     "i": 61,
+     "text": "Your reign has no end.",
+     "suno": [
+      91.995,
+      92.713
+     ],
+     "start": 92.009,
+     "end": 92.713,
+     "singEnd": 92.713,
+     "words": [
+      {
+       "w": "Your",
+       "start": 92.009,
+       "end": 92.102
+      },
+      {
+       "w": "reign",
+       "start": 92.102,
+       "end": 92.323
+      },
+      {
+       "w": "has",
+       "start": 92.323,
+       "end": 92.439
+      },
+      {
+       "w": "no",
+       "start": 92.439,
+       "end": 92.543
+      },
+      {
+       "w": "end.",
+       "start": 92.543,
+       "end": 92.713
+      }
+     ],
+     "id": "L054"
+    },
+    {
+     "i": 62,
+     "text": "Every generation knows",
+     "suno": [
+      92.713,
+      93.59
+     ],
+     "start": 92.713,
+     "end": 93.59,
+     "singEnd": 93.59,
+     "words": [
+      {
+       "w": "Every",
+       "start": 92.713,
+       "end": 93.042
+      },
+      {
+       "w": "generation",
+       "start": 93.042,
+       "end": 93.48
+      },
+      {
+       "w": "knows",
+       "start": 93.48,
+       "end": 93.59
+      }
+     ],
+     "id": "L055"
+    },
+    {
+     "i": 63,
+     "text": "Your faithfulness again.",
+     "suno": [
+      93.59,
+      94.468
+     ],
+     "start": 93.59,
+     "end": 94.468,
+     "singEnd": 94.468,
+     "words": [
+      {
+       "w": "Your",
+       "start": 93.59,
+       "end": 93.727
+      },
+      {
+       "w": "faithfulness",
+       "start": 93.727,
+       "end": 94.145
+      },
+      {
+       "w": "again.",
+       "start": 94.145,
+       "end": 94.468
+      }
+     ],
+     "id": "L056"
+    },
+    {
+     "i": 64,
+     "text": "You lift up the fallen.",
+     "suno": [
+      94.468,
+      95.266
+     ],
+     "start": 94.468,
+     "end": 95.266,
+     "singEnd": 95.266,
+     "words": [
+      {
+       "w": "You",
+       "start": 94.468,
+       "end": 94.601
+      },
+      {
+       "w": "lift",
+       "start": 94.601,
+       "end": 94.734
+      },
+      {
+       "w": "up",
+       "start": 94.734,
+       "end": 94.867
+      },
+      {
+       "w": "the",
+       "start": 94.867,
+       "end": 95.0
+      },
+      {
+       "w": "fallen.",
+       "start": 95.0,
+       "end": 95.266
+      }
+     ],
+     "id": "L057"
+    },
+    {
+     "i": 65,
+     "text": "You hold up those who bend.",
+     "suno": [
+      95.266,
+      96.144
+     ],
+     "start": 95.266,
+     "end": 96.144,
+     "singEnd": 96.144,
+     "words": [
+      {
+       "w": "You",
+       "start": 95.266,
+       "end": 95.412
+      },
+      {
+       "w": "hold",
+       "start": 95.412,
+       "end": 95.559
+      },
+      {
+       "w": "up",
+       "start": 95.559,
+       "end": 95.705
+      },
+      {
+       "w": "those",
+       "start": 95.705,
+       "end": 95.864
+      },
+      {
+       "w": "who",
+       "start": 95.864,
+       "end": 95.968
+      },
+      {
+       "w": "bend.",
+       "start": 95.968,
+       "end": 96.144
+      }
+     ],
+     "id": "L058"
+    },
+    {
+     "i": 66,
+     "text": "The eyes of every creature",
+     "suno": [
+      96.144,
+      97.021
+     ],
+     "start": 96.144,
+     "end": 97.021,
+     "singEnd": 97.021,
+     "words": [
+      {
+       "w": "The",
+       "start": 96.144,
+       "end": 96.293
+      },
+      {
+       "w": "eyes",
+       "start": 96.293,
+       "end": 96.363
+      },
+      {
+       "w": "of",
+       "start": 96.363,
+       "end": 96.473
+      },
+      {
+       "w": "every",
+       "start": 96.473,
+       "end": 96.816
+      },
+      {
+       "w": "creature",
+       "start": 96.816,
+       "end": 97.021
+      }
+     ],
+     "id": "L059"
+    },
+    {
+     "i": 67,
+     "text": "Look to You again.",
+     "suno": [
+      97.021,
+      97.819
+     ],
+     "start": 97.141,
+     "end": 97.819,
+     "singEnd": 97.819,
+     "words": [
+      {
+       "w": "Look",
+       "start": 97.141,
+       "end": 97.245
+      },
+      {
+       "w": "to",
+       "start": 97.245,
+       "end": 97.412
+      },
+      {
+       "w": "You",
+       "start": 97.412,
+       "end": 97.548
+      },
+      {
+       "w": "again.",
+       "start": 97.548,
+       "end": 97.819
+      }
+     ],
+     "id": "L060"
+    },
+    {
+     "i": 68,
+     "text": "You are righteous.",
+     "suno": [
+      97.819,
+      98.298
+     ],
+     "start": 97.819,
+     "end": 98.298,
+     "singEnd": 98.298,
+     "words": [
+      {
+       "w": "You",
+       "start": 97.819,
+       "end": 97.939
+      },
+      {
+       "w": "are",
+       "start": 97.939,
+       "end": 98.011
+      },
+      {
+       "w": "righteous.",
+       "start": 98.011,
+       "end": 98.298
+      }
+     ],
+     "id": "L061"
+    },
+    {
+     "i": 69,
+     "text": "You are gracious.",
+     "suno": [
+      98.298,
+      98.697
+     ],
+     "start": 98.298,
+     "end": 98.697,
+     "singEnd": 98.697,
+     "words": [
+      {
+       "w": "You",
+       "start": 98.298,
+       "end": 98.398
+      },
+      {
+       "w": "are",
+       "start": 98.398,
+       "end": 98.534
+      },
+      {
+       "w": "gracious.",
+       "start": 98.534,
+       "end": 98.697
+      }
+     ],
+     "id": "L062"
+    },
+    {
+     "i": 70,
+     "text": "You are near when we call.",
+     "suno": [
+      98.697,
+      99.574
+     ],
+     "start": 98.697,
+     "end": 99.574,
+     "singEnd": 99.574,
+     "words": [
+      {
+       "w": "You",
+       "start": 98.697,
+       "end": 98.859
+      },
+      {
+       "w": "are",
+       "start": 98.859,
+       "end": 98.963
+      },
+      {
+       "w": "near",
+       "start": 98.963,
+       "end": 99.136
+      },
+      {
+       "w": "when",
+       "start": 99.136,
+       "end": 99.282
+      },
+      {
+       "w": "we",
+       "start": 99.282,
+       "end": 99.381
+      },
+      {
+       "w": "call.",
+       "start": 99.381,
+       "end": 99.574
+      }
+     ],
+     "id": "L063"
+    },
+    {
+     "i": 71,
+     "text": "You sustain those who stumble.",
+     "suno": [
+      99.574,
+      100.452
+     ],
+     "start": 99.574,
+     "end": 100.452,
+     "singEnd": 100.452,
+     "words": [
+      {
+       "w": "You",
+       "start": 99.574,
+       "end": 99.73
+      },
+      {
+       "w": "sustain",
+       "start": 99.73,
+       "end": 99.95
+      },
+      {
+       "w": "those",
+       "start": 99.95,
+       "end": 100.076
+      },
+      {
+       "w": "who",
+       "start": 100.076,
+       "end": 100.252
+      },
+      {
+       "w": "stumble.",
+       "start": 100.252,
+       "end": 100.452
+      }
+     ],
+     "id": "L064"
+    },
+    {
+     "i": 72,
+     "text": "You uphold them when they fall.",
+     "suno": [
+      100.452,
+      101.25
+     ],
+     "start": 100.452,
+     "end": 101.25,
+     "singEnd": 101.25,
+     "words": [
+      {
+       "w": "You",
+       "start": 100.452,
+       "end": 100.566
+      },
+      {
+       "w": "uphold",
+       "start": 100.566,
+       "end": 100.794
+      },
+      {
+       "w": "them",
+       "start": 100.794,
+       "end": 100.908
+      },
+      {
+       "w": "when",
+       "start": 100.908,
+       "end": 100.995
+      },
+      {
+       "w": "they",
+       "start": 100.995,
+       "end": 101.1
+      },
+      {
+       "w": "fall.",
+       "start": 101.1,
+       "end": 101.25
+      }
+     ],
+     "id": "L065"
+    },
+    {
+     "i": 73,
+     "text": "So I'm putting it in the rhythm,",
+     "suno": [
+      101.25,
+      102.287
+     ],
+     "start": 101.25,
+     "end": 102.287,
+     "singEnd": 102.287,
+     "words": [
+      {
+       "w": "So",
+       "start": 101.25,
+       "end": 101.436
+      },
+      {
+       "w": "I'm",
+       "start": 101.436,
+       "end": 101.509
+      },
+      {
+       "w": "putting",
+       "start": 101.509,
+       "end": 101.769
+      },
+      {
+       "w": "it",
+       "start": 101.769,
+       "end": 101.878
+      },
+      {
+       "w": "in",
+       "start": 101.878,
+       "end": 101.982
+      },
+      {
+       "w": "the",
+       "start": 101.982,
+       "end": 102.157
+      },
+      {
+       "w": "rhythm,",
+       "start": 102.157,
+       "end": 102.287
+      }
+     ],
+     "id": "L066"
+    },
+    {
+     "i": 74,
+     "text": "Putting it in the rhyme,",
+     "suno": [
+      102.287,
+      103.085
+     ],
+     "start": 102.287,
+     "end": 103.085,
+     "singEnd": 103.085,
+     "words": [
+      {
+       "w": "Putting",
+       "start": 102.287,
+       "end": 102.621
+      },
+      {
+       "w": "it",
+       "start": 102.621,
+       "end": 102.681
+      },
+      {
+       "w": "in",
+       "start": 102.681,
+       "end": 102.83
+      },
+      {
+       "w": "the",
+       "start": 102.83,
+       "end": 102.952
+      },
+      {
+       "w": "rhyme,",
+       "start": 102.952,
+       "end": 103.085
+      }
+     ],
+     "id": "L067"
+    },
+    {
+     "i": 75,
+     "text": "Not just for this moment,",
+     "suno": [
+      103.085,
+      103.723
+     ],
+     "start": 103.085,
+     "end": 103.723,
+     "singEnd": 103.723,
+     "words": [
+      {
+       "w": "Not",
+       "start": 103.085,
+       "end": 103.191
+      },
+      {
+       "w": "just",
+       "start": 103.191,
+       "end": 103.298
+      },
+      {
+       "w": "for",
+       "start": 103.298,
+       "end": 103.364
+      },
+      {
+       "w": "this",
+       "start": 103.364,
+       "end": 103.51
+      },
+      {
+       "w": "moment,",
+       "start": 103.51,
+       "end": 103.723
+      }
+     ],
+     "id": "L068"
+    },
+    {
+     "i": 76,
+     "text": "For all generations in time.",
+     "suno": [
+      103.723,
+      105.638
+     ],
+     "start": 103.723,
+     "end": 105.638,
+     "singEnd": 105.638,
+     "words": [
+      {
+       "w": "For",
+       "start": 103.723,
+       "end": 103.962
+      },
+      {
+       "w": "all",
+       "start": 103.962,
+       "end": 104.202
+      },
+      {
+       "w": "generations",
+       "start": 104.202,
+       "end": 105.159
+      },
+      {
+       "w": "in",
+       "start": 105.159,
+       "end": 105.399
+      },
+      {
+       "w": "time.",
+       "start": 105.399,
+       "end": 105.638
+      }
+     ],
+     "id": "L069"
+    }
+   ],
+   "start": 90.638,
+   "end": 105.638
+  },
+  {
+   "id": "bridge",
+   "name": "Bridge",
+   "desc": "beat strips to bass, percussion and vocal chants",
+   "marker": 105.638,
+   "lines": [
+    {
+     "i": 78,
+     "text": "My mouth will speak Your praise.",
+     "suno": [
+      105.638,
+      108.67
+     ],
+     "start": 105.638,
+     "end": 108.67,
+     "singEnd": 107.908,
+     "words": [
+      {
+       "w": "My",
+       "start": 105.638,
+       "end": 106.016
+      },
+      {
+       "w": "mouth",
+       "start": 106.016,
+       "end": 106.395
+      },
+      {
+       "w": "will",
+       "start": 106.395,
+       "end": 106.773
+      },
+      {
+       "w": "speak",
+       "start": 106.773,
+       "end": 107.114
+      },
+      {
+       "w": "Your",
+       "start": 107.114,
+       "end": 107.53
+      },
+      {
+       "w": "praise.",
+       "start": 107.53,
+       "end": 107.908
+      }
+     ],
+     "id": "L070"
+    },
+    {
+     "i": 79,
+     "text": "Let every creature bless Your name.",
+     "suno": [
+      108.67,
+      110.585
+     ],
+     "start": 108.67,
+     "end": 110.585,
+     "singEnd": 110.585,
+     "words": [
+      {
+       "w": "Let",
+       "start": 108.67,
+       "end": 108.883
+      },
+      {
+       "w": "every",
+       "start": 108.883,
+       "end": 109.494
+      },
+      {
+       "w": "creature",
+       "start": 109.494,
+       "end": 109.947
+      },
+      {
+       "w": "bless",
+       "start": 109.947,
+       "end": 110.159
+      },
+      {
+       "w": "Your",
+       "start": 110.159,
+       "end": 110.372
+      },
+      {
+       "w": "name.",
+       "start": 110.372,
+       "end": 110.585
+      }
+     ],
+     "id": "L071"
+    },
+    {
+     "i": 80,
+     "text": "Forever and ever.",
+     "suno": [
+      110.585,
+      111.383
+     ],
+     "start": 110.585,
+     "end": 111.383,
+     "singEnd": 111.383,
+     "words": [
+      {
+       "w": "Forever",
+       "start": 110.585,
+       "end": 110.968
+      },
+      {
+       "w": "and",
+       "start": 110.968,
+       "end": 111.117
+      },
+      {
+       "w": "ever.",
+       "start": 111.117,
+       "end": 111.383
+      }
+     ],
+     "id": "L072"
+    },
+    {
+     "i": 81,
+     "text": "Forever and ever.",
+     "suno": [
+      111.383,
+      112.261
+     ],
+     "start": 111.398,
+     "end": 112.261,
+     "singEnd": 112.261,
+     "words": [
+      {
+       "w": "Forever",
+       "start": 111.398,
+       "end": 111.816
+      },
+      {
+       "w": "and",
+       "start": 111.816,
+       "end": 111.973
+      },
+      {
+       "w": "ever.",
+       "start": 111.973,
+       "end": 112.261
+      }
+     ],
+     "id": "L073"
+    },
+    {
+     "i": 82,
+     "text": "Forever and ever.",
+     "suno": [
+      112.261,
+      114.814
+     ],
+     "start": 112.261,
+     "end": 114.814,
+     "singEnd": 114.531,
+     "words": [
+      {
+       "w": "Forever",
+       "start": 112.261,
+       "end": 113.396
+      },
+      {
+       "w": "and",
+       "start": 113.396,
+       "end": 113.774
+      },
+      {
+       "w": "ever.",
+       "start": 113.774,
+       "end": 114.531
+      }
+     ],
+     "id": "L074"
+    },
+    {
+     "i": 83,
+     "text": "Forever and ever.",
+     "suno": [
+      114.814,
+      116.888
+     ],
+     "start": 114.814,
+     "end": 116.888,
+     "singEnd": 116.888,
+     "words": [
+      {
+       "w": "Forever",
+       "start": 114.814,
+       "end": 115.851
+      },
+      {
+       "w": "and",
+       "start": 115.851,
+       "end": 116.197
+      },
+      {
+       "w": "ever.",
+       "start": 116.197,
+       "end": 116.888
+      }
+     ],
+     "id": "L075"
+    },
+    {
+     "i": 84,
+     "text": "Generation to generation.",
+     "suno": [
+      116.888,
+      119.202
+     ],
+     "start": 116.888,
+     "end": 119.202,
+     "singEnd": 119.202,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 116.888,
+       "end": 117.916
+      },
+      {
+       "w": "to",
+       "start": 117.916,
+       "end": 118.174
+      },
+      {
+       "w": "generation.",
+       "start": 118.174,
+       "end": 119.202
+      }
+     ],
+     "id": "L076"
+    },
+    {
+     "i": 85,
+     "text": "Generation to generation.",
+     "suno": [
+      119.202,
+      120.798
+     ],
+     "start": 119.202,
+     "end": 120.798,
+     "singEnd": 120.798,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 119.202,
+       "end": 119.911
+      },
+      {
+       "w": "to",
+       "start": 119.911,
+       "end": 120.089
+      },
+      {
+       "w": "generation.",
+       "start": 120.089,
+       "end": 120.798
+      }
+     ],
+     "id": "L077"
+    },
+    {
+     "i": 86,
+     "text": "Generation to generation.",
+     "suno": [
+      120.798,
+      123.75
+     ],
+     "start": 120.798,
+     "end": 123.75,
+     "singEnd": 123.75,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 120.798,
+       "end": 122.11
+      },
+      {
+       "w": "to",
+       "start": 122.11,
+       "end": 122.438
+      },
+      {
+       "w": "generation.",
+       "start": 122.438,
+       "end": 123.75
+      }
+     ],
+     "id": "L078"
+    },
+    {
+     "i": 87,
+     "text": "Generation to generation.",
+     "suno": [
+      123.75,
+      125.984
+     ],
+     "start": 123.75,
+     "end": 125.984,
+     "singEnd": 125.984,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 123.75,
+       "end": 124.68
+      },
+      {
+       "w": "to",
+       "start": 124.68,
+       "end": 124.991
+      },
+      {
+       "w": "generation.",
+       "start": 124.991,
+       "end": 125.984
+      }
+     ],
+     "id": "L079"
+    },
+    {
+     "i": 88,
+     "text": "Generation to generation.",
+     "suno": [
+      125.984,
+      127.899
+     ],
+     "start": 125.984,
+     "end": 127.899,
+     "singEnd": 127.899,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 125.984,
+       "end": 126.827
+      },
+      {
+       "w": "to",
+       "start": 126.827,
+       "end": 127.048
+      },
+      {
+       "w": "generation.",
+       "start": 127.048,
+       "end": 127.899
+      }
+     ],
+     "id": "L080"
+    },
+    {
+     "i": 89,
+     "text": "Generation to generation.",
+     "suno": [
+      127.899,
+      131.809
+     ],
+     "start": 127.899,
+     "end": 131.809,
+     "singEnd": 131.129,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 127.899,
+       "end": 129.335
+      },
+      {
+       "w": "to",
+       "start": 129.335,
+       "end": 129.693
+      },
+      {
+       "w": "generation.",
+       "start": 129.693,
+       "end": 131.129
+      }
+     ],
+     "id": "L081"
+    }
+   ],
+   "start": 105.638,
+   "end": 131.809
+  },
+  {
+   "id": "final-chorus",
+   "name": "Final Chorus",
+   "desc": "full Confetti-style production, rapid ad-libs, stacked vocals",
+   "marker": 131.809,
+   "lines": [
+    {
+     "i": 91,
+     "text": "Great is the LORD!",
+     "suno": [
+      131.809,
+      132.606
+     ],
+     "start": 131.809,
+     "end": 132.606,
+     "singEnd": 132.606,
+     "words": [
+      {
+       "w": "Great",
+       "start": 131.809,
+       "end": 131.959
+      },
+      {
+       "w": "is",
+       "start": 131.959,
+       "end": 132.207
+      },
+      {
+       "w": "the",
+       "start": 132.207,
+       "end": 132.407
+      },
+      {
+       "w": "LORD!",
+       "start": 132.407,
+       "end": 132.606
+      }
+     ],
+     "id": "L082"
+    },
+    {
+     "i": 92,
+     "text": "Great is the LORD!",
+     "suno": [
+      132.606,
+      134.122
+     ],
+     "start": 132.606,
+     "end": 134.122,
+     "singEnd": 134.122,
+     "words": [
+      {
+       "w": "Great",
+       "start": 132.606,
+       "end": 132.985
+      },
+      {
+       "w": "is",
+       "start": 132.985,
+       "end": 133.364
+      },
+      {
+       "w": "the",
+       "start": 133.364,
+       "end": 133.677
+      },
+      {
+       "w": "LORD!",
+       "start": 133.677,
+       "end": 134.122
+      }
+     ],
+     "id": "L083"
+    },
+    {
+     "i": 93,
+     "text": "Mighty in power,",
+     "suno": [
+      134.122,
+      135.08
+     ],
+     "start": 134.122,
+     "end": 134.966,
+     "singEnd": 134.966,
+     "words": [
+      {
+       "w": "Mighty",
+       "start": 134.122,
+       "end": 134.525
+      },
+      {
+       "w": "in",
+       "start": 134.525,
+       "end": 134.628
+      },
+      {
+       "w": "power,",
+       "start": 134.628,
+       "end": 134.966
+      }
+     ],
+     "id": "L084"
+    },
+    {
+     "i": 94,
+     "text": "Great is the LORD!",
+     "suno": [
+      135.08,
+      136.277
+     ],
+     "start": 134.966,
+     "end": 136.277,
+     "singEnd": 136.277,
+     "words": [
+      {
+       "w": "Great",
+       "start": 134.966,
+       "end": 135.294
+      },
+      {
+       "w": "is",
+       "start": 135.294,
+       "end": 135.621
+      },
+      {
+       "w": "the",
+       "start": 135.621,
+       "end": 135.949
+      },
+      {
+       "w": "LORD!",
+       "start": 135.949,
+       "end": 136.277
+      }
+     ],
+     "id": "L085"
+    },
+    {
+     "i": 95,
+     "text": "Full of compassion,",
+     "suno": [
+      136.277,
+      137.154
+     ],
+     "start": 136.277,
+     "end": 137.154,
+     "singEnd": 137.154,
+     "words": [
+      {
+       "w": "Full",
+       "start": 136.277,
+       "end": 136.475
+      },
+      {
+       "w": "of",
+       "start": 136.475,
+       "end": 136.673
+      },
+      {
+       "w": "compassion,",
+       "start": 136.673,
+       "end": 137.154
+      }
+     ],
+     "id": "L086"
+    },
+    {
+     "i": 96,
+     "text": "Slow to anger,",
+     "suno": [
+      137.154,
+      137.952
+     ],
+     "start": 137.154,
+     "end": 137.952,
+     "singEnd": 137.952,
+     "words": [
+      {
+       "w": "Slow",
+       "start": 137.154,
+       "end": 137.353
+      },
+      {
+       "w": "to",
+       "start": 137.353,
+       "end": 137.543
+      },
+      {
+       "w": "anger,",
+       "start": 137.543,
+       "end": 137.952
+      }
+     ],
+     "id": "L087"
+    },
+    {
+     "i": 97,
+     "text": "Rich in mercy,",
+     "suno": [
+      137.952,
+      138.83
+     ],
+     "start": 137.952,
+     "end": 138.83,
+     "singEnd": 138.83,
+     "words": [
+      {
+       "w": "Rich",
+       "start": 137.952,
+       "end": 138.194
+      },
+      {
+       "w": "in",
+       "start": 138.194,
+       "end": 138.391
+      },
+      {
+       "w": "mercy,",
+       "start": 138.391,
+       "end": 138.83
+      }
+     ],
+     "id": "L088"
+    },
+    {
+     "i": 98,
+     "text": "Great is the LORD!",
+     "suno": [
+      138.83,
+      141.941
+     ],
+     "start": 138.83,
+     "end": 141.941,
+     "singEnd": 140.46,
+     "words": [
+      {
+       "w": "Great",
+       "start": 138.83,
+       "end": 139.238
+      },
+      {
+       "w": "is",
+       "start": 139.238,
+       "end": 139.645
+      },
+      {
+       "w": "the",
+       "start": 139.645,
+       "end": 140.109
+      },
+      {
+       "w": "LORD!",
+       "start": 140.109,
+       "end": 140.46
+      }
+     ],
+     "id": "L089"
+    },
+    {
+     "i": 99,
+     "text": "Great is the LORD!",
+     "suno": [
+      141.941,
+      145.293
+     ],
+     "start": 141.941,
+     "end": 145.293,
+     "singEnd": 143.571,
+     "words": [
+      {
+       "w": "Great",
+       "start": 141.941,
+       "end": 142.349
+      },
+      {
+       "w": "is",
+       "start": 142.349,
+       "end": 142.756
+      },
+      {
+       "w": "the",
+       "start": 142.756,
+       "end": 143.163
+      },
+      {
+       "w": "LORD!",
+       "start": 143.163,
+       "end": 143.571
+      }
+     ],
+     "id": "L090"
+    },
+    {
+     "i": 100,
+     "text": "Great is the LORD!",
+     "suno": [
+      145.293,
+      146.729
+     ],
+     "start": 145.293,
+     "end": 146.729,
+     "singEnd": 146.729,
+     "words": [
+      {
+       "w": "Great",
+       "start": 145.293,
+       "end": 145.682
+      },
+      {
+       "w": "is",
+       "start": 145.682,
+       "end": 146.011
+      },
+      {
+       "w": "the",
+       "start": 146.011,
+       "end": 146.37
+      },
+      {
+       "w": "LORD!",
+       "start": 146.37,
+       "end": 146.729
+      }
+     ],
+     "id": "L091"
+    },
+    {
+     "i": 101,
+     "text": "My mouth will speak it,",
+     "suno": [
+      146.729,
+      148.245
+     ],
+     "start": 146.729,
+     "end": 148.245,
+     "singEnd": 148.245,
+     "words": [
+      {
+       "w": "My",
+       "start": 146.729,
+       "end": 147.032
+      },
+      {
+       "w": "mouth",
+       "start": 147.032,
+       "end": 147.389
+      },
+      {
+       "w": "will",
+       "start": 147.389,
+       "end": 147.639
+      },
+      {
+       "w": "speak",
+       "start": 147.639,
+       "end": 147.942
+      },
+      {
+       "w": "it,",
+       "start": 147.942,
+       "end": 148.245
+      }
+     ],
+     "id": "L092"
+    },
+    {
+     "i": 102,
+     "text": "Forever and ever!",
+     "suno": [
+      148.245,
+      149.92
+     ],
+     "start": 148.245,
+     "end": 149.92,
+     "singEnd": 149.92,
+     "words": [
+      {
+       "w": "Forever",
+       "start": 148.245,
+       "end": 149.119
+      },
+      {
+       "w": "and",
+       "start": 149.119,
+       "end": 149.362
+      },
+      {
+       "w": "ever!",
+       "start": 149.362,
+       "end": 149.92
+      }
+     ],
+     "id": "L093"
+    },
+    {
+     "i": 103,
+     "text": "Generation to generation,",
+     "suno": [
+      149.92,
+      151.277
+     ],
+     "start": 149.92,
+     "end": 151.277,
+     "singEnd": 151.277,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 149.92,
+       "end": 150.523
+      },
+      {
+       "w": "to",
+       "start": 150.523,
+       "end": 150.674
+      },
+      {
+       "w": "generation,",
+       "start": 150.674,
+       "end": 151.277
+      }
+     ],
+     "id": "L094"
+    },
+    {
+     "i": 104,
+     "text": "We will tell the story.",
+     "suno": [
+      151.277,
+      153.351
+     ],
+     "start": 151.277,
+     "end": 153.351,
+     "singEnd": 153.351,
+     "words": [
+      {
+       "w": "We",
+       "start": 151.277,
+       "end": 151.623
+      },
+      {
+       "w": "will",
+       "start": 151.623,
+       "end": 151.968
+      },
+      {
+       "w": "tell",
+       "start": 151.968,
+       "end": 152.314
+      },
+      {
+       "w": "the",
+       "start": 152.314,
+       "end": 152.66
+      },
+      {
+       "w": "story.",
+       "start": 152.66,
+       "end": 153.351
+      }
+     ],
+     "id": "L095"
+    },
+    {
+     "i": 105,
+     "text": "Generation to generation,",
+     "suno": [
+      153.351,
+      154.707
+     ],
+     "start": 153.351,
+     "end": 154.707,
+     "singEnd": 154.707,
+     "words": [
+      {
+       "w": "Generation",
+       "start": 153.351,
+       "end": 153.954
+      },
+      {
+       "w": "to",
+       "start": 153.954,
+       "end": 154.053
+      },
+      {
+       "w": "generation,",
+       "start": 154.053,
+       "end": 154.707
+      }
+     ],
+     "id": "L096"
+    },
+    {
+     "i": 106,
+     "text": "We will tell Your glory.",
+     "suno": [
+      154.707,
+      155.745
+     ],
+     "start": 154.707,
+     "end": 155.745,
+     "singEnd": 155.745,
+     "words": [
+      {
+       "w": "We",
+       "start": 154.707,
+       "end": 154.88
+      },
+      {
+       "w": "will",
+       "start": 154.88,
+       "end": 155.053
+      },
+      {
+       "w": "tell",
+       "start": 155.053,
+       "end": 155.226
+      },
+      {
+       "w": "Your",
+       "start": 155.226,
+       "end": 155.399
+      },
+      {
+       "w": "glory.",
+       "start": 155.399,
+       "end": 155.745
+      }
+     ],
+     "id": "L097"
+    }
+   ],
+   "start": 131.809,
+   "end": 155.745
+  },
+  {
+   "id": "outro",
+   "name": "Outro",
+   "desc": "beat cuts into short vocal chant",
+   "marker": 155.745,
+   "lines": [
+    {
+     "i": 108,
+     "text": "Great is the LORD!",
+     "suno": [
+      155.745,
+      156.622
+     ],
+     "start": 155.745,
+     "end": 156.622,
+     "singEnd": 156.622,
+     "words": [
+      {
+       "w": "Great",
+       "start": 155.745,
+       "end": 155.964
+      },
+      {
+       "w": "is",
+       "start": 155.964,
+       "end": 156.201
+      },
+      {
+       "w": "the",
+       "start": 156.201,
+       "end": 156.403
+      },
+      {
+       "w": "LORD!",
+       "start": 156.403,
+       "end": 156.622
+      }
+     ],
+     "id": "L098"
+    },
+    {
+     "i": 109,
+     "text": "Great is the LORD!",
+     "suno": [
+      156.622,
+      158.059
+     ],
+     "start": 156.622,
+     "end": 158.059,
+     "singEnd": 158.059,
+     "words": [
+      {
+       "w": "Great",
+       "start": 156.622,
+       "end": 157.025
+      },
+      {
+       "w": "is",
+       "start": 157.025,
+       "end": 157.341
+      },
+      {
+       "w": "the",
+       "start": 157.341,
+       "end": 157.7
+      },
+      {
+       "w": "LORD!",
+       "start": 157.7,
+       "end": 158.059
+      }
+     ],
+     "id": "L099"
+    },
+    {
+     "i": 111,
+     "text": "Great is the LORD!",
+     "suno": [
+      158.059,
+      159.016
+     ],
+     "start": 158.059,
+     "end": 159.016,
+     "singEnd": 159.016,
+     "words": [
+      {
+       "w": "Great",
+       "start": 158.059,
+       "end": 158.298
+      },
+      {
+       "w": "is",
+       "start": 158.298,
+       "end": 158.537
+      },
+      {
+       "w": "the",
+       "start": 158.537,
+       "end": 158.777
+      },
+      {
+       "w": "LORD!",
+       "start": 158.777,
+       "end": 159.016
+      }
+     ],
+     "id": "L100"
+    },
+    {
+     "i": 112,
+     "text": "Great is the LORD!",
+     "suno": [
+      159.016,
+      164.452
+     ],
+     "start": 159.016,
+     "end": 161.614,
+     "singEnd": 160.646,
+     "words": [
+      {
+       "w": "Great",
+       "start": 159.016,
+       "end": 159.393
+      },
+      {
+       "w": "is",
+       "start": 159.393,
+       "end": 159.831
+      },
+      {
+       "w": "the",
+       "start": 159.831,
+       "end": 160.238
+      },
+      {
+       "w": "LORD!",
+       "start": 160.238,
+       "end": 160.646
+      }
+     ],
+     "id": "L101"
+    }
+   ],
+   "start": 155.745,
+   "end": 161.614
+  }
+ ]
+}

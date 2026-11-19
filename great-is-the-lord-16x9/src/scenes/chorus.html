@@ -1,0 +1,170 @@
+<template>
+  <!--KIT_CSS-->
+  <style>
+    #__ID__-stage { position: absolute; inset: 0; color: #17142B; --mis: #0078BF; }
+    #__ID__-stage .ch-great { position: absolute; left: 0; width: 100%; text-align: center; }
+    #__ID__-stage .ch-row { display: block; white-space: nowrap; line-height: 0.86; }
+    #__ID__-stage .ch-big { font-family: "GL Archivo"; font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -0.035em; text-shadow: 0.03em 0.03em 0 var(--mis); }
+    #__ID__-stage.ch-p .ch-big { font-stretch: 100%; }
+    #__ID__-stage .ch-small { font-family: "GL Archivo"; font-weight: 800; font-stretch: 100%; text-transform: uppercase; letter-spacing: 0.16em; line-height: 1.25; }
+    #__ID__-stage .ch-echo { position: absolute; left: 0; width: 100%; text-align: center; color: transparent; -webkit-text-stroke: 3px #17142B; pointer-events: none; }
+    #__ID__-stage .ch-echo .ch-big { text-shadow: none; }
+    #__ID__-stage .ch-sticker { position: absolute; padding: 0.18em 0.55em 0.24em; background: #F4EEDF; border: 5px solid #17142B; border-radius: 999px; box-shadow: 12px 12px 0 #17142B; white-space: nowrap; line-height: 1; }
+    #__ID__-stage .ch-sticker .a { font-family: "GL Archivo"; font-weight: 800; font-stretch: 87.5%; text-transform: uppercase; font-size: 0.5em; letter-spacing: 0.04em; vertical-align: 0.32em; margin-right: 0.3em; }
+    #__ID__-stage .ch-sticker .b { font-family: "GL Serif"; font-style: italic; }
+    #__ID__-stage .ch-mighty { position: absolute; left: 0; width: 100%; text-align: center; }
+    #__ID__-stage .ch-soft { font-family: "GL Serif"; font-style: italic; font-weight: 400; line-height: 1; }
+    #__ID__-stage .k-hl { color: #17142B; }
+    #__ID__-stage .k-gold { color: #765BA7; }
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="__W__" data-height="__H__">
+    <div id="__ID__-stage" class="k-stage" data-layout-allow-overlap></div>
+  </div>
+  <script>
+    (function () {
+      /*DATA*/
+      /*KIT_JS*/
+      const stage = document.getElementById(S.id + "-stage");
+      const K = makeKit(S, stage);
+      const { W, H, tl, el, measure, layer } = K;
+      K.font("ch-big", { fam: "GL Archivo", w: 900, st: K.portrait ? "normal" : "expanded", ls: -0.035, up: true });
+      if (K.portrait) stage.classList.add("ch-p");
+      K.font("ch-small", { fam: "GL Archivo", w: 800, st: "normal", ls: 0.16, up: true });
+      K.font("ch-sa", { fam: "GL Archivo", w: 800, st: "semi-condensed", ls: 0.04, up: true });
+      if (S.variant === 3) stage.style.setProperty("--mis", "#765BA7");
+      if (S.variant === 2) stage.style.setProperty("--mis", "#F4EEDF");
+
+      K.ready.then(() => {
+        const lines = S.lines;
+        const shakes = [];
+        const maxW = W * (K.portrait ? 0.9 : 0.8);
+        const nextT = (i) => (lines[i + 1] ? lines[i + 1].t : S.dur);
+        const words = (l) => l.w;
+
+        // a full-frame "GREAT / IS THE / LORD!" stack, slammed word by word
+        function great(l, i, hit) {
+          const box = el("div", "ch-great", layer);
+          const w = words(l); // Great is the LORD!
+          const rowsTxt = [[w[0]], [w[1], w[2]], [w[3]]];
+          const wide = (txt) => measure(txt, "ch-big", 100);
+          let big = Math.min((100 * maxW) / wide("GREAT"), (100 * maxW) / wide("LORD!"));
+          big = Math.min(big, H * (K.portrait ? 0.19 : 0.34));
+          const small = big * 0.3;
+          const spans = [];
+          rowsTxt.forEach((r, ri) => {
+            const row = el("div", "ch-row " + (ri === 1 ? "ch-small" : "ch-big"), box);
+            row.style.fontSize = (ri === 1 ? small : big) + "px";
+            row.style.height = (ri === 1 ? small * 1.25 : big * 0.86) + "px";
+            r.forEach((x, j) => {
+              if (j) el("span", "k-sp", row);
+              const o = el("span", "k-w", row);
+              spans.push({ e: el("span", "k-wi", o, x.w), w: x, big: ri !== 1 });
+            });
+          });
+          const h = big * 0.86 * 2 + small * 1.25;
+          box.style.top = (H - h) / 2 + "px";
+          const t1 = nextT(i);
+          // layout variety per hit: straight, tilted left, tilted right
+          const tilt = [0, -3.5, 3, -2, 2.5][hit % 5] * (S.variant === 2 ? 1.4 : 1);
+          gsap.set(box, { rotation: tilt });
+          spans.forEach((s) => {
+            gsap.set(s.e, { autoAlpha: 0 });
+            if (s.big) { K.POPS.slam(s.e, s.w.t); shakes.push({ t: s.w.t + 0.05, amp: S.variant === 1 ? 12 : 20, decay: 0.09, rot: S.variant === 1 ? 0 : 0.8 }); }
+            else K.POPS.pop(s.e, s.w.t);
+          });
+          // long hold: stacked-vocal echoes ripple outward on each downbeat, and the stack keeps pushing in
+          if (t1 - l.t > 2.0) {
+            const downs = S.downs.filter((d) => d > l.t + 0.5 && d < t1 - 0.35);
+            downs.forEach((d, k) => {
+              const ec = box.cloneNode(true);
+              ec.className = "ch-echo";
+              ec.querySelectorAll(".k-wi").forEach((x) => (x.style.cssText = ""));
+              layer.insertBefore(ec, box);
+              gsap.set(ec, { autoAlpha: 0, rotation: tilt });
+              tl.to(ec, { keyframes: [{ autoAlpha: 0.85, scale: 1, duration: 0.01 }, { autoAlpha: 0, scale: 1.5 + 0.1 * k, duration: 1.3, ease: "power2.out" }] }, d);
+              if (S.variant > 1) {
+                const ec2 = ec.cloneNode(true); layer.insertBefore(ec2, box);
+                gsap.set(ec2, { autoAlpha: 0, rotation: tilt });
+                tl.to(ec2, { keyframes: [{ autoAlpha: 0.6, scale: 1, duration: 0.01 }, { autoAlpha: 0, scale: 1.25, duration: 1.0, ease: "power2.out" }] }, d + 0.214);
+              }
+            });
+            tl.fromTo(box, { scale: 1 }, { scale: 1.08, duration: Math.max(0.5, t1 - l.t - 0.6), ease: "sine.inOut" }, l.t + 0.4);
+          }
+          if (i < lines.length - 1) tl.to(box, { autoAlpha: 0, duration: 0.05, ease: "none" }, Math.max(l.t + 0.2, t1 - 0.06));
+          else tl.to(box, { autoAlpha: 0, scale: 1.3, filter: "blur(10px)", duration: 0.18, ease: "power3.in" }, Math.max(l.t + 0.5, S.dur - 0.2));
+        }
+
+        // "Mighty in power," : MIGHTY extra wide, "in power" in the serif, a big shake on "power"
+        function mighty(l, i) {
+          const box = el("div", "ch-mighty", layer);
+          const w = words(l);
+          const r1 = el("div", "ch-row ch-big", box), r2 = el("div", "ch-row ch-soft", box);
+          const sz = Math.min((100 * maxW) / measure("MIGHTY", "ch-big", 100), H * (K.portrait ? 0.18 : 0.36));
+          r1.style.fontSize = sz + "px"; r2.style.fontSize = sz * 0.62 + "px";
+          const a = el("span", "k-wi", el("span", "k-w", r1), w[0].w);
+          const b = el("span", "k-wi", el("span", "k-w", r2), w[1].w);
+          el("span", "k-sp", r2);
+          const c = el("span", "k-wi", el("span", "k-w", r2), w[2].w);
+          const h = sz * 0.86 + sz * 0.62;
+          r1.style.height = sz * 0.86 + "px"; r2.style.height = sz * 0.62 + "px";
+          box.style.top = (H - h) / 2 + "px";
+          [a, b, c].forEach((e) => gsap.set(e, { autoAlpha: 0 }));
+          tl.fromTo(a, { autoAlpha: 0, scaleX: 0.2, scaleY: 1.4 }, { autoAlpha: 1, scaleX: 1, scaleY: 1, duration: 0.2, ease: "back.out(2.4)" }, w[0].t);
+          K.POPS.rise(b, w[1].t);
+          K.POPS.big(c, w[2].t);
+          shakes.push({ t: w[2].t + 0.06, amp: 26, decay: 0.12, rot: 1.2 });
+          tl.to(box, { autoAlpha: 0, duration: 0.05 }, nextT(i) - 0.05);
+        }
+
+        // "Full of compassion," / "Slow to anger," / "Rich in mercy," : three stickers stacking up
+        const stickers = [];
+        function sticker(l, i, k) {
+          const w = words(l);
+          const s = el("div", "ch-sticker", layer);
+          const fs = K.portrait ? 96 : 118;
+          s.style.fontSize = fs + "px";
+          const ta = w.slice(0, w.length - 1).map((x) => x.w).join(" "), tb = w[w.length - 1].w.replace(/,$/, "");
+          el("span", "a", s, ta);
+          el("span", "b", s, tb);
+          const bw = fs * 1.1 + measure(ta, "ch-sa", fs * 0.5) + fs * 0.15 + measure(tb, "k-soft", fs) + 10;
+          const bh = fs * 1.42 + 10;
+          const slots = K.portrait
+            ? [[0.5, 0.3], [0.5, 0.5], [0.5, 0.7]]
+            : [[0.3, 0.26], [0.62, 0.5], [0.36, 0.74]];
+          const [fx, fy] = slots[k % 3];
+          s.style.left = Math.max(24, Math.min(W - bw - 36, fx * W - bw / 2)) + "px";
+          s.style.top = fy * H - bh / 2 + "px";
+          const rot = [-5, 4, -3][k % 3];
+          gsap.set(s, { autoAlpha: 0, rotation: rot });
+          tl.fromTo(s, { autoAlpha: 0, scale: 0.3, rotation: rot - 18 }, { autoAlpha: 1, scale: 1, rotation: rot, duration: 0.24, ease: "back.out(2.6)" }, l.t);
+          shakes.push({ t: l.t + 0.08, amp: 8, decay: 0.08 });
+          stickers.push(s);
+        }
+
+        let hit = 0, sk = 0;
+        const rest = [];
+        lines.forEach((l, i) => {
+          if (/^great/i.test(l.text)) {
+            great(l, i, hit++);
+            // stickers leave as the next Great lands
+            stickers.splice(0).forEach((s, j) => tl.to(s, { autoAlpha: 0, scale: 1.25, y: -H * 0.03, duration: 0.1, ease: "power2.in" }, l.t - 0.08 + j * 0.0));
+          } else if (/^mighty/i.test(l.text)) mighty(l, i);
+          else if (/^(full|slow|rich)/i.test(l.text)) sticker(l, i, sk++);
+          else rest.push(i);
+        });
+
+        // final chorus tail: "My mouth will speak it, / Forever and ever! / Generation to generation, ..."
+        if (rest.length) {
+          const groups = [];
+          for (let j = 0; j < rest.length; j += 2) groups.push(rest.slice(j, j + 2));
+          K.verse({ groups, cls: "k-type", acc: Object.fromEntries(rest.map((li) => [li, { forever: "k-wide", ever: "k-wide", generation: "k-wide", story: "k-soft", glory: "k-soft" }])), min: K.portrait ? 92 : 120, max: K.portrait ? 160 : 210, spread: 1.15, lastOut: S.dur - 0.14 });
+          rest.forEach((li) => { const l = lines[li]; if (/forever/i.test(l.text)) shakes.push({ t: l.t + 0.05, amp: 22, decay: 0.12, rot: 1 }); });
+        }
+
+        K.pulser(K.pulse, { shakes, down: S.variant === 1 ? 0.022 : 0.03, beat: 0.008 });
+        K.camera({ z0: 1, z1: S.variant === 3 ? 1.08 : 1.05, sway: S.variant === 1 ? 0.4 : 0.7 });
+        window.__timelines[S.id] = K.done();
+      });
+    })();
+  </script>
+</template>

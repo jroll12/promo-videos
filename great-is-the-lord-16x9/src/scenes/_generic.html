@@ -1,0 +1,26 @@
+<template>
+  <!--KIT_CSS-->
+  <style>
+    #__ID__-stage { position: absolute; inset: 0; color: var(--ink, #17142B); }
+    #__ID__-stage .k-hl { color: var(--hl, #FF48B0); }
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="__W__" data-height="__H__">
+    <div id="__ID__-stage" class="k-stage" data-layout-allow-overlap></div>
+  </div>
+  <script>
+    (function () {
+      /*DATA*/
+      /*KIT_JS*/
+      const stage = document.getElementById(S.id + "-stage");
+      const K = makeKit(S, stage);
+      const dark = ["intro", "pre-chorus", "verse-2", "verse-3", "bridge"].includes(S.id);
+      stage.style.setProperty("--ink", dark ? "#F4EEDF" : "#17142B");
+      K.ready.then(() => {
+        K.verse({});
+        K.pulser(K.pulse, {});
+        K.camera({});
+        window.__timelines[S.id] = K.done();
+      });
+    })();
+  </script>
+</template>

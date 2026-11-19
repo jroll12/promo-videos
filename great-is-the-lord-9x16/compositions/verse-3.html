@@ -1,0 +1,308 @@
+<template>
+  <style>
+@font-face { font-family: "GL Archivo"; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%; src: url("assets/fonts/archivo-latin-wdth-normal.woff2") format("woff2"); }
+@font-face { font-family: "GL Archivo"; font-style: italic; font-weight: 100 900; font-stretch: 62% 125%; src: url("assets/fonts/archivo-latin-wdth-italic.woff2") format("woff2"); }
+@font-face { font-family: "GL Serif"; font-style: normal; font-weight: 400; src: url("assets/fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "GL Serif"; font-style: italic; font-weight: 400; src: url("assets/fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; overflow: hidden; }
+#root * { box-sizing: border-box; }
+.k-stage, .k-cam, .k-pulse, .k-layer { position: absolute; inset: 0; }
+.k-cam { transform-origin: 50% 50%; }
+.k-pulse { transform-origin: 50% 50%; }
+.k-blk { position: absolute; left: 0; width: 100%; text-align: center; }
+.k-line { display: block; white-space: nowrap; line-height: 1.02; }
+.k-row { display: block; white-space: nowrap; overflow: visible; }
+.k-w { display: inline-block; white-space: nowrap; }
+.k-wi { display: inline-block; transform-origin: 50% 70%; }
+.k-sp { display: inline-block; width: 0.26em; }
+.k-sc { font-size: 0.8em; letter-spacing: 0.02em; }
+.k-type { font-family: "GL Archivo"; font-weight: 850; font-stretch: 75%; letter-spacing: -0.01em; text-transform: uppercase; }
+.k-wide { font-family: "GL Archivo"; font-weight: 900; font-stretch: 125%; letter-spacing: -0.02em; text-transform: uppercase; }
+.k-soft { font-family: "GL Serif"; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; font-stretch: 100%; }
+.k-label { font-family: "GL Archivo"; font-weight: 700; font-stretch: 112.5%; letter-spacing: 0.3em; text-transform: uppercase; }
+</style>
+  <style>
+    #verse-3-stage { position: absolute; inset: 0; color: var(--ink, #17142B); }
+    #verse-3-stage .k-hl { color: var(--hl, #FF48B0); }
+  </style>
+  <div id="root" data-composition-id="verse-3" data-width="1080" data-height="1920">
+    <div id="verse-3-stage" class="k-stage" data-layout-allow-overlap></div>
+  </div>
+  <script>
+    (function () {
+      const S = {"id":"verse-3","name":"Verse 3","variant":1,"W":1080,"H":1920,"start":90.638,"dur":15,"seed":7,"lines":[{"id":"L053","text":"Your kingdom is forever,","t":0,"e":1.307,"se":1.307,"w":[{"w":"Your","t":0,"e":0.149},{"w":"kingdom","t":0.149,"e":0.532},{"w":"is","t":0.532,"e":0.725},{"w":"forever,","t":0.725,"e":1.307}]},{"id":"L054","text":"Your reign has no end.","t":1.321,"e":2.025,"se":2.025,"w":[{"w":"Your","t":1.321,"e":1.414},{"w":"reign","t":1.414,"e":1.635},{"w":"has","t":1.635,"e":1.751},{"w":"no","t":1.751,"e":1.855},{"w":"end.","t":1.855,"e":2.025}]},{"id":"L055","text":"Every generation knows","t":2.025,"e":2.902,"se":2.902,"w":[{"w":"Every","t":2.025,"e":2.354},{"w":"generation","t":2.354,"e":2.792},{"w":"knows","t":2.792,"e":2.902}]},{"id":"L056","text":"Your faithfulness again.","t":2.902,"e":3.78,"se":3.78,"w":[{"w":"Your","t":2.902,"e":3.039},{"w":"faithfulness","t":3.039,"e":3.457},{"w":"again.","t":3.457,"e":3.78}]},{"id":"L057","text":"You lift up the fallen.","t":3.78,"e":4.578,"se":4.578,"w":[{"w":"You","t":3.78,"e":3.913},{"w":"lift","t":3.913,"e":4.046},{"w":"up","t":4.046,"e":4.179},{"w":"the","t":4.179,"e":4.312},{"w":"fallen.","t":4.312,"e":4.578}]},{"id":"L058","text":"You hold up those who bend.","t":4.578,"e":5.456,"se":5.456,"w":[{"w":"You","t":4.578,"e":4.724},{"w":"hold","t":4.724,"e":4.871},{"w":"up","t":4.871,"e":5.017},{"w":"those","t":5.017,"e":5.176},{"w":"who","t":5.176,"e":5.28},{"w":"bend.","t":5.28,"e":5.456}]},{"id":"L059","text":"The eyes of every creature","t":5.456,"e":6.333,"se":6.333,"w":[{"w":"The","t":5.456,"e":5.605},{"w":"eyes","t":5.605,"e":5.675},{"w":"of","t":5.675,"e":5.785},{"w":"every","t":5.785,"e":6.128},{"w":"creature","t":6.128,"e":6.333}]},{"id":"L060","text":"Look to You again.","t":6.453,"e":7.131,"se":7.131,"w":[{"w":"Look","t":6.453,"e":6.557},{"w":"to","t":6.557,"e":6.724},{"w":"You","t":6.724,"e":6.86},{"w":"again.","t":6.86,"e":7.131}]},{"id":"L061","text":"You are righteous.","t":7.131,"e":7.61,"se":7.61,"w":[{"w":"You","t":7.131,"e":7.251},{"w":"are","t":7.251,"e":7.323},{"w":"righteous.","t":7.323,"e":7.61}]},{"id":"L062","text":"You are gracious.","t":7.61,"e":8.009,"se":8.009,"w":[{"w":"You","t":7.61,"e":7.71},{"w":"are","t":7.71,"e":7.846},{"w":"gracious.","t":7.846,"e":8.009}]},{"id":"L063","text":"You are near when we call.","t":8.009,"e":8.886,"se":8.886,"w":[{"w":"You","t":8.009,"e":8.171},{"w":"are","t":8.171,"e":8.275},{"w":"near","t":8.275,"e":8.448},{"w":"when","t":8.448,"e":8.594},{"w":"we","t":8.594,"e":8.693},{"w":"call.","t":8.693,"e":8.886}]},{"id":"L064","text":"You sustain those who stumble.","t":8.886,"e":9.764,"se":9.764,"w":[{"w":"You","t":8.886,"e":9.042},{"w":"sustain","t":9.042,"e":9.262},{"w":"those","t":9.262,"e":9.388},{"w":"who","t":9.388,"e":9.564},{"w":"stumble.","t":9.564,"e":9.764}]},{"id":"L065","text":"You uphold them when they fall.","t":9.764,"e":10.562,"se":10.562,"w":[{"w":"You","t":9.764,"e":9.878},{"w":"uphold","t":9.878,"e":10.106},{"w":"them","t":10.106,"e":10.22},{"w":"when","t":10.22,"e":10.307},{"w":"they","t":10.307,"e":10.412},{"w":"fall.","t":10.412,"e":10.562}]},{"id":"L066","text":"So I'm putting it in the rhythm,","t":10.562,"e":11.599,"se":11.599,"w":[{"w":"So","t":10.562,"e":10.748},{"w":"I'm","t":10.748,"e":10.821},{"w":"putting","t":10.821,"e":11.081},{"w":"it","t":11.081,"e":11.19},{"w":"in","t":11.19,"e":11.294},{"w":"the","t":11.294,"e":11.469},{"w":"rhythm,","t":11.469,"e":11.599}]},{"id":"L067","text":"Putting it in the rhyme,","t":11.599,"e":12.397,"se":12.397,"w":[{"w":"Putting","t":11.599,"e":11.933},{"w":"it","t":11.933,"e":11.993},{"w":"in","t":11.993,"e":12.142},{"w":"the","t":12.142,"e":12.264},{"w":"rhyme,","t":12.264,"e":12.397}]},{"id":"L068","text":"Not just for this moment,","t":12.397,"e":13.035,"se":13.035,"w":[{"w":"Not","t":12.397,"e":12.503},{"w":"just","t":12.503,"e":12.61},{"w":"for","t":12.61,"e":12.676},{"w":"this","t":12.676,"e":12.822},{"w":"moment,","t":12.822,"e":13.035}]},{"id":"L069","text":"For all generations in time.","t":13.035,"e":14.95,"se":14.95,"w":[{"w":"For","t":13.035,"e":13.274},{"w":"all","t":13.274,"e":13.514},{"w":"generations","t":13.514,"e":14.471},{"w":"in","t":14.471,"e":14.711},{"w":"time.","t":14.711,"e":14.95}]}],"beats":[0.174,0.602,1.031,1.46,1.888,2.317,2.745,3.174,3.602,4.031,4.46,4.888,5.317,5.745,6.174,6.602,7.031,7.46,7.888,8.317,8.745,9.174,9.602,10.031,10.459,10.888,11.317,11.745,12.174,12.602,13.031,13.459,13.888,14.317,14.745],"downs":[0.602,2.317,4.031,5.745,7.46,9.174,10.888,12.602,14.317],"flips":[],"bursts":[],"C":{"paper":"#F4EEDF","ink":"#17142B","pink":"#FF48B0","yellow":"#FFE14D","blue":"#0078BF","green":"#00A95C","orange":"#FF6C2F","purple":"#765BA7","teal":"#4FD1C5","royal":"#33287E","forest":"#0E4D3B","night":"#100E1F"}};
+      // Shared lyric kit, inlined into every scene by tools/build.mjs (each scene gets its own copy and scope).
+// Layout is computed from a text model (canvas measureText), never from the DOM: scene hosts are hidden
+// until their slot, so DOM boxes read 0 at build time. Everything moving is a pure function of time:
+// word pops are GSAP tweens at absolute seconds; pulses, shakes and camera come from one onUpdate driver.
+// Resolution comes from S.W/S.H, so the same scene lays itself out for 16:9 and 9:16.
+function makeKit(S, stage) {
+  const W = S.W, H = S.H, portrait = H > W;
+  const tl = gsap.timeline({ paused: true });
+  const mulberry = (a) => () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+  const rng = (seed) => mulberry(seed * 9973 + 17);
+  const R = rng(S.seed || 1);
+  const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+  const norm = (s) => s.toLowerCase().replace(/[^a-z0-9']/g, "");
+
+  function el(tag, cls, parent, html) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (html != null) e.innerHTML = html;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  const cam = el("div", "k-cam", stage);
+  const pulse = el("div", "k-pulse", cam);
+  const layer = el("div", "k-layer", pulse);
+
+  // ── text model: font spec per CSS class (keep in step with kit.css / scene CSS) ──
+  // st must be a canvas fontStretch keyword: condensed 75%, semi-condensed 87.5%, semi-expanded 112.5%, expanded 125%
+  const FONTS = {
+    "k-type": { fam: "GL Archivo", w: 850, st: "condensed", ls: -0.01, up: true },
+    "k-wide": { fam: "GL Archivo", w: 900, st: "expanded", ls: -0.02, up: true },
+    "k-soft": { fam: "GL Serif", w: 400, it: true, st: "normal", ls: 0, up: false },
+    "k-label": { fam: "GL Archivo", w: 700, st: "semi-expanded", ls: 0.3, up: true },
+  };
+  const font = (name, spec) => (FONTS[name] = spec);
+  const fontOf = (cls) => { const n = (cls || "").split(/\s+/).filter(Boolean).reverse(); for (const c of n) if (FONTS[c]) return FONTS[c]; return FONTS["k-type"]; };
+  const ctx = document.createElement("canvas").getContext("2d");
+  function textW(txt, cls, px) {
+    const f = typeof cls === "string" ? fontOf(cls) : cls;
+    ctx.font = `${f.it ? "italic " : ""}${f.w} ${px}px "${f.fam}"`;
+    ctx.fontStretch = f.st || "normal";
+    ctx.letterSpacing = (f.ls || 0) * px + "px";
+    const t = f.up ? txt.toUpperCase() : txt;
+    if (!f.up && /LORD/.test(t)) { // serif small caps: L + ORD at 0.8em
+      const [a, b] = t.split("LORD");
+      const wa = ctx.measureText(a + "L").width, wb = ctx.measureText(b).width;
+      return wa + textW("ORD", Object.assign({}, f, { up: true }), px * 0.8) + wb;
+    }
+    return ctx.measureText(t).width;
+  }
+  const measure = (txt, cls, px) => textW(txt, cls, px);
+  const SP = 0.26; // word space, em of the line size (.k-sp)
+
+  // "LORD" in small caps when set in the serif (the display face is already all caps)
+  function wordHTML(w, soft) {
+    if (soft) return w.replace(/LORD/g, 'L<span class="k-sc">ORD</span>');
+    return w;
+  }
+  // accent lookup: acc = { lineIndexOrId: { normalisedWord: "class names" } }
+  function accentFor(acc, li, line, w) {
+    const a = acc && (acc[li] || acc[line.id]);
+    if (!a) return "";
+    return a[norm(w)] || a["*"] || "";
+  }
+
+  // split a line's words into n balanced rows (prefer breaks after commas)
+  function splitRows(words, n) {
+    const range = (a, b) => Array.from({ length: b - a }, (_, i) => a + i);
+    if (n === 1 || words.length < 2) return [range(0, words.length)];
+    const len = words.map((w) => w.length + 1);
+    const tot = len.reduce((a, b) => a + b, 0);
+    let best = null;
+    const score = (rows) => {
+      const lens = rows.map((r) => r.reduce((s, i) => s + len[i], 0));
+      let sc = Math.max(...lens) / (tot / rows.length);
+      rows.slice(0, -1).forEach((r) => { if (/[,.]$/.test(words[r[r.length - 1]])) sc -= 0.12; });
+      if (rows.some((r) => r.length === 1 && words.length > 3)) sc += 0.25;
+      if (!best || sc < best.sc) best = { sc, rows };
+    };
+    const rec = (start, k, acc) => {
+      if (k === 1) { score([...acc, range(start, words.length)]); return; }
+      for (let i = start + 1; i <= words.length - k + 1; i++) rec(i, k - 1, [...acc, range(start, i)]);
+    };
+    rec(0, n, []);
+    return best.rows;
+  }
+  const wordCls = (o, acc) => (o.cls || "k-type") + " " + (acc || "");
+  function rowWidth(line, idxs, o, li, px) {
+    let w = 0;
+    idxs.forEach((i, j) => { w += textW(line.w[i].w, wordCls(o, accentFor(o.acc, li, line, line.w[i].w)), px) + (j ? SP * px : 0); });
+    return w;
+  }
+  // choose rows and font size so the line fits maxW at >= min px (up to maxRows rows)
+  function fitLine(line, o, li) {
+    let pick = null;
+    for (let n = 1; n <= (o.maxRows || 3); n++) {
+      if (n > line.w.length) break;
+      const rows = splitRows(line.w.map((x) => x.w), n);
+      const size = Math.min(...rows.map((r) => (100 * o.maxW) / rowWidth(line, r, o, li, 100)));
+      pick = { rows, size: Math.min(size, o.max) };
+      if (size >= o.min) break;
+    }
+    return pick;
+  }
+
+  // build one centred line (rows of word spans) at a given size, with the model's word boxes relative to the line top
+  function buildLine(parent, line, li, rows, size, o) {
+    const le = el("div", "k-line " + (o.cls || ""), parent);
+    le.style.fontSize = size + "px";
+    const lh = o.lineHeight || 1.02;
+    le.style.lineHeight = lh;
+    const words = [];
+    rows.forEach((r, ri) => {
+      const re = el("div", "k-row", le);
+      re.style.height = size * lh + "px";
+      const rw = rowWidth(line, r, o, li, size);
+      let x = (o.boxW ?? W) / 2 - rw / 2;
+      r.forEach((i, j) => {
+        if (j) { el("span", "k-sp", re); x += SP * size; }
+        const w = line.w[i], a = accentFor(o.acc, li, line, w.w);
+        const outer = el("span", "k-w " + a, re);
+        const inner = el("span", "k-wi", outer, wordHTML(w.w, /k-soft/.test(a) || /k-soft/.test(o.cls || "")));
+        const ww = textW(w.w, wordCls(o, a), size);
+        words[i] = { outer, inner, w, acc: a, box: { x, y: ri * size * lh, w: ww, h: size * lh } };
+        x += ww;
+      });
+    });
+    return { el: le, words, h: rows.length * size * lh, size };
+  }
+
+  // word entrances
+  const POPS = {
+    pop: (e, t) => tl.fromTo(e, { autoAlpha: 0, yPercent: 38, scale: 0.55, rotation: (R() - 0.5) * 16 }, { autoAlpha: 1, yPercent: 0, scale: 1, rotation: 0, duration: 0.17, ease: "back.out(2.8)" }, t),
+    big: (e, t) => tl.fromTo(e, { autoAlpha: 0, yPercent: 30, scale: 0.4, rotation: (R() - 0.5) * 24 }, { autoAlpha: 1, yPercent: 0, scale: 1, rotation: 0, duration: 0.22, ease: "back.out(4)" }, t),
+    slam: (e, t) => tl.fromTo(e, { autoAlpha: 0, scale: 2.1, filter: "blur(10px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.13, ease: "power4.out" }, t),
+    rise: (e, t) => tl.fromTo(e, { autoAlpha: 0, yPercent: 60, filter: "blur(6px)" }, { autoAlpha: 1, yPercent: 0, filter: "blur(0px)", duration: 0.24, ease: "power3.out" }, t),
+    drop: (e, t) => tl.fromTo(e, { autoAlpha: 0, yPercent: -90, rotation: (R() - 0.5) * 20 }, { autoAlpha: 1, yPercent: 0, rotation: 0, duration: 0.2, ease: "back.out(2)" }, t),
+    fade: (e, t) => tl.fromTo(e, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.3, ease: "power1.out" }, t),
+  };
+  function popWords(L, style, accStyle) {
+    L.words.forEach((x) => {
+      if (!x) return;
+      gsap.set(x.inner, { autoAlpha: 0 });
+      POPS[x.acc && accStyle ? accStyle : style](x.inner, x.w.t);
+    });
+  }
+
+  // ── time-driven effects ───────────────────────────────────────────────────
+  const drivers = [];
+  const drive = (fn) => drivers.push(fn);
+  const lastBefore = (arr, t) => { let lo = 0, hi = arr.length - 1, ans = -1; while (lo <= hi) { const m = (lo + hi) >> 1; if (arr[m] <= t) { ans = m; lo = m + 1; } else hi = m - 1; } return ans; };
+  // beat pulse + shakes on one element (scale, x, y, rotation), so no two writers share a property
+  function pulser(target, o = {}) {
+    const downs = o.downs || S.downs, beats = o.beats || S.beats, shakes = (o.shakes || []).slice().sort((a, b) => a.t - b.t);
+    const st = shakes.map((s) => s.t);
+    drive((t) => {
+      let sc = 1;
+      const d = lastBefore(downs, t); if (d >= 0) sc += (o.down ?? 0.018) * Math.exp(-(t - downs[d]) / (o.decay || 0.16));
+      const b = lastBefore(beats, t); if (b >= 0) sc += (o.beat ?? 0.006) * Math.exp(-(t - beats[b]) / (o.decay || 0.16));
+      let x = 0, y = 0, r = 0;
+      const k = lastBefore(st, t);
+      if (k >= 0) {
+        const s = shakes[k], dt = t - s.t, amp = s.amp * Math.exp(-dt / (s.decay || 0.1));
+        if (amp > 0.05) { x = amp * Math.sin(dt * 70 + k); y = amp * Math.cos(dt * 83 + 2 * k); r = (s.rot || 0) * Math.exp(-dt / 0.12) * Math.sin(dt * 40); }
+      }
+      gsap.set(target, { scale: sc, x, y, rotation: r });
+    });
+  }
+  // slow camera: zoom from z0 to z1 across the section, gentle sway
+  function camera(o = {}) {
+    const z0 = o.z0 ?? 1, z1 = o.z1 ?? 1.05, sway = o.sway ?? 0.5;
+    drive((t) => {
+      const p = clamp(t / S.dur, 0, 1);
+      gsap.set(cam, { scale: z0 * Math.pow(z1 / z0, p), rotation: Math.sin(t * 0.37) * sway, x: Math.sin(t * 0.21) * W * 0.004, y: Math.cos(t * 0.17) * H * 0.004 });
+    });
+  }
+
+  // ── the verse engine: couplet blocks, words pop on their times, block exits as the next arrives ──
+  function verse(cfg) {
+    const lines = cfg.lines || S.lines;
+    const groups = cfg.groups || lines.reduce((g, _, i) => (i % 2 ? g : [...g, [i, i + 1].filter((j) => j < lines.length)]), []);
+    const o = Object.assign({ cls: "k-type", maxW: W * (portrait ? 0.88 : 0.84), min: portrait ? 86 : 100, max: portrait ? 150 : 170, gap: 0.18, cy: H * 0.5, style: "pop", accStyle: "big", dim: 0.4, spread: 1.3 }, cfg);
+    const parent = cfg.parent || layer;
+    const blocks = [];
+    groups.forEach((g, gi) => {
+      const blk = el("div", "k-blk " + (cfg.blkCls || ""), parent);
+      const fits = g.map((li) => fitLine(lines[li], o, li));
+      const base = Math.min(...fits.map((f) => f.size));
+      const sizes = fits.map((f) => Math.min(f.size, base * o.spread));
+      let y = 0;
+      const Ls = g.map((li, k) => {
+        const L = buildLine(blk, lines[li], li, fits[k].rows, sizes[k], o);
+        if (k) { const m = sizes[k] * o.gap; L.el.style.marginTop = m + "px"; y += m; }
+        L.y = y; y += L.h;
+        return Object.assign(L, { li, line: lines[li] });
+      });
+      const top = (cfg.cyOf ? cfg.cyOf(gi) : o.cy) - y / 2;
+      blk.style.top = top + "px";
+      Ls.forEach((L) => L.words.forEach((x) => { if (x) { x.box.y += top + L.y; x.box.cx = x.box.x + x.box.w / 2; x.box.cy = x.box.y + x.box.h / 2; } }));
+      blocks.push({ el: blk, Ls, t0: lines[g[0]].t, gi, top, h: y });
+    });
+    blocks.forEach((b, i) => {
+      const next = blocks[i + 1];
+      b.t1 = next ? next.t0 : (cfg.lastOut ?? S.dur);
+      b.Ls.forEach((L) => popWords(L, o.style, o.accStyle));
+      if (o.dim < 1) b.Ls.forEach((L, k) => { const nl = b.Ls[k + 1]; if (nl) tl.to(L.el, { opacity: o.dim, duration: 0.2, ease: "power1.out" }, nl.line.t); });
+      tl.fromTo(b.el, { y: H * 0.035 }, { y: 0, duration: 0.3, ease: "power3.out" }, b.t0);
+      if (next || cfg.lastOut != null) {
+        b.tout = Math.max(b.t0 + 0.32, b.t1 - 0.14);
+        tl.to(b.el, { y: -H * 0.05, autoAlpha: 0, filter: "blur(8px)", duration: 0.14, ease: "power3.in" }, b.tout);
+      } else b.tout = S.dur;
+    });
+    return blocks;
+  }
+  // find a word in verse blocks: wordAt(blocks, lineIndex, "word", occurrence) -> { inner, outer, w, box, block }
+  function wordAt(blocks, li, word, occ = 1) {
+    for (const b of blocks) for (const L of b.Ls) if (L.li === li) {
+      let n = 0;
+      for (const x of L.words) if (x && norm(x.w.w) === norm(word) && ++n === occ) return Object.assign({ block: b }, x);
+    }
+    throw new Error(`word ${word} not in line ${li}`);
+  }
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  function svg(parent, w, h, cls) {
+    const s = document.createElementNS(svgNS, "svg");
+    s.setAttribute("viewBox", `0 0 ${w} ${h}`); s.setAttribute("width", w); s.setAttribute("height", h);
+    if (cls) s.setAttribute("class", cls);
+    s.style.position = "absolute"; s.style.overflow = "visible";
+    parent.appendChild(s); return s;
+  }
+  function sv(parent, tag, attrs) {
+    const e = document.createElementNS(svgNS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    parent.appendChild(e); return e;
+  }
+  // stroke draw-on for an SVG path/line/polyline/circle (pathLength=1)
+  function draw(e, t, dur = 0.5, ease = "power2.out") {
+    e.setAttribute("pathLength", "1");
+    gsap.set(e, { strokeDasharray: 1, strokeDashoffset: 1 });
+    tl.to(e, { strokeDashoffset: 0, duration: dur, ease }, t);
+  }
+
+  function done() {
+    const proxy = { t: 0 };
+    drivers.forEach((f) => f(0));
+    tl.to(proxy, { t: S.dur, duration: S.dur, ease: "none", onUpdate() { const t = proxy.t; drivers.forEach((f) => f(t)); } }, 0);
+    return tl;
+  }
+  // load the faces explicitly so the text model measures the real fonts
+  const FACES = [
+    ["GL Archivo", "archivo-latin-wdth-normal.woff2", { weight: "100 900", stretch: "62% 125%", style: "normal" }],
+    ["GL Archivo", "archivo-latin-wdth-italic.woff2", { weight: "100 900", stretch: "62% 125%", style: "italic" }],
+    ["GL Serif", "instrument-serif-latin-400-normal.woff2", { weight: "400", style: "normal" }],
+    ["GL Serif", "instrument-serif-latin-400-italic.woff2", { weight: "400", style: "italic" }],
+  ];
+  window.__glFonts = window.__glFonts || Promise.all(FACES.map(([fam, file, d]) => new FontFace(fam, `url(assets/fonts/${file})`, d).load().then((ff) => { document.fonts.add(ff); return ff; })));
+  const ready = window.__glFonts.then(() => document.fonts.ready);
+
+  return { S, W, H, portrait, tl, rng, R, clamp, norm, el, cam, pulse, layer, font, fontOf, textW, measure, SP, fitLine, buildLine, splitRows, popWords, POPS,
+    drive, lastBefore, pulser, camera, verse, wordAt, svg, sv, draw, done, ready, wordHTML };
+}
+
+      const stage = document.getElementById(S.id + "-stage");
+      const K = makeKit(S, stage);
+      const dark = ["intro", "pre-chorus", "verse-2", "verse-3", "bridge"].includes(S.id);
+      stage.style.setProperty("--ink", dark ? "#F4EEDF" : "#17142B");
+      K.ready.then(() => {
+        K.verse({});
+        K.pulser(K.pulse, {});
+        K.camera({});
+        window.__timelines[S.id] = K.done();
+      });
+    })();
+  </script>
+</template>

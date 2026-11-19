@@ -1,0 +1,20 @@
+@font-face { font-family: "GL Archivo"; font-style: normal; font-weight: 100 900; font-stretch: 62% 125%; src: url("assets/fonts/archivo-latin-wdth-normal.woff2") format("woff2"); }
+@font-face { font-family: "GL Archivo"; font-style: italic; font-weight: 100 900; font-stretch: 62% 125%; src: url("assets/fonts/archivo-latin-wdth-italic.woff2") format("woff2"); }
+@font-face { font-family: "GL Serif"; font-style: normal; font-weight: 400; src: url("assets/fonts/instrument-serif-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "GL Serif"; font-style: italic; font-weight: 400; src: url("assets/fonts/instrument-serif-latin-400-italic.woff2") format("woff2"); }
+#root { position: absolute; inset: 0; overflow: hidden; }
+#root * { box-sizing: border-box; }
+.k-stage, .k-cam, .k-pulse, .k-layer { position: absolute; inset: 0; }
+.k-cam { transform-origin: 50% 50%; }
+.k-pulse { transform-origin: 50% 50%; }
+.k-blk { position: absolute; left: 0; width: 100%; text-align: center; }
+.k-line { display: block; white-space: nowrap; line-height: 1.02; }
+.k-row { display: block; white-space: nowrap; overflow: visible; }
+.k-w { display: inline-block; white-space: nowrap; }
+.k-wi { display: inline-block; transform-origin: 50% 70%; }
+.k-sp { display: inline-block; width: 0.26em; }
+.k-sc { font-size: 0.8em; letter-spacing: 0.02em; }
+.k-type { font-family: "GL Archivo"; font-weight: 850; font-stretch: 75%; letter-spacing: -0.01em; text-transform: uppercase; }
+.k-wide { font-family: "GL Archivo"; font-weight: 900; font-stretch: 125%; letter-spacing: -0.02em; text-transform: uppercase; }
+.k-soft { font-family: "GL Serif"; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; font-stretch: 100%; }
+.k-label { font-family: "GL Archivo"; font-weight: 700; font-stretch: 112.5%; letter-spacing: 0.3em; text-transform: uppercase; }
