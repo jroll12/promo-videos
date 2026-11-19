@@ -139,7 +139,7 @@
           [[bless, -0.55, 0.9], [bless, 0.6, 0.7], [name, -0.4, 1.0], [name, 0.2, 0.75], [name, 0.62, 1.1]].forEach(([wa, fx, s], i) => {
             const q = placeV(wa, 90 * u * s, 90 * u * s, "auto", { gap: 6 * u, dx: fx * wa.box.w });
             const o = sparkle(front, q.cx, q.cy, q.w, i % 2 ? "f1" : "f2");
-            pop(o.wrap, (i < 2 ? bless.w.t : name.w.t - 0.08) + (i % 3) * 0.06, { s0: 0, r0: -90 });
+            pop(o.wrap, Math.min((i < 2 ? bless.w.t : name.w.t - 0.1) + (i % 3) * 0.05, b.tout - 0.22), { s0: 0, r0: -90, d: 0.2 });
             K.drive((t) => gsap.set(o.inner, { rotation: t * 40 * (i % 2 ? -1 : 1), scale: 1 + 0.12 * Math.sin(t * 9 + i) }));
             sp.push(o.wrap);
           });
@@ -250,7 +250,12 @@
           }, { origin: up ? "50% 100%" : "50% 0%" });
           rays.both((r) => r.out.forEach((x, i) => K.draw(x, glory.w.t + Math.abs(i - 4) * 0.03, 0.3)));
           K.drive((t) => gsap.set(rays.inner, { scale: 1 + 0.06 * Math.max(0, Math.sin((t - glory.w.t) * Math.PI / 0.4286)) }));
-          const bq = placeV(power, 140 * u, 240 * u, rq.where === "above" && Math.abs(power.box.cx - glory.box.cx) < rq.w * 0.6 ? "below" : "auto", { gap: 6 * u });
+          // the bolt strikes beside the rays (same band), on whichever side has room
+          let bq = placeV(power, 150 * u, 250 * u, "auto", { gap: 6 * u });
+          if (bq.where === rq.where && Math.abs(bq.cx - rq.cx) < (rq.w + bq.w) / 2) {
+            const right = rq.cx + rq.w / 2 + bq.w * 0.6, left = rq.cx - rq.w / 2 - bq.w * 0.6;
+            bq = Object.assign({}, bq, { cx: right + bq.w / 2 < W - M ? right : left, cy: rq.cy + (rq.h - bq.h) / 2 * (up ? 1 : -1) });
+          }
           const bolt = riso(front, bq.cx, bq.cy, bq.w, bq.h, [120, 200], (g, p) => { path(g, "M72 6 L18 112 H58 L38 194 L104 78 H64 L88 6 Z", p, p.f2); });
           gsap.set(bolt.wrap, { autoAlpha: 0 });
           tl.fromTo(bolt.wrap, { autoAlpha: 0, y: -bq.h * 0.8, scale: 1.4 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.12, ease: "power4.in" }, power.w.t - 0.06);
@@ -348,7 +353,7 @@
         // ── B6 "I will think about the splendor of Your reign," ──
         {
           const b = blocks[6], l = L(10), think = A(10, "think"), spl = A(10, "splendor");
-          const q = placeV(think, 200 * u, 200 * u, "above", { gap: 0 });
+          const q = placeV(think, 200 * u, 200 * u, "above", { gap: 0.03 * H });
           const bub = [[0.14, 0.92, 26], [0.42, 0.62, 40], [0.82, 0.24, 62]].map(([fx, fy, r], i) => {
             const o = riso(front, q.cx - q.w * 0.3 + fx * q.w, q.cy - q.h / 2 + fy * q.h, r * 2 * u * q.s, r * 2 * u * q.s, [100, 100], (g, p) => { sv(g, "circle", { cx: 50, cy: 50, r: 44, fill: p.f3, stroke: p.line, "stroke-width": p.sw }); }, { off: 5 });
             pop(o.wrap, think.w.t + i * 0.12, { s0: 0, r0: 0 });

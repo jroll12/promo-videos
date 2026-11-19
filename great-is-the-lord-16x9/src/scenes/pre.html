@@ -32,11 +32,11 @@
         const acc = { 0: { power: "k-wide pr-y" }, 1: { glory: "k-soft pr-y" }, 2: { generation: "k-wide" }, 3: { story: "k-soft pr-y" } };
         const riser = S.downs.filter((d) => d < S.dur - 1).pop() ?? S.dur - 1.77; // last bar
         const cyN = H * (portrait ? 0.6 : 0.6);
-        const SC = [1, 0.56, 0.4, 0.3], OP = [1, 0.62, 0.4, 0.24], GAP = H * 0.03;
+        const SC = [1, 0.62, 0.47, 0.37], OP = [1, 0.66, 0.46, 0.3], GAP = H * 0.03;
 
         // build every line once at full size (rows + size from the text model)
         const Ls = L.map((line, li) => {
-          const o = { cls: "k-type", acc, maxRows: 2, min: portrait ? 86 : 100, max: portrait ? 150 : 170, maxW: W * (li === 3 ? (portrait ? 0.72 : 0.58) : portrait ? 0.88 : 0.84) };
+          const o = { cls: "k-type", acc, maxRows: 2, min: portrait ? 86 : 100, max: portrait ? 150 : 170, maxW: W * (li === 3 ? (portrait ? 0.6 : 0.54) : portrait ? 0.88 : 0.84) };
           const fit = K.fitLine(line, o, li);
           const wrap = el("div", "pr-line", layer);
           wrap.style.width = W + "px";
@@ -111,7 +111,7 @@
         const rr = K.rng(77), streaks = [];
         for (let i = 0; streaks.length < 34 && i < 200; i++) {
           const a = rr() * Math.PI * 2;
-          if (Math.abs(Math.sin(a)) < (portrait ? 0.35 : 0.5)) continue;
+          if (Math.abs(Math.sin(a)) < (portrait ? 0.35 : 0.5) || (portrait && Math.abs(Math.cos(a)) < 0.3)) continue;
           streaks.push({ a, ph: rr(), sp: 0.8 + rr() * 0.9, e: sv(ss, "line", { x1: 0, y1: 0, x2: 0, y2: 0, stroke: i % 3 ? C.paper : C.yellow, "stroke-width": MIN * (0.005 + rr() * 0.006), "stroke-linecap": "round" }) });
         }
         const R0 = Math.max(W, H) * 0.27;
@@ -134,7 +134,7 @@
         // camera: slow creep, then the riser zoom accelerates into the chorus
         K.drive((t) => {
           const p = K.clamp((t - riser) / (S.dur - riser), 0, 1);
-          const s = (1 + 0.03 * (t / S.dur)) * (1 + 0.62 * Math.pow(p, 2.6));
+          const s = (1 + 0.03 * (t / S.dur)) * (1 + 0.5 * Math.pow(p, 2.6));
           gsap.set(K.cam, { scale: s, rotation: Math.sin(t * 0.5) * 0.5 + 1.2 * p * p, x: Math.sin(t * 0.21) * W * 0.003, y: Math.cos(t * 0.17) * H * 0.003 });
         });
         // the build: pulse gets stronger bar by bar
