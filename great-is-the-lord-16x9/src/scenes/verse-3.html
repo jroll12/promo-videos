@@ -188,9 +188,9 @@
           b.Ls.forEach((Ln, k) => {
             const ws = Ln.words.filter(Boolean), x0 = Math.min(...ws.map((x) => x.box.x)), x1 = Math.max(...ws.map((x) => x.box.x + x.box.w));
             const y0 = Math.min(...ws.map((x) => x.box.y)), y1 = Math.max(...ws.map((x) => x.box.y + x.box.h));
-            const pad = 18 * u, w = Math.min(x1 - x0 + pad * 2, W - 30 * u), h = (y1 - y0) * 0.94, rot = [-1.2, 1, -0.8][k];
+            const pad = 18 * u, w = Math.min(x1 - x0 + pad * 2, W - 30 * u), h = (y1 - y0) * 0.8, rot = [-1.2, 1, -0.8][k];
             const o = riso(back, (x0 + x1) / 2, (y0 + y1) / 2, w, h, [w, h], (g, p) => {
-              sv(g, "rect", { x: 0, y: 0, width: w, height: h, rx: 14 * u, fill: "none", stroke: p.main ? C.yellow : p.line, "stroke-width": 8 * u, "stroke-dasharray": `${60 * u} ${8 * u}` });
+              sv(g, "rect", { x: 0, y: 0, width: w, height: h, rx: 14 * u, fill: "none", stroke: p.main ? C.yellow : p.line, "stroke-width": 6 * u, "stroke-dasharray": `${60 * u} ${8 * u}` });
             });
             const acc = ws.find((x) => x.acc) || ws[ws.length - 1];
             gsap.set(o.wrap, { autoAlpha: 0, rotation: rot });
