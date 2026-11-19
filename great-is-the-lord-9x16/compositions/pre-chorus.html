@@ -410,8 +410,8 @@ function makeKit(S, stage) {
         // the riser ends in a yellow iris: the chorus opens on a yellow flood
         const ir = RMAX + 20, iris = el("div", "pr-iris", stage);
         Object.assign(iris.style, { left: W / 2 - ir + "px", top: H / 2 - ir + "px", width: 2 * ir + "px", height: 2 * ir + "px" });
-        gsap.set(iris, { autoAlpha: 0, scale: 0 });
-        tl.to(iris, { keyframes: [{ autoAlpha: 1, duration: 0.01 }, { scale: 1, duration: 0.13, ease: "power3.in" }] }, S.dur - 0.15);
+        gsap.set(iris, { autoAlpha: 0, scale: 0.22 });
+        tl.to(iris, { keyframes: [{ autoAlpha: 1, duration: 0.001 }, { scale: 1, duration: 0.09, ease: "power2.in" }] }, S.dur - 0.1);
 
         // camera: slow creep, then the riser zoom accelerates into the chorus
         K.drive((t) => {
