@@ -33,7 +33,7 @@ in search-result text from that source", not "opened the page".
 | "When someone needs a real person, it passes them to your team." (L7) | Brochure (verbatim) |
 | **"#1 Christian AI platform on TGC 2026 benchmark"** (L8, on screen) | Brochure ("Apologist AI tops the charts in The Gospel Coalition's 2026 AI Christian Benchmark"). Slack: Jake, 2026-10-04: "We come off very favorably and in places are pitted against 'the big boys'." **Not confirmed from the benchmark itself.** It names a third party and implies a comparison, so it is a Tier 1 item. |
 | "It's trusted by Ligonier, Got Questions, Apologetics Canada, and more." (L9, revision 2); all seven names on screen: Ligonier, Got Questions, Apologetics Canada, Radical, Sightline, Dare 2 Share, Jesus Film | Brochure. The narration names the first three in the brochure's order, and the names light up in that order. Shown as plain names, not their logos. |
-| 2.5M+ faith questions, 600K+ conversations, 205+ countries, 192 languages, 19 ministries on the platform (on screen) | Brochure stat band |
+| 2.5M+ faith questions, 600K+ conversations, 205+ countries, 475 languages, 19 ministries on the platform (on screen) | Brochure stat band |
 | "We run your AI infrastructure so you can focus on the people you serve." (L10) | Brochure (verbatim) |
 | "Branded agents can launch in days; plans start at $99/month." (end card) | Brochure |
 | "Your mission. Our platform. Christ made known." (L11) | Brochure headline |
@@ -43,7 +43,7 @@ in search-result text from that source", not "opened the page".
 
 **Conflicts and cautions to resolve before publishing:**
 - **"205+ countries"** is more than the 193 UN member states (195 with observers). It probably counts territories or analytics regions. Consider "205+ countries and territories", or confirm how it is counted. The film shows the brochure's figure unchanged.
-- **"192 languages"** reads in the brochure as languages supported. The internal Q2 deck says "support for almost 200 languages". The narration therefore never says questions arrived "in 192 languages".
+- **"475 languages"** reads in the brochure as languages supported. The internal Q2 deck says "support for almost 200 languages". The narration therefore never says questions arrived "in 475 languages".
 - **Internal figures are older, not conflicting:** the Donor Advisory Board Q2 2026 deck (July) has 1.87M+ questions, 481K+ conversations, 196+ countries. That fits growth to the October brochure. It is an internal document, so it was not used as a source.
 - **Call to action wording:** the Brand Quick Reference lists "Book a free consultation" as the approved B2B call to action. The brochure says "Book a quick intro call", and house rules say the brochure's wording wins. The film never says the call is free.
 - **apologist.ai vs apologistai.com:** the request said "apologist.ai". Search shows apologist.ai is the free public chatbot (D2C) and apologistai.com is the platform site the brochure's QR code uses. The film follows the brochure (apologistai.com).

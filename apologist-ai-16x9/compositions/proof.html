@@ -72,7 +72,7 @@
         <div data-hf-id="hf-t9l0" class="pf-stat" style="left: 130px; top: 150px"><div data-hf-id="hf-sj19" class="pf-n" id="pf-n0">2.5M+</div><div data-hf-id="hf-lpy6" class="pf-l">FAITH QUESTIONS</div></div>
         <div data-hf-id="hf-zuxj" class="pf-stat" style="left: 640px; top: 150px"><div data-hf-id="hf-qwrt" class="pf-n" id="pf-n1">600K+</div><div data-hf-id="hf-8ru3" class="pf-l">CONVERSATIONS</div></div>
         <div data-hf-id="hf-gjka" class="pf-stat" style="left: 130px; top: 410px"><div data-hf-id="hf-ozwm" class="pf-n" id="pf-n2">205+</div><div data-hf-id="hf-zg09" class="pf-l">COUNTRIES</div></div>
-        <div data-hf-id="hf-5qbh" class="pf-stat" style="left: 640px; top: 410px"><div data-hf-id="hf-0ycv" class="pf-n" id="pf-n3">192</div><div data-hf-id="hf-yv7g" class="pf-l">LANGUAGES</div></div>
+        <div data-hf-id="hf-5qbh" class="pf-stat" style="left: 640px; top: 410px"><div data-hf-id="hf-0ycv" class="pf-n" id="pf-n3">475</div><div data-hf-id="hf-yv7g" class="pf-l">LANGUAGES</div></div>
         <div data-hf-id="hf-v08p" class="pf-stat" style="left: 130px; top: 670px"><div data-hf-id="hf-h3xk" class="pf-n" id="pf-n4">19</div><div data-hf-id="hf-9bgt" class="pf-l">MINISTRIES ON THE PLATFORM</div></div>
         <div data-hf-id="hf-zyye" id="pf-rule"></div>
         <div data-hf-id="hf-29ha" id="pf-tb">TRUSTED BY</div>
@@ -111,7 +111,7 @@
       tl.fromTo(".pf-stat", { autoAlpha: 0, y: 46 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "expo.out", stagger: 0.1 }, T.band + 0.3);
       // once the band covers the frame, the ground beneath matches it, so the exit fades indigo on indigo
       tl.to("#pf-bg", { backgroundColor: "#1D1640", duration: 0.2, ease: "none" }, T.band + 0.75);
-      const counts = [[0, 2.5, (v) => v.toFixed(1) + "M+"], [1, 600, (v) => Math.round(v) + "K+"], [2, 205, (v) => Math.round(v) + "+"], [3, 192, (v) => String(Math.round(v))], [4, 19, (v) => String(Math.round(v))]];
+      const counts = [[0, 2.5, (v) => v.toFixed(1) + "M+"], [1, 600, (v) => Math.round(v) + "K+"], [2, 205, (v) => Math.round(v) + "+"], [3, 475, (v) => String(Math.round(v))], [4, 19, (v) => String(Math.round(v))]];
       counts.forEach(([i, end, fmt]) => {
         const el = document.getElementById("pf-n" + i);
         const o = { v: 0 };

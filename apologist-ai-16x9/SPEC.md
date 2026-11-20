@@ -42,7 +42,7 @@ TIME:    the narration is the clock (ElevenLabs "Hale", 64.3 s) + an end card he
 - **Question stream:** 14 cards (question, plus language and time), scrolling up the full frame. It slows on "But",
   then "Unanswered" ripples down the column and a "Your team" pill lands.
 - **Proof:** "#1" with its label, method line and source line. Then a full-frame indigo stat band (2.5M+, 600K+, 205+,
-  192, 19) and TRUSTED BY as a two-column list in the brochure's order.
+  475, 19) and TRUSTED BY as a two-column list in the brochure's order.
 - **End card:** logo, tagline, BOOK A QUICK INTRO CALL + calendly pill, the "apologistai.com" button, a QR code with
   SCAN TO VISIT and the price lines, and the footer "A program of The Apologist Project, a 501(c)(3) nonprofit."
 

@@ -10,7 +10,7 @@ apologistai.com could not be read (blocked in this environment).
 2. Mechanism: a faithful, branded agent without the build. It answers from your own teaching, any hour, any language,
    cites its sources, and passes people to your team when they need a real person.
 3. Proof: #1 Christian AI platform on The Gospel Coalition's 2026 AI Christian Benchmark; trusted by Ligonier, Got
-   Questions and others; 2.5M+ faith questions, 600K+ conversations, 205+ countries, 192 languages, 19 ministries.
+   Questions and others; 2.5M+ faith questions, 600K+ conversations, 205+ countries, 475 languages, 19 ministries.
 4. Ask: "We run your AI infrastructure so you can focus on the people you serve." Book a quick intro call
    (calendly.com/apologist-ai/intro) or visit apologistai.com. Tagline: "Your mission. Our platform. Christ made known."
 
