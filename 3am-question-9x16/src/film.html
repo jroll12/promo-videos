@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>3 a.m. Question</title>
+<style>
+@font-face { font-family: "Outfit"; font-weight: 600; src: url("../assets/fonts/outfit-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Outfit"; font-weight: 700; src: url("../assets/fonts/outfit-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; src: url("../assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+
+:root {
+  --ground: #111827; --violet: #7137FF; --white: #FFFFFF;
+  --accent: #9CA3AF; --soft: #D1D5DB; --raised: #1F2937; --rim: #374151; --muted: #6B7280; --deep: #030712;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+body { position: relative; color: var(--white); font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; }
+
+#blob { position: absolute; width: 1100px; height: 1100px; left: 0; top: 0; border-radius: 50%;
+  background: radial-gradient(circle, rgba(113,55,255,1) 0%, rgba(113,55,255,.55) 30%, rgba(113,55,255,0) 68%);
+  opacity: .18; pointer-events: none; }
+#grain { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; z-index: 50; }
+.nobg #blob, .nobg #grain { display: none; }
+
+.scene { position: absolute; inset: 0; display: none; }
+.scene.on { display: block; }
+
+/* ---------- Scene 1: lock screen ---------- */
+#s1 .stage { position: absolute; left: 0; right: 0; top: 560px; display: flex; flex-direction: column; align-items: center;
+  transform-origin: 540px 330px; }
+#lock { width: 44px; height: 56px; margin-bottom: 44px; }
+#eyebrow { font: 500 44px/1.2 "Inter"; color: var(--accent); letter-spacing: .01em; padding-bottom: 6px; }
+#clock { display: flex; align-items: baseline; margin-top: 18px; }
+#digits { display: flex; align-items: baseline; font: 700 280px/1 "Outfit"; letter-spacing: -.01em; }
+.col { position: relative; overflow: hidden; height: 1.16em; display: inline-block; text-align: center; }
+.col .strip { display: flex; flex-direction: column; }
+.col.rolling { -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 24%, #000 76%, transparent 100%); }
+.col .strip span { display: block; height: 1.16em; line-height: 1.16em; }
+.colon { display: inline-block; height: 1.16em; line-height: 1.16em; padding: 0 .02em; transform: translateY(-.06em); }
+#ampm { font: 600 84px/1 "Outfit"; color: var(--accent); margin-left: 26px; }
+
+/* ---------- Scene 2: the question ---------- */
+#box { position: absolute; left: 60px; right: 60px; bottom: 300px; min-height: 148px; background: var(--raised);
+  border: 2px solid var(--rim); border-radius: 24px; padding: 34px 132px 34px 36px; }
+#field { position: relative; font: 400 50px/1.4 "Inter"; color: var(--white); min-height: 1.4em; }
+#placeholder { position: absolute; left: 0; top: 0; color: var(--muted); white-space: nowrap; }
+#caret { display: inline-block; width: 3px; height: 1.12em; background: var(--white); vertical-align: -0.2em; margin-left: 2px; }
+#send { position: absolute; right: 22px; bottom: 22px; width: 88px; height: 88px; border-radius: 50%; background: var(--rim);
+  display: flex; align-items: center; justify-content: center; }
+#send svg { width: 40px; height: 40px; }
+#qbubble { position: absolute; right: 90px; top: 400px; white-space: nowrap; background: var(--raised);
+  border-radius: 40px 40px 10px 40px; padding: 32px 44px 36px; font: 400 54px/1.36 "Inter"; color: var(--white); }
+#abubble { position: absolute; left: 90px; background: var(--raised); border-radius: 40px 40px 40px 10px;
+  width: 220px; height: 120px; display: flex; align-items: center; justify-content: center; gap: 22px; }
+#abubble i { display: block; width: 20px; height: 20px; border-radius: 50%; background: var(--accent); }
+
+/* ---------- Scene 3: don't make them wait ---------- */
+.headline { position: absolute; left: 90px; right: 90px; text-align: center; text-wrap: balance; font: 700 108px/1.14 "Outfit";
+  letter-spacing: -.01em; padding-bottom: .14em; color: var(--white); }
+#h1 { top: 690px; }
+#h2wrap { position: absolute; left: 90px; right: 90px; top: 600px; display: flex; flex-direction: column; align-items: center; }
+#h2wrap .headline { position: static; }
+#sub { font: 500 54px/1.3 "Inter"; color: var(--white); margin-top: 40px; text-align: center; padding-bottom: 6px; }
+
+/* ---------- Scene 4: give ---------- */
+#s4 .stage { position: absolute; left: 90px; right: 90px; top: 380px; display: flex; flex-direction: column; align-items: center; }
+#giveat { font: 700 124px/1.14 "Outfit"; letter-spacing: -.01em; padding-bottom: .1em; }
+#tile { margin-top: 36px; background: #FFFFFF; border-radius: 40px; padding: 40px; }
+#tile img { display: block; width: 462px; height: 462px; image-rendering: pixelated; }
+#url { margin-top: 44px; font: 500 39px/1.3 "Inter"; color: var(--white); white-space: nowrap; padding-bottom: 4px; }
+#logo { margin-top: 92px; width: 460px; display: block; }
+</style>
+</head>
+<body>
+<div id="blob"></div>
+
+<section class="scene" id="s1">
+  <div class="stage">
+    <svg id="lock" viewBox="0 0 44 56" aria-hidden="true">
+      <path d="M10 24V16a12 12 0 0 1 24 0v8" fill="none" stroke="#9CA3AF" stroke-width="5" stroke-linecap="round"/>
+      <rect x="2" y="24" width="40" height="30" rx="7" fill="#9CA3AF"/>
+    </svg>
+    <div id="eyebrow">South Korea, local time</div>
+    <div id="clock">
+      <div id="digits">
+        <div class="col" id="cH"><div class="strip"><span>2</span><span>3</span></div></div>
+        <div class="colon">:</div>
+        <div class="col" id="cM1"><div class="strip"><span>5</span><span>0</span></div></div>
+        <div class="col" id="cM2"><div class="strip"><span>9</span><span>0</span></div></div>
+      </div>
+      <div id="ampm">a.m.</div>
+    </div>
+  </div>
+</section>
+
+<section class="scene" id="s2">
+  <div id="qbubble">Is it true that Jesus<br>was born of a virgin?</div>
+  <div id="abubble"><i></i><i></i><i></i></div>
+  <div id="box">
+    <div id="field"><span id="placeholder">Ask a question here</span><span id="typed"></span><span id="caret"></span></div>
+    <div id="send"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 32V9M10 18l10-10 10 10" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+</section>
+
+<section class="scene" id="s3">
+  <div class="headline" id="h1">Questions don’t keep office hours.</div>
+  <div id="h2wrap">
+    <div class="headline" id="h2">Don’t make them wait until morning.</div>
+    <div id="sub">Donations double through Dec 31.</div>
+  </div>
+</section>
+
+<section class="scene" id="s4">
+  <div class="stage">
+    <div id="giveat">Give at</div>
+    <div id="tile"><img src="../assets/brand/qr-give.svg" alt=""></div>
+    <div id="url">secure.qgiv.com/for/theapologistproject</div>
+    <img id="logo" src="../assets/brand/apologist-ai.svg" alt="Apologist AI">
+  </div>
+</section>
+
+<canvas id="grain" width="1080" height="1920"></canvas>
+
+<script>
+// ---------------- timeline (seconds, global) ----------------
+// Beat grid of the aligned song: ~1.14 + 0.4235 k. Scene cuts are Jarret's spec.
+const T = {
+  s1: [0, 3.2], s2: [3.2, 10.7], s3: [10.7, 16.9], s4: [16.9, 21.9],
+  roll: 1.14,            // music enters: 2:59 -> 3:00
+  box: 3.26, typeStart: 3.9, send: 6.65, dots: 7.49,
+  h1: 10.87, h1out: 12.70, h2: 12.99, sub: 14.26,
+  give: 17.0, qr: 17.4, url: 17.9, logo: 18.4,
+};
+const QUESTION = "Is it true that Jesus was born of a virgin?";
+
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const easeOut = p => 1 - Math.pow(1 - p, 3);
+const easeInOut = p => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a);
+  t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+// Rise-in: slide up 40 px + fade over 0.5 s, ease-out. Settled => transform none (no sub-pixel drift).
+function rise(el, t, t0, extraOpacity = 1, dur = 0.5, dist = 40) {
+  const p = clamp((t - t0) / dur), e = easeOut(p);
+  el.style.opacity = (e * extraOpacity).toFixed(4);
+  el.style.transform = p >= 1 ? 'none' : `translateY(${((1 - e) * dist).toFixed(3)}px)`;
+}
+const fadeOutFactor = (t, t0, dur) => 1 - clamp((t - t0) / dur);
+
+// Typing schedule: fast with slight random keystroke timing (seeded, so every render is identical).
+const typeTimes = (() => { const r = mulberry32(3007); let t = T.typeStart; const out = [];
+  for (let i = 0; i < QUESTION.length; i++) { out.push(t);
+    const c = QUESTION[i]; let d = 0.030 + r() * 0.026; if (c === ' ') d += 0.015 + r() * 0.02; if (r() < 0.06) d += 0.06; t += d; }
+  window.typeEnd = out[out.length - 1];
+  if (window.typeEnd > T.send - 0.35) throw new Error('typing must finish before send: ' + window.typeEnd);
+  return out; })();
+
+// Grain: static, seeded, faint.
+(function grain() { const c = document.getElementById('grain'), g = c.getContext('2d'), im = g.createImageData(1080, 1920), r = mulberry32(77);
+  for (let i = 0; i < im.data.length; i += 4) { const v = r() < .5 ? 255 : 0; im.data[i] = im.data[i+1] = im.data[i+2] = v; im.data[i+3] = Math.floor(r() * 10); }
+  g.putImageData(im, 0, 0); })();
+
+const $ = id => document.getElementById(id);
+let colH = 0;
+function layout() {
+  // Fixed column widths for the rolling digits (widest of old/new digit), so nothing reflows mid-roll.
+  for (const id of ['cH', 'cM1', 'cM2']) { const col = $(id); const spans = col.querySelectorAll('span');
+    const w = Math.max(...[...spans].map(s => { s.style.display = 'inline-block'; const w = s.getBoundingClientRect().width; s.style.display = ''; return w; }));
+    col.style.width = Math.ceil(w) + 'px'; }
+  colH = $('cH').getBoundingClientRect().height;
+}
+
+function show(id, on) { $(id).classList.toggle('on', on); }
+
+window.renderAt = function (t) {
+  // Background blob: the only thing that drifts.
+  const bx = 540 + 70 * Math.sin(t * 0.31) - 550, by = 900 + 90 * Math.sin(t * 0.23 + 1.2) - 550;
+  $('blob').style.transform = `translate(${bx.toFixed(2)}px, ${by.toFixed(2)}px)`;
+
+  show('s1', t < T.s1[1]); show('s2', t >= T.s2[0] && t < T.s2[1]);
+  show('s3', t >= T.s3[0] && t < T.s3[1]); show('s4', t >= T.s4[0]);
+
+  if (t < T.s1[1]) {
+    const out = fadeOutFactor(t, 3.0, 0.2);
+    const st = document.querySelector('#s1 .stage');
+    st.style.transform = `scale(${(1 + 0.05 * easeInOut(clamp(t / 3.2))).toFixed(5)})`;
+    rise($('lock'), t, 0.0, out); rise($('eyebrow'), t, 0.1, out); rise($('clock'), t, 0.2, out);
+    [['cM2', 0], ['cM1', 0.05], ['cH', 0.10]].forEach(([id, d]) => {
+      const p = easeOut(clamp((t - T.roll - d) / 0.32)), col = $(id), [a, b] = col.querySelectorAll('span');
+      col.firstElementChild.style.transform = p <= 0 ? 'none' : p >= 1 ? `translateY(${-colH}px)` : `translateY(${(-colH * p).toFixed(3)}px)`;
+      col.classList.toggle('rolling', p > 0 && p < 1);   // soft edges only while moving
+      a.style.opacity = p >= 1 ? 0 : (1 - p).toFixed(4); b.style.opacity = p <= 0 ? 0 : p >= 1 ? 1 : p.toFixed(4);
+    });
+  }
+
+  if (t >= T.s2[0] && t < T.s2[1]) {
+    const out = fadeOutFactor(t, 10.5, 0.2);
+    rise($('box'), t, T.box, out);
+    const n = typeTimes.filter(x => x <= t).length;
+    const sent = t >= T.send;
+    $('typed').textContent = sent ? '' : QUESTION.slice(0, n);
+    $('placeholder').style.display = (t >= T.typeStart) ? 'none' : '';
+    // Caret: blinks while idle, solid while typing, gone after send.
+    const typing = n > 0 && n < QUESTION.length;
+    const idleBlink = Math.floor((t - T.box) / 0.5) % 2 === 0;
+    $('caret').style.visibility = sent ? 'hidden' : (typing || idleBlink ? 'visible' : 'hidden');
+    // Send button: gray when empty, violet once there is text (action colour); press on send.
+    const hasText = n > 0 && !sent;
+    $('send').style.background = hasText ? '#7137FF' : '#374151';
+    const pp = clamp((t - T.send + 0.12) / 0.24);
+    $('send').style.transform = (pp > 0 && pp < 1) ? `scale(${(1 - 0.1 * Math.sin(Math.PI * pp)).toFixed(4)})` : 'none';
+    // Question lifts from the prompt box to the top as a chat bubble.
+    const qb = $('qbubble');
+    if (!sent) { qb.style.opacity = 0; }
+    else {
+      const p = clamp((t - T.send) / 0.55), e = easeOut(p);
+      const from = $('box').offsetTop + 30 - qb.offsetTop;
+      qb.style.opacity = (clamp((t - T.send) / 0.15) * out).toFixed(4);
+      qb.style.transform = p >= 1 ? 'none' : `translateY(${((1 - e) * from).toFixed(3)}px)`;
+    }
+    // Answer pending: three dots pulse. No answer ever appears.
+    const ab = $('abubble'); ab.style.top = (qb.offsetTop + qb.offsetHeight + 30) + 'px';
+    rise(ab, t, T.dots, out);
+    [...ab.children].forEach((d, i) => {
+      const ph = (t - T.dots) / 1.1 - i * 0.16; const s = 0.5 + 0.5 * Math.sin(2 * Math.PI * ph - Math.PI / 2);
+      d.style.opacity = (0.35 + 0.65 * s).toFixed(4); d.style.transform = `translateY(${(-6 * s).toFixed(3)}px)`;
+    });
+  }
+
+  if (t >= T.s3[0] && t < T.s3[1]) {
+    const out = fadeOutFactor(t, 16.75, 0.15);
+    const h1 = $('h1'); rise(h1, t, T.h1);
+    if (t >= T.h1out) { const p = easeOut(clamp((t - T.h1out) / 0.25));
+      h1.style.opacity = (1 - p).toFixed(4); h1.style.transform = p >= 1 ? 'none' : `translateY(${(-24 * p).toFixed(3)}px)`;
+      if (p >= 1) h1.style.opacity = 0; }
+    rise($('h2'), t, T.h2, out); rise($('sub'), t, T.sub, out);
+  }
+
+  if (t >= T.s4[0]) {
+    rise($('giveat'), t, T.give); rise($('tile'), t, T.qr); rise($('url'), t, T.url); rise($('logo'), t, T.logo);
+  }
+};
+
+window.ready = (async () => {
+  if (new URLSearchParams(location.search).has('nobg')) document.body.classList.add('nobg');
+  await Promise.all(['700 280px Outfit', '600 84px Outfit', '400 44px Inter', '500 44px Inter'].map(f => document.fonts.load(f)));
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(i => i.decode()));
+  // Lay out every scene once so offsets are measurable.
+  document.querySelectorAll('.scene').forEach(s => s.classList.add('on'));
+  layout();
+  document.querySelectorAll('.scene').forEach(s => s.classList.remove('on'));
+  return ['Outfit', 'Inter'].every(f => document.fonts.check(`700 20px ${f}`) || document.fonts.check(`400 20px ${f}`));
+})();
+</script>
+</body>
+</html>
