@@ -1,0 +1,201 @@
+<template>
+  <style>
+    @font-face { font-family: "Outfit"; font-style: normal; font-weight: 600; src: url("assets/fonts/outfit-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-style: normal; font-weight: 700; src: url("assets/fonts/outfit-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-style: normal; font-weight: 800; src: url("assets/fonts/outfit-latin-800-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Outfit"; font-style: normal; font-weight: 900; src: url("assets/fonts/outfit-latin-900-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 500; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 600; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 700; src: url("assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; src: url("assets/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #111827; }
+    #root * { box-sizing: border-box; }
+    #wq-shake, #wq-blobs, #wq-conf, #wq-storm, #wq-v2 { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .c { position: absolute; left: 50%; top: 50%; white-space: nowrap; }
+
+    /* house background: dark base, large blurred violet blobs (opacity <= 0.30) */
+    .blob { position: absolute; border-radius: 50%; background: radial-gradient(circle, #7137FF 0%, rgba(113,55,255,0) 70%); filter: blur(80px); opacity: 0.28; }
+
+    /* confetti of # and ? glyphs: texture only, never read */
+    .cf { position: absolute; font-family: "Outfit"; font-weight: 900; line-height: 1; }
+
+    #wq-hashW { font: 900 760px/0.8 "Outfit"; color: #8F61FF; text-shadow: 0 0 80px rgba(113,55,255,0.45); }
+
+    .chip { font: 700 40px/1 "Outfit"; color: #F9FAFB; background: #1F2937; border: 4px solid #8F61FF; border-radius: 999px; padding: 0.42em 0.8em; box-shadow: 0 18px 44px rgba(0,0,0,0.55); }
+    .chip .h { color: #B191FF; }
+
+    /* lyric line 1: "#Wild / questions / of the week" */
+    #wq-l1 { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    #wq-l1 .row { display: flex; align-items: center; gap: 0.3em; }
+    .big { display: inline-block; font: 900 250px/0.9 "Outfit"; color: #FFFFFF; letter-spacing: -0.03em; }
+    .mid { display: inline-block; font: 900 170px/0.9 "Outfit"; color: #FFFFFF; letter-spacing: -0.03em; text-shadow: 8px 8px 0 #7137FF; }
+    .hs { color: #8F61FF; margin-right: 0.05em; }
+    .grad { background-image: linear-gradient(90deg, #4F46E5 0%, #7137FF 35%, #9089FC 65%, #80CAFF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding-right: 0.06em; }
+    .stk { display: inline-block; font: 800 84px/1 "Outfit"; color: #FFFFFF; background: #7137FF; border-radius: 999px; padding: 0.16em 0.55em 0.22em; box-shadow: 0 10px 0 #1F0C4D; }
+    .wk { display: inline-block; font: 900 150px/1 "Outfit"; color: #FFFFFF; background: #7137FF; border-radius: 999px; padding: 0.06em 0.45em 0.14em; box-shadow: 0 14px 0 #1F0C4D; letter-spacing: -0.02em; }
+
+    /* the ask: an apologist AI style input pill typing a wild question */
+    #wq-ask { display: flex; flex-direction: column; align-items: center; gap: 34px; }
+    #wq-ask-logo { height: 56px; width: calc(56px * 64.19 / 13.81); background: url("assets/brand/apologist-ai-white.svg") center / contain no-repeat; }
+    .pill { position: relative; display: flex; align-items: center; width: 1100px; height: 124px; padding: 0 124px 0 44px; background: #1F2937; border: 2px solid #4B5563; border-radius: 24px; box-shadow: 0 28px 72px rgba(0,0,0,0.7); }
+    #wq-typed { display: inline-block; font: 600 56px/1 "Inter"; color: #F9FAFB; }
+    #wq-typed .h { color: #B191FF; }
+    .send { position: absolute; right: 14px; top: 50%; width: calc(124px - 28px); height: calc(124px - 28px); margin-top: calc((124px - 28px) / -2); border-radius: 50%; background: #7137FF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font: 700 calc(124px * 0.42)/1 "Inter"; }
+
+    /* verse 2: "They're the wild, wild" */
+    .huge { font: 900 330px/0.9 "Outfit"; color: #FFFFFF; letter-spacing: -0.03em; text-shadow: 14px 14px 0 #7137FF; }
+
+    /* title lockup */
+    #wq-title { display: flex; flex-direction: column; align-items: center; }
+    #wq-title .tl { display: flex; align-items: baseline; font: 900 200px/0.98 "Outfit"; color: #FFFFFF; letter-spacing: -0.035em; }
+    #wq-title .tl span { display: inline-block; }
+    #wq-t-hash { color: #8F61FF; margin-right: 0.04em; }
+    #wq-t-wild { margin-right: 0.06em; }
+    #wq-tag { display: flex; align-items: center; gap: 0.5em; margin-top: 40px; font: 600 54px/1 "Inter"; color: #D1D5DB; }
+    #wq-tag img { height: 62px; width: auto; }
+  </style>
+
+  <div id="root" data-composition-id="wild" data-width="1920" data-height="1080">
+    <div id="wq-shake">
+      <div id="wq-blobs"><div class="blob" data-layout-allow-overflow data-layout-allow-occlusion style="left:-182px;top:-290px;width:1056px;height:1056px"></div><div class="blob" data-layout-allow-overflow data-layout-allow-occlusion style="left:1094px;top:-156px;width:960px;height:960px"></div><div class="blob" data-layout-allow-overflow data-layout-allow-occlusion style="left:384px;top:342px;width:1152px;height:1152px"></div></div>
+      <div id="wq-conf" aria-hidden="true" data-layout-allow-occlusion data-layout-allow-overlap><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1105px;top:697px;font-size:61px;color:#374151">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1187px;top:398px;font-size:100px;color:#3A129E">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:952px;top:756px;font-size:124px;color:#450FCA">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:11px;top:894px;font-size:133px;color:#1F2937">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1483px;top:619px;font-size:75px;color:#374151">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:205px;top:214px;font-size:133px;color:#3A129E">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1481px;top:864px;font-size:71px;color:#450FCA">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1913px;top:495px;font-size:149px;color:#1F2937">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:137px;top:114px;font-size:103px;color:#374151">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1707px;top:917px;font-size:50px;color:#3A129E">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:221px;top:79px;font-size:148px;color:#450FCA">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1555px;top:429px;font-size:115px;color:#1F2937">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:219px;top:816px;font-size:74px;color:#374151">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:350px;top:872px;font-size:90px;color:#3A129E">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:428px;top:703px;font-size:121px;color:#450FCA">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:463px;top:839px;font-size:131px;color:#1F2937">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:939px;top:406px;font-size:51px;color:#374151">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:444px;top:1049px;font-size:86px;color:#3A129E">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:337px;top:910px;font-size:67px;color:#450FCA">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:19px;top:321px;font-size:68px;color:#1F2937">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:975px;top:575px;font-size:143px;color:#374151">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:902px;top:116px;font-size:106px;color:#3A129E">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:651px;top:225px;font-size:124px;color:#450FCA">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1879px;top:643px;font-size:157px;color:#1F2937">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1675px;top:753px;font-size:57px;color:#374151">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1488px;top:377px;font-size:93px;color:#3A129E">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:765px;top:193px;font-size:122px;color:#450FCA">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1799px;top:632px;font-size:120px;color:#1F2937">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1304px;top:182px;font-size:62px;color:#374151">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1146px;top:816px;font-size:149px;color:#3A129E">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:307px;top:42px;font-size:127px;color:#450FCA">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:476px;top:834px;font-size:115px;color:#1F2937">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1904px;top:586px;font-size:77px;color:#374151">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1730px;top:240px;font-size:61px;color:#3A129E">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:774px;top:945px;font-size:121px;color:#450FCA">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:235px;top:6px;font-size:78px;color:#1F2937">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:111px;top:346px;font-size:75px;color:#374151">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:404px;top:395px;font-size:96px;color:#3A129E">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1482px;top:448px;font-size:85px;color:#450FCA">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:628px;top:992px;font-size:72px;color:#1F2937">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1557px;top:373px;font-size:92px;color:#374151">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1325px;top:992px;font-size:52px;color:#3A129E">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1402px;top:58px;font-size:86px;color:#450FCA">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:694px;top:872px;font-size:153px;color:#1F2937">?</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1564px;top:859px;font-size:50px;color:#374151">#</span><span class="cf" aria-hidden="true" data-layout-allow-overflow data-layout-allow-occlusion style="left:1455px;top:1042px;font-size:89px;color:#3A129E">#</span></div>
+
+      <div id="wq-hashW" class="c" aria-hidden="true" data-layout-allow-overlap><div id="wq-hash">#</div></div>
+      <div id="wq-storm" data-layout-allow-overlap data-layout-allow-occlusion><div id="wq-s0" class="c chip wq-sc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidAdamHaveABellyButton</div>
+        <div id="wq-s1" class="c chip wq-sc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>WhoCleanedUpAfterTheArk</div>
+        <div id="wq-s2" class="c chip wq-sc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>HowLongWasMethuselahsBeard</div>
+        <div id="wq-s3" class="c chip wq-sc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidGoliathHitHisHeadOnDoorways</div>
+        <div id="wq-s4" class="c chip wq-sc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidNoahsAnimalsGetSeasick</div>
+        <div id="wq-s5" class="c chip wq-sc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>WhatSnacksDidMosesPack</div>
+        <div id="wq-s6" class="c chip wq-sc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidJonahNeedAShowerAfter</div></div>
+
+      <div id="wq-l1" class="c">
+        <div class="row"><span id="wq-w1" class="big"><span class="hs">#</span><span class="grad">Wild</span></span></div>
+        <div class="row"><span id="wq-w2" class="mid" data-layout-allow-overflow>questions</span></div>
+        <div class="row"><span id="wq-w3a" class="stk">of</span><span id="wq-w3b" class="stk">the</span><span id="wq-w4" class="wk">week</span></div>
+      </div>
+
+      <div id="wq-ask" class="c">
+        <div id="wq-ask-logo" role="img" aria-label="apologist AI"></div>
+        <div class="pill"><span id="wq-typed"><span class="wq-ch h">#</span><span class="wq-ch">W</span><span class="wq-ch">a</span><span class="wq-ch">s</span><span class="wq-ch">M</span><span class="wq-ch">a</span><span class="wq-ch">n</span><span class="wq-ch">n</span><span class="wq-ch">a</span><span class="wq-ch">G</span><span class="wq-ch">l</span><span class="wq-ch">u</span><span class="wq-ch">t</span><span class="wq-ch">e</span><span class="wq-ch">n</span><span class="wq-ch">F</span><span class="wq-ch">r</span><span class="wq-ch">e</span><span class="wq-ch">e</span></span><div id="wq-send" class="send">→</div></div>
+      </div>
+
+      <div id="wq-v2" data-layout-allow-overlap data-layout-allow-occlusion>
+        <div id="wq-p0" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidElijahTipTheRavens</div>
+        <div id="wq-p1" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>WhoNamedTheHippo</div>
+        <div id="wq-p2" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>HowManyAnimalsSneezedOnTheArk</div>
+        <div id="wq-p3" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidZacchaeusNeedABoostSeat</div>
+        <div id="wq-p4" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>WasTheBurningBushWarm</div>
+        <div id="wq-p5" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidSamsonRegretTheHaircut</div>
+        <div id="wq-p6" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>WhatWasJonahsReviewOfTheFish</div>
+        <div id="wq-p7" class="c chip wq-pc" data-layout-allow-overflow data-layout-allow-occlusion><span class="h">#</span>DidBalaamsDonkeyHaveAnAccent</div>
+        <div id="wq-they" class="c stk">They're</div>
+        <div id="wq-the2" class="c stk">the</div>
+        <div id="wq-wa" class="c huge" data-layout-allow-overflow data-layout-allow-occlusion>wild,</div>
+        <div id="wq-wb" class="c huge" data-layout-allow-overflow data-layout-allow-occlusion>wild</div>
+      </div>
+
+      <div id="wq-title" class="c">
+        <div class="tl"><span id="wq-t-hash" class="wq-tw">#</span><span id="wq-t-wild" class="wq-tw grad">Wild</span><span id="wq-t-questions" class="wq-tw">Questions</span></div>
+        <div class="tl"><span id="wq-t-of" class="wq-tw">Of</span><span id="wq-t-the" class="wq-tw">The</span><span id="wq-t-week" class="wq-tw">Week</span></div>
+        <div id="wq-tag"><span>asked to</span><img src="assets/brand/apologist-ai-white.svg" alt="apologist AI" /></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = {"total":8.8,"beats":[0.232,0.712,1.192,1.672,2.152,2.632,3.112,3.592,4.072,4.552,5.032,5.512,5.992,6.472,6.952,7.432,7.912,8.392],"hashSlams":[0.232,0.712],"storm":[0.232,0.342,0.452,0.562,0.672,0.782,0.892],"blow":1.096,"wild1":1.196,"questions1":1.881,"of1":2.392,"the1":2.635,"week1":2.775,"l1Out":2.965,"askIn":2.975,"typeStart":3.095,"typeStep":0.021,"send":3.599,"launch":3.712,"askOut":3.833,"theyre":3.913,"the2":4.551,"wild2":4.783,"wild3":5.387,"pile":[3.953,4.123,4.293,4.463,4.633,4.803,4.973,5.143],"explode":5.513,"questions2":5.503,"of2":6.13,"the3":6.478,"week2":6.606,"hit1":7.094,"hit2":7.454,"float":7.774,"shakes":[[0.232,14],[0.712,10],[1.196,22],[2.775,16],[4.783,16],[5.387,18],[6.606,20],[7.454,14]]};
+      const L = {"W":1920,"H":1080,"hash":[0,-10,-8],"storm":[[-520,-330,-7],[520,-290,6],[-560,300,5],[540,330,-6],[10,-420,3],[-60,430,-4],[600,20,8]],"pile":[[587.209,413.963,2.943],[-404.383,391.42,5.255],[241.645,360.903,0.065],[-64.394,262.272,8.29],[-102.855,344.923,8.501],[265.708,395.56,-0.431],[-437.547,326.63,-5.244],[574.613,315.256,5.652]],"l1":[0,0,0],"ask":[0,40,0],"they":[-520,-380,-10],"the2":[-170,-390,8],"wa":[-400,-40,-8],"wb":[420,70,7],"title":[0,-30,0],"confDrift":[[-48.347,-58.939,2.398,-30.482],[29.308,-172.543,16.513,-17.692],[54.834,-51.118,-4.682,9.476],[-51.143,-157.936,-28.899,-68.18],[-23.504,-69.478,8.311,-4.749],[28.926,-164.209,-19.613,48.663],[12.574,-80.724,17.278,42.787],[47.06,-117.379,28.805,-60.225],[-9.13,-69.419,26.633,-63.337],[-2.658,-119.336,18.79,-68.655],[-2.566,-149.311,-1.555,4.416],[45.48,-168.276,15.875,-46.953],[-36.848,-68.509,-15.021,-61.853],[-11.692,-43.44,-4.161,60.384],[1.886,-44.563,17.317,64.563],[-50.726,-56.27,-14.44,34.522],[-56.123,-98.925,-10.146,-55.409],[-30.424,-115.279,-27.133,3.606],[6.479,-122.634,6.931,-62.237],[14.388,-133.791,14.163,-44.859],[8.305,-121.887,24.896,-17.927],[-26.047,-85.202,5.866,46.797],[-59.794,-92.939,21.882,37.743],[-58.402,-147.748,12.581,16.163],[-15.453,-175.684,-17.329,48.775],[33.754,-141.914,16.655,-23.049],[-13.012,-49.108,-4.398,-53.112],[-15.316,-125.452,-11.184,-24.672],[45.384,-130.188,-4.933,-6.103],[42.638,-148.429,1.761,-5.999],[41.379,-108.797,-15.351,-40.096],[13.837,-117.641,21.109,-35.673],[32.678,-127.389,-5.52,-57.011],[3.489,-159.899,-19.56,-20.066],[-42.183,-153.701,-25.18,59.188],[50.762,-99.748,27.047,-3.167],[20.935,-151.118,-29.99,45.892],[-14.3,-97.306,26.124,3.05],[-11.852,-100.647,-11.124,48.408],[20.133,-107.237,-12.679,-31.115],[24.558,-55.299,8.91,37.443],[-36.631,-80.395,25.111,-64.42],[21.622,-101.403,-26.284,25.556],[26.354,-133.174,11.483,-41.457],[43.253,-176.648,8.963,-9.521],[-4.555,-105.78,1.592,-19.656]]};
+      const tl = gsap.timeline({ paused: true });
+      const at = (sel, p) => gsap.set(sel, { xPercent: -50, yPercent: -50, x: p[0], y: p[1], rotation: p[2] || 0 });
+
+      // ── layout (centre-anchored; L comes from the shape's build.mjs) ──
+      at("#wq-hashW", L.hash);
+      L.storm.forEach((p, k) => at("#wq-s" + k, p));
+      L.pile.forEach((p, k) => at("#wq-p" + k, p));
+      at("#wq-l1", L.l1);
+      at("#wq-ask", L.ask);
+      at("#wq-they", L.they);
+      at("#wq-the2", L.the2);
+      at("#wq-wa", L.wa);
+      at("#wq-wb", L.wb);
+      at("#wq-title", L.title);
+
+      // ── initial hides (frame 0 shows the big # and the first chip) ──
+      gsap.set(["#wq-w1", "#wq-w2", "#wq-w3a", "#wq-w3b", "#wq-w4", "#wq-ask", "#wq-send", ".wq-ch", "#wq-they", "#wq-the2", "#wq-wa", "#wq-wb", ".wq-pc", ".wq-tw", "#wq-tag"], { autoAlpha: 0 });
+      gsap.set(L.storm.map((p, k) => "#wq-s" + k).slice(1), { autoAlpha: 0 });
+
+      // ── always-on: blobs pulse on every beat; confetti drifts ──
+      T.beats.forEach((b) => tl.to("#wq-blobs", { keyframes: [{ scale: 1.09, duration: 0.07, ease: "power2.out" }, { scale: 1, duration: 0.33, ease: "sine.inOut" }], transformOrigin: "50% 50%" }, b));
+      gsap.utils.toArray(".cf").forEach((el, i) => {
+        const d = L.confDrift[i];
+        tl.fromTo(el, { x: 0, y: 0, rotation: d[2] }, { x: d[0], y: d[1], rotation: d[2] + d[3], duration: T.total, ease: "none" }, 0);
+      });
+
+      // ── camera shake on the big hits (separate wrapper, never overlapping) ──
+      T.shakes.forEach((s) => {
+        const a = s[1];
+        tl.to("#wq-shake", { keyframes: [{ x: a, y: -a * 0.6, duration: 0.03 }, { x: -a * 0.8, y: a * 0.5, duration: 0.04 }, { x: a * 0.5, y: a * 0.3, duration: 0.04 }, { x: -a * 0.25, y: -a * 0.2, duration: 0.04 }, { x: 0, y: 0, duration: 0.05 }], ease: "none" }, s[0]);
+      });
+
+      // ── 1. hashtag storm (0 – 1.12) ──
+      T.hashSlams.forEach((t) => tl.to("#wq-hash", { keyframes: [{ scaleX: 1.22, scaleY: 0.78, duration: 0.06, ease: "power2.out" }, { scaleX: 0.92, scaleY: 1.1, duration: 0.1 }, { scaleX: 1, scaleY: 1, duration: 0.14, ease: "back.out(3)" }] }, t));
+      L.storm.forEach((p, k) => {
+        if (!k) return;
+        tl.fromTo("#wq-s" + k, { autoAlpha: 1, y: p[1] - L.H, rotation: p[2] * -4 }, { autoAlpha: 1, y: p[1], rotation: p[2], duration: 0.18, ease: "back.out(2.4)" }, T.storm[k]);
+      });
+      L.storm.forEach((p, k) => {
+        tl.to("#wq-s" + k, { x: p[0] * 3.4 + (p[0] >= 0 ? 400 : -400), y: p[1] * 3.4, rotation: p[2] * 22, scale: 0.6, autoAlpha: 0, duration: 0.26, ease: "power3.in" }, T.blow);
+      });
+      tl.to("#wq-hashW", { scale: 0, rotation: 300, autoAlpha: 0, duration: 0.26, ease: "power3.in" }, T.blow);
+
+      // ── 2. "Wild questions of the week" ──
+      tl.fromTo("#wq-w1", { autoAlpha: 0, scale: 4, rotation: -16 }, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.18, ease: "power4.out" }, T.wild1);
+      tl.to("#wq-w1", { keyframes: [{ scaleX: 1.14, scaleY: 0.8, duration: 0.06 }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "back.out(3)" }] }, T.wild1 + 0.18);
+      tl.fromTo("#wq-w2", { autoAlpha: 1, y: -L.H * 0.7, rotation: 6 }, { autoAlpha: 1, y: 0, rotation: 2, duration: 0.34, ease: "bounce.out" }, T.questions1 - 0.12);
+      tl.fromTo("#wq-w3a", { autoAlpha: 0, scale: 0, rotation: -40 }, { autoAlpha: 1, scale: 1, rotation: -9, duration: 0.16, ease: "back.out(3)" }, T.of1);
+      tl.fromTo("#wq-w3b", { autoAlpha: 0, scale: 0, rotation: 40 }, { autoAlpha: 1, scale: 1, rotation: 7, duration: 0.12, ease: "back.out(3)" }, T.the1);
+      tl.fromTo("#wq-w4", { autoAlpha: 0, scale: 2.6, rotation: -28 }, { autoAlpha: 1, scale: 1, rotation: -6, duration: 0.13, ease: "power4.out" }, T.week1);
+      tl.to("#wq-l1", { scale: 0, rotation: 32, autoAlpha: 0, duration: 0.26, ease: "power3.in" }, T.l1Out);
+
+      // ── 3. the ask: type a wild question, send it ──
+      tl.fromTo("#wq-ask", { autoAlpha: 0, y: L.ask[1] + L.H * 0.55 }, { autoAlpha: 1, y: L.ask[1], duration: 0.26, ease: "back.out(1.6)" }, T.askIn);
+      tl.fromTo("#wq-send", { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.14, ease: "back.out(3)" }, T.askIn + 0.18);
+      tl.to(".wq-ch", { autoAlpha: 1, duration: 0.01, stagger: T.typeStep }, T.typeStart);
+      tl.to("#wq-send", { keyframes: [{ scale: 0.72, duration: 0.06 }, { scale: 1.3, duration: 0.08 }, { scale: 1, duration: 0.12, ease: "back.out(3)" }] }, T.send);
+      tl.to("#wq-typed", { y: -L.H * 0.9, rotation: -14, scale: 1.4, duration: 0.24, ease: "power3.in" }, T.launch);
+      tl.to("#wq-ask", { y: L.ask[1] + L.H * 0.6, autoAlpha: 0, duration: 0.22, ease: "power3.in" }, T.askOut);
+
+      // ── 4. "They're the wild, wild" with a pile-up of questions ──
+      tl.fromTo("#wq-they", { autoAlpha: 0, scale: 0, rotation: L.they[2] - 40 }, { autoAlpha: 1, scale: 1, rotation: L.they[2], duration: 0.16, ease: "back.out(3)" }, T.theyre);
+      tl.fromTo("#wq-the2", { autoAlpha: 0, scale: 0, rotation: L.the2[2] + 40 }, { autoAlpha: 1, scale: 1, rotation: L.the2[2], duration: 0.14, ease: "back.out(3)" }, T.the2);
+      L.pile.forEach((p, k) => tl.fromTo("#wq-p" + k, { autoAlpha: 1, y: p[1] - L.H * 1.1, rotation: p[2] * -3 }, { autoAlpha: 1, y: p[1], rotation: p[2], duration: 0.26, ease: "bounce.out" }, T.pile[k]));
+      tl.fromTo("#wq-wa", { autoAlpha: 0, x: L.wa[0] - L.W * 0.7, rotation: -50, scale: 0.4 }, { autoAlpha: 1, x: L.wa[0], rotation: L.wa[2], scale: 1, duration: 0.18, ease: "back.out(2)" }, T.wild2 - 0.06);
+      tl.fromTo("#wq-wb", { autoAlpha: 0, x: L.wb[0] + L.W * 0.7, rotation: 50, scale: 0.4 }, { autoAlpha: 1, x: L.wb[0], rotation: L.wb[2], scale: 1, duration: 0.12, ease: "power4.out" }, T.wild3 - 0.06);
+      // the pile wobbles while it grows (container-level, so it never fights the drops)
+      tl.to("#wq-v2", { keyframes: [{ rotation: 1.2, duration: 0.24 }, { rotation: -1.2, duration: 0.24 }, { rotation: 0.8, duration: 0.24 }, { rotation: -0.8, duration: 0.24 }, { rotation: 0, duration: 0.2 }], transformOrigin: "50% 90%", ease: "sine.inOut" }, T.theyre + 0.2);
+      // everything blows apart as the title arrives
+      ["#wq-they", "#wq-the2", "#wq-wa", "#wq-wb"].concat(L.pile.map((p, k) => "#wq-p" + k)).forEach((sel, i) => {
+        const p = sel === "#wq-they" ? L.they : sel === "#wq-the2" ? L.the2 : sel === "#wq-wa" ? L.wa : sel === "#wq-wb" ? L.wb : L.pile[i - 4];
+        tl.to(sel, { x: p[0] * 3 + (p[0] >= 0 ? 500 : -500), y: p[1] * 3 + (p[1] >= 0 ? 300 : -300), rotation: (p[2] || 5) * 20, scale: 0.5, autoAlpha: 0, duration: 0.24, ease: "power3.in" }, T.explode);
+      });
+
+      // ── 5. the title, word by word on the sung words ──
+      tl.fromTo(["#wq-t-hash", "#wq-t-wild", "#wq-t-questions"], { autoAlpha: 0, scale: 3, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.16, ease: "power4.out", stagger: 0.04 }, T.questions2);
+      tl.to("#wq-title", { keyframes: [{ scaleX: 1.08, scaleY: 0.88, duration: 0.06 }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "back.out(3)" }] }, T.questions2 + 0.26);
+      tl.fromTo("#wq-t-of", { autoAlpha: 0, y: -160, rotation: -24 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.14, ease: "back.out(3)" }, T.of2);
+      tl.fromTo("#wq-t-the", { autoAlpha: 0, y: 160, rotation: 24 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.12, ease: "back.out(3)" }, T.the3);
+      tl.fromTo("#wq-t-week", { autoAlpha: 0, scale: 2.4, rotation: 18 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.13, ease: "power4.out" }, T.week2);
+      tl.to("#wq-title", { keyframes: [{ scaleX: 1.06, scaleY: 0.9, duration: 0.06 }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "back.out(3)" }] }, T.week2 + 0.13);
+      tl.fromTo("#wq-tag", { autoAlpha: 0, y: 70, scale: 0.6 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2.5)" }, T.hit1);
+      tl.to("#wq-t-hash", { rotation: 360, duration: 0.42, ease: "power2.out" }, T.hit2);
+      tl.to("#wq-title", { keyframes: [{ scale: 1.07, duration: 0.07 }, { scale: 1, duration: 0.24, ease: "back.out(3)" }] }, T.hit2);
+      tl.to("#wq-conf", { keyframes: [{ scale: 1.3, opacity: 1, duration: 0.12, ease: "power2.out" }, { scale: 1.2, opacity: 0.75, duration: 0.5, ease: "sine.out" }], transformOrigin: "50% 50%" }, T.hit2);
+      // a gentle float so the end card is never a frozen frame
+      tl.to("#wq-title", { y: L.title[1] - 12, duration: T.total - T.float, ease: "sine.inOut" }, T.float);
+
+      window.__timelines["wild"] = tl;
+    })();
+  </script>
+</template>

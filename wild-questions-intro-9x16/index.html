@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #111827; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #111827; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8.8" data-width="1080" data-height="1920">
+    <div id="wild" class="clip" data-composition-id="wild" data-composition-src="compositions/wild.html" data-start="0" data-duration="8.8" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920"></div>
+    <audio id="theme" class="clip" src="assets/music/theme.wav" data-start="0" data-duration="8.12" data-track-index="3" data-volume="1" data-audio-group="music"></audio>
+    <audio id="sfx-1" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="1.089" data-duration="0.575" data-track-index="5" data-volume="0.12" data-audio-group="sfx"></audio>
+    <audio id="sfx-2" class="clip" src="assets/sfx/pop.mp3" data-start="3.542" data-duration="0.72" data-track-index="6" data-volume="0.12" data-audio-group="sfx"></audio>
+    <audio id="sfx-3" class="clip" src="assets/sfx/whoosh.mp3" data-start="5.486" data-duration="0.575" data-track-index="7" data-volume="0.12" data-audio-group="sfx"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

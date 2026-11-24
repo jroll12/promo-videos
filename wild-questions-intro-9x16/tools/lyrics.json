@@ -1,0 +1,80 @@
+{
+  "_note": "Sung words of the theme (Suno track 'Random Questions of the Week'). Text from faster-whisper small.en + medium.en (they agree); start times snapped to the nearest 400-2500 Hz onset. Re-run tools/beats.py and update these if the song changes.",
+  "words": [
+    {
+      "id": "wild1",
+      "w": "Wild",
+      "t": 1.196
+    },
+    {
+      "id": "questions1",
+      "w": "questions",
+      "t": 1.881
+    },
+    {
+      "id": "of1",
+      "w": "of",
+      "t": 2.392
+    },
+    {
+      "id": "the1",
+      "w": "the",
+      "t": 2.635
+    },
+    {
+      "id": "week1",
+      "w": "week",
+      "t": 2.775
+    },
+    {
+      "id": "theyre",
+      "w": "They're",
+      "t": 3.913
+    },
+    {
+      "id": "the2",
+      "w": "the",
+      "t": 4.551
+    },
+    {
+      "id": "wild2",
+      "w": "wild,",
+      "t": 4.783
+    },
+    {
+      "id": "wild3",
+      "w": "wild",
+      "t": 5.387
+    },
+    {
+      "id": "questions2",
+      "w": "questions",
+      "t": 5.503
+    },
+    {
+      "id": "of2",
+      "w": "of",
+      "t": 6.13
+    },
+    {
+      "id": "the3",
+      "w": "the",
+      "t": 6.478
+    },
+    {
+      "id": "week2",
+      "w": "week",
+      "t": 6.606
+    }
+  ],
+  "hits": [
+    7.094,
+    7.454
+  ],
+  "musicEnd": 8.0,
+  "grid": {
+    "t0": 0.232,
+    "period": 0.48,
+    "_note": "125 bpm quarter-note grid fitted by hand to the vocal onsets (Wild 1.196, the 2.635/4.551/6.478 all land on it). build/beats.json is the raw detector output for reference; its phase locks onto the off-beat eighths."
+  }
+}

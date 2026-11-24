@@ -1,0 +1,180 @@
+<template>
+  <style>
+    /*{{FONTS}}*/
+    #root { position: absolute; inset: 0; overflow: hidden; background: #111827; }
+    #root * { box-sizing: border-box; }
+    #wq-shake, #wq-blobs, #wq-conf, #wq-storm, #wq-v2 { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+    .c { position: absolute; left: 50%; top: 50%; white-space: nowrap; }
+
+    /* house background: dark base, large blurred violet blobs (opacity <= 0.30) */
+    .blob { position: absolute; border-radius: 50%; background: radial-gradient(circle, #7137FF 0%, rgba(113,55,255,0) 70%); filter: blur(80px); opacity: 0.28; }
+
+    /* confetti of # and ? glyphs: texture only, never read */
+    .cf { position: absolute; font-family: "Outfit"; font-weight: 900; line-height: 1; }
+
+    #wq-hashW { font: 900 __HASH__px/0.8 "Outfit"; color: #8F61FF; text-shadow: 0 0 80px rgba(113,55,255,0.45); }
+
+    .chip { font: 700 __CHIP__px/1 "Outfit"; color: #F9FAFB; background: #1F2937; border: 4px solid #8F61FF; border-radius: 999px; padding: 0.42em 0.8em; box-shadow: 0 18px 44px rgba(0,0,0,0.55); }
+    .chip .h { color: #B191FF; }
+
+    /* lyric line 1: "#Wild / questions / of the week" */
+    #wq-l1 { display: flex; flex-direction: column; align-items: center; gap: __L1GAP__px; }
+    #wq-l1 .row { display: flex; align-items: center; gap: 0.3em; }
+    .big { display: inline-block; font: 900 __BIG__px/0.9 "Outfit"; color: #FFFFFF; letter-spacing: -0.03em; }
+    .mid { display: inline-block; font: 900 __MID__px/0.9 "Outfit"; color: #FFFFFF; letter-spacing: -0.03em; text-shadow: 8px 8px 0 #7137FF; }
+    .hs { color: #8F61FF; margin-right: 0.05em; }
+    .grad { background-image: linear-gradient(90deg, #4F46E5 0%, #7137FF 35%, #9089FC 65%, #80CAFF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; padding-right: 0.06em; }
+    .stk { display: inline-block; font: 800 __STK__px/1 "Outfit"; color: #FFFFFF; background: #7137FF; border-radius: 999px; padding: 0.16em 0.55em 0.22em; box-shadow: 0 10px 0 #1F0C4D; }
+    .wk { display: inline-block; font: 900 __WK__px/1 "Outfit"; color: #FFFFFF; background: #7137FF; border-radius: 999px; padding: 0.06em 0.45em 0.14em; box-shadow: 0 14px 0 #1F0C4D; letter-spacing: -0.02em; }
+
+    /* the ask: an apologist AI style input pill typing a wild question */
+    #wq-ask { display: flex; flex-direction: column; align-items: center; gap: 34px; }
+    #wq-ask-logo { height: __LOGOASK__px; width: calc(__LOGOASK__px * 64.19 / 13.81); background: url("assets/brand/apologist-ai-white.svg") center / contain no-repeat; }
+    .pill { position: relative; display: flex; align-items: center; width: __PILLW__px; height: __PILLH__px; padding: 0 __PILLH__px 0 44px; background: #1F2937; border: 2px solid #4B5563; border-radius: 24px; box-shadow: 0 28px 72px rgba(0,0,0,0.7); }
+    #wq-typed { display: inline-block; font: 600 __TYPE__px/1 "Inter"; color: #F9FAFB; }
+    #wq-typed .h { color: #B191FF; }
+    .send { position: absolute; right: 14px; top: 50%; width: calc(__PILLH__px - 28px); height: calc(__PILLH__px - 28px); margin-top: calc((__PILLH__px - 28px) / -2); border-radius: 50%; background: #7137FF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font: 700 calc(__PILLH__px * 0.42)/1 "Inter"; }
+
+    /* verse 2: "They're the wild, wild" */
+    .huge { font: 900 __HUGE__px/0.9 "Outfit"; color: #FFFFFF; letter-spacing: -0.03em; text-shadow: 14px 14px 0 #7137FF; }
+
+    /* title lockup */
+    #wq-title { display: flex; flex-direction: column; align-items: center; }
+    #wq-title .tl { display: flex; align-items: baseline; font: 900 __TITLE__px/0.98 "Outfit"; color: #FFFFFF; letter-spacing: -0.035em; }
+    #wq-title .tl span { display: inline-block; }
+    #wq-t-hash { color: #8F61FF; margin-right: 0.04em; }
+    #wq-t-wild { margin-right: 0.06em; }
+    #wq-tag { display: flex; align-items: center; gap: 0.5em; margin-top: __TAGGAP__px; font: 600 __TAG__px/1 "Inter"; color: #D1D5DB; }
+    #wq-tag img { height: __LOGOTAG__px; width: auto; }
+  </style>
+
+  <div id="root" data-composition-id="wild" data-width="__W__" data-height="__H__">
+    <div id="wq-shake">
+      <div id="wq-blobs"><!--{{BLOBS}}--></div>
+      <div id="wq-conf" aria-hidden="true" data-layout-allow-occlusion data-layout-allow-overlap><!--{{CONF}}--></div>
+
+      <div id="wq-hashW" class="c" aria-hidden="true" data-layout-allow-overlap><div id="wq-hash">#</div></div>
+      <div id="wq-storm" data-layout-allow-overlap data-layout-allow-occlusion><!--{{STORM}}--></div>
+
+      <div id="wq-l1" class="c">
+        <div class="row"><span id="wq-w1" class="big"><span class="hs">#</span><span class="grad">Wild</span></span></div>
+        <div class="row"><span id="wq-w2" class="mid" data-layout-allow-overflow>questions</span></div>
+        <div class="row"><span id="wq-w3a" class="stk">of</span><span id="wq-w3b" class="stk">the</span><span id="wq-w4" class="wk">week</span></div>
+      </div>
+
+      <div id="wq-ask" class="c">
+        <div id="wq-ask-logo" role="img" aria-label="apologist AI"></div>
+        <div class="pill"><span id="wq-typed"><!--{{TYPED}}--></span><div id="wq-send" class="send">→</div></div>
+      </div>
+
+      <div id="wq-v2" data-layout-allow-overlap data-layout-allow-occlusion>
+        <!--{{PILE}}-->
+        <div id="wq-they" class="c stk">They're</div>
+        <div id="wq-the2" class="c stk">the</div>
+        <div id="wq-wa" class="c huge" data-layout-allow-overflow data-layout-allow-occlusion>wild,</div>
+        <div id="wq-wb" class="c huge" data-layout-allow-overflow data-layout-allow-occlusion>wild</div>
+      </div>
+
+      <div id="wq-title" class="c">
+        <!--{{TITLE}}-->
+        <div id="wq-tag"><span>asked to</span><img src="assets/brand/apologist-ai-white.svg" alt="apologist AI" /></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const T = /*{{T}}*/ {};
+      const L = /*{{L}}*/ {};
+      const tl = gsap.timeline({ paused: true });
+      const at = (sel, p) => gsap.set(sel, { xPercent: -50, yPercent: -50, x: p[0], y: p[1], rotation: p[2] || 0 });
+
+      // ── layout (centre-anchored; L comes from the shape's build.mjs) ──
+      at("#wq-hashW", L.hash);
+      L.storm.forEach((p, k) => at("#wq-s" + k, p));
+      L.pile.forEach((p, k) => at("#wq-p" + k, p));
+      at("#wq-l1", L.l1);
+      at("#wq-ask", L.ask);
+      at("#wq-they", L.they);
+      at("#wq-the2", L.the2);
+      at("#wq-wa", L.wa);
+      at("#wq-wb", L.wb);
+      at("#wq-title", L.title);
+
+      // ── initial hides (frame 0 shows the big # and the first chip) ──
+      gsap.set(["#wq-w1", "#wq-w2", "#wq-w3a", "#wq-w3b", "#wq-w4", "#wq-ask", "#wq-send", ".wq-ch", "#wq-they", "#wq-the2", "#wq-wa", "#wq-wb", ".wq-pc", ".wq-tw", "#wq-tag"], { autoAlpha: 0 });
+      gsap.set(L.storm.map((p, k) => "#wq-s" + k).slice(1), { autoAlpha: 0 });
+
+      // ── always-on: blobs pulse on every beat; confetti drifts ──
+      T.beats.forEach((b) => tl.to("#wq-blobs", { keyframes: [{ scale: 1.09, duration: 0.07, ease: "power2.out" }, { scale: 1, duration: 0.33, ease: "sine.inOut" }], transformOrigin: "50% 50%" }, b));
+      gsap.utils.toArray(".cf").forEach((el, i) => {
+        const d = L.confDrift[i];
+        tl.fromTo(el, { x: 0, y: 0, rotation: d[2] }, { x: d[0], y: d[1], rotation: d[2] + d[3], duration: T.total, ease: "none" }, 0);
+      });
+
+      // ── camera shake on the big hits (separate wrapper, never overlapping) ──
+      T.shakes.forEach((s) => {
+        const a = s[1];
+        tl.to("#wq-shake", { keyframes: [{ x: a, y: -a * 0.6, duration: 0.03 }, { x: -a * 0.8, y: a * 0.5, duration: 0.04 }, { x: a * 0.5, y: a * 0.3, duration: 0.04 }, { x: -a * 0.25, y: -a * 0.2, duration: 0.04 }, { x: 0, y: 0, duration: 0.05 }], ease: "none" }, s[0]);
+      });
+
+      // ── 1. hashtag storm (0 – 1.12) ──
+      T.hashSlams.forEach((t) => tl.to("#wq-hash", { keyframes: [{ scaleX: 1.22, scaleY: 0.78, duration: 0.06, ease: "power2.out" }, { scaleX: 0.92, scaleY: 1.1, duration: 0.1 }, { scaleX: 1, scaleY: 1, duration: 0.14, ease: "back.out(3)" }] }, t));
+      L.storm.forEach((p, k) => {
+        if (!k) return;
+        tl.fromTo("#wq-s" + k, { autoAlpha: 1, y: p[1] - L.H, rotation: p[2] * -4 }, { autoAlpha: 1, y: p[1], rotation: p[2], duration: 0.18, ease: "back.out(2.4)" }, T.storm[k]);
+      });
+      L.storm.forEach((p, k) => {
+        tl.to("#wq-s" + k, { x: p[0] * 3.4 + (p[0] >= 0 ? 400 : -400), y: p[1] * 3.4, rotation: p[2] * 22, scale: 0.6, autoAlpha: 0, duration: 0.26, ease: "power3.in" }, T.blow);
+      });
+      tl.to("#wq-hashW", { scale: 0, rotation: 300, autoAlpha: 0, duration: 0.26, ease: "power3.in" }, T.blow);
+
+      // ── 2. "Wild questions of the week" ──
+      tl.fromTo("#wq-w1", { autoAlpha: 0, scale: 4, rotation: -16 }, { autoAlpha: 1, scale: 1, rotation: -3, duration: 0.18, ease: "power4.out" }, T.wild1);
+      tl.to("#wq-w1", { keyframes: [{ scaleX: 1.14, scaleY: 0.8, duration: 0.06 }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "back.out(3)" }] }, T.wild1 + 0.18);
+      tl.fromTo("#wq-w2", { autoAlpha: 1, y: -L.H * 0.7, rotation: 6 }, { autoAlpha: 1, y: 0, rotation: 2, duration: 0.34, ease: "bounce.out" }, T.questions1 - 0.12);
+      tl.fromTo("#wq-w3a", { autoAlpha: 0, scale: 0, rotation: -40 }, { autoAlpha: 1, scale: 1, rotation: -9, duration: 0.16, ease: "back.out(3)" }, T.of1);
+      tl.fromTo("#wq-w3b", { autoAlpha: 0, scale: 0, rotation: 40 }, { autoAlpha: 1, scale: 1, rotation: 7, duration: 0.12, ease: "back.out(3)" }, T.the1);
+      tl.fromTo("#wq-w4", { autoAlpha: 0, scale: 2.6, rotation: -28 }, { autoAlpha: 1, scale: 1, rotation: -6, duration: 0.13, ease: "power4.out" }, T.week1);
+      tl.to("#wq-l1", { scale: 0, rotation: 32, autoAlpha: 0, duration: 0.26, ease: "power3.in" }, T.l1Out);
+
+      // ── 3. the ask: type a wild question, send it ──
+      tl.fromTo("#wq-ask", { autoAlpha: 0, y: L.ask[1] + L.H * 0.55 }, { autoAlpha: 1, y: L.ask[1], duration: 0.26, ease: "back.out(1.6)" }, T.askIn);
+      tl.fromTo("#wq-send", { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, duration: 0.14, ease: "back.out(3)" }, T.askIn + 0.18);
+      tl.to(".wq-ch", { autoAlpha: 1, duration: 0.01, stagger: T.typeStep }, T.typeStart);
+      tl.to("#wq-send", { keyframes: [{ scale: 0.72, duration: 0.06 }, { scale: 1.3, duration: 0.08 }, { scale: 1, duration: 0.12, ease: "back.out(3)" }] }, T.send);
+      tl.to("#wq-typed", { y: -L.H * 0.9, rotation: -14, scale: 1.4, duration: 0.24, ease: "power3.in" }, T.launch);
+      tl.to("#wq-ask", { y: L.ask[1] + L.H * 0.6, autoAlpha: 0, duration: 0.22, ease: "power3.in" }, T.askOut);
+
+      // ── 4. "They're the wild, wild" with a pile-up of questions ──
+      tl.fromTo("#wq-they", { autoAlpha: 0, scale: 0, rotation: L.they[2] - 40 }, { autoAlpha: 1, scale: 1, rotation: L.they[2], duration: 0.16, ease: "back.out(3)" }, T.theyre);
+      tl.fromTo("#wq-the2", { autoAlpha: 0, scale: 0, rotation: L.the2[2] + 40 }, { autoAlpha: 1, scale: 1, rotation: L.the2[2], duration: 0.14, ease: "back.out(3)" }, T.the2);
+      L.pile.forEach((p, k) => tl.fromTo("#wq-p" + k, { autoAlpha: 1, y: p[1] - L.H * 1.1, rotation: p[2] * -3 }, { autoAlpha: 1, y: p[1], rotation: p[2], duration: 0.26, ease: "bounce.out" }, T.pile[k]));
+      tl.fromTo("#wq-wa", { autoAlpha: 0, x: L.wa[0] - L.W * 0.7, rotation: -50, scale: 0.4 }, { autoAlpha: 1, x: L.wa[0], rotation: L.wa[2], scale: 1, duration: 0.18, ease: "back.out(2)" }, T.wild2 - 0.06);
+      tl.fromTo("#wq-wb", { autoAlpha: 0, x: L.wb[0] + L.W * 0.7, rotation: 50, scale: 0.4 }, { autoAlpha: 1, x: L.wb[0], rotation: L.wb[2], scale: 1, duration: 0.12, ease: "power4.out" }, T.wild3 - 0.06);
+      // the pile wobbles while it grows (container-level, so it never fights the drops)
+      tl.to("#wq-v2", { keyframes: [{ rotation: 1.2, duration: 0.24 }, { rotation: -1.2, duration: 0.24 }, { rotation: 0.8, duration: 0.24 }, { rotation: -0.8, duration: 0.24 }, { rotation: 0, duration: 0.2 }], transformOrigin: "50% 90%", ease: "sine.inOut" }, T.theyre + 0.2);
+      // everything blows apart as the title arrives
+      ["#wq-they", "#wq-the2", "#wq-wa", "#wq-wb"].concat(L.pile.map((p, k) => "#wq-p" + k)).forEach((sel, i) => {
+        const p = sel === "#wq-they" ? L.they : sel === "#wq-the2" ? L.the2 : sel === "#wq-wa" ? L.wa : sel === "#wq-wb" ? L.wb : L.pile[i - 4];
+        tl.to(sel, { x: p[0] * 3 + (p[0] >= 0 ? 500 : -500), y: p[1] * 3 + (p[1] >= 0 ? 300 : -300), rotation: (p[2] || 5) * 20, scale: 0.5, autoAlpha: 0, duration: 0.24, ease: "power3.in" }, T.explode);
+      });
+
+      // ── 5. the title, word by word on the sung words ──
+      tl.fromTo(["#wq-t-hash", "#wq-t-wild", "#wq-t-questions"], { autoAlpha: 0, scale: 3, rotation: -12 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.16, ease: "power4.out", stagger: 0.04 }, T.questions2);
+      tl.to("#wq-title", { keyframes: [{ scaleX: 1.08, scaleY: 0.88, duration: 0.06 }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "back.out(3)" }] }, T.questions2 + 0.26);
+      tl.fromTo("#wq-t-of", { autoAlpha: 0, y: -160, rotation: -24 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.14, ease: "back.out(3)" }, T.of2);
+      tl.fromTo("#wq-t-the", { autoAlpha: 0, y: 160, rotation: 24 }, { autoAlpha: 1, y: 0, rotation: 0, duration: 0.12, ease: "back.out(3)" }, T.the3);
+      tl.fromTo("#wq-t-week", { autoAlpha: 0, scale: 2.4, rotation: 18 }, { autoAlpha: 1, scale: 1, rotation: 0, duration: 0.13, ease: "power4.out" }, T.week2);
+      tl.to("#wq-title", { keyframes: [{ scaleX: 1.06, scaleY: 0.9, duration: 0.06 }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "back.out(3)" }] }, T.week2 + 0.13);
+      tl.fromTo("#wq-tag", { autoAlpha: 0, y: 70, scale: 0.6 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.22, ease: "back.out(2.5)" }, T.hit1);
+      tl.to("#wq-t-hash", { rotation: 360, duration: 0.42, ease: "power2.out" }, T.hit2);
+      tl.to("#wq-title", { keyframes: [{ scale: 1.07, duration: 0.07 }, { scale: 1, duration: 0.24, ease: "back.out(3)" }] }, T.hit2);
+      tl.to("#wq-conf", { keyframes: [{ scale: 1.3, opacity: 1, duration: 0.12, ease: "power2.out" }, { scale: 1.2, opacity: 0.75, duration: 0.5, ease: "sine.out" }], transformOrigin: "50% 50%" }, T.hit2);
+      // a gentle float so the end card is never a frozen frame
+      tl.to("#wq-title", { y: L.title[1] - 12, duration: T.total - T.float, ease: "sine.inOut" }, T.float);
+
+      window.__timelines["wild"] = tl;
+    })();
+  </script>
+</template>
